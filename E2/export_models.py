@@ -1,12 +1,14 @@
-"""Export trained occupancy models as self-contained .pt files -> deploy/.
+"""Export trained occupancy models as TorchScript .pt files -> deploy/.
 
-Each export bundles everything needed for inference:
-  state_dict, modality, cfg, decision threshold, normalization stats,
-  and the expected input shapes / preprocessing.
+Each export is a traced torch.jit module — no Python dependency needed
+for inference. Metadata (threshold, normalization stats, input spec) is
+embedded in the archive as `meta.json` (readable via
+torch.jit.load(..., _extra_files=...) or any zip reader).
 
 Usage:
     python E2/export_models.py
 """
+import json
 import sys
 from pathlib import Path
 
@@ -33,30 +35,46 @@ INPUT_SPEC = {
 }
 
 
+def _example_inputs(modality):
+    r = torch.randn(2, 50, 2, 24, 24)
+    c = torch.randn(2, 128, 52)
+    if modality == "fusion":
+        return (r, c)
+    if modality == "radar":
+        return (r,)
+    return (c,)
+
+
 def export(src_pt, dst_name, extra=None):
     ckpt = torch.load(src_pt, map_location="cpu", weights_only=False)
     cfg = ckpt["cfg"]
     model = build_model(ckpt["modality"], cfg["embed_dim"], cfg["dropout"])
     model.load_state_dict(ckpt["state_dict"])
     model.eval()
-    bundle = {
-        "state_dict": ckpt["state_dict"],
-        "modality": ckpt["modality"],
+
+    modality = ckpt["modality"]
+    with torch.no_grad():
+        scripted = torch.jit.trace(model, _example_inputs(modality))
+
+    meta = {
+        "modality": modality,
         "cfg": cfg,
         "threshold": ckpt["threshold"],
         "norm": ckpt["norm"],
         "norm_mode": ckpt.get("norm_mode", "global"),
         "input_spec": {k: INPUT_SPEC[k] for k in
-                       (("radar", "csi") if ckpt["modality"] == "fusion"
-                        else (ckpt["modality"],))},
+                       (("radar", "csi") if modality == "fusion"
+                        else (modality,))},
         "n_params": sum(p.numel() for p in model.parameters()),
     }
     if extra:
-        bundle.update(extra)
+        meta.update(extra)
+
     dst = DEPLOY / dst_name
-    torch.save(bundle, dst)
+    torch.jit.save(scripted, str(dst),
+                   _extra_files={"meta.json": json.dumps(meta)})
     print(f"exported {dst} ({dst.stat().st_size // 1024} KB, "
-          f"{bundle['n_params']} params, thr={ckpt['threshold']:.3f})")
+          f"{meta['n_params']} params, thr={meta['threshold']:.3f})")
     return dst
 
 
