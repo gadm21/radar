@@ -61,13 +61,48 @@ python E2/run_all.py --skip-preprocess   # reuse cache
 - **E2**: train on t1, validate on t2, test on t (unseen placement).
   Modalities: fusion / radar-only / csi-only. The best-val non-CSI
   modality (radar) is saved to `outputs/best_model.pt` for E3.
-  Result: radar test acc **0.995** (minute level 1.000); fusion/csi
-  do not transfer because CSI is receiver/placement-specific.
 - **E3**: fine-tune the saved E2 model on 10 support minutes of t
   (5 per class), evaluate on the remaining query minutes vs the
-  0-shot baseline. Strategies: head-only, full (fusion+head when the
-  base model is fusion). Result: 0-shot 0.995 -> full fine-tune
-  **0.996**.
+  0-shot baseline. Strategies: head-only, full.
+
+## Results
+
+### E2 — occupancy on unseen placement t (test)
+
+Window level (n=1865):
+
+| modality | acc | macro-F1 | empty recall | occupied recall |
+|---|---|---|---|---|
+| fusion | 0.678 | 0.583 | 0.847 | 0.315 |
+| **radar** | **0.995** | **0.994** | 0.994 | 0.997 |
+| csi | 0.318 | 0.242 | 0.000 | 1.000 |
+
+Minute level (n=268, mean-prob aggregation):
+
+| modality | acc | macro-F1 |
+|---|---|---|
+| fusion | 0.761 | 0.668 |
+| **radar** | **1.000** | **1.000** |
+| csi | 0.313 | 0.239 |
+
+Fusion/CSI do not transfer because CSI is receiver/placement-specific
+(t2 has no CSI coverage at all); the radar-only model is exported as
+`outputs/best_model.pt` and is reused as stage 1 of the E4 hierarchy.
+
+### E3 — few-shot adaptation to t (10 support minutes)
+
+| strategy | window acc | minute acc |
+|---|---|---|
+| 0-shot | 0.995 | 1.000 |
+| head-only | 0.995 | 1.000 |
+| full fine-tune | **0.996** | **1.000** |
+
+### Plots
+
+![E2 metrics](outputs/figs/e2_metrics.png)
+![E2 confusion](outputs/figs/e2_confusion.png)
+![HP search](outputs/figs/hp_search.png)
+![E3 few-shot](outputs/figs/e3_fewshot.png)
 
 ## Outputs
 

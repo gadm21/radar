@@ -1,0 +1,310 @@
+{
+  "results": [
+    {
+      "cfg": {
+        "lr": 0.001,
+        "embed_dim": 32,
+        "dropout": 0.2,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.32,
+      "val_window": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "left_precision": 1.0,
+        "left_recall": 1.0,
+        "left_f1": 1.0,
+        "right_precision": 1.0,
+        "right_recall": 1.0,
+        "right_f1": 1.0,
+        "confusion_matrix": [
+          [
+            63,
+            0
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 7.652409315109253
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "embed_dim": 32,
+        "dropout": 0.4,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.3,
+      "val_window": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "left_precision": 1.0,
+        "left_recall": 1.0,
+        "left_f1": 1.0,
+        "right_precision": 1.0,
+        "right_recall": 1.0,
+        "right_f1": 1.0,
+        "confusion_matrix": [
+          [
+            63,
+            0
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 5.688134431838989
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "embed_dim": 64,
+        "dropout": 0.2,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.3,
+      "val_window": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "left_precision": 1.0,
+        "left_recall": 1.0,
+        "left_f1": 1.0,
+        "right_precision": 1.0,
+        "right_recall": 1.0,
+        "right_f1": 1.0,
+        "confusion_matrix": [
+          [
+            63,
+            0
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 4.65174412727356
+    },
+    {
+      "cfg": {
+        "lr": 0.001,
+        "embed_dim": 64,
+        "dropout": 0.4,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.5000000000000002,
+      "val_window": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "left_precision": 1.0,
+        "left_recall": 1.0,
+        "left_f1": 1.0,
+        "right_precision": 1.0,
+        "right_recall": 1.0,
+        "right_f1": 1.0,
+        "confusion_matrix": [
+          [
+            63,
+            0
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 2.690478801727295
+    },
+    {
+      "cfg": {
+        "lr": 0.0003,
+        "embed_dim": 32,
+        "dropout": 0.2,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.5000000000000002,
+      "val_window": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "left_precision": 1.0,
+        "left_recall": 1.0,
+        "left_f1": 1.0,
+        "right_precision": 1.0,
+        "right_recall": 1.0,
+        "right_f1": 1.0,
+        "confusion_matrix": [
+          [
+            63,
+            0
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 2.913012742996216
+    },
+    {
+      "cfg": {
+        "lr": 0.0003,
+        "embed_dim": 32,
+        "dropout": 0.4,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.34,
+      "val_window": {
+        "accuracy": 1.0,
+        "macro_f1": 1.0,
+        "left_precision": 1.0,
+        "left_recall": 1.0,
+        "left_f1": 1.0,
+        "right_precision": 1.0,
+        "right_recall": 1.0,
+        "right_f1": 1.0,
+        "confusion_matrix": [
+          [
+            63,
+            0
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 3.8036348819732666
+    },
+    {
+      "cfg": {
+        "lr": 0.0003,
+        "embed_dim": 64,
+        "dropout": 0.2,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.5000000000000002,
+      "val_window": {
+        "accuracy": 0.993006993006993,
+        "macro_f1": 0.9928944099378882,
+        "left_precision": 1.0,
+        "left_recall": 0.9841269841269841,
+        "left_f1": 0.992,
+        "right_precision": 0.9876543209876543,
+        "right_recall": 1.0,
+        "right_f1": 0.9937888198757764,
+        "confusion_matrix": [
+          [
+            62,
+            1
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 3.2724626064300537
+    },
+    {
+      "cfg": {
+        "lr": 0.0003,
+        "embed_dim": 64,
+        "dropout": 0.4,
+        "weight_decay": 0.0001,
+        "epochs": 10,
+        "patience": 4,
+        "batch_size": 64
+      },
+      "threshold": 0.5000000000000002,
+      "val_window": {
+        "accuracy": 0.9790209790209791,
+        "macro_f1": 0.9786024240610505,
+        "left_precision": 1.0,
+        "left_recall": 0.9523809523809523,
+        "left_f1": 0.975609756097561,
+        "right_precision": 0.963855421686747,
+        "right_recall": 1.0,
+        "right_f1": 0.9815950920245399,
+        "confusion_matrix": [
+          [
+            60,
+            3
+          ],
+          [
+            0,
+            80
+          ]
+        ],
+        "n": 143
+      },
+      "train_seconds": 3.2621536254882812
+    }
+  ],
+  "best": {
+    "cfg": {
+      "lr": 0.001,
+      "embed_dim": 32,
+      "dropout": 0.2,
+      "weight_decay": 0.0001,
+      "epochs": 10,
+      "patience": 4,
+      "batch_size": 64
+    },
+    "threshold": 0.32,
+    "val_window": {
+      "accuracy": 1.0,
+      "macro_f1": 1.0,
+      "left_precision": 1.0,
+      "left_recall": 1.0,
+      "left_f1": 1.0,
+      "right_precision": 1.0,
+      "right_recall": 1.0,
+      "right_f1": 1.0,
+      "confusion_matrix": [
+        [
+          63,
+          0
+        ],
+        [
+          0,
+          80
+        ]
+      ],
+      "n": 143
+    },
+    "train_seconds": 7.652409315109253
+  }
+}

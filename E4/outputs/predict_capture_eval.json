@@ -1,0 +1,3334 @@
+{
+  "metrics": {
+    "n_evaluated": 267,
+    "n_skipped": 61,
+    "skipped": [
+      "test_minutes/20260906_1817",
+      "test_minutes/20260906_1824: C:\\Users\\ggad\\Desktop\\radar\\test_minutes\\20260906_1824\\capture.npz: only 20 frames, need >= 50",
+      "test_minutes/20260906_1836",
+      "test_minutes/20260906_1842: C:\\Users\\ggad\\Desktop\\radar\\test_minutes\\20260906_1842\\capture.npz: only 10 frames, need >= 50",
+      "test_minutes/20260906_1847",
+      "test_minutes/20260906_1848",
+      "test_minutes/20260906_1855",
+      "test_minutes/20260906_1859",
+      "test_minutes/20260906_1906",
+      "test_minutes/20260906_1907",
+      "test_minutes/20260906_1908",
+      "test_minutes/20260906_1913",
+      "test_minutes/20260906_1914",
+      "test_minutes/20260906_1929",
+      "test_minutes/20260906_1931",
+      "test_minutes/20260906_1932",
+      "test_minutes/20260906_1936",
+      "test_minutes/20260906_1940",
+      "test_minutes/20260906_1941",
+      "test_minutes/20260906_1942",
+      "test_minutes/20260906_1952",
+      "test_minutes/20260906_2002",
+      "test_minutes/20260906_2003",
+      "test_minutes/20260906_2004",
+      "test_minutes/20260906_2005",
+      "test_minutes/20260906_2129",
+      "test_minutes/20260906_2131",
+      "test_minutes/20260906_2133",
+      "test_minutes/20260906_2136: C:\\Users\\ggad\\Desktop\\radar\\test_minutes\\20260906_2136\\capture.npz: only 0 frames, need >= 50",
+      "test_minutes/20260906_2138",
+      "test_minutes/20260906_2149: C:\\Users\\ggad\\Desktop\\radar\\test_minutes\\20260906_2149\\capture.npz: only 10 frames, need >= 50",
+      "test_minutes/20260906_2156",
+      "test_minutes/20260906_2157",
+      "test_minutes/20260906_2216",
+      "test_minutes/20260906_2224",
+      "test_minutes/20260906_2229",
+      "test_minutes/20260906_2232",
+      "test_minutes/20260906_2242",
+      "test_minutes/20260906_2254",
+      "test_minutes/20260906_2312",
+      "test_minutes/20260906_2313",
+      "test_minutes/20260906_2314",
+      "test_minutes/20260906_2319",
+      "test_minutes/20260906_2320",
+      "test_minutes/20260906_2323",
+      "test_minutes/20260906_2329: C:\\Users\\ggad\\Desktop\\radar\\test_minutes\\20260906_2329\\capture.npz: only 20 frames, need >= 50",
+      "test_minutes/20260906_2334",
+      "test_minutes/20260906_2341",
+      "test_minutes/20260906_2342",
+      "test_minutes/20260906_2343",
+      "test_minutes/20260907_2252",
+      "test_minutes/20260907_2256",
+      "test_minutes/20260907_2301: C:\\Users\\ggad\\Desktop\\radar\\test_minutes\\20260907_2301\\capture.npz: only 20 frames, need >= 50",
+      "test_minutes/20260907_2306",
+      "test_minutes/20260907_2308",
+      "test_minutes/20260907_2309",
+      "test_minutes/20260908_0037",
+      "test_minutes/20260908_0044",
+      "test_minutes/20260908_0048",
+      "test_minutes/20260908_0102",
+      "test_minutes/20260908_0103"
+    ],
+    "combined_accuracy": 0.8014981273408239,
+    "activity_accuracy": 0.8014981273408239,
+    "n_position_labeled": 65,
+    "position_coverage": 0.2153846153846154,
+    "position_accuracy_when_emitted": 1.0,
+    "position_end_to_end_accuracy": 0.2153846153846154,
+    "confusion_combined": {
+      "empty -> empty": 183,
+      "present -> present(right)": 2,
+      "present -> present(left)": 1,
+      "sleep -> sleep": 14,
+      "sleep -> present(right)": 2,
+      "present(right) -> sleep": 30,
+      "present(right) -> present(right)": 6,
+      "present(left) -> present(left)": 8,
+      "present(left) -> sleep": 21
+    }
+  },
+  "rows": [
+    {
+      "rec_id": "test_minutes/20260906_1804",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1805",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1806",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1807",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1808",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1809",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1810",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1811",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1812",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1813",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1814",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1815",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1816",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1818",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1819",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1820",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1821",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1822",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1823",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1825",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1826",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1827",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1828",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1829",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1830",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1831",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1832",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1833",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1834",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1835",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1837",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1839",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1840",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1841",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1843",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1844",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1845",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1846",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1849",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1850",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1851",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1852",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1854",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1856",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1857",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1858",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1900",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1901",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1902",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1903",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1904",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1905",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1910",
+      "true_activity": 2,
+      "true_position": null,
+      "true_combined": "present",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.4172334671020508,
+        "present": 0.5827665328979492
+      },
+      "position_probs": {
+        "left": 0.32456719875335693,
+        "right": 0.6754328012466431
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_1911",
+      "true_activity": 2,
+      "true_position": null,
+      "true_combined": "present",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.45650428533554077,
+        "present": 0.5434957146644592
+      },
+      "position_probs": {
+        "left": 0.13544690608978271,
+        "right": 0.8645530939102173
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_1912",
+      "true_activity": 2,
+      "true_position": null,
+      "true_combined": "present",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.4331042766571045,
+        "present": 0.5668957233428955
+      },
+      "position_probs": {
+        "left": 0.9913175497204065,
+        "right": 0.008682450279593468
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_1920",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1921",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1922",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1923",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1924",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1925",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1926",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1927",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1928",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1930",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1933",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1934",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1935",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1937",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1938",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1939",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1945",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5172590911388397,
+        "present": 0.4827409088611603
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1946",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5158862471580505,
+        "present": 0.48411375284194946
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1947",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5205733180046082,
+        "present": 0.47942668199539185
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1948",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5177041292190552,
+        "present": 0.4822958707809448
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1949",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.521747887134552,
+        "present": 0.478252112865448
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1950",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5301822125911713,
+        "present": 0.46981778740882874
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1951",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5246456265449524,
+        "present": 0.4753543734550476
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1953",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5141929090023041,
+        "present": 0.4858070909976959
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1954",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5092157423496246,
+        "present": 0.49078425765037537
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1955",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5067322254180908,
+        "present": 0.4932677745819092
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1956",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.520614743232727,
+        "present": 0.47938525676727295
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1957",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5054642260074615,
+        "present": 0.49453577399253845
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_1958",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.4894934296607971,
+        "present": 0.5105065703392029
+      },
+      "position_probs": {
+        "left": 0.03750014305114746,
+        "right": 0.9624998569488525
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_1959",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.49991118907928467,
+        "present": 0.5000888109207153
+      },
+      "position_probs": {
+        "left": 0.07028698921203613,
+        "right": 0.9297130107879639
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2000",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5047533512115479,
+        "present": 0.49524664878845215
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2001",
+      "true_activity": 1,
+      "true_position": null,
+      "true_combined": "sleep",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5053681135177612,
+        "present": 0.49463188648223877
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2103",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2104",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2105",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2106",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2107",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2108",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2109",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2110",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2111",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2112",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2113",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2114",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2115",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2116",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2117",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2118",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2119",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2120",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2121",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2122",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2123",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2124",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2125",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2126",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2127",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2128",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2130",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2132",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2134",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2135",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2137",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2139",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2140",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2141",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2142",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2143",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2144",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2145",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2146",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2147",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2148",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2150",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2151",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2152",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2153",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2154",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2155",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2158",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2159",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2200",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2201",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2202",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2203",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2204",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2205",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2206",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2207",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2208",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2209",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2210",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2211",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2212",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2213",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2214",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2215",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2217",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2218",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2219",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2220",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2221",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2222",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2223",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2225",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2226",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2227",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2228",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2230",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2231",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2233",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2234",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2235",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2236",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2237",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2238",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2239",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2240",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2241",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2243",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2244",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2245",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2246",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2247",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2248",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2249",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2250",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2251",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2252",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2253",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2255",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2256",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2257",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2258",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2259",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2300",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2301",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2302",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2303",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2304",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2305",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2306",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2307",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2308",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2309",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2310",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2311",
+      "true_activity": 0,
+      "true_position": null,
+      "true_combined": "empty",
+      "pred_combined": "empty",
+      "pred_activity": "empty",
+      "pred_position": null,
+      "activity_probs": null,
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2317",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5104780793190002,
+        "present": 0.48952192068099976
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2318",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5251533687114716,
+        "present": 0.47484663128852844
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2321",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5236590802669525,
+        "present": 0.4763409197330475
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2322",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5204403102397919,
+        "present": 0.47955968976020813
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2324",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5174253284931183,
+        "present": 0.4825746715068817
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2325",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5269678831100464,
+        "present": 0.4730321168899536
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2326",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5154488980770111,
+        "present": 0.4845511019229889
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2327",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5176150500774384,
+        "present": 0.48238494992256165
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2328",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5165356695652008,
+        "present": 0.4834643304347992
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2330",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5296890437602997,
+        "present": 0.4703109562397003
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2331",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5203184187412262,
+        "present": 0.4796815812587738
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2332",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.4143982529640198,
+        "present": 0.5856017470359802
+      },
+      "position_probs": {
+        "left": 0.029471635818481445,
+        "right": 0.9705283641815186
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2333",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.45177215337753296,
+        "present": 0.548227846622467
+      },
+      "position_probs": {
+        "left": 0.01449805498123169,
+        "right": 0.9855019450187683
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2335",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.44628095626831055,
+        "present": 0.5537190437316895
+      },
+      "position_probs": {
+        "left": 0.016302883625030518,
+        "right": 0.9836971163749695
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2336",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.4330441951751709,
+        "present": 0.5669558048248291
+      },
+      "position_probs": {
+        "left": 0.013020098209381104,
+        "right": 0.9869799017906189
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2337",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.45340627431869507,
+        "present": 0.5465937256813049
+      },
+      "position_probs": {
+        "left": 0.02306962013244629,
+        "right": 0.9769303798675537
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2338",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5236172676086426,
+        "present": 0.4763827323913574
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260906_2339",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "activity_probs": {
+        "sleep": 0.4688291549682617,
+        "present": 0.5311708450317383
+      },
+      "position_probs": {
+        "left": 0.016008496284484863,
+        "right": 0.9839915037155151
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260906_2340",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5011053085327148,
+        "present": 0.49889469146728516
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2247",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5229772627353668,
+        "present": 0.4770227372646332
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2248",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5247261822223663,
+        "present": 0.47527381777763367
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2249",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5333650410175323,
+        "present": 0.46663495898246765
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2250",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5231370031833649,
+        "present": 0.47686299681663513
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2251",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5216728150844574,
+        "present": 0.4783271849155426
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2253",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5279377400875092,
+        "present": 0.47206225991249084
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2254",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5290066599845886,
+        "present": 0.4709933400154114
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2255",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5291610360145569,
+        "present": 0.4708389639854431
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2257",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5240594148635864,
+        "present": 0.4759405851364136
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2258",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5216169059276581,
+        "present": 0.4783830940723419
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2259",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5172784626483917,
+        "present": 0.4827215373516083
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2300",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5174322128295898,
+        "present": 0.48256778717041016
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2302",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5229952037334442,
+        "present": 0.4770047962665558
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2303",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5216538608074188,
+        "present": 0.4783461391925812
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2304",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5274661481380463,
+        "present": 0.47253385186195374
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2305",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5198621153831482,
+        "present": 0.4801378846168518
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260907_2307",
+      "true_activity": 2,
+      "true_position": 1,
+      "true_combined": "present(right)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5246972143650055,
+        "present": 0.4753027856349945
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0029",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.45856183767318726,
+        "present": 0.5414381623268127
+      },
+      "position_probs": {
+        "left": 0.9697558451443911,
+        "right": 0.03024415485560894
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0030",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5037876665592194,
+        "present": 0.49621233344078064
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0031",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.530022919178009,
+        "present": 0.46997708082199097
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0032",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5037283003330231,
+        "present": 0.49627169966697693
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0033",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5257686972618103,
+        "present": 0.4742313027381897
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0034",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5166586339473724,
+        "present": 0.48334136605262756
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0035",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.4766048192977905,
+        "present": 0.5233951807022095
+      },
+      "position_probs": {
+        "left": 0.9939504764042795,
+        "right": 0.0060495235957205296
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0036",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5179344117641449,
+        "present": 0.4820655882358551
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0038",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.510997861623764,
+        "present": 0.48900213837623596
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0039",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5221770703792572,
+        "present": 0.4778229296207428
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0040",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5107728242874146,
+        "present": 0.48922717571258545
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0041",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5279135704040527,
+        "present": 0.47208642959594727
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0042",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5286507606506348,
+        "present": 0.47134923934936523
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0043",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5243954062461853,
+        "present": 0.4756045937538147
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0045",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5310986936092377,
+        "present": 0.46890130639076233
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0046",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5123325288295746,
+        "present": 0.4876674711704254
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0047",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5164593458175659,
+        "present": 0.4835406541824341
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0049",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.524602085351944,
+        "present": 0.47539791464805603
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0050",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5266031324863434,
+        "present": 0.4733968675136566
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0051",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5097678005695343,
+        "present": 0.4902321994304657
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0052",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.45701050758361816,
+        "present": 0.5429894924163818
+      },
+      "position_probs": {
+        "left": 0.990077069029212,
+        "right": 0.009922930970788002
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0053",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.4721341133117676,
+        "present": 0.5278658866882324
+      },
+      "position_probs": {
+        "left": 0.9872308894991875,
+        "right": 0.01276911050081253
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0054",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5275344848632812,
+        "present": 0.47246551513671875
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0055",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.49094754457473755,
+        "present": 0.5090524554252625
+      },
+      "position_probs": {
+        "left": 0.9968056848738343,
+        "right": 0.0031943151261657476
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0056",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.4544817805290222,
+        "present": 0.5455182194709778
+      },
+      "position_probs": {
+        "left": 0.9957082103937864,
+        "right": 0.00429178960621357
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0058",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5063356459140778,
+        "present": 0.49366435408592224
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0059",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.4858124256134033,
+        "present": 0.5141875743865967
+      },
+      "position_probs": {
+        "left": 0.994991643819958,
+        "right": 0.005008356180042028
+      }
+    },
+    {
+      "rec_id": "test_minutes/20260908_0100",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "activity_probs": {
+        "sleep": 0.5029308199882507,
+        "present": 0.49706918001174927
+      },
+      "position_probs": null
+    },
+    {
+      "rec_id": "test_minutes/20260908_0101",
+      "true_activity": 2,
+      "true_position": 0,
+      "true_combined": "present(left)",
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "activity_probs": {
+        "sleep": 0.4901193380355835,
+        "present": 0.5098806619644165
+      },
+      "position_probs": {
+        "left": 0.995799093041569,
+        "right": 0.0042009069584310055
+      }
+    }
+  ]
+}
