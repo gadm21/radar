@@ -37,6 +37,8 @@ env/
 .DS_Store
 Thumbs.db
 
-# Project data (large raw radar recordings and generated outputs)
+# Data (large, not for GitHub)
 minutes/
+test_minutes/
 output/
+E2/cache/

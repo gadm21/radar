@@ -1,0 +1,342 @@
+{
+  "problems": [
+    "minutes/20260827_1858: malformed manifest (regex fallback)",
+    "minutes/20260827_1918: malformed manifest (regex fallback)",
+    "minutes/20260827_1925: malformed manifest (regex fallback)",
+    "minutes/20260827_1944: malformed manifest (regex fallback)",
+    "minutes/20260827_1946: malformed manifest (regex fallback)",
+    "minutes/20260827_1953: malformed manifest (regex fallback)",
+    "minutes/20260827_1957: malformed manifest (regex fallback)",
+    "minutes/20260827_2003: malformed manifest (regex fallback)",
+    "minutes/20260827_2005: malformed manifest (regex fallback)",
+    "minutes/20260827_2024: malformed manifest (regex fallback)",
+    "minutes/20260827_2029: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1805: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1811: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1812: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1818: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1833: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1834: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1835: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1837: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1838: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1840: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1851: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1853: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1924: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1933: malformed manifest (regex fallback)",
+    "test_minutes/20260906_1948: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2001: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2111: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2118: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2140: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2144: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2151: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2152: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2155: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2201: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2204: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2212: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2215: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2219: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2223: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2226: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2231: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2243: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2307: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2325: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2326: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2327: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2333: malformed manifest (regex fallback)",
+    "test_minutes/20260907_2248: malformed manifest (regex fallback)",
+    "test_minutes/20260907_2250: malformed manifest (regex fallback)",
+    "test_minutes/20260907_2254: malformed manifest (regex fallback)",
+    "test_minutes/20260908_0033: malformed manifest (regex fallback)",
+    "test_minutes/20260908_0055: malformed manifest (regex fallback)",
+    "test_minutes/20260908_0057: ignored labels=[]",
+    "test_minutes/20260908_0057: malformed manifest (regex fallback)",
+    "test_minutes/20260906_2131: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_2131\\\\capture.npz'",
+    "test_minutes/20260906_1907: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_1907\\\\capture.npz'",
+    "test_minutes/20260906_2133: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_2133\\\\capture.npz'",
+    "test_minutes/20260906_1913: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_1913\\\\capture.npz'",
+    "test_minutes/20260906_2242: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_2242\\\\capture.npz'",
+    "test_minutes/20260907_2252: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260907_2252\\\\capture.npz'",
+    "test_minutes/20260906_1859: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_1859\\\\capture.npz'",
+    "test_minutes/20260906_1908: radar read failed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\ggad\\\\Desktop\\\\radar\\\\test_minutes\\\\20260906_1908\\\\capture.npz'"
+  ],
+  "placements": {
+    "t1": {
+      "n_recordings": 1133,
+      "by_binary_label": {
+        "empty": 236,
+        "occupied": 897
+      },
+      "by_original_label": {
+        "t1_empty": 236,
+        "t1_sleep": 834,
+        "t1_present": 63,
+        "absent": 93,
+        "empty": 93,
+        "present": 7,
+        "occupied": 7
+      },
+      "n_sessions": 4,
+      "sessions": {
+        "t1_s01": {
+          "n_minutes": 136,
+          "label": "empty",
+          "start": 1787005920.0,
+          "end": 1787014255.813
+        },
+        "t1_s02": {
+          "n_minutes": 834,
+          "label": "occupied",
+          "start": 1787014260.0,
+          "end": 1787064881.068
+        },
+        "t1_s03": {
+          "n_minutes": 63,
+          "label": "occupied",
+          "start": 1787852220.0,
+          "end": 1787856298.0
+        },
+        "t1_s04": {
+          "n_minutes": 100,
+          "label": "empty",
+          "start": 1787871420.0,
+          "end": 1787877418.0
+        }
+      },
+      "parse_modes": {
+        "json": 1122,
+        "regex": 11
+      }
+    },
+    "t2": {
+      "n_recordings": 423,
+      "by_binary_label": {
+        "empty": 84,
+        "occupied": 339
+      },
+      "by_original_label": {
+        "t2_empty": 84,
+        "t2_present": 122,
+        "t2_sleep": 217
+      },
+      "n_sessions": 5,
+      "sessions": {
+        "t2_s01": {
+          "n_minutes": 84,
+          "label": "empty",
+          "start": 1787090640.0,
+          "end": 1787095840.194
+        },
+        "t2_s02": {
+          "n_minutes": 70,
+          "label": "occupied",
+          "start": 1787096880.0,
+          "end": 1787101078.0
+        },
+        "t2_s03": {
+          "n_minutes": 52,
+          "label": "occupied",
+          "start": 1787775660.0,
+          "end": 1787778898.0
+        },
+        "t2_s04": {
+          "n_minutes": 19,
+          "label": "occupied",
+          "start": 1787782200.0,
+          "end": 1787783398.0
+        },
+        "t2_s05": {
+          "n_minutes": 198,
+          "label": "occupied",
+          "start": 1787813760.0,
+          "end": 1787826238.0
+        }
+      },
+      "parse_modes": {
+        "json": 423
+      }
+    },
+    "t": {
+      "n_recordings": 330,
+      "by_binary_label": {
+        "empty": 220,
+        "occupied": 110
+      },
+      "by_original_label": {
+        "t_empty": 220,
+        "absent": 291,
+        "empty": 291,
+        "t_present": 89,
+        "present": 38,
+        "occupied": 38,
+        "t_sleep": 21,
+        "radar-missing": 1,
+        "right": 50,
+        "left": 34
+      },
+      "n_sessions": 8,
+      "sessions": {
+        "t_s01": {
+          "n_minutes": 65,
+          "label": "empty",
+          "start": 1788732240.0,
+          "end": 1788736138.0
+        },
+        "t_s02": {
+          "n_minutes": 5,
+          "label": "occupied",
+          "start": 1788736200.0,
+          "end": 1788736498.0
+        },
+        "t_s03": {
+          "n_minutes": 23,
+          "label": "empty",
+          "start": 1788736800.0,
+          "end": 1788738178.0
+        },
+        "t_s04": {
+          "n_minutes": 21,
+          "label": "occupied",
+          "start": 1788738300.0,
+          "end": 1788739558.0
+        },
+        "t_s05": {
+          "n_minutes": 132,
+          "label": "empty",
+          "start": 1788742980.0,
+          "end": 1788750898.0
+        },
+        "t_s06": {
+          "n_minutes": 27,
+          "label": "occupied",
+          "start": 1788751020.0,
+          "end": 1788752638.0
+        },
+        "t_s07": {
+          "n_minutes": 23,
+          "label": "occupied",
+          "start": 1788835620.0,
+          "end": 1788836998.0
+        },
+        "t_s08": {
+          "n_minutes": 34,
+          "label": "occupied",
+          "start": 1788841740.0,
+          "end": 1788843838.0
+        }
+      },
+      "parse_modes": {
+        "json": 288,
+        "regex": 42
+      }
+    }
+  },
+  "timing": {
+    "t1": {
+      "n_recordings_sampled": 40,
+      "radar_frames_per_recording": {
+        "mean": 434.5,
+        "min": 10,
+        "max": 570
+      },
+      "csi_samples_per_recording": {
+        "mean": 6313.90625,
+        "min": 5386,
+        "max": 7650
+      },
+      "radar_fps": {
+        "mean": 3903.6746529951174,
+        "median": 10.000009536752259,
+        "std": 127447.16790304934
+      },
+      "frame_interval_s": {
+        "mean": 0.11319857933199992,
+        "median": 0.09999990463256836,
+        "std": 0.258173067524003,
+        "p5": 0.010999917984008789,
+        "p95": 0.10000014305114746
+      },
+      "window_50f_s": {
+        "mean": 5.309285340724407,
+        "median": 4.9019999504089355,
+        "std": 2.1334222901771644,
+        "p5": 1.899000120162964,
+        "p95": 9.388400173187254,
+        "min": 0.375,
+        "max": 14.728000164031982
+      }
+    },
+    "t2": {
+      "n_recordings_sampled": 40,
+      "radar_frames_per_recording": {
+        "mean": 436.75,
+        "min": 50,
+        "max": 570
+      },
+      "csi_samples_per_recording": {
+        "mean": null,
+        "min": null,
+        "max": null
+      },
+      "radar_fps": {
+        "mean": 6540.200053946173,
+        "median": 10.000009536752259,
+        "std": 165120.77262394896
+      },
+      "frame_interval_s": {
+        "mean": 0.11657646339186666,
+        "median": 0.09999990463256836,
+        "std": 0.2676230525235845,
+        "p5": 0.009000062942504883,
+        "p95": 0.10000014305114746
+      },
+      "window_50f_s": {
+        "mean": 5.538347489163955,
+        "median": 4.901000261306763,
+        "std": 2.517792244022508,
+        "p5": 2.0335001945495605,
+        "p95": 9.6635000705719,
+        "min": 0.37000012397766113,
+        "max": 24.401000022888184
+      }
+    },
+    "t": {
+      "n_recordings_sampled": 32,
+      "radar_frames_per_recording": {
+        "mean": 378.125,
+        "min": 160,
+        "max": 570
+      },
+      "csi_samples_per_recording": {
+        "mean": 5448.53125,
+        "min": 3847,
+        "max": 6750
+      },
+      "radar_fps": {
+        "mean": 21.78639523356605,
+        "median": 10.000009536752259,
+        "std": 26.064485577543653
+      },
+      "frame_interval_s": {
+        "mean": 0.12209366242520087,
+        "median": 0.09999990463256836,
+        "std": 0.30422006922397093,
+        "p5": 0.011363506317138672,
+        "p95": 0.125
+      },
+      "window_50f_s": {
+        "mean": 6.465535696450766,
+        "median": 5.900000095367432,
+        "std": 4.019945686366622,
+        "p5": 0.8730392456054688,
+        "p95": 12.900000095367432,
+        "min": 0.3769230842590332,
+        "max": 29.90000009536743
+      }
+    }
+  }
+}
