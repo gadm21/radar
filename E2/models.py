@@ -86,6 +86,31 @@ class CSIEncoder(nn.Module):
         return self.fc(self.conv(x.permute(0, 2, 1)))
 
 
+class CSIStatsEncoder(nn.Module):
+    """MLP over per-window CSI amplitude statistics.
+
+    The conv CSIEncoder learns receiver/day-specific patterns that do not
+    transfer (train_minutes has no empty minutes with CSI at all, and the
+    test-day gain scale is ~2x). The amplitude *variance* is the robust
+    occupancy cue: occupied minutes show clearly higher variance on every
+    split. Inputs: [log1p(var), mean, log1p(mean temporal-std)] of the
+    (normalized) amplitude window."""
+
+    def __init__(self, embed_dim=64, dropout=0.3):
+        super().__init__()
+        self.fc = nn.Sequential(
+            nn.Linear(3, 16), nn.ReLU(), nn.Dropout(dropout),
+            nn.Linear(16, embed_dim), nn.ReLU())
+
+    def forward(self, csi):
+        # csi: (B, T, S) amplitude window (zeros when no CSI)
+        stats = torch.stack(
+            [torch.log1p(csi.var(dim=(1, 2)).clamp(min=0)),
+             csi.mean(dim=(1, 2)),
+             torch.log1p(csi.std(dim=1).mean(dim=1).clamp(min=0))], dim=1)
+        return self.fc(stats)
+
+
 class GatedFusion(nn.Module):
     """Per-feature sigmoid gate: z = g*r + (1-g)*c."""
 
@@ -116,7 +141,9 @@ class FusionOccupancyModel(nn.Module):
         self.radar_encoder = RadarEncoder(
             radar_channels, n_frames=n_frames, embed_dim=embed_dim,
             dropout=dropout)
-        self.csi_encoder = CSIEncoder(csi_features, embed_dim, dropout)
+        # stats encoder (not the conv CSIEncoder): conv features are
+        # receiver/day-specific and hijack the gate on the test day
+        self.csi_encoder = CSIStatsEncoder(embed_dim, dropout)
         self.fusion = GatedFusion(embed_dim)
         self.head = OccupancyHead(embed_dim, dropout)
         self.last_gate = None
@@ -124,9 +151,8 @@ class FusionOccupancyModel(nn.Module):
     def forward(self, radar, csi):
         r = self.radar_encoder(radar)
         c = self.csi_encoder(csi)
-        # windows with no CSI samples arrive as zeros; after DC-removal the
-        # encoder still emits a constant embedding that can hijack the
-        # gate — mask it out so the gate sees a true "no CSI" state
+        # windows with no CSI samples arrive as zeros -> constant stats
+        # embedding that can hijack the gate; mask it out
         has_csi = (csi.abs().sum(dim=(1, 2)) > 0).float().unsqueeze(1)
         c = c * has_csi
         z, g = self.fusion(r, c)

@@ -57,6 +57,7 @@ def main():
             "pred_combined": label,
             "pred_activity": details["activity"],
             "pred_position": details["position"],
+            "occupancy_prob": details["occupancy_prob"],
             "activity_probs": details["activity_probs"],
             "position_probs": details["position_probs"],
         })

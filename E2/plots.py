@@ -22,11 +22,13 @@ def _load(name):
 
 
 def fig_window_durations(index):
-    """Histogram of 50-frame window durations + CSI counts per placement."""
+    """Histogram of 50-frame window durations + CSI counts per split."""
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
-    for p, color in (("t1", "tab:blue"), ("t2", "tab:orange"), ("t", "tab:green")):
+    for p, color in (("train_minutes", "tab:blue"),
+                     ("val_minutes", "tab:orange"),
+                     ("test_minutes", "tab:green")):
         durs, cnts = [], []
-        for f in index[index.placement == p]["path"]:
+        for f in index[index.split == p]["path"]:
             d = np.load(f)
             durs.extend(d["win_dur"].tolist())
             cnts.extend(d["csi_count"].tolist())
@@ -47,10 +49,10 @@ def fig_class_balance(index):
     fig, ax = plt.subplots(figsize=(6, 4))
     x = np.arange(3); w = 0.35
     for i, lab in enumerate((0, 1)):
-        vals = [int((index[index.placement == p]["label"] == lab).sum())
-                for p in ("t1", "t2", "t")]
+        vals = [int((index[index.split == p]["label"] == lab).sum())
+                for p in ("train_minutes", "val_minutes", "test_minutes")]
         ax.bar(x + (i - 0.5) * w, vals, w, label=CLASS_NAMES[lab])
-    ax.set_xticks(x, ["t1 (train)", "t2 (val)", "t (test)"])
+    ax.set_xticks(x, ["train", "val", "test"])
     ax.set_ylabel("minutes"); ax.legend(); ax.set_title("Class balance per split")
     fig.tight_layout(); fig.savefig(FIGS / "class_balance.png", dpi=160)
     plt.close(fig)
@@ -79,7 +81,7 @@ def fig_e2(results):
                f"{m} — window level")
         _cm_ax(axes[1, j], results[m]["test"]["minute"]["confusion_matrix"],
                f"{m} — minute level")
-    fig.suptitle("E2 test confusion matrices (placement t)")
+    fig.suptitle("E2 test confusion matrices (test_minutes)")
     fig.tight_layout(); fig.savefig(FIGS / "e2_confusion.png", dpi=160)
     plt.close(fig)
 
@@ -108,7 +110,7 @@ def fig_e2(results):
         ax.plot([h["epoch"] for h in hist], [h["val_acc"] for h in hist],
                 marker="s", label="val accuracy")
         ax.set_xlabel("epoch"); ax.set_ylim(0, 1.05); ax.legend()
-        ax.set_title(f"E2 {curve_mod} training curve (val = t2)")
+        ax.set_title(f"E2 {curve_mod} training curve (val = val_minutes)")
         fig.tight_layout(); fig.savefig(FIGS / "e2_training.png", dpi=160)
         plt.close(fig)
 
@@ -127,8 +129,8 @@ def fig_e3(results):
         ax.set_xticks(x, strats, rotation=15)
         ax.set_ylim(0, 1.05); ax.set_title(f"E3 few-shot ({lev} level)")
         ax.legend()
-    fig.suptitle(f"E3: {results['n_support']} support minutes from t "
-                 f"({', '.join(results['support_minutes'][:4])}...)")
+    fig.suptitle(f"E3: {results['n_support']} support minutes from "
+                 f"val_minutes ({', '.join(results['support_minutes'][:4])}...)")
     fig.tight_layout(); fig.savefig(FIGS / "e3_fewshot.png", dpi=160)
     plt.close(fig)
 
@@ -142,8 +144,8 @@ def fig_hp_search(search):
     order = np.argsort(vals)
     ax.barh(np.arange(len(res)), [vals[i] for i in order])
     ax.set_yticks(np.arange(len(res)), [labels[i] for i in order], fontsize=8)
-    ax.set_xlabel("val accuracy (t2)"); ax.set_xlim(0, 1.05)
-    ax.set_title("Hyperparameter search (radar, t1→t2)")
+    ax.set_xlabel("val accuracy (val_minutes)"); ax.set_xlim(0, 1.05)
+    ax.set_title("Hyperparameter search (radar, train→val)")
     fig.tight_layout(); fig.savefig(FIGS / "hp_search.png", dpi=160)
     plt.close(fig)
 

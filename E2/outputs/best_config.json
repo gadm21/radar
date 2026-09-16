@@ -1,6 +1,6 @@
 {
   "lr": 0.001,
-  "embed_dim": 64,
+  "embed_dim": 128,
   "dropout": 0.2,
   "weight_decay": 0.0001,
   "epochs": 40,

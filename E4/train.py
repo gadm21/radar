@@ -3,11 +3,20 @@
   * Occupancy stage: NOT retrained — E2's exported
     `outputs/best_model.pt` (radar-only, trained t1 / val t2) is loaded
     and evaluated on t.
-  * Sleep/present stage (binary): trained on occupied t1+t2 recordings
-    (`minutes/`), tested on occupied t recordings (`test_minutes/`).
-    Uses E2's cached radar windows; the sleep/present label is recovered
-    from each recording's manifest via `common.scan_all_labels` (E2's
-    cache only stores the binary occupancy label).
+  * Sleep/present stage (binary): the previous design trained on
+    occupied t1+t2 and tested on t, which collapsed to 0.37 accuracy —
+    the class prior inverts across placements (train ~85% sleep, test
+    ~80% present) and the temporal-std features do not transfer. The
+    redesigned stage is trained on the DEPLOYMENT placement t and
+    evaluated honestly with stratified group 5-fold CV at the recording
+    level (same protocol as E3). Two training-data variants are
+    compared — `t_only` vs `all_placements` (t1+t2 occupied added to
+    each train fold) — and the winner is retrained on all of its data
+    for deployment. The old transfer setting (train t1+t2 -> test t) is
+    still run as a diagnostic. Uses E2's cached radar windows; the
+    sleep/present label is recovered from each recording's manifest via
+    `common.scan_all_labels` (E2's cache only stores the binary
+    occupancy label).
   * Position stage (binary left/right): trained and evaluated on t only
     (the only source with left/right labels). The reported accuracy is
     the E3 stratified group 5-fold CV result; the model saved for
@@ -31,9 +40,9 @@ from models import (build_occupancy_model, build_sleep_present_model,
                     build_position_model, count_params)
 
 SEED = 303
+N_FOLDS = 5
 SP_CFG = {"lr": 1e-3, "embed_dim": 64, "dropout": 0.3, "weight_decay": 1e-4,
-          "epochs": 40, "patience": 8, "batch_size": 256,
-          "norm_mode": "local"}
+          "epochs": 40, "patience": 8, "batch_size": 64}
 POS_CFG = {"lr": 1e-3, "embed_dim": 32, "dropout": 0.2, "weight_decay": 1e-4,
            "epochs": 40, "patience": 8, "batch_size": 64}
 
@@ -203,6 +212,27 @@ def per_minute_metrics(y_true, y_pred, rec_idx, n_classes):
     return compute_metrics(yt, yp, n_classes)
 
 
+def per_minute_metrics_prob(y_true, prob_pos, rec_idx, threshold=0.5):
+    """Binary minute-level metrics: mean window probability per recording,
+    then threshold — matches how `predict_capture` aggregates windows."""
+    y_true = np.asarray(y_true); prob_pos = np.asarray(prob_pos)
+    rec_idx = np.asarray(rec_idx)
+    yt, yp = [], []
+    for r in np.unique(rec_idx):
+        m = rec_idx == r
+        yt.append(int(np.round(y_true[m].mean())))
+        yp.append(float(prob_pos[m].mean()))
+    return compute_metrics(yt, (np.asarray(yp) >= threshold).astype(int), 2)
+
+
+def tune_threshold(y_true, prob_pos, lo=0.30, hi=0.70, step=0.02):
+    """Pick the binary decision threshold maximizing validation macro-F1."""
+    grid = np.arange(lo, hi + 1e-9, step)
+    scores = [compute_metrics(y_true, (np.asarray(prob_pos) >= t).astype(int), 2)["macro_f1"]
+              for t in grid]
+    return float(grid[int(np.argmax(scores))])
+
+
 # ---------------------------------------------------------------------------
 # Training
 # ---------------------------------------------------------------------------
@@ -294,16 +324,27 @@ def train_model(model, train_arrays, val_arrays, cfg, seed, n_classes,
     train_seconds = time.time() - t0
     if best["state"] is not None:
         model.load_state_dict(best["state"])
-    return model, history, train_seconds, n_params
+
+    # decision threshold tuned on validation only (never on test)
+    thr = 0.5
+    if n_classes == 2:
+        vy, vp = predict_proba(model, val_loader, device, n_classes)
+        thr = tune_threshold(vy, vp[:, 1])
+    return model, thr, history, train_seconds, n_params
 
 
-def evaluate(model, arrays, n_classes, device="cpu", batch_size=256):
+def evaluate(model, arrays, n_classes, device="cpu", batch_size=256, threshold=0.5):
     loader = make_loader(arrays, batch_size, False)
     y, p = predict_proba(model, loader, device, n_classes)
-    pred = p.argmax(1)
     rec_idx = arrays["rec_idx"]
+    if n_classes == 2:
+        pred = (p[:, 1] >= threshold).astype(int)
+        minute = per_minute_metrics_prob(y, p[:, 1], rec_idx, threshold)
+    else:
+        pred = p.argmax(1)
+        minute = per_minute_metrics(y, pred, rec_idx, n_classes)
     return {"window": compute_metrics(y, pred, n_classes),
-            "minute": per_minute_metrics(y, pred, rec_idx, n_classes),
+            "minute": minute,
             "y": y.tolist(), "p": p.tolist(), "rec_idx": rec_idx.tolist()}
 
 
@@ -343,56 +384,236 @@ def run_occupancy(index):
     y, p = predict_proba(model, loader, "cpu", 2)
     pred = (p[:, 1] >= thr).astype(int)
     win = compute_metrics(y, pred, 2)
-    minute = per_minute_metrics(y, pred, test_arr["rec_idx"], 2)
+    minute = per_minute_metrics_prob(y, p[:, 1], test_arr["rec_idx"], thr)
     print(f"  occupancy (E2 export, thr={thr:.2f}): test window acc={win['accuracy']:.3f} "
           f"minute acc={minute['accuracy']:.3f}", flush=True)
     return {"test": {"window": win, "minute": minute}, "threshold": thr,
             "source": "E2/outputs/best_model.pt (trained t1, val t2)"}
 
 
+def _stratified_group_folds(rec_ids, labels, n_folds, seed):
+    """Assign each recording to a fold, stratified by label, at the
+    recording level (never split one minute's windows across folds)."""
+    rng = np.random.RandomState(seed)
+    fold_of = {}
+    labels = np.asarray(labels)
+    for lab in np.unique(labels):
+        ids = [r for r, l in zip(rec_ids, labels) if l == lab]
+        rng.shuffle(ids)
+        for i, rid in enumerate(ids):
+            fold_of[rid] = i % n_folds
+    return fold_of
+
+
+def _cv_summary(fold_results):
+    win = [f["test"]["window"]["accuracy"] for f in fold_results]
+    minute = [f["test"]["minute"]["accuracy"] for f in fold_results]
+    return {
+        "n_folds": len(fold_results),
+        "window_accuracy_mean": float(np.mean(win)),
+        "window_accuracy_std": float(np.std(win)),
+        "window_accuracy_per_fold": win,
+        "minute_accuracy_mean": float(np.mean(minute)),
+        "minute_accuracy_std": float(np.std(minute)),
+        "minute_accuracy_per_fold": minute,
+        "window_macro_f1_mean": float(np.mean(
+            [f["test"]["window"]["macro_f1"] for f in fold_results])),
+        "minute_macro_f1_mean": float(np.mean(
+            [f["test"]["minute"]["macro_f1"] for f in fold_results])),
+    }
+
+
+def _train_sp(train_arr, val_arr, seed, verbose=False):
+    """Build + train a sleep/present model.
+
+    Seeds BEFORE construction so weight init is deterministic, and guards
+    against constant-output collapse (seen on tiny val splits): if the
+    best validation macro-F1 stays near chance, retry with a fresh seed
+    (up to 3 attempts, keep the best)."""
+    best = None
+    for attempt in range(3):
+        s = seed + 1000 * attempt
+        set_seed(s)
+        model = build_sleep_present_model(SP_CFG["embed_dim"], SP_CFG["dropout"])
+        model, thr, hist, tsec, npar = train_model(
+            model, train_arr, val_arr, SP_CFG, s, n_classes=2,
+            verbose=verbose)
+        best_f1 = max(h["val_macro_f1"] for h in hist)
+        if best is None or best_f1 > best[0]:
+            best = (best_f1, model, thr, hist, tsec, npar)
+        if best_f1 >= 0.45:
+            break
+    _, model, thr, hist, tsec, npar = best
+    return model, thr, hist, tsec, npar
+
+
+def sp_arrays(sub, ids, norm):
+    """Cached E2 windows for `ids`, normalized, labeled sleep=0/present=1."""
+    arr = load_arrays(sub.loc[ids, "path"].tolist(), "activity", norm)
+    arr["y"] = (arr["y"] == 2).astype(np.int64)  # sleep=0, present=1
+    return arr
+
+
+def ensemble_oof_probs(fold_assets, fold_of, t_ids, sub):
+    """Out-of-fold ENSEMBLE probabilities for the sleep/present stage.
+
+    For each fold k, its held-out recordings are scored by averaging the
+    window-level probabilities of every fold model EXCEPT k (the models
+    that never trained on those recordings). Returns per-window and
+    per-recording (mean) (y, p) pairs — a leakage-free estimate of how
+    the deployed ensemble scores unseen recordings.
+    """
+    models = []
+    for a in fold_assets:
+        m = build_sleep_present_model(SP_CFG["embed_dim"], SP_CFG["dropout"])
+        m.load_state_dict(a["state_dict"])
+        m.eval()
+        models.append(m)
+    win_y, win_p, rec_y, rec_p = [], [], [], []
+    for k in range(N_FOLDS):
+        test_ids = [r for r in t_ids if fold_of[r] == k]
+        others = [i for i in range(len(models)) if i != k]
+        probs, y, rec_idx = [], None, None
+        for i in others:
+            arr = sp_arrays(sub, test_ids, fold_assets[i]["norm"])
+            loader = make_loader(arr, 256, False)
+            y, p = predict_proba(models[i], loader, "cpu", 2)
+            probs.append(p[:, 1])
+            rec_idx = arr["rec_idx"]
+        P = np.mean(probs, axis=0)  # per-window mean over non-training models
+        win_y.append(y); win_p.append(P)
+        for r in np.unique(rec_idx):
+            m_ = rec_idx == r
+            rec_p.append(float(P[m_].mean()))
+            rec_y.append(int(y[m_][0]))
+    return (np.concatenate(win_y), np.concatenate(win_p),
+            np.asarray(rec_y), np.asarray(rec_p))
+
+
 def run_sleep_present(index):
-    """Train binary sleep/present model on occupied t1+t2, test on
-    occupied t."""
+    """Sleep/present stage, redesigned for the deployment placement.
+
+    Honest evaluation: stratified group 5-fold CV over the occupied t
+    recordings (test folds are always t-only, so no leakage). Two
+    training-data variants are compared:
+      * t_only         — train on the other t folds only
+      * all_placements — additionally add ALL occupied t1+t2 recordings
+    The winner (by CV minute accuracy) is deployed as an ENSEMBLE of its
+    K fold models (probabilities averaged at inference); the decision
+    threshold is tuned on the out-of-fold predictions — every t
+    recording is scored by the fold model that never saw it, so the
+    threshold estimate is leakage-free. A single full-data retrain was
+    tried and discarded: with ~70 training recordings the tiny val split
+    occasionally collapses training (constant output), while the fold
+    models are already validated. The old transfer setting (train t1+t2
+    -> test t) is kept as a diagnostic of the cross-placement domain
+    shift.
+    """
     e2 = index[index.cache == "E2"]
-    train_ids = e2[e2.placement.isin(["t1", "t2"]) & (e2.activity > 0)]["rec_id"].tolist()
-    test_ids = e2[(e2.placement == "t") & (e2.activity > 0)]["rec_id"].tolist()
-    print(f"sleep/present: {len(train_ids)} train recs (occupied t1+t2), "
-          f"{len(test_ids)} test recs (occupied t)", flush=True)
-
+    occ = e2[e2.activity > 0]
+    t_ids = occ[occ.placement == "t"]["rec_id"].tolist()
+    base_ids = occ[occ.placement.isin(["t1", "t2"])]["rec_id"].tolist()
     sub = e2.set_index("rec_id")
-    norm = fit_norm(sub.loc[train_ids, "path"].tolist())
-    rng = np.random.RandomState(SEED)
-    tr_ids = train_ids.copy(); rng.shuffle(tr_ids)
-    n_val = max(1, int(0.15 * len(tr_ids)))
-    val_ids, tr_ids = tr_ids[:n_val], tr_ids[n_val:]
+    t_labels = [int(_LABEL_LOOKUP[r]["activity"] == 2) for r in t_ids]  # present=1
+    print(f"sleep/present: {len(t_ids)} occupied t recs "
+          f"({sum(t_labels)} present / {len(t_labels) - sum(t_labels)} sleep), "
+          f"{len(base_ids)} occupied t1+t2 recs", flush=True)
 
-    def _sp_arrays(ids):
-        arr = load_arrays(sub.loc[ids, "path"].tolist(), "activity", norm,
-                          norm_mode=SP_CFG.get("norm_mode", "global"))
-        arr["y"] = (arr["y"] == 2).astype(np.int64)  # sleep=0, present=1
-        return arr
+    def _sp_arrays(ids, norm):
+        return sp_arrays(sub, ids, norm)
 
-    train_arr = balance_windows(_sp_arrays(tr_ids), SEED)
-    val_arr = _sp_arrays(val_ids)
-    test_arr = _sp_arrays(test_ids)
+    fold_of = _stratified_group_folds(t_ids, t_labels, N_FOLDS, SEED)
 
-    model = build_sleep_present_model(SP_CFG["embed_dim"], SP_CFG["dropout"])
-    model, hist, tsec, npar = train_model(model, train_arr, val_arr, SP_CFG, SEED, n_classes=2, verbose=True)
-    val_ev = _strip(evaluate(model, val_arr, 2))
-    test_ev = _strip(evaluate(model, test_arr, 2))
-    print(f"  sleep/present: val acc={val_ev['window']['accuracy']:.3f} "
-          f"test window acc={test_ev['window']['accuracy']:.3f} "
-          f"test minute acc={test_ev['minute']['accuracy']:.3f}", flush=True)
+    variants = {"t_only": [], "all_placements": base_ids}
+    cv_results, fold_details = {}, {}
+    assets = {}  # per-variant fold model assets (state_dict, norm, thr)
+    for name, extra_ids in variants.items():
+        folds = []
+        assets[name] = []
+        for k in range(N_FOLDS):
+            test_ids = [r for r in t_ids if fold_of[r] == k]
+            t_train = [r for r in t_ids if fold_of[r] != k]
+            rng = np.random.RandomState(SEED + k)
+            rng.shuffle(t_train)
+            n_val = max(1, int(0.2 * len(t_train)))
+            val_ids, tr_ids = t_train[:n_val], t_train[n_val:]
+            train_ids = tr_ids + extra_ids
+
+            norm = fit_norm(sub.loc[train_ids, "path"].tolist())
+            train_arr = balance_windows(_sp_arrays(train_ids, norm), SEED + k)
+            val_arr = _sp_arrays(val_ids, norm)
+            test_arr = _sp_arrays(test_ids, norm)
+
+            model, thr, hist, tsec, npar = _train_sp(
+                train_arr, val_arr, SEED + k)
+            test_ev = evaluate(model, test_arr, 2, threshold=thr)
+            print(f"  [{name}] fold {k}: thr={thr:.2f} "
+                  f"test window acc={test_ev['window']['accuracy']:.3f} "
+                  f"minute acc={test_ev['minute']['accuracy']:.3f} "
+                  f"({len(test_ids)} recs)", flush=True)
+            folds.append({"fold": k, "threshold": thr, "history": hist,
+                          "test_recordings": test_ids,
+                          "test": _strip(dict(test_ev)),
+                          "train_seconds": tsec})
+            assets[name].append({
+                "state_dict": {kk: v.cpu().clone()
+                               for kk, v in model.state_dict().items()},
+                "norm": norm, "threshold": thr})
+        cv_results[name] = _cv_summary(folds)
+        fold_details[name] = folds
+        print(f"  [{name}] CV: window={cv_results[name]['window_accuracy_mean']:.3f} "
+              f"minute={cv_results[name]['minute_accuracy_mean']:.3f}", flush=True)
+
+    winner = max(cv_results, key=lambda n: (cv_results[n]["minute_accuracy_mean"],
+                                            cv_results[n]["window_accuracy_mean"]))
+    print(f"  sleep/present winner: {winner}", flush=True)
+
+    # --- deployment: ensemble of the winner's K fold models ---
+    # Threshold tuned on out-of-fold ENSEMBLE predictions: each t
+    # recording is scored by averaging window probabilities over the fold
+    # models that did NOT train on it (leakage-free proxy for the deployed
+    # ensemble), aggregated to per-recording means — the same quantity
+    # `predict_capture` thresholds at inference time.
+    wy, wp, ry, rp = ensemble_oof_probs(assets[winner], fold_of, t_ids, sub)
+    thr_ens = tune_threshold(ry, rp)
+    oof_win = compute_metrics(wy, (wp >= thr_ens).astype(int), 2)
+    oof_min = compute_metrics(ry, (rp >= thr_ens).astype(int), 2)
+    print(f"  deployment: {N_FOLDS}-model ensemble ({winner}), "
+          f"OOF-ensemble thr={thr_ens:.2f} window acc={oof_win['accuracy']:.3f} "
+          f"minute acc={oof_min['accuracy']:.3f}", flush=True)
 
     C.MODELS_DIR.mkdir(parents=True, exist_ok=True)
-    torch.save({"state_dict": model.state_dict(), "cfg": SP_CFG, "norm": norm,
-                "norm_mode": SP_CFG.get("norm_mode", "global"),
+    torch.save({"folds": assets[winner], "cfg": SP_CFG,
+                "threshold": thr_ens, "variant": winner,
                 "n_classes": 2, "window_frames": C.E2_WINDOW_FRAMES,
                 "map_size": C.E2_MAP_SIZE, "az_bins": C.E2_AZ_BINS,
                 "range_bins": C.E2_RANGE_BINS},
                C.MODELS_DIR / "sleep_present_model.pt")
-    return {"val": val_ev, "test": test_ev, "cfg": SP_CFG, "n_params": npar,
-            "train_seconds": tsec, "history": hist, "norm": norm}
+
+    # --- diagnostic: the old transfer setting (train t1+t2 -> test t) ---
+    norm_tr = fit_norm(sub.loc[base_ids, "path"].tolist())
+    tr_shuf = base_ids.copy()
+    rng = np.random.RandomState(SEED); rng.shuffle(tr_shuf)
+    n_val_tr = max(1, int(0.15 * len(tr_shuf)))
+    tr_val, tr_tr = tr_shuf[:n_val_tr], tr_shuf[n_val_tr:]
+    tr_train = balance_windows(_sp_arrays(tr_tr, norm_tr), SEED)
+    tr_val_arr = _sp_arrays(tr_val, norm_tr)
+    tr_test = _sp_arrays(t_ids, norm_tr)
+    m_tr, thr_tr, _, _, _ = _train_sp(tr_train, tr_val_arr, SEED)
+    transfer_ev = _strip(evaluate(m_tr, tr_test, 2, threshold=thr_tr))
+    print(f"  [diagnostic] transfer t1+t2 -> t: "
+          f"window acc={transfer_ev['window']['accuracy']:.3f} "
+          f"minute acc={transfer_ev['minute']['accuracy']:.3f}", flush=True)
+
+    return {"cv": cv_results, "folds": fold_details, "winner": winner,
+            "deployment": {"type": "fold_ensemble",
+                           "n_models": len(assets[winner]),
+                           "threshold": thr_ens,
+                           "oof_window": oof_win, "oof_minute": oof_min},
+            "transfer_diagnostic": {"test": transfer_ev, "threshold": thr_tr,
+                                    "note": "train occupied t1+t2 -> test occupied t "
+                                            "(previous design; fails due to domain shift)"},
+            "cfg": SP_CFG, "n_params": npar}
 
 
 def run_position(index):
@@ -414,13 +635,15 @@ def run_position(index):
     train_arr = balance_windows(load_arrays(sub.loc[tr_ids, "path"].tolist(), "position", norm), SEED)
     val_arr = load_arrays(sub.loc[val_ids, "path"].tolist(), "position", norm)
 
+    set_seed(SEED)  # seed before construction for deterministic init
     model = build_position_model(POS_CFG["embed_dim"], POS_CFG["dropout"])
-    model, hist, tsec, npar = train_model(model, train_arr, val_arr, POS_CFG, SEED, n_classes=2, verbose=True)
-    val_ev = _strip(evaluate(model, val_arr, 2))
-    print(f"  position: val acc={val_ev['window']['accuracy']:.3f}", flush=True)
+    model, thr, hist, tsec, npar = train_model(model, train_arr, val_arr, POS_CFG, SEED, n_classes=2, verbose=True)
+    val_ev = _strip(evaluate(model, val_arr, 2, threshold=thr))
+    print(f"  position: thr={thr:.2f} val acc={val_ev['window']['accuracy']:.3f}", flush=True)
 
     C.MODELS_DIR.mkdir(parents=True, exist_ok=True)
     torch.save({"state_dict": model.state_dict(), "cfg": POS_CFG, "norm": norm,
+                "threshold": thr,
                 "n_classes": 2, "window_frames": C.E3_WINDOW_FRAMES,
                 "map_size": C.E3_MAP_SIZE, "az_bins": C.E3_AZ_BINS,
                 "range_bins": C.E3_RANGE_BINS},

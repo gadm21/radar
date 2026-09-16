@@ -50,13 +50,17 @@ def _load_models(models_dir=None):
     occ.load_state_dict(occ_ckpt["state_dict"])
     occ.eval()
 
-    # stage 2: sleep/present (trained on occupied t1+t2)
+    # stage 2: sleep/present — ensemble of the K CV fold models
+    # (winner variant trained on the deployment placement t)
     sp_ckpt = torch.load(models_dir / "sleep_present_model.pt",
                          map_location="cpu", weights_only=False)
-    sp = build_sleep_present_model(sp_ckpt["cfg"]["embed_dim"],
-                                   sp_ckpt["cfg"]["dropout"])
-    sp.load_state_dict(sp_ckpt["state_dict"])
-    sp.eval()
+    sp = []
+    for f in sp_ckpt["folds"]:
+        m = build_sleep_present_model(sp_ckpt["cfg"]["embed_dim"],
+                                      sp_ckpt["cfg"]["dropout"])
+        m.load_state_dict(f["state_dict"])
+        m.eval()
+        sp.append((m, f["norm"]))
 
     # stage 3: left/right (trained on all t)
     pos_ckpt = torch.load(models_dir / "position_model.pt",
@@ -105,8 +109,15 @@ def predict_capture(npz_path, models_dir=None, return_probs=False):
     win_occ = _normalize(win_a, occ_ckpt["norm"])
     with torch.no_grad():
         logits = occ(torch.from_numpy(win_occ).float())
-        p_occ = torch.sigmoid(logits).mean().item()
-    occupied = p_occ >= occ_ckpt["threshold"]
+        pw = torch.sigmoid(logits).numpy()
+    # top-2 window aggregation (E2 minute-level protocol): a still person
+    # still moves occasionally within a minute
+    pw_sorted = np.sort(pw)
+    p_occ = float(pw_sorted[-2:].mean()) if len(pw_sorted) >= 2 \
+        else float(pw_sorted.mean())
+    occ_thr = float(occ_ckpt.get("minute_threshold",
+                                 occ_ckpt["threshold"]))
+    occupied = p_occ >= occ_thr
 
     details = {
         "occupancy": "occupied" if occupied else "empty",
@@ -121,16 +132,20 @@ def predict_capture(npz_path, models_dir=None, return_probs=False):
         details["label"] = "empty"
         return ("empty", details) if return_probs else "empty"
 
-    # --- stage 2: sleep vs present ---
-    win_sp = _normalize(win_a, sp_ckpt["norm"],
-                        sp_ckpt.get("norm_mode", "global"))
+    # --- stage 2: sleep vs present (fold ensemble: mean probability
+    # over models x windows, OOF-tuned threshold) ---
+    sp_thr = float(sp_ckpt.get("threshold", 0.5))
     with torch.no_grad():
-        logits = sp(torch.from_numpy(win_sp).float())
-        p_present = torch.sigmoid(logits).mean().item()
-    activity = 2 if p_present >= 0.5 else 1  # sleep=1, present=2
+        probs = []
+        for m, norm in sp:
+            w = _normalize(win_a, norm)
+            probs.append(torch.sigmoid(m(torch.from_numpy(w).float())).numpy())
+        p_present = float(np.mean(probs))
+    activity = 2 if p_present >= sp_thr else 1  # sleep=1, present=2
     details["activity"] = C.ACTIVITY_NAMES[activity]
     details["activity_probs"] = {"sleep": float(1 - p_present),
                                  "present": float(p_present)}
+    details["activity_threshold"] = sp_thr
 
     if activity != 2:  # sleep -> no position (only t_present recordings
         # carry a left/right ground-truth label)
@@ -138,19 +153,23 @@ def predict_capture(npz_path, models_dir=None, return_probs=False):
         details["label"] = "sleep"
         return ("sleep", details) if return_probs else "sleep"
 
-    # --- stage 3: left/right (E3 spec: 30-frame windows, 32x32 maps) ---
-    maps_p = C.frames_to_maps(payloads, C.E3_MAP_SIZE, C.E3_AZ_BINS, C.E3_RANGE_BINS)
+    # --- stage 3: left/right (E3 spec: 30-frame windows, 32x32 maps,
+    # azimuth fftshift ON to match the E3 cache convention) ---
+    maps_p = C.frames_to_maps(payloads, C.E3_MAP_SIZE, C.E3_AZ_BINS,
+                              C.E3_RANGE_BINS, az_fftshift=True)
     win_p = _normalize(C.build_windows(maps_p, C.E3_WINDOW_FRAMES), pos_ckpt["norm"])
     if win_p.shape[0] == 0:
         details.update(position=None, position_probs=None, n_position_windows=0)
         details["label"] = "present"
         return ("present", details) if return_probs else "present"
+    pos_thr = float(pos_ckpt.get("threshold", 0.5))
     with torch.no_grad():
         logits = pos(torch.from_numpy(win_p).float())
         p_right = torch.sigmoid(logits).mean().item()
-    position = int(p_right >= 0.5)
+    position = int(p_right >= pos_thr)
     details["position"] = C.POSITION_NAMES[position]
     details["position_probs"] = {"left": float(1 - p_right), "right": float(p_right)}
+    details["position_threshold"] = pos_thr
     details["n_position_windows"] = int(win_p.shape[0])
     label = f"present({C.POSITION_NAMES[position]})"
     details["label"] = label

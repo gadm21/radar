@@ -8,8 +8,10 @@ Three stages are composed:
     loads directly. Trained on t1, validated on t2, tested on t by E2.
 
   * SleepPresentModel: binary (sleep/present), run only on windows the
-    occupancy stage calls occupied. Same E2-style temporal-std encoder
-    (cross-placement transferable), trained on occupied t1+t2 minutes.
+    occupancy stage calls occupied. CNN over temporal mean+max+std maps
+    (keeps spatial structure): the model is trained on the deployment
+    placement t (optionally augmented with t1+t2), so absolute spatial
+    structure is informative rather than a placement shortcut.
 
   * PositionModel: binary (left/right), run only on windows called
     present. Reuses the E3 `LeftRightEncoder` (temporal mean+max maps ->
@@ -67,12 +69,43 @@ class OccupancyModel(nn.Module):
         return self.head(self.radar_encoder(radar))
 
 
+class MapStatsEncoder(nn.Module):
+    """Temporal mean+max+std maps -> 2D CNN.
+
+    Pools each window along time into three per-channel maps (mean, max,
+    std) and feeds the resulting 3*C-channel image to a small CNN. Unlike
+    `ActivityEncoder` (which collapses each map to 3 scalars and so only
+    keeps relative temporal variability), this preserves WHERE in the
+    range/angle space the motion happens — the right inductive bias when
+    the model is trained on the deployment placement.
+    """
+
+    def __init__(self, in_channels=2, embed_dim=64, dropout=0.3):
+        super().__init__()
+        cin = in_channels * 3
+        self.conv = nn.Sequential(
+            nn.Conv2d(cin, 16, 3, padding=1), nn.BatchNorm2d(16), nn.ReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(16, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
+            nn.AdaptiveAvgPool2d(1),
+        )
+        self.fc = nn.Sequential(
+            nn.Flatten(), nn.Dropout(dropout), nn.Linear(64, embed_dim), nn.ReLU())
+
+    def forward(self, x):
+        # x: (B, T, C, H, W)
+        f = torch.cat([x.mean(1), x.amax(1), x.std(1)], dim=1)
+        return self.fc(self.conv(f))
+
+
 class SleepPresentModel(nn.Module):
-    """Binary sleep(0)/present(1) head on the E2-style encoder."""
+    """Binary sleep(0)/present(1) head on the map-stats CNN encoder."""
 
     def __init__(self, radar_channels=2, embed_dim=64, dropout=0.3):
         super().__init__()
-        self.encoder = ActivityEncoder(radar_channels, embed_dim, dropout)
+        self.encoder = MapStatsEncoder(radar_channels, embed_dim, dropout)
         self.head = nn.Sequential(
             nn.Linear(embed_dim, embed_dim), nn.ReLU(),
             nn.Dropout(dropout), nn.Linear(embed_dim, 1))

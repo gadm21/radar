@@ -1,8 +1,8 @@
 """Dataset inspection for the E2 occupancy pipeline.
 
-Scans minutes/ and test_minutes/, validates structure, counts data by
-placement / session / label, measures radar timing, and writes
-outputs/inspection.json plus a printed report.
+Scans train_minutes/, val_minutes/ and test_minutes/, validates
+structure, counts data by split / session / label, measures radar
+timing, and writes outputs/inspection.json plus a printed report.
 
 Usage:  python E2/inspect_dataset.py
 """
@@ -24,14 +24,14 @@ def main():
     recordings, problems = C.discover_recordings()
     recordings = C.assign_sessions(recordings)
 
-    report = {"problems": problems, "placements": {}}
+    report = {"problems": problems, "splits": {}}
     usable = [r for r in recordings if r.status == "ok"]
     print(f"Discovered {len(recordings)} recordings, {len(usable)} usable, "
           f"{len(problems)} problems (see outputs/inspection.json)")
 
-    # ---- counts by placement / label / session ----
-    for p in ("t1", "t2", "t"):
-        recs = [r for r in usable if r.placement == p]
+    # ---- counts by split / label / session ----
+    for p in ("train_minutes", "val_minutes", "test_minutes"):
+        recs = [r for r in usable if r.source == p]
         by_label = Counter(C.CLASS_NAMES[r.label] for r in recs)
         by_orig = Counter(l for r in recs for l in r.orig_labels)
         sessions = defaultdict(list)
@@ -44,7 +44,7 @@ def main():
                 "end": max(x.end_ts for x in v)}
             for s, v in sorted(sessions.items())
         }
-        report["placements"][p] = {
+        report["splits"][p] = {
             "n_recordings": len(recs),
             "by_binary_label": dict(by_label),
             "by_original_label": dict(by_orig),
@@ -52,7 +52,7 @@ def main():
             "sessions": sess_summary,
             "parse_modes": dict(Counter(r.parse_mode for r in recs)),
         }
-        print(f"\n=== placement {p}: {len(recs)} recordings, "
+        print(f"\n=== {p}: {len(recs)} recordings, "
               f"{len(sessions)} sessions ===")
         print("  binary labels:", dict(by_label))
         print("  original labels:", dict(by_orig))
@@ -61,10 +61,10 @@ def main():
                   f"{info['start']:.0f} .. {info['end']:.0f}")
 
     # ---- radar frame counts + timing on a sample of recordings ----
-    print("\n=== radar timing (sampling up to 40 recordings/placement) ===")
+    print("\n=== radar timing (sampling up to 40 recordings/split) ===")
     timing = {}
-    for p in ("t1", "t2", "t"):
-        recs = [r for r in usable if r.placement == p]
+    for p in ("train_minutes", "val_minutes", "test_minutes"):
+        recs = [r for r in usable if r.source == p]
         rng = np.random.RandomState(0)
         idx = rng.choice(len(recs), min(40, len(recs)), replace=False) if recs else []
         frame_counts, intervals, win5 = [], [], []

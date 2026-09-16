@@ -1,8 +1,9 @@
 """Shared dataset utilities for the E2 occupancy-detection pipeline.
 
 Handles tolerant manifest parsing (some manifests are malformed JSON),
-unified discovery of `minutes/` and `test_minutes/` recordings, label
-mapping to the binary occupancy task, and session inference.
+unified discovery of `train_minutes/`, `val_minutes/` and
+`test_minutes/` recordings, label mapping to the binary occupancy
+task, and session inference.
 """
 import json
 import re
@@ -13,7 +14,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
-MINUTES_DIR = ROOT / "minutes"
+TRAIN_MINUTES_DIR = ROOT / "train_minutes"
+VAL_MINUTES_DIR = ROOT / "val_minutes"
 TEST_MINUTES_DIR = ROOT / "test_minutes"
 E2_DIR = ROOT / "E2"
 OUTPUT_DIR = E2_DIR / "outputs"
@@ -22,9 +24,13 @@ CACHE_DIR = E2_DIR / "cache"
 # ---------------------------------------------------------------------------
 # Label handling
 # ---------------------------------------------------------------------------
-# minutes/ : t1_empty, t1_sleep, t1_present, t2_empty, t2_sleep, t2_present
-# test_minutes/ : t_empty, t_sleep, t_present   (left/right are ignored)
-MINUTES_LABELS = {
+# train_minutes/ : t1_empty, t1_sleep, t1_present, t2_empty, t2_sleep,
+#                  t2_present   (sleep counts as occupied)
+# val_minutes/   : t_empty, t_sleep, t_present
+# test_minutes/  : empty, present   (no sleep labels)
+# Only t_* / t1_* / t2_* labels are ground truth; absent/occupied/...
+# auto-labels were stripped by clean_minutes.py and are ignored here.
+TRAIN_LABELS = {
     "t1_empty": ("t1", 0),
     "t1_sleep": ("t1", 1),
     "t1_present": ("t1", 1),
@@ -32,10 +38,19 @@ MINUTES_LABELS = {
     "t2_sleep": ("t2", 1),
     "t2_present": ("t2", 1),
 }
-TEST_LABELS = {
+VAL_LABELS = {
     "t_empty": ("t", 0),
     "t_sleep": ("t", 1),
     "t_present": ("t", 1),
+}
+TEST_LABELS = {
+    "empty": ("t", 0),
+    "present": ("t", 1),
+}
+LABEL_TABLES = {
+    "train_minutes": TRAIN_LABELS,
+    "val_minutes": VAL_LABELS,
+    "test_minutes": TEST_LABELS,
 }
 CLASS_NAMES = ["empty", "occupied"]
 
@@ -49,7 +64,7 @@ def map_labels(labels, source):
     'ambiguous'. Only the documented labels are used; everything else is
     ignored. Multiple usable labels on one recording are ambiguous.
     """
-    table = MINUTES_LABELS if source == "minutes" else TEST_LABELS
+    table = LABEL_TABLES[source]
     usable = [lab for lab in labels if lab in table]
     if not usable:
         return None, None, "ignored"
@@ -171,10 +186,12 @@ class Recording:
 
 
 def discover_recordings():
-    """Scan both dataset roots and return (recordings, problems)."""
+    """Scan the three dataset roots and return (recordings, problems)."""
     recordings = []
     problems = []
-    for source, root in (("minutes", MINUTES_DIR), ("test_minutes", TEST_MINUTES_DIR)):
+    for source, root in (("train_minutes", TRAIN_MINUTES_DIR),
+                         ("val_minutes", VAL_MINUTES_DIR),
+                         ("test_minutes", TEST_MINUTES_DIR)):
         if not root.exists():
             problems.append(f"missing root: {root}")
             continue
@@ -267,13 +284,14 @@ def iter_bin_frames(bin_path):
 def recording_radar_frames(rec, manifest=None):
     """Return (payloads, timestamps) for all radar frames of a recording.
 
-    test_minutes: real per-frame unix-ns timestamps from capture.npz.
-    minutes: per-chunk timing from the manifest; frames inside a chunk are
+    val_minutes / test_minutes: per-second timestamps from capture.npz
+    (or chunked radar_*.bin for the few folders without one).
+    train_minutes: per-chunk timing from the manifest; frames inside a chunk are
     spaced uniformly between the chunk start and the next chunk's start
     (or finished_capture / nominal 100 ms spacing as fallback). The
     filename timestamp is used when manifest timing is missing.
     """
-    if rec.source == "test_minutes":
+    if (rec.folder / "capture.npz").exists():
         npz = rec.folder / "capture.npz"
         d = np.load(npz)
         off = d["radar_sample_offsets"]
@@ -302,7 +320,7 @@ def recording_radar_frames(rec, manifest=None):
                 ts[fi] = t0 + rank * (span / len(members))
         return [payloads[i] for i in order], ts[order]
 
-    # minutes/: each radar_*.bin file is named by its capture timestamp and
+    # train_minutes/: each radar_*.bin file is named by its capture timestamp and
     # holds the frames of one second (nominally 10). Frame times are the
     # filename timestamp + j/n seconds (documented rule).
     entries = []  # (start_ts, bin_path)
@@ -401,13 +419,13 @@ def _parse_csi_csv(path):
 def recording_csi(rec, receiver_index=None):
     """Return (complex_csi[N,52], unix_ts[N]) for the best single receiver.
 
-    minutes/: several wifi_csi_XX.csv files may exist; typically one is
-    empty. The file with the most samples inside the recording's
+    train_minutes/: several wifi_csi_XX.csv files may exist; typically
+    one is empty. The file with the most samples inside the recording's
     [start_ts, end_ts] window is used (documented rule); ties -> first.
-    test_minutes/: csi_sample_* arrays in capture.npz; the receiver index
-    with the most samples is used.
+    val_minutes/ + test_minutes/: csi_sample_* arrays in capture.npz; the
+    receiver index with the most samples is used.
     """
-    if rec.source == "test_minutes":
+    if (rec.folder / "capture.npz").exists():
         d = np.load(rec.folder / "capture.npz")
         rx = d["csi_sample_receiver_index"]
         off = d["csi_sample_offsets"]
@@ -431,7 +449,7 @@ def recording_csi(rec, receiver_index=None):
         order = np.argsort(ts, kind="stable")
         return np.asarray(csi)[order], ts[order]
 
-    # minutes/: pick the CSV covering the minute best
+    # train_minutes/: pick the CSV covering the minute best
     files = sorted(rec.folder.glob("wifi_csi_*.csv"))
     if not files:
         return None, None

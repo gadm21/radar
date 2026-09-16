@@ -133,19 +133,51 @@ def scan_all_labels():
 def decode_npz_frames(npz_path):
     """Decode a capture.npz file -> (payloads, unix_ts).
 
-    Returns a list of raw ADC byte strings (header stripped, each exactly
-    EXPECTED_PAYLOAD bytes) and their Unix timestamps, sorted by time.
+    Frame ORDER comes from `radar_sample_sequence` (the hardware sequence
+    number): the per-frame `radar_sample_unix_ns` timestamps are
+    burst-flushed and unreliable, so sorting by them scrambles the true
+    frame order and corrupts every temporal statistic downstream.
+
+    Timestamps are reconstructed from the reliable per-second buckets
+    (`second_start_unix_ns` + `radar_sample_second_index`), distributing
+    each second's frames uniformly across the measured span — the same
+    rule E2's `recording_radar_frames` used to build the training cache,
+    so fresh decodes and cached windows see identical frame sequences.
+
+    Returns raw ADC byte strings (header stripped, each exactly
+    EXPECTED_PAYLOAD bytes) and their reconstructed Unix timestamps.
     """
     npz = np.load(npz_path, allow_pickle=True)
-    required = {"radar_sample_bytes", "radar_sample_offsets", "radar_sample_unix_ns"}
+    required = {"radar_sample_bytes", "radar_sample_offsets",
+                "radar_sample_sequence", "radar_sample_second_index",
+                "second_start_unix_ns"}
     if not required.issubset(set(npz.files)):
         raise ValueError(f"{npz_path}: missing required arrays {required - set(npz.files)}")
     raw_bytes = npz["radar_sample_bytes"]
     offsets = npz["radar_sample_offsets"]
-    timestamps = npz["radar_sample_unix_ns"].astype(np.float64) / 1e9
+    seq = npz["radar_sample_sequence"].astype(np.int64)
+    sec_idx = npz["radar_sample_second_index"].astype(np.int64)
+    sec_start = npz["second_start_unix_ns"].astype(np.float64) / 1e9
     n = len(offsets) - 1
+
+    # hardware sequence number gives the true frame order
+    order = np.argsort(seq[:n], kind="stable")
+
+    # per-frame times from the per-second buckets (uniform within second)
+    ts = np.empty(n, dtype=np.float64)
+    for s in np.unique(sec_idx):
+        members = np.where(sec_idx == s)[0]
+        members = members[np.argsort(seq[members], kind="stable")]
+        t0 = sec_start[s]
+        nxt = sec_start[s + 1] if s + 1 < len(sec_start) else t0 + 1.0
+        span = nxt - t0
+        if not np.isfinite(span) or span <= 0 or span > 5.0:
+            span = 1.0
+        for rank, fi in enumerate(members):
+            ts[fi] = t0 + rank * (span / len(members))
+
     payloads, valid_ts = [], []
-    for i in range(n):
+    for i in order:
         blob = raw_bytes[offsets[i]: offsets[i + 1]]
         if blob.shape[0] <= FRAME_HEADER_BYTES:
             continue
@@ -155,9 +187,8 @@ def decode_npz_frames(npz_path):
         if payload.shape[0] != data_len or data_len != EXPECTED_PAYLOAD:
             continue
         payloads.append(bytes(payload))
-        valid_ts.append(timestamps[i])
-    order = np.argsort(valid_ts, kind="stable")
-    return [payloads[i] for i in order], np.asarray(valid_ts, dtype=np.float64)[order]
+        valid_ts.append(ts[i])
+    return payloads, np.asarray(valid_ts, dtype=np.float64)
 
 
 # ---------------------------------------------------------------------------
@@ -177,9 +208,17 @@ _HANN_R = np.hanning(NUM_SAMPLES).astype(np.float32)
 _HANN_D = np.hanning(NUM_CHIRPS).astype(np.float32)
 
 
-def frames_to_maps(payloads, map_size, az_bins, range_bins):
+def frames_to_maps(payloads, map_size, az_bins, range_bins, az_fftshift=False):
     """payloads -> float16 (N, 2, map_size, map_size) log1p-compressed
-    range-Doppler + range-azimuth maps."""
+    range-Doppler + range-azimuth maps.
+
+    `az_fftshift` must match the cache the consuming model was trained
+    on: E2's preprocess does NOT shift the azimuth FFT (az_fftshift=False
+    for the E2 spec used by stages 1-2); E3's does (az_fftshift=True for
+    the E3 spec used by stage 3). A mismatch circularly shifts the
+    azimuth channel — invisible to spatial-pooling encoders (occupancy)
+    but corrupting for CNN encoders that use spatial structure.
+    """
     from scipy import fft as sfft
     from scipy.ndimage import zoom
     n = len(payloads)
@@ -191,7 +230,8 @@ def frames_to_maps(payloads, map_size, az_bins, range_bins):
     RD = sfft.fftshift(sfft.fft(R, axis=1, workers=-1), axes=1)
     rd = np.abs(RD[:, :, :range_bins, :]).mean(axis=3)
     RA = sfft.fft(R[:, :, :range_bins, :], n=az_bins, axis=3, workers=-1)
-    RA = sfft.fftshift(RA, axes=3)
+    if az_fftshift:
+        RA = sfft.fftshift(RA, axes=3)
     ra = np.abs(RA).mean(axis=1).transpose(0, 2, 1)
     s = map_size
     rd = zoom(np.log1p(rd), (1, s / rd.shape[1], s / rd.shape[2]), order=1)

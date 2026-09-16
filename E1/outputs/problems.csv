@@ -1,0 +1,1010 @@
+source,folder,category,detail
+train_minutes,20260817_2147,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2147,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260817_2159,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2159,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260817_2203,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2206,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260817_2206,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+train_minutes,20260817_2209,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2214,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2214,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+train_minutes,20260817_2216,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2242,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2242,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260817_2243,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260817_2243,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+train_minutes,20260817_2250,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2250,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260817_2252,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2256,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260817_2256,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260817_2338,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260817_2354,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0049,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0052,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0052,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0052,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0110,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0130,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0130,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0130,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260818_0141,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0141,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0144,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0144,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260818_0156,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0222,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0223,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0249,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0401,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0402,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0413,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0413,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0414,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0414,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0414,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0443,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0446,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0446,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0507,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0507,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260818_0511,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0511,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train_minutes,20260818_0525,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0552,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0552,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0552,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260818_0606,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0614,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0614,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0623,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0627,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0631,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0757,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0757,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0806,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0806,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0806,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260818_0815,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0815,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260818_0823,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0825,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+train_minutes,20260818_0825,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0825,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0827,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0832,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0832,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
+train_minutes,20260818_0907,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_0907,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0907,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0918,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0918,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_0921,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0926,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0945,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_0946,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1010,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1029,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1033,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1038,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1039,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1039,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1050,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1804,corrupt_bin,radar_043_20260818_180445_941.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_044_20260818_180446_845.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_045_20260818_180447_219.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_046_20260818_180447_559.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_047_20260818_180448_815.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_048_20260818_180453_233.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_049_20260818_180453_563.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_050_20260818_180455_229.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_051_20260818_180456_552.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_052_20260818_180457_007.bin: empty file
+train_minutes,20260818_1804,corrupt_bin,radar_053_20260818_180457_442.bin: empty file
+train_minutes,20260818_1804,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train_minutes,20260818_1805,corrupt_bin,radar_000_20260818_180501_108.bin: empty file
+train_minutes,20260818_1805,corrupt_bin,radar_001_20260818_180502_107.bin: empty file
+train_minutes,20260818_1805,chunk_count_mismatch,expected_chunks=58 but 2 radar_*.bin on disk
+train_minutes,20260818_1809,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1810,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1812,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1815,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1815,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1818,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1818,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260818_1819,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1819,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1820,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1823,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+train_minutes,20260818_1823,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1825,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1825,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1826,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1826,corrupt_xytracking,truncated (no closing '}')
+train_minutes,20260818_1830,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1831,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1831,corrupt_xytracking,truncated (no closing '}')
+train_minutes,20260818_1833,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1834,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1839,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1848,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1855,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1856,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_1856,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1859,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1859,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1918,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1924,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1949,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1949,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260818_1955,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1955,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_1956,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_1957,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2000,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2000,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260818_2013,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2023,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2028,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2032,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2035,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2035,corrupt_xytracking,truncated (no closing '}')
+train_minutes,20260818_2036,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2036,chunk_count_mismatch,expected_chunks=58 but 43 radar_*.bin on disk
+train_minutes,20260818_2040,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_2040,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2040,chunk_count_mismatch,expected_chunks=58 but 48 radar_*.bin on disk
+train_minutes,20260818_2044,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+train_minutes,20260818_2044,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2047,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_2047,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2047,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+train_minutes,20260818_2053,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260818_2056,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260818_2057,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260818_2057,corrupt_bin,radar_038_20260818_205743_712.bin: empty file
+train_minutes,20260818_2057,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
+train_minutes,20260826_1624,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260826_1632,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260826_1649,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260826_1649,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260826_1649,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train_minutes,20260826_1712,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train_minutes,20260826_1713,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260826_1714,chunk_count_mismatch,expected_chunks=58 but 23 radar_*.bin on disk
+train_minutes,20260826_1814,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260826_1814,chunk_count_mismatch,expected_chunks=58 but 56 radar_*.bin on disk
+train_minutes,20260826_1819,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260826_1819,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260826_1828,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+train_minutes,20260826_1829,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
+train_minutes,20260827_0335,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0335,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260827_0342,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0406,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0407,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0407,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+train_minutes,20260827_0426,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0426,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+train_minutes,20260827_0433,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_0433,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0433,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260827_0440,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0447,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0458,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0458,chunk_count_mismatch,expected_chunks=58 but 55 radar_*.bin on disk
+train_minutes,20260827_0501,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0506,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0517,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0518,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_0518,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
+train_minutes,20260827_0520,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_0520,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+train_minutes,20260827_0522,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0524,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0524,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+train_minutes,20260827_0525,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0525,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
+train_minutes,20260827_0533,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0534,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0534,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+train_minutes,20260827_0557,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_0557,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+train_minutes,20260827_0618,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_0618,chunk_count_mismatch,expected_chunks=58 but 52 radar_*.bin on disk
+train_minutes,20260827_0620,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_0620,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260827_0622,chunk_count_mismatch,expected_chunks=58 but 27 radar_*.bin on disk
+train_minutes,20260827_0623,chunk_count_mismatch,expected_chunks=58 but 17 radar_*.bin on disk
+train_minutes,20260827_1338,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1356,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1356,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train_minutes,20260827_1409,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1439,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1442,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+train_minutes,20260827_1443,chunk_count_mismatch,expected_chunks=58 but 24 radar_*.bin on disk
+train_minutes,20260827_1444,chunk_count_mismatch,expected_chunks=58 but 11 radar_*.bin on disk
+train_minutes,20260827_1858,malformed_manifest,parse_mode=regex
+train_minutes,20260827_1858,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1900,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1903,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_1903,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1918,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_1918,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1918,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1920,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_1920,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1920,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+train_minutes,20260827_1922,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1923,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1924,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1925,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_1925,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1925,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1927,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1933,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_1933,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1936,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1944,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_1944,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1944,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1946,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_1946,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1946,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1951,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1951,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train_minutes,20260827_1953,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_1953,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1953,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_1957,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_1957,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_1957,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2003,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_2003,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_2003,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2005,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_2005,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_2005,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2007,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2012,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2017,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2024,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_2024,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_2024,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2026,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train_minutes,20260827_2026,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2026,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+train_minutes,20260827_2028,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2029,malformed_manifest,parse_mode=json_partial
+train_minutes,20260827_2029,unknown_label,label 'empty' not in taxonomy
+train_minutes,20260827_2029,manifest_error,Radar analysis exceeded its shutdown deadline.
+train_minutes,20260827_2035,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
+train_minutes,20260827_2036,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+val_minutes,20260906_1805,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1805,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1805,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1806,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1808,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1811,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_1811,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1811,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1811,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1812,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1812,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1812,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1813,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1814,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1816,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1817,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1817,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
+val_minutes,20260906_1818,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1818,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1818,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1819,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1820,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1821,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1827,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1828,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1829,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1831,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1833,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1833,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1833,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1834,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1834,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1834,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1835,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1835,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1835,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1836,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1836,chunk_count_mismatch,expected_chunks=58 but 43 radar_*.bin on disk
+val_minutes,20260906_1837,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1837,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1837,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1838,malformed_manifest,parse_mode=regex
+val_minutes,20260906_1838,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1839,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1840,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1840,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1840,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1846,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1847,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1847,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
+val_minutes,20260906_1848,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1848,chunk_count_mismatch,expected_chunks=58 but 32 radar_*.bin on disk
+val_minutes,20260906_1851,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1851,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1851,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1852,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1853,malformed_manifest,parse_mode=regex
+val_minutes,20260906_1853,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1854,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1855,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1855,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
+val_minutes,20260906_1859,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1859,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+val_minutes,20260906_1900,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1902,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1903,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1904,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1905,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_1905,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1906,leftover_tmp,1 .tmp file(s): .capture.npz.10073.tmp
+val_minutes,20260906_1906,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1907,chunk_count_mismatch,expected_chunks=58 but 19 radar_*.bin on disk
+val_minutes,20260906_1908,chunk_count_mismatch,expected_chunks=58 but 16 radar_*.bin on disk
+val_minutes,20260906_1913,leftover_tmp,1 .tmp file(s): .capture.npz.11461.tmp
+val_minutes,20260906_1913,chunk_count_mismatch,expected_chunks=58 but 8 radar_*.bin on disk
+val_minutes,20260906_1914,chunk_count_mismatch,expected_chunks=58 but 7 radar_*.bin on disk
+val_minutes,20260906_1921,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1922,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1923,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1924,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1924,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1924,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1925,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1929,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1929,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+val_minutes,20260906_1930,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1931,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1931,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
+val_minutes,20260906_1932,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_1932,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1932,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
+val_minutes,20260906_1933,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1933,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1933,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1936,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1936,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
+val_minutes,20260906_1938,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1939,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1940,leftover_tmp,1 .tmp file(s): .capture.npz.14793.tmp
+val_minutes,20260906_1940,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1941,chunk_count_mismatch,expected_chunks=58 but 37 radar_*.bin on disk
+val_minutes,20260906_1942,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
+val_minutes,20260906_1946,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1947,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1948,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_1948,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_1948,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_1948,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1950,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1952,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_1952,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1952,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+val_minutes,20260906_1954,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1955,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1956,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_1959,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2001,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2001,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2001,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2002,leftover_tmp,1 .tmp file(s): .capture.npz.18040.tmp
+val_minutes,20260906_2002,chunk_count_mismatch,expected_chunks=58 but 26 radar_*.bin on disk
+val_minutes,20260906_2003,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+val_minutes,20260906_2004,chunk_count_mismatch,expected_chunks=58 but 35 radar_*.bin on disk
+val_minutes,20260906_2104,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2105,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2108,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2111,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2111,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2111,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2117,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2118,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2118,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2118,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2125,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2126,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2128,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2129,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2129,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+val_minutes,20260906_2131,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2131,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2131,chunk_count_mismatch,expected_chunks=58 but 34 radar_*.bin on disk
+val_minutes,20260906_2133,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2133,chunk_count_mismatch,expected_chunks=58 but 51 radar_*.bin on disk
+val_minutes,20260906_2136,manifest_error,Radar produced no complete 10-frame chunks for this minute.
+val_minutes,20260906_2136,missing_xytracking,no xy-tracking.json
+val_minutes,20260906_2138,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2138,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+val_minutes,20260906_2140,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2140,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2140,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2141,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2142,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2144,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2144,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2144,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2145,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2146,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2147,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2151,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2151,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2151,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2152,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2152,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2152,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2152,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2153,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+val_minutes,20260906_2153,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2154,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2155,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2155,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2155,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2156,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2156,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+val_minutes,20260906_2157,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2157,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
+val_minutes,20260906_2159,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2200,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2201,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2201,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2201,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2202,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2203,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2204,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2204,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2204,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2206,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2207,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2209,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2210,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2212,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2212,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2212,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2214,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2215,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2215,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2215,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2216,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2216,chunk_count_mismatch,expected_chunks=58 but 22 radar_*.bin on disk
+val_minutes,20260906_2219,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2219,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2219,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2220,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2223,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2223,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2223,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2224,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2224,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
+val_minutes,20260906_2226,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2226,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2226,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2227,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2228,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2229,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2229,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
+val_minutes,20260906_2231,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2231,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2231,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2232,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2232,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
+val_minutes,20260906_2235,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2236,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2241,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2242,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2242,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+val_minutes,20260906_2243,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2243,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2243,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2246,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2247,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2249,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2249,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2251,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2253,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2254,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2254,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
+val_minutes,20260906_2255,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2256,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2258,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2259,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2259,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2301,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2303,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2306,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2307,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2307,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2307,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2307,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2311,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2312,leftover_tmp,1 .tmp file(s): .capture.npz.33714.tmp
+val_minutes,20260906_2312,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
+val_minutes,20260906_2313,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+val_minutes,20260906_2314,chunk_count_mismatch,expected_chunks=58 but 17 radar_*.bin on disk
+val_minutes,20260906_2319,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2319,chunk_count_mismatch,expected_chunks=58 but 44 radar_*.bin on disk
+val_minutes,20260906_2320,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2320,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2320,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+val_minutes,20260906_2322,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2323,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2323,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+val_minutes,20260906_2324,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2325,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2325,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2325,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2325,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2326,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2326,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2326,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2327,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2327,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260906_2327,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2328,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2333,malformed_manifest,parse_mode=json_partial
+val_minutes,20260906_2333,unknown_label,label 'present' not in taxonomy
+val_minutes,20260906_2333,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2334,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260906_2334,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2334,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
+val_minutes,20260906_2337,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2338,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260906_2341,leftover_tmp,1 .tmp file(s): .capture.npz.38232.tmp
+val_minutes,20260906_2341,chunk_count_mismatch,expected_chunks=58 but 22 radar_*.bin on disk
+val_minutes,20260906_2342,chunk_count_mismatch,expected_chunks=58 but 44 radar_*.bin on disk
+val_minutes,20260906_2343,chunk_count_mismatch,expected_chunks=58 but 6 radar_*.bin on disk
+val_minutes,20260907_2248,malformed_manifest,parse_mode=json_partial
+val_minutes,20260907_2248,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260907_2248,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2249,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2250,malformed_manifest,parse_mode=json_partial
+val_minutes,20260907_2250,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260907_2250,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2251,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2252,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260907_2252,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2252,chunk_count_mismatch,expected_chunks=58 but 38 radar_*.bin on disk
+val_minutes,20260907_2254,malformed_manifest,parse_mode=json_partial
+val_minutes,20260907_2254,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260907_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2256,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2256,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+val_minutes,20260907_2305,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2306,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260907_2306,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260907_2306,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+val_minutes,20260907_2308,chunk_count_mismatch,expected_chunks=58 but 46 radar_*.bin on disk
+val_minutes,20260907_2309,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260907_2309,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
+val_minutes,20260908_0031,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+val_minutes,20260908_0031,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0032,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0033,malformed_manifest,parse_mode=json_partial
+val_minutes,20260908_0033,unknown_label,label 'present' not in taxonomy
+val_minutes,20260908_0033,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0034,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0035,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0037,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0037,manifest_error,Synchronized container finalization failed: dictionary changed size during iteration
+val_minutes,20260908_0038,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0040,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0044,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+val_minutes,20260908_0044,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0044,chunk_count_mismatch,expected_chunks=58 but 51 radar_*.bin on disk
+val_minutes,20260908_0048,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0048,chunk_count_mismatch,expected_chunks=58 but 46 radar_*.bin on disk
+val_minutes,20260908_0050,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0051,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0052,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0055,malformed_manifest,parse_mode=json_partial
+val_minutes,20260908_0055,unknown_label,label 'empty' not in taxonomy
+val_minutes,20260908_0055,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0056,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0101,manifest_error,Radar analysis exceeded its shutdown deadline.
+val_minutes,20260908_0102,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+val_minutes,20260908_0103,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
+test_minutes,20260915_1941,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1941,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1942,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1942,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1943,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1943,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1944,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1944,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1945,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1945,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1946,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1946,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1947,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1947,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1948,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1948,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1949,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1949,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1950,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1950,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1951,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1951,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1952,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1952,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1953,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1953,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1954,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1954,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1955,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1955,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1956,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1956,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1957,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1957,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1958,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1958,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_1959,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_1959,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2000,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2000,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2001,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2001,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2002,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2002,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2003,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2003,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2004,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2004,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2005,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2005,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2006,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2006,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2007,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2007,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2008,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2008,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2009,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2009,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2010,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2010,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2011,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2011,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2012,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2012,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2013,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2013,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2014,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2014,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2015,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2015,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2016,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2016,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2017,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2017,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2018,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2018,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2019,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2019,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2020,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2020,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2021,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2021,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2022,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2022,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2023,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2023,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2024,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2024,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2025,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2025,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2026,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2026,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2027,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2027,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2028,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2028,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2029,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2029,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2030,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2030,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2031,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2031,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2032,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2032,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2033,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2033,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2034,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2034,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2035,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2035,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2036,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2036,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2037,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2037,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2038,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2038,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2039,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2039,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2040,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2040,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2041,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2041,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2042,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2042,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2043,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2043,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2044,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2044,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2045,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2045,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2046,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2046,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2047,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2047,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2048,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2048,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2049,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2049,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2050,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2050,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2051,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2051,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2052,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2052,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2053,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2053,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2054,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2054,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2055,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2055,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2056,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2056,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2057,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2057,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2058,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2058,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2059,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2059,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2100,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2100,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2101,leftover_tmp,1 .tmp file(s): .capture.npz.6418.tmp
+test_minutes,20260915_2101,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2101,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2101,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+test_minutes,20260915_2117,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2117,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2118,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2118,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2119,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2119,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2120,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2120,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2121,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2121,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2122,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2122,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2123,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2123,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2124,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2124,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2125,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2125,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2126,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2126,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2127,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2127,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2128,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2128,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2129,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2129,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2130,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2130,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2131,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2131,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2132,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2132,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2133,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2133,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2134,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2134,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2135,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2135,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2136,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2136,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2137,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2137,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2138,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2138,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2139,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2139,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2140,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2140,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2141,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2141,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2142,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2142,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2143,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2143,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2144,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2144,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2145,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2145,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2146,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2146,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2147,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2147,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2148,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2148,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2149,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2149,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2150,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2150,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2151,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2151,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2152,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2152,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2153,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2153,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2154,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2154,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2155,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2155,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2156,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2156,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2157,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2157,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2158,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2158,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2159,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2159,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2200,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2200,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2201,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2201,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2202,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2202,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2203,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2203,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2204,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2204,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2205,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2205,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2206,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2206,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2207,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2207,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2208,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2208,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2209,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2209,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2210,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2210,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2211,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2211,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2212,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2212,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2213,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2213,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2214,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2214,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2215,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2215,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2216,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2216,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2217,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2217,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2218,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2218,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2219,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2219,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2220,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2220,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2221,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2221,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2222,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2222,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2223,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2223,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2224,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2224,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2225,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2225,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2226,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2226,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2227,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2227,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2228,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2228,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2229,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2229,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2230,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2230,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2231,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2231,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2232,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2232,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2233,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2233,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2234,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2234,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2235,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2235,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2236,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2236,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2237,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2237,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2238,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2238,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2239,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2239,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2240,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2240,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2241,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2241,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2242,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2242,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2243,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2243,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2244,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2244,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2245,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2245,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2246,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2246,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2247,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2247,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2248,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2248,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2249,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2249,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2250,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2250,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2251,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2251,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2252,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2252,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2253,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2253,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2254,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2254,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2255,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2255,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2256,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2256,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2257,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2257,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2258,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2258,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2259,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2259,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2300,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2300,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2301,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2301,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2302,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2302,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2303,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2303,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2304,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2304,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2305,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2305,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2306,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2306,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2307,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2307,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2308,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2308,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2309,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260915_2309,missing_xytracking,no xy-tracking.json
+test_minutes,20260915_2309,chunk_count_mismatch,expected_chunks=58 but 34 radar_*.bin on disk

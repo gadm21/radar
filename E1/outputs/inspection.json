@@ -1,0 +1,6301 @@
+{
+  "n_problems": 1009,
+  "problem_categories": {
+    "manifest_error": 504,
+    "chunk_count_mismatch": 126,
+    "leftover_tmp": 61,
+    "corrupt_bin": 14,
+    "corrupt_xytracking": 3,
+    "malformed_manifest": 53,
+    "unknown_label": 53,
+    "missing_xytracking": 195
+  },
+  "train_minutes": {
+    "n_folders": 1394,
+    "n_empty_folders": 0,
+    "n_with_manifest": 1394,
+    "manifest_parse_modes": {
+      "json": 1383,
+      "regex": 1,
+      "json_partial": 10
+    },
+    "manifest_status": {
+      "success": 1226,
+      "collecting": 83,
+      "partial": 84,
+      "none": 1
+    },
+    "manifest_schema": {
+      "thoth-minute-manifest/v5": 1320,
+      "thoth-minute-manifest/v4": 73,
+      "none": 1
+    },
+    "label_status": {
+      "ok": 1394
+    },
+    "raw_label_counts": {
+      "t1_sleep": 808,
+      "t2_empty": 84,
+      "t2_present": 122,
+      "t2_sleep": 217,
+      "t1_present": 63,
+      "t1_empty": 100,
+      "absent": 11,
+      "empty": 11
+    },
+    "placement_counts": {
+      "t1": 971,
+      "t2": 423
+    },
+    "activity_counts": {
+      "sleep": 1025,
+      "empty": 184,
+      "present": 185
+    },
+    "position_counts": {
+      "none": 1394
+    },
+    "n_with_radar_bin": 1394,
+    "n_with_npz": 0,
+    "n_with_csi": 1347,
+    "n_with_xytracking": 1394,
+    "n_with_ha_status": 1394,
+    "n_with_sense_error": 0,
+    "total_radar_bin_files": 61849,
+    "total_radar_frames_bin": 618350,
+    "total_csi_lines": 7518261,
+    "total_bytes": 34096607005,
+    "total_tmp_files": 30,
+    "folders_per_day": {
+      "2026-08-17": 162,
+      "2026-08-18": 800,
+      "2026-08-26": 71,
+      "2026-08-27": 361
+    },
+    "bin_frames_per_folder": {
+      "n": 1394,
+      "mean": 443.5796269727403,
+      "min": 0.0,
+      "max": 570.0,
+      "median": 500.0
+    },
+    "npz_frames_per_folder": {
+      "n": 0
+    },
+    "duration_s": {
+      "n": 1393,
+      "mean": 105.62577171541339,
+      "min": 58.0,
+      "max": 195.86800003051758,
+      "median": 107.34299993515015
+    }
+  },
+  "val_minutes": {
+    "n_folders": 329,
+    "n_empty_folders": 0,
+    "n_with_manifest": 329,
+    "manifest_parse_modes": {
+      "json": 287,
+      "json_partial": 40,
+      "regex": 2
+    },
+    "manifest_status": {
+      "success": 136,
+      "partial": 105,
+      "collecting": 86,
+      "none": 2
+    },
+    "manifest_schema": {
+      "thoth-minute-manifest/v6": 248,
+      "thoth-minute-manifest/v4": 79,
+      "none": 2
+    },
+    "label_status": {
+      "ok": 329
+    },
+    "raw_label_counts": {
+      "t_empty": 220,
+      "absent": 40,
+      "empty": 40,
+      "t_present": 89,
+      "t_sleep": 20,
+      "right": 7,
+      "present": 2,
+      "occupied": 2,
+      "left": 2
+    },
+    "placement_counts": {
+      "t": 329
+    },
+    "activity_counts": {
+      "empty": 220,
+      "present": 89,
+      "sleep": 20
+    },
+    "position_counts": {
+      "none": 320,
+      "right": 7,
+      "left": 2
+    },
+    "n_with_radar_bin": 55,
+    "n_with_npz": 274,
+    "n_with_csi": 55,
+    "n_with_xytracking": 328,
+    "n_with_ha_status": 328,
+    "n_with_sense_error": 329,
+    "total_radar_bin_files": 2093,
+    "total_radar_frames_bin": 20930,
+    "total_csi_lines": 270525,
+    "total_bytes": 6322978360,
+    "total_tmp_files": 30,
+    "folders_per_day": {
+      "2026-09-06": 272,
+      "2026-09-07": 23,
+      "2026-09-08": 34
+    },
+    "bin_frames_per_folder": {
+      "n": 55,
+      "mean": 380.54545454545456,
+      "min": 60.0,
+      "max": 570.0,
+      "median": 410.0
+    },
+    "npz_frames_per_folder": {
+      "n": 273,
+      "mean": 361.5018315018315,
+      "min": 10.0,
+      "max": 570.0,
+      "median": 380.0
+    },
+    "duration_s": {
+      "n": 327,
+      "mean": 130.3735443408336,
+      "min": 58.0,
+      "max": 214.29900002479553,
+      "median": 147.65700006484985
+    }
+  },
+  "test_minutes": {
+    "n_folders": 194,
+    "n_empty_folders": 0,
+    "n_with_manifest": 194,
+    "manifest_parse_modes": {
+      "json": 194
+    },
+    "manifest_status": {
+      "partial": 192,
+      "collecting": 2
+    },
+    "manifest_schema": {
+      "thoth-minute-manifest/v7": 194
+    },
+    "label_status": {
+      "ok": 194
+    },
+    "raw_label_counts": {
+      "present": 81,
+      "empty": 113
+    },
+    "placement_counts": {
+      "t": 194
+    },
+    "activity_counts": {
+      "present": 81,
+      "empty": 113
+    },
+    "position_counts": {
+      "none": 194
+    },
+    "n_with_radar_bin": 2,
+    "n_with_npz": 192,
+    "n_with_csi": 2,
+    "n_with_xytracking": 0,
+    "n_with_ha_status": 0,
+    "n_with_sense_error": 0,
+    "total_radar_bin_files": 91,
+    "total_radar_frames_bin": 910,
+    "total_csi_lines": 9649,
+    "total_bytes": 4574052075,
+    "total_tmp_files": 1,
+    "folders_per_day": {
+      "2026-09-15": 194
+    },
+    "bin_frames_per_folder": {
+      "n": 2,
+      "mean": 455.0,
+      "min": 340.0,
+      "max": 570.0,
+      "median": 455.0
+    },
+    "npz_frames_per_folder": {
+      "n": 192,
+      "mean": 552.8645833333334,
+      "min": 440.0,
+      "max": 570.0,
+      "median": 570.0
+    },
+    "duration_s": {
+      "n": 194,
+      "mean": 58.89209278219754,
+      "min": 58.0,
+      "max": 61.14400005340576,
+      "median": 58.68149995803833
+    }
+  },
+  "problems": [
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2147",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2147",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2159",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2159",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2203",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2206",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2206",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 53 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2209",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2214",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2214",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2216",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2242",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2242",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2243",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2243",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 53 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2250",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2250",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2252",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2254",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2256",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2256",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2338",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260817_2354",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0049",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0052",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0052",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0052",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0110",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0130",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0130",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0130",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0141",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0141",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0144",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0144",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0156",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0222",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0223",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0249",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0401",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0402",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0413",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0413",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0414",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0414",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0414",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0443",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0446",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0446",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0507",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0507",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0511",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0511",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0525",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0552",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0552",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0552",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0606",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0614",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0614",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0623",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0627",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0631",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0757",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0757",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0806",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0806",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0806",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0815",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0815",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0823",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0825",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): xy-tracking.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0825",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0825",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0827",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0832",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0832",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 47 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0907",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0907",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0907",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0918",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0918",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0921",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0926",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0945",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_0946",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1010",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1029",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1033",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1038",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1039",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1039",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1050",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_043_20260818_180445_941.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_044_20260818_180446_845.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_045_20260818_180447_219.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_046_20260818_180447_559.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_047_20260818_180448_815.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_048_20260818_180453_233.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_049_20260818_180453_563.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_050_20260818_180455_229.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_051_20260818_180456_552.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_052_20260818_180457_007.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "corrupt_bin",
+      "detail": "radar_053_20260818_180457_442.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1804",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1805",
+      "category": "corrupt_bin",
+      "detail": "radar_000_20260818_180501_108.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1805",
+      "category": "corrupt_bin",
+      "detail": "radar_001_20260818_180502_107.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1805",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 2 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1809",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1810",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1812",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1815",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1815",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1818",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1818",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1819",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1819",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1820",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1823",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): xy-tracking.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1823",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1825",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1825",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1826",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1826",
+      "category": "corrupt_xytracking",
+      "detail": "truncated (no closing '}')"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1830",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1831",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1831",
+      "category": "corrupt_xytracking",
+      "detail": "truncated (no closing '}')"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1833",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1834",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1839",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1848",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1855",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1856",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1856",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1859",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1859",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1918",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1924",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1949",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1949",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1955",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1955",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1956",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_1957",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2000",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2000",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2013",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2023",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2028",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2032",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2035",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2035",
+      "category": "corrupt_xytracking",
+      "detail": "truncated (no closing '}')"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2036",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2036",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 43 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2040",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2040",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2040",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 48 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2044",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): xy-tracking.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2044",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2047",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2047",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2047",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2053",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2056",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2057",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2057",
+      "category": "corrupt_bin",
+      "detail": "radar_038_20260818_205743_712.bin: empty file"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260818_2057",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 39 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1624",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1632",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1649",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1649",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1649",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1712",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1713",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1714",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 23 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1814",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1814",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 56 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1819",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1819",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1828",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 40 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260826_1829",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 28 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0335",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0335",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0342",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0406",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0407",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0407",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 49 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0426",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0426",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 49 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0433",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0433",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0433",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0440",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0447",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0458",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0458",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 55 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0501",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0506",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0517",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0518",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0518",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 42 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0520",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0520",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0522",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0524",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0524",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 53 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0525",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0525",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 45 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0533",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0534",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0534",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 41 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0557",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0557",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 53 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0618",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0618",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 52 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0620",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0620",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0622",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 27 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_0623",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 17 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1338",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1356",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1356",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1409",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1439",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1442",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 40 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1443",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 24 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1444",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 11 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1858",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=regex"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1858",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1900",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1903",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1903",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1918",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1918",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1918",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1920",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1920",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1920",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 53 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1922",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1923",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1924",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1925",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1925",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1925",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1927",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1933",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1933",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1936",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1944",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1944",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1944",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1946",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1946",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1946",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1951",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1951",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1953",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1953",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1953",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1957",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1957",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_1957",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2003",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2003",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2003",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2005",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2005",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2005",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2007",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2012",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2017",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2024",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2024",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2024",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2026",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2026",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2026",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 49 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2028",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2029",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2029",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2029",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2035",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 30 radar_*.bin on disk"
+    },
+    {
+      "source": "train_minutes",
+      "folder": "20260827_2036",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1805",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1805",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1805",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1806",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1808",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1811",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1811",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1811",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1811",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1812",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1812",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1812",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1813",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1814",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1816",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1817",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1817",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 28 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1818",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1818",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1818",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1819",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1820",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1821",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1827",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1828",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1829",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1831",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1833",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1833",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1833",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1834",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1834",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1834",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1835",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1835",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1835",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1836",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1836",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 43 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1837",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1837",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1837",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1838",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=regex"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1838",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1839",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1840",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1840",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1840",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1846",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1847",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1847",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 31 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1848",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1848",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 32 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1851",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1851",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1851",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1852",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1853",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=regex"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1853",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1854",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1855",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1855",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 42 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1859",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1859",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1900",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1902",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1903",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1904",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1905",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1905",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1906",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.10073.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1906",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1907",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 19 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1908",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 16 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1913",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.11461.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1913",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 8 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1914",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 7 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1921",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1922",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1923",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1924",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1924",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1924",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1925",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1929",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1929",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 49 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1930",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1931",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1931",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 36 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1932",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1932",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1932",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 39 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1933",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1933",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1933",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1936",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1936",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 47 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1938",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1939",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1940",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.14793.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1940",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1941",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 37 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1942",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 45 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1946",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1947",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1948",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1948",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1948",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1948",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1950",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1952",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1952",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1952",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1954",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1955",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1956",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_1959",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2001",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2001",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2001",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2002",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.18040.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2002",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 26 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2003",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2004",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 35 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2104",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2105",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2108",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2111",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2111",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2111",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2117",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2118",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2118",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2118",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2125",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2126",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2128",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2129",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2129",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 49 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2131",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2131",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2131",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 34 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2133",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2133",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 51 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2136",
+      "category": "manifest_error",
+      "detail": "Radar produced no complete 10-frame chunks for this minute."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2136",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2138",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2138",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2140",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2140",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2140",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2141",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2142",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2144",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2144",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2144",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2145",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2146",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2147",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2151",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2151",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2151",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2152",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2152",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2152",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2152",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2153",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): xy-tracking.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2153",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2154",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2155",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2155",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2155",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2156",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2156",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 41 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2157",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2157",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 31 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2159",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2200",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2201",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2201",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2201",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2202",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2203",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2204",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2204",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2204",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2206",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2207",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2209",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2210",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2212",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2212",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2212",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2214",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2215",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2215",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2215",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2216",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2216",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 22 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2219",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2219",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2219",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2220",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2223",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2223",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2223",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2224",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2224",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 28 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2226",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2226",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2226",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2227",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2228",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2229",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2229",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 36 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2231",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2231",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2231",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2232",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2232",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 30 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2235",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2236",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2241",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2242",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2242",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 54 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2243",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2243",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2243",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2246",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2247",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2249",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2249",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2251",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2253",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2254",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2254",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2254",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 47 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2255",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2256",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2258",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2259",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2259",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2301",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2303",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2306",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2307",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2307",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2307",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2307",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2311",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2312",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.33714.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2312",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 36 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2313",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 53 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2314",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 17 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2319",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2319",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 44 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2320",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2320",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2320",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 41 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2322",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2323",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2323",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 40 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2324",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2325",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2325",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2325",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2325",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2326",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2326",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2326",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2327",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2327",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2327",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2328",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2333",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2333",
+      "category": "unknown_label",
+      "detail": "label 'present' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2333",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2334",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2334",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2334",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 39 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2337",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2338",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2341",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.38232.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2341",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 22 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2342",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 44 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260906_2343",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 6 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2248",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2248",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2248",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2249",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2250",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2250",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2250",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2251",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2252",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2252",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2252",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 38 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2254",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2254",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2254",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2256",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2256",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 41 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2305",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2306",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2306",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2306",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 50 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2308",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 46 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2309",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260907_2309",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 45 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0031",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): xy-tracking.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0031",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0032",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0033",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0033",
+      "category": "unknown_label",
+      "detail": "label 'present' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0033",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0034",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0035",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0037",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0037",
+      "category": "manifest_error",
+      "detail": "Synchronized container finalization failed: dictionary changed size during iteration"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0038",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0040",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0044",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): manifest.json.tmp"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0044",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0044",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 51 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0048",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0048",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 46 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0050",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0051",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0052",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0055",
+      "category": "malformed_manifest",
+      "detail": "parse_mode=json_partial"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0055",
+      "category": "unknown_label",
+      "detail": "label 'empty' not in taxonomy"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0055",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0056",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0101",
+      "category": "manifest_error",
+      "detail": "Radar analysis exceeded its shutdown deadline."
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0102",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 40 radar_*.bin on disk"
+    },
+    {
+      "source": "val_minutes",
+      "folder": "20260908_0103",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 42 radar_*.bin on disk"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1941",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1941",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1942",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1942",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1943",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1943",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1944",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1944",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1945",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1945",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1946",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1946",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1947",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1947",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1948",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1948",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1949",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1949",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1950",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1950",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1951",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1951",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1952",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1952",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1953",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1953",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1954",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1954",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1955",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1955",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1956",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1956",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1957",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1957",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1958",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1958",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1959",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_1959",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2000",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2000",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2001",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2001",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2002",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2002",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2003",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2003",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2004",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2004",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2005",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2005",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2006",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2006",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2007",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2007",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2008",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2008",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2009",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2009",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2010",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2010",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2011",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2011",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2012",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2012",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2013",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2013",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2014",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2014",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2015",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2015",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2016",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2016",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2017",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2017",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2018",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2018",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2019",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2019",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2020",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2020",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2021",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2021",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2022",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2022",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2023",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2023",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2024",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2024",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2025",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2025",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2026",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2026",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2027",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2027",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2028",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2028",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2029",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2029",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2030",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2030",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2031",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2031",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2032",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2032",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2033",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2033",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2034",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2034",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2035",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2035",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2036",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2036",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2037",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2037",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2038",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2038",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2039",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2039",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2040",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2040",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2041",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2041",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2042",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2042",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2043",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2043",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2044",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2044",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2045",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2045",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2046",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2046",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2047",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2047",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2048",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2048",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2049",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2049",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2050",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2050",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2051",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2051",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2052",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2052",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2053",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2053",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2054",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2054",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2055",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2055",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2056",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2056",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2057",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2057",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2058",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2058",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2059",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2059",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2100",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2100",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2101",
+      "category": "leftover_tmp",
+      "detail": "1 .tmp file(s): .capture.npz.6418.tmp"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2101",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2101",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2101",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2117",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2117",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2118",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2118",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2119",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2119",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2120",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2120",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2121",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2121",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2122",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2122",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2123",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2123",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2124",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2124",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2125",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2125",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2126",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2126",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2127",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2127",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2128",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2128",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2129",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2129",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2130",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2130",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2131",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2131",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2132",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2132",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2133",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2133",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2134",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2134",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2135",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2135",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2136",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2136",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2137",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2137",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2138",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2138",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2139",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2139",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2140",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2140",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2141",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2141",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2142",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2142",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2143",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2143",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2144",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2144",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2145",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2145",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2146",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2146",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2147",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2147",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2148",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2148",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2149",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2149",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2150",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2150",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2151",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2151",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2152",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2152",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2153",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2153",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2154",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2154",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2155",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2155",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2156",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2156",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2157",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2157",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2158",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2158",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2159",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2159",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2200",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2200",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2201",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2201",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2202",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2202",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2203",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2203",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2204",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2204",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2205",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2205",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2206",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2206",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2207",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2207",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2208",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2208",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2209",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2209",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2210",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2210",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2211",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2211",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2212",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2212",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2213",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2213",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2214",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2214",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2215",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2215",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2216",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2216",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2217",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2217",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2218",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2218",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2219",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2219",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2220",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2220",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2221",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2221",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2222",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2222",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2223",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2223",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2224",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2224",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2225",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2225",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2226",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2226",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2227",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2227",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2228",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2228",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2229",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2229",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2230",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2230",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2231",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2231",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2232",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2232",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2233",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2233",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2234",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2234",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2235",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2235",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2236",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2236",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2237",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2237",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2238",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2238",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2239",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2239",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2240",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2240",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2241",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2241",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2242",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2242",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2243",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2243",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2244",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2244",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2245",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2245",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2246",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2246",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2247",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2247",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2248",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2248",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2249",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2249",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2250",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2250",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2251",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2251",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2252",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2252",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2253",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2253",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2254",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2254",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2255",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2255",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2256",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2256",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2257",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2257",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2258",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2258",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2259",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2259",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2300",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2300",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2301",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2301",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2302",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2302",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2303",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2303",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2304",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2304",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2305",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2305",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2306",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2306",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2307",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2307",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2308",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2308",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2309",
+      "category": "manifest_error",
+      "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2309",
+      "category": "missing_xytracking",
+      "detail": "no xy-tracking.json"
+    },
+    {
+      "source": "test_minutes",
+      "folder": "20260915_2309",
+      "category": "chunk_count_mismatch",
+      "detail": "expected_chunks=58 but 34 radar_*.bin on disk"
+    }
+  ]
+}

@@ -1,30 +1,53 @@
-# E1 — Left/Right Localization (heuristic approach, superseded)
+# E1 — Dataset Audit
 
-## Task
+Exploratory inspection of the three dataset roots, `train_minutes/`,
+`val_minutes/` and `test_minutes/`. Produces detailed tables and figures
+on folder/file
+completeness, manifest health, the label taxonomy, sensor coverage
+(radar / Wi-Fi CSI / xy-tracking / Sense-HAT / camera), collection
+timing, and a catalog of every missing or corrupt instance.
 
-Classify the occupant's position as **left** vs **right** from mmWave
-radar, using the `test_minutes/` recordings that carry a left/right
-ground-truth label.
+## Layout
 
-## Approach (abandoned)
+| file | purpose |
+|---|---|
+| `common.py` | paths, tolerant manifest parsing, label taxonomy, `.bin`/`capture.npz`/CSV/JSON integrity helpers |
+| `inspect_dataset.py` | full scan -> `outputs/inspection.json`, `outputs/per_minute.csv`, `outputs/problems.csv` |
+| `plots.py` | figures -> `outputs/figs/` |
+| `report.py` | `outputs/REPORT.md` |
+| `run_all.py` | one-command pipeline |
 
-A hand-derived physics pipeline: decode raw ADC frames -> range FFT ->
-Doppler FFT -> Bartlett beamforming across the 3 RX antennas -> pick the
-strongest range-Doppler peak -> map its azimuth to left/right, with a
-calibration subset resolving the hardware sign convention and a
-confidence-weighted vote aggregating windows into a per-minute call.
+## Run
 
-## Result
+```powershell
+pip install -r E1/requirements.txt
+python E1/run_all.py
+```
 
-Near-chance discrimination: minute-level balanced accuracy ~0.50 and a
-strong bias toward predicting one side regardless of the true label.
-With only 3 RX antennas (effective 2-element azimuth aperture at
-half-wavelength spacing), weak SNR, and heavy indoor multipath, the
-per-frame angle estimate did not reliably separate left from right.
+## What is checked (per minute folder)
 
-## Superseded by
+- **Folder**: file count, total bytes, leftover `*.tmp` files, empty folders.
+- **Manifest**: presence; parse mode (`json` / `json_partial` / `regex` /
+  `unparsable`); `status` field (`success` / `partial` / `collecting`);
+  schema version; `warnings`/`errors`; `expected_chunks` vs on-disk
+  `radar_*.bin` count; capture duration.
+- **Labels**: full raw counts plus mapping to the task taxonomy —
+  placement (`t1`/`t2`/`t`), activity (`empty`/`sleep`/`present`),
+  position (`left`/`right`), `radar-missing` flag, auxiliary auto-labels
+  (`absent`/`empty`/`present`/`occupied`); unlabeled and ambiguous
+  folders are flagged.
+- **Radar**: `radar_*.bin` — count, byte size, frame count
+  (size / 36876 B frame), truncated/partial-frame files, unparseable
+  filename timestamps. `capture.npz` — zip opens, required arrays
+  present, radar/CSI/sense/camera sample counts.
+- **CSI**: `wifi_csi*.csv` count, sizes, `CSI_DATA` line counts
+  (header-only ~54 B receiver files detected).
+- **Other sensors**: `xy-tracking.json` presence + truncation check
+  (full `json.loads` on a sample), `.home_assistant_status.json`,
+  `sense_hat.error.json`.
 
-**E3** — a model-based approach (CNN over range-Doppler + range-azimuth
-maps) that learns the spatial signature directly and reaches 0.989
-window-level / 1.000 minute-level accuracy under stratified group 5-fold
-cross-validation. See `E3/README.md`.
+## Outputs
+
+`outputs/`: `inspection.json` (aggregate), `per_minute.csv` (one row per
+folder), `problems.csv` (one row per problem instance), `REPORT.md`,
+`figs/*.png`.

@@ -28,11 +28,15 @@ def load_index():
     """Scan the cache and return a DataFrame of recordings."""
     import pandas as pd
     rows = []
-    for source in ("minutes", "test_minutes"):
+    for source in ("train_minutes", "val_minutes", "test_minutes"):
         for f in sorted((C.CACHE_DIR / source).glob("*.npz")):
             d = np.load(f)
             meta = json.loads(str(d["meta"]))
             meta["path"] = str(f)
+            meta["split"] = source
+            # cached meta may carry a stale source prefix from before the
+            # cache migration — rec_id must reflect the real split
+            meta["rec_id"] = f"{source}/{f.stem}"
             meta["n_windows"] = int(d["radar"].shape[0])
             meta["n_csi_valid"] = int(d["csi_valid"].sum())
             rows.append(meta)
@@ -188,15 +192,25 @@ def compute_metrics(y_true, prob, threshold=0.5):
     }
 
 
-def per_minute_metrics(y_true, prob, rec_idx, threshold=0.5):
-    """Aggregate window probabilities per recording (mean prob -> label)."""
+def per_minute_metrics(y_true, prob, rec_idx, threshold=0.5, agg="top2"):
+    """Aggregate window probabilities per recording -> label.
+
+    agg='top2' averages the two highest window probabilities: a
+    present-but-still person still moves occasionally within a minute, so
+    the top windows carry the occupancy signal while a plain mean is
+    diluted by the still windows (this is what separates the weak-signal
+    test day)."""
     y_true = np.asarray(y_true); prob = np.asarray(prob)
     rec_idx = np.asarray(rec_idx)
     yt, yp = [], []
     for r in np.unique(rec_idx):
         m = rec_idx == r
         yt.append(int(np.round(y_true[m].mean())))
-        yp.append(float(prob[m].mean()))
+        pm = np.sort(prob[m])
+        if agg == "top2" and len(pm) >= 2:
+            yp.append(float(pm[-2:].mean()))
+        else:
+            yp.append(float(pm.mean()))
     return compute_metrics(yt, yp, threshold)
 
 
@@ -296,11 +310,12 @@ def train_model(modality, train_arrays, val_arrays, cfg, seed, device="cpu",
                 flip = torch.rand(r.shape[0]) < 0.5
                 r[flip] = torch.flip(r[flip], dims=[-2])
             if modality == "fusion":
-                # CSI dropout: zero the CSI input on 30% of windows that
-                # have CSI, so the gate learns a radar-only fallback and
-                # can't over-fit to t1's receiver-specific CSI patterns
+                # CSI dropout: zero the CSI input on a fraction of windows
+                # that have CSI, so the gate learns a radar-only fallback
+                # and can't over-fit to the train receiver's CSI patterns
+                p_drop = cfg.get("csi_dropout", 0.3)
                 has = c.abs().sum(dim=(1, 2)) > 0
-                drop = (torch.rand(c.shape[0]) < 0.3) & has
+                drop = (torch.rand(c.shape[0]) < p_drop) & has
                 c[drop] = 0.0
             y = y.to(device).float()
             out = _forward(model, modality, r, c)
@@ -327,13 +342,26 @@ def train_model(modality, train_arrays, val_arrays, cfg, seed, device="cpu",
         model.load_state_dict(best["state"])
 
     vy, vp, _ = predict(model, val_loader, device, modality)
-    thr_grid = np.arange(0.30, 0.71, 0.02)
-    scores = [compute_metrics(vy, vp, t)["macro_f1"] for t in thr_grid]
-    best_thr = float(thr_grid[int(np.argmax(scores))])
-    return model, best_thr, history, train_seconds, n_params
+    vrec = val_sub["rec_idx"]
+    if modality == "csi":
+        vrec = vrec[val_sub["csi_valid"].astype(bool)]
+    thr_grid = np.arange(0.05, 0.95, 0.01)
+    scores = np.array([compute_metrics(vy, vp, t)["macro_f1"]
+                       for t in thr_grid])
+    # median of the optimal range: val probs saturate, so the argmax edge
+    # of a wide optimal band miscalibrates on a shifted test day
+    best_thr = float(np.median(thr_grid[scores >= scores.max() - 1e-9]))
+    # separate threshold for minute-level top-2 aggregation — the optimal
+    # operating point differs from the window-level one
+    mscores = np.array([per_minute_metrics(vy, vp, vrec, t)["macro_f1"]
+                        for t in thr_grid])
+    minute_thr = float(np.median(
+        thr_grid[mscores >= mscores.max() - 1e-9]))
+    return model, best_thr, minute_thr, history, train_seconds, n_params
 
 
-def evaluate(model, arrays, modality, threshold, device="cpu", batch_size=256):
+def evaluate(model, arrays, modality, threshold, minute_thr=None,
+             device="cpu", batch_size=256):
     loader = make_loader(arrays, batch_size, False,
                          csi_only_valid=(modality == "csi"))
     y, p, g = predict(model, loader, device, modality)
@@ -342,7 +370,8 @@ def evaluate(model, arrays, modality, threshold, device="cpu", batch_size=256):
         idx = idx[arrays["csi_valid"]]
     rec_idx = arrays["rec_idx"][idx]
     win = compute_metrics(y, p, threshold)
-    minute = per_minute_metrics(y, p, rec_idx, threshold)
+    minute = per_minute_metrics(y, p, rec_idx,
+                                threshold if minute_thr is None else minute_thr)
     gate_mean = float(g.mean()) if g is not None else None
     return {"window": win, "minute": minute, "gate_radar_mean": gate_mean,
             "y": y.tolist(), "p": [float(x) for x in p],

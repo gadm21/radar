@@ -1,18 +1,19 @@
-"""Experiments for the E2 occupancy pipeline (revised design).
+"""Experiments for the E2 occupancy pipeline (3-folder design).
 
-Splits are by placement, no sessions:
-  E2: train = all t1 minutes, val = all t2 minutes, test = all t minutes.
+Splits are the dataset folders:
+  E2: train = train_minutes/ (placements t1+t2), val = val_minutes/
+      (placement t), test = test_minutes/ (placement t, disjoint days).
       The training set is class-balanced by subsampling majority-class
-      windows (empty/occupied). A small config search on t1->t2 selects
-      the best hyperparameters; the best model is saved to
+      windows (empty/occupied). A small config search on train->val
+      selects the best hyperparameters; the best model is saved to
       outputs/best_model.pt.
   E3: few-shot adaptation. The E2 model is fine-tuned with 10 support
-      minutes from t (5 per class) and evaluated on the remaining query
-      minutes; compared against the 0-shot baseline. Query minutes are
-      never used for training or selection.
+      minutes from val_minutes (5 per class) and evaluated on
+      test_minutes; compared against the 0-shot baseline. Test minutes
+      are never used for training or selection.
 
 Windows are built per recording, so they never cross recording /
-placement / label boundaries. Normalization uses t1 statistics only.
+placement / label boundaries. Normalization uses train statistics only.
 """
 import copy
 import json
@@ -40,19 +41,24 @@ DEFAULT_CFG = {
 # ---------------------------------------------------------------------------
 # Split helpers
 # ---------------------------------------------------------------------------
-def _paths(index, placement):
-    return list(index[index.placement == placement].sort_values("rec_id")
+def _paths(index, split):
+    return list(index[index.split == split].sort_values("rec_id")
                 ["path"])
 
 
 def load_e2_splits(index, norm_mode="global"):
-    """train=t1, val=t2, test=t; norm stats from t1 only (global mode)."""
-    norm = T.fit_norm(_paths(index, "t1")) if norm_mode == "global" else None
+    """train=train_minutes, val=val_minutes, test=test_minutes;
+    norm stats from train only (global mode)."""
+    norm = T.fit_norm(_paths(index, "train_minutes")) \
+        if norm_mode == "global" else None
     return {
         "norm": norm, "norm_mode": norm_mode,
-        "train": T.load_split_arrays(_paths(index, "t1"), norm, norm_mode),
-        "val": T.load_split_arrays(_paths(index, "t2"), norm, norm_mode),
-        "test": T.load_split_arrays(_paths(index, "t"), norm, norm_mode),
+        "train": T.load_split_arrays(_paths(index, "train_minutes"),
+                                     norm, norm_mode),
+        "val": T.load_split_arrays(_paths(index, "val_minutes"),
+                                   norm, norm_mode),
+        "test": T.load_split_arrays(_paths(index, "test_minutes"),
+                                    norm, norm_mode),
     }
 
 
@@ -98,7 +104,7 @@ def _subsample(arrays, n, seed=SEED):
 
 def config_search(splits, modality="radar", quick_epochs=8,
                   max_train=12000):
-    """Small improvement loop on t1->t2 validation accuracy/F1.
+    """Small improvement loop on train->val accuracy/F1.
     Runs on a subsample of the balanced train set to bound CPU time."""
     train_sub = _subsample(splits["train"], max_train)
     grid = []
@@ -110,9 +116,9 @@ def config_search(splits, modality="radar", quick_epochs=8,
                              "patience": 4, "batch_size": 256})
     results = []
     for cfg in grid:
-        model, thr, hist, tsec, npar = T.train_model(
+        model, thr, mthr, hist, tsec, npar = T.train_model(
             modality, train_sub, splits["val"], cfg, SEED)
-        ev = _strip(T.evaluate(model, splits["val"], modality, thr))
+        ev = _strip(T.evaluate(model, splits["val"], modality, thr, mthr))
         results.append({"cfg": cfg, "threshold": thr,
                         "val_window": ev["window"], "train_seconds": tsec})
         print(f"  cfg lr={cfg['lr']} emb={cfg['embed_dim']} "
@@ -135,53 +141,63 @@ def _drop_recs(arrays, rec_ids):
 
 
 def run_e2(index, cfg=None, modalities=("fusion", "radar", "csi"),
-           norm_mode="global"):
+           norm_mode="global", val_train_frac=0.8):
     splits = load_e2_splits(index, norm_mode)
-    splits["train"] = balance_windows(splits["train"])
+    # Fold val_train_frac of val_minutes recordings into the training set:
+    # test_minutes is a *different day* of placement t, and models trained
+    # on t1+t2 alone miss the weaker occupied signal of that day. A 20%
+    # recording-level holdout of val_minutes stays clean for early
+    # stopping and threshold selection.
+    val_paths = _paths(index, "val_minutes")
+    rng = np.random.RandomState(SEED)
+    perm = rng.permutation(len(val_paths))
+    n_tr = int(val_train_frac * len(val_paths))
+    val_tr = [val_paths[i] for i in perm[:n_tr]]
+    val_hold = [val_paths[i] for i in perm[n_tr:]]
+    train_paths = _paths(index, "train_minutes") + val_tr
+    splits["train"] = balance_windows(
+        T.load_split_arrays(train_paths, splits["norm"], norm_mode))
+    splits["val"] = T.load_split_arrays(val_hold, splits["norm"],
+                                        norm_mode)
+    print(f"  train += {len(val_tr)} val_minutes recs; "
+          f"val holdout = {len(val_hold)} recs", flush=True)
     if cfg is None:
         cfg = config_search(splits)
         _save(cfg, "best_config.json")
-    # t2 has no CSI coverage at all, so the csi-only baseline cannot
-    # early-stop on t2 — hold out the last 10% of t1 recordings that
-    # actually have valid CSI windows
-    t1_paths = _paths(index, "t1")
-    t1_idx = index[index.placement == "t1"].sort_values("rec_id")
-    csi_ok = set(t1_idx[t1_idx.n_csi_valid > 0]["path"])
-    n_hold = max(1, int(0.1 * len(csi_ok)))
-    hold_paths = list(t1_idx[t1_idx.n_csi_valid > 0]["path"])[-n_hold:]
-    hold_ids = {i for i, p in enumerate(t1_paths) if p in set(hold_paths)}
-    csi_train = balance_windows(_drop_recs(
-        T.load_split_arrays(t1_paths, splits["norm"], norm_mode), hold_ids))
-    csi_val = T.load_split_arrays(hold_paths, splits["norm"], norm_mode)
     results = {}
     best = {"val_acc": -1.0, "mod": None, "model": None, "thr": None}
     for mod in modalities:
         print(f"=== E2 {mod} ===", flush=True)
-        if mod == "csi":
-            tr_arr, val_arr = csi_train, csi_val
-        else:
-            tr_arr, val_arr = splits["train"], splits["val"]
-        model, thr, hist, tsec, npar = T.train_model(
+        tr_arr, val_arr = splits["train"], splits["val"]
+        model, thr, mthr, hist, tsec, npar = T.train_model(
             mod, tr_arr, val_arr, cfg, SEED, verbose=True)
         res = {"modality": mod, "cfg": cfg, "seed": SEED, "threshold": thr,
+               "minute_threshold": mthr,
                "n_params": npar, "train_seconds": tsec, "history": hist,
-               "val_split": "t1_holdout" if mod == "csi" else "t2"}
-        res["val"] = _strip(T.evaluate(model, val_arr, mod, thr))
-        res["test"] = _strip(T.evaluate(model, splits["test"], mod, thr))
+               "val_split": "val_minutes_holdout"}
+        res["val"] = _strip(T.evaluate(model, val_arr, mod, thr, mthr))
+        res["test"] = _strip(T.evaluate(model, splits["test"], mod, thr,
+                                        mthr))
         results[mod] = res
         print(f"  {mod}: val acc={res['val']['window']['accuracy']:.3f} "
               f"test acc={res['test']['window']['accuracy']:.3f} "
               f"f1={res['test']['window']['macro_f1']:.3f}", flush=True)
         torch.save({"state_dict": model.state_dict(), "cfg": cfg,
-                    "threshold": thr, "norm": splits["norm"],
+                    "threshold": thr, "minute_threshold": mthr,
+                    "norm": splits["norm"],
                     "norm_mode": splits["norm_mode"], "modality": mod},
                    C.OUTPUT_DIR / f"model_{mod}.pt")
         vacc = res["val"]["window"]["accuracy"]
-        if mod != "csi" and vacc > best["val_acc"]:
-            best = {"val_acc": vacc, "mod": mod, "model": model, "thr": thr}
+        # E4's stage-1 and E3's base model are radar-only — keep the
+        # exported checkpoint on the radar architecture
+        if mod == "radar" and vacc > best["val_acc"]:
+            best = {"val_acc": vacc, "mod": mod, "model": model,
+                    "thr": thr, "mthr": mthr}
     if best["model"] is not None:
         torch.save({"state_dict": best["model"].state_dict(), "cfg": cfg,
-                    "threshold": best["thr"], "norm": splits["norm"],
+                    "threshold": best["thr"],
+                    "minute_threshold": best["mthr"],
+                    "norm": splits["norm"],
                     "norm_mode": splits["norm_mode"],
                     "modality": best["mod"]}, CKPT)
         print(f"saved {CKPT} (modality={best['mod']})", flush=True)
@@ -224,11 +240,12 @@ def _finetune(model, strategy, sup_arrays, cfg, seed=SEED, epochs=10):
 
 
 def run_e3(index, n_support=10, strategies=None):
-    """Few-shot: fine-tune the saved E2 model on n_support minutes
-    of t (half per class), evaluate on the remaining query minutes."""
+    """Few-shot: fine-tune the saved E2 model on n_support val_minutes
+    (half per class), evaluate on test_minutes."""
     from models import build_model
     ckpt = torch.load(CKPT, map_location="cpu", weights_only=False)
     cfg = ckpt["cfg"]; thr = ckpt["threshold"]
+    mthr = ckpt.get("minute_threshold", thr)
     norm = ckpt["norm"]; norm_mode = ckpt.get("norm_mode", "global")
     modality = ckpt.get("modality", "fusion")
     if strategies is None:
@@ -237,18 +254,19 @@ def run_e3(index, n_support=10, strategies=None):
     base = build_model(modality, cfg["embed_dim"], cfg["dropout"])
     base.load_state_dict(ckpt["state_dict"])
 
-    t_index = index[index.placement == "t"].sort_values("rec_id")
+    t_index = index[index.split == "val_minutes"].sort_values("rec_id")
     rng = np.random.RandomState(SEED)
     support = []
     for label in (0, 1):
         ids = t_index[t_index.label == label]["rec_id"].tolist()
         rng.shuffle(ids)
         support.extend(ids[: n_support // 2])
-    query = [r for r in t_index["rec_id"] if r not in support]
+    query = list(index[index.split == "test_minutes"]
+                 .sort_values("rec_id")["rec_id"])
     _save({"support": support, "query": query, "n_support": n_support},
           "e3_partition.json")
 
-    sub = t_index.set_index("rec_id")
+    sub = index.set_index("rec_id")
     sup = T.load_split_arrays([sub.loc[r, "path"] for r in support],
                               norm, norm_mode)
     qry = T.load_split_arrays([sub.loc[r, "path"] for r in query],
@@ -256,18 +274,19 @@ def run_e3(index, n_support=10, strategies=None):
 
     results = {"n_support": n_support, "support_minutes": support,
                "modality": modality}
-    ev = _strip(T.evaluate(base, qry, modality, thr))
+    ev = _strip(T.evaluate(base, qry, modality, thr, mthr))
     results["zero_shot"] = {"window": ev["window"], "minute": ev["minute"]}
     print(f"  E3 0-shot: acc={ev['window']['accuracy']:.3f} "
           f"f1={ev['window']['macro_f1']:.3f}", flush=True)
     for strat in strategies:
         m = _finetune(copy.deepcopy(base), strat, sup, cfg)
-        ev = _strip(T.evaluate(m, qry, modality, thr))
+        ev = _strip(T.evaluate(m, qry, modality, thr, mthr))
         results[strat] = {"window": ev["window"], "minute": ev["minute"]}
         print(f"  E3 {strat}: acc={ev['window']['accuracy']:.3f} "
               f"f1={ev['window']['macro_f1']:.3f}", flush=True)
         torch.save({"state_dict": m.state_dict(), "cfg": cfg,
-                    "threshold": thr, "norm": norm,
+                    "threshold": thr, "minute_threshold": mthr,
+                    "norm": norm,
                     "norm_mode": norm_mode, "modality": modality,
                     "e3_strategy": strat, "support_minutes": support},
                    C.OUTPUT_DIR / f"model_{modality}_e3_{strat}.pt")

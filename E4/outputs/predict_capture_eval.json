@@ -65,22 +65,19 @@
       "test_minutes/20260908_0102",
       "test_minutes/20260908_0103"
     ],
-    "combined_accuracy": 0.8014981273408239,
-    "activity_accuracy": 0.8014981273408239,
+    "combined_accuracy": 1.0,
+    "activity_accuracy": 1.0,
     "n_position_labeled": 65,
-    "position_coverage": 0.2153846153846154,
+    "position_coverage": 1.0,
     "position_accuracy_when_emitted": 1.0,
-    "position_end_to_end_accuracy": 0.2153846153846154,
+    "position_end_to_end_accuracy": 1.0,
     "confusion_combined": {
       "empty -> empty": 183,
-      "present -> present(right)": 2,
-      "present -> present(left)": 1,
-      "sleep -> sleep": 14,
-      "sleep -> present(right)": 2,
-      "present(right) -> sleep": 30,
-      "present(right) -> present(right)": 6,
-      "present(left) -> present(left)": 8,
-      "present(left) -> sleep": 21
+      "present -> present(left)": 2,
+      "present -> present(right)": 1,
+      "sleep -> sleep": 16,
+      "present(right) -> present(right)": 36,
+      "present(left) -> present(left)": 29
     }
   },
   "rows": [
@@ -92,6 +89,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.3546963930130005,
       "activity_probs": null,
       "position_probs": null
     },
@@ -103,6 +101,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2521821856498718,
       "activity_probs": null,
       "position_probs": null
     },
@@ -114,6 +113,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2597370743751526,
       "activity_probs": null,
       "position_probs": null
     },
@@ -125,6 +125,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24135495722293854,
       "activity_probs": null,
       "position_probs": null
     },
@@ -136,6 +137,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.276025652885437,
       "activity_probs": null,
       "position_probs": null
     },
@@ -147,6 +149,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.40480658411979675,
       "activity_probs": null,
       "position_probs": null
     },
@@ -158,6 +161,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24558530747890472,
       "activity_probs": null,
       "position_probs": null
     },
@@ -169,6 +173,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24816575646400452,
       "activity_probs": null,
       "position_probs": null
     },
@@ -180,6 +185,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25265613198280334,
       "activity_probs": null,
       "position_probs": null
     },
@@ -191,6 +197,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.3416594862937927,
       "activity_probs": null,
       "position_probs": null
     },
@@ -202,6 +209,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24970819056034088,
       "activity_probs": null,
       "position_probs": null
     },
@@ -213,6 +221,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23430612683296204,
       "activity_probs": null,
       "position_probs": null
     },
@@ -224,6 +233,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.32361865043640137,
       "activity_probs": null,
       "position_probs": null
     },
@@ -235,6 +245,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.29898908734321594,
       "activity_probs": null,
       "position_probs": null
     },
@@ -246,6 +257,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2501588463783264,
       "activity_probs": null,
       "position_probs": null
     },
@@ -257,6 +269,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25124597549438477,
       "activity_probs": null,
       "position_probs": null
     },
@@ -268,6 +281,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.270127534866333,
       "activity_probs": null,
       "position_probs": null
     },
@@ -279,6 +293,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24154016375541687,
       "activity_probs": null,
       "position_probs": null
     },
@@ -290,6 +305,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.260215163230896,
       "activity_probs": null,
       "position_probs": null
     },
@@ -301,6 +317,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2609471380710602,
       "activity_probs": null,
       "position_probs": null
     },
@@ -312,6 +329,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.27284032106399536,
       "activity_probs": null,
       "position_probs": null
     },
@@ -323,6 +341,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2701263725757599,
       "activity_probs": null,
       "position_probs": null
     },
@@ -334,6 +353,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25767889618873596,
       "activity_probs": null,
       "position_probs": null
     },
@@ -345,6 +365,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.263764888048172,
       "activity_probs": null,
       "position_probs": null
     },
@@ -356,6 +377,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2769738435745239,
       "activity_probs": null,
       "position_probs": null
     },
@@ -367,6 +389,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24991753697395325,
       "activity_probs": null,
       "position_probs": null
     },
@@ -378,6 +401,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.253919780254364,
       "activity_probs": null,
       "position_probs": null
     },
@@ -389,6 +413,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2561238706111908,
       "activity_probs": null,
       "position_probs": null
     },
@@ -400,6 +425,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24423186480998993,
       "activity_probs": null,
       "position_probs": null
     },
@@ -411,6 +437,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23637031018733978,
       "activity_probs": null,
       "position_probs": null
     },
@@ -422,6 +449,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2532886564731598,
       "activity_probs": null,
       "position_probs": null
     },
@@ -433,6 +461,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.255180299282074,
       "activity_probs": null,
       "position_probs": null
     },
@@ -444,6 +473,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2265055924654007,
       "activity_probs": null,
       "position_probs": null
     },
@@ -455,6 +485,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23319394886493683,
       "activity_probs": null,
       "position_probs": null
     },
@@ -466,6 +497,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.243274986743927,
       "activity_probs": null,
       "position_probs": null
     },
@@ -477,6 +509,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.3075679540634155,
       "activity_probs": null,
       "position_probs": null
     },
@@ -488,6 +521,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24647743999958038,
       "activity_probs": null,
       "position_probs": null
     },
@@ -499,6 +533,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26533377170562744,
       "activity_probs": null,
       "position_probs": null
     },
@@ -510,6 +545,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.29461824893951416,
       "activity_probs": null,
       "position_probs": null
     },
@@ -521,6 +557,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2707814574241638,
       "activity_probs": null,
       "position_probs": null
     },
@@ -532,6 +569,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25399094820022583,
       "activity_probs": null,
       "position_probs": null
     },
@@ -543,6 +581,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2673902213573456,
       "activity_probs": null,
       "position_probs": null
     },
@@ -554,6 +593,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2666507065296173,
       "activity_probs": null,
       "position_probs": null
     },
@@ -565,6 +605,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2549152672290802,
       "activity_probs": null,
       "position_probs": null
     },
@@ -576,6 +617,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2452709972858429,
       "activity_probs": null,
       "position_probs": null
     },
@@ -587,6 +629,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24933190643787384,
       "activity_probs": null,
       "position_probs": null
     },
@@ -598,6 +641,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2530197501182556,
       "activity_probs": null,
       "position_probs": null
     },
@@ -609,6 +653,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24055226147174835,
       "activity_probs": null,
       "position_probs": null
     },
@@ -620,6 +665,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24852608144283295,
       "activity_probs": null,
       "position_probs": null
     },
@@ -631,6 +677,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2771119475364685,
       "activity_probs": null,
       "position_probs": null
     },
@@ -642,6 +689,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24344252049922943,
       "activity_probs": null,
       "position_probs": null
     },
@@ -653,6 +701,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24752913415431976,
       "activity_probs": null,
       "position_probs": null
     },
@@ -661,16 +710,17 @@
       "true_activity": 2,
       "true_position": null,
       "true_combined": "present",
-      "pred_combined": "present(right)",
+      "pred_combined": "present(left)",
       "pred_activity": "present",
-      "pred_position": "right",
+      "pred_position": "left",
+      "occupancy_prob": 0.8590155243873596,
       "activity_probs": {
-        "sleep": 0.4172334671020508,
-        "present": 0.5827665328979492
+        "sleep": 0.10566288232803345,
+        "present": 0.8943371176719666
       },
       "position_probs": {
-        "left": 0.32456719875335693,
-        "right": 0.6754328012466431
+        "left": 0.5667458176612854,
+        "right": 0.4332541823387146
       }
     },
     {
@@ -681,13 +731,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.877125084400177,
       "activity_probs": {
-        "sleep": 0.45650428533554077,
-        "present": 0.5434957146644592
+        "sleep": 0.3927096724510193,
+        "present": 0.6072903275489807
       },
       "position_probs": {
-        "left": 0.13544690608978271,
-        "right": 0.8645530939102173
+        "left": 0.4065425395965576,
+        "right": 0.5934574604034424
       }
     },
     {
@@ -698,13 +749,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.8692079186439514,
       "activity_probs": {
-        "sleep": 0.4331042766571045,
-        "present": 0.5668957233428955
+        "sleep": 0.008252859115600586,
+        "present": 0.9917471408843994
       },
       "position_probs": {
-        "left": 0.9913175497204065,
-        "right": 0.008682450279593468
+        "left": 0.9593359902501106,
+        "right": 0.040664009749889374
       }
     },
     {
@@ -715,6 +767,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24288496375083923,
       "activity_probs": null,
       "position_probs": null
     },
@@ -726,6 +779,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2577948570251465,
       "activity_probs": null,
       "position_probs": null
     },
@@ -737,6 +791,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25983133912086487,
       "activity_probs": null,
       "position_probs": null
     },
@@ -748,6 +803,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24280831217765808,
       "activity_probs": null,
       "position_probs": null
     },
@@ -759,6 +815,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23097342252731323,
       "activity_probs": null,
       "position_probs": null
     },
@@ -770,6 +827,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23600837588310242,
       "activity_probs": null,
       "position_probs": null
     },
@@ -781,6 +839,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26976144313812256,
       "activity_probs": null,
       "position_probs": null
     },
@@ -792,6 +851,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.22945323586463928,
       "activity_probs": null,
       "position_probs": null
     },
@@ -803,6 +863,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2285294383764267,
       "activity_probs": null,
       "position_probs": null
     },
@@ -814,6 +875,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2589524984359741,
       "activity_probs": null,
       "position_probs": null
     },
@@ -825,6 +887,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2215251326560974,
       "activity_probs": null,
       "position_probs": null
     },
@@ -836,6 +899,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2390180081129074,
       "activity_probs": null,
       "position_probs": null
     },
@@ -847,6 +911,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.22705884277820587,
       "activity_probs": null,
       "position_probs": null
     },
@@ -858,6 +923,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23300103843212128,
       "activity_probs": null,
       "position_probs": null
     },
@@ -869,6 +935,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24968641996383667,
       "activity_probs": null,
       "position_probs": null
     },
@@ -880,6 +947,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.22684213519096375,
       "activity_probs": null,
       "position_probs": null
     },
@@ -891,9 +959,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.8882644176483154,
       "activity_probs": {
-        "sleep": 0.5172590911388397,
-        "present": 0.4827409088611603
+        "sleep": 0.8242968618869781,
+        "present": 0.17570313811302185
       },
       "position_probs": null
     },
@@ -905,9 +974,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9035407304763794,
       "activity_probs": {
-        "sleep": 0.5158862471580505,
-        "present": 0.48411375284194946
+        "sleep": 0.7861185073852539,
+        "present": 0.2138814926147461
       },
       "position_probs": null
     },
@@ -919,9 +989,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.8822490572929382,
       "activity_probs": {
-        "sleep": 0.5205733180046082,
-        "present": 0.47942668199539185
+        "sleep": 0.7093823254108429,
+        "present": 0.2906176745891571
       },
       "position_probs": null
     },
@@ -933,9 +1004,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9092068076133728,
       "activity_probs": {
-        "sleep": 0.5177041292190552,
-        "present": 0.4822958707809448
+        "sleep": 0.8691833913326263,
+        "present": 0.13081660866737366
       },
       "position_probs": null
     },
@@ -947,9 +1019,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9116098284721375,
       "activity_probs": {
-        "sleep": 0.521747887134552,
-        "present": 0.478252112865448
+        "sleep": 0.6299411654472351,
+        "present": 0.3700588345527649
       },
       "position_probs": null
     },
@@ -961,9 +1034,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.8652531504631042,
       "activity_probs": {
-        "sleep": 0.5301822125911713,
-        "present": 0.46981778740882874
+        "sleep": 0.6446122527122498,
+        "present": 0.35538774728775024
       },
       "position_probs": null
     },
@@ -975,9 +1049,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9476176500320435,
       "activity_probs": {
-        "sleep": 0.5246456265449524,
-        "present": 0.4753543734550476
+        "sleep": 0.6666685342788696,
+        "present": 0.33333146572113037
       },
       "position_probs": null
     },
@@ -989,9 +1064,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.8949690461158752,
       "activity_probs": {
-        "sleep": 0.5141929090023041,
-        "present": 0.4858070909976959
+        "sleep": 0.8557402789592743,
+        "present": 0.1442597210407257
       },
       "position_probs": null
     },
@@ -1003,9 +1079,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9182465076446533,
       "activity_probs": {
-        "sleep": 0.5092157423496246,
-        "present": 0.49078425765037537
+        "sleep": 0.9984922903822735,
+        "present": 0.0015077096177265048
       },
       "position_probs": null
     },
@@ -1017,9 +1094,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9029613733291626,
       "activity_probs": {
-        "sleep": 0.5067322254180908,
-        "present": 0.4932677745819092
+        "sleep": 0.9994732077466324,
+        "present": 0.0005267922533676028
       },
       "position_probs": null
     },
@@ -1031,9 +1109,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.8902125954627991,
       "activity_probs": {
-        "sleep": 0.520614743232727,
-        "present": 0.47938525676727295
+        "sleep": 0.9989373268326744,
+        "present": 0.0010626731673255563
       },
       "position_probs": null
     },
@@ -1045,9 +1124,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9161780476570129,
       "activity_probs": {
-        "sleep": 0.5054642260074615,
-        "present": 0.49453577399253845
+        "sleep": 0.9979553390294313,
+        "present": 0.002044660970568657
       },
       "position_probs": null
     },
@@ -1056,34 +1136,30 @@
       "true_activity": 1,
       "true_position": null,
       "true_combined": "sleep",
-      "pred_combined": "present(right)",
-      "pred_activity": "present",
-      "pred_position": "right",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "occupancy_prob": 0.9194043278694153,
       "activity_probs": {
-        "sleep": 0.4894934296607971,
-        "present": 0.5105065703392029
+        "sleep": 0.9994986738311127,
+        "present": 0.0005013261688873172
       },
-      "position_probs": {
-        "left": 0.03750014305114746,
-        "right": 0.9624998569488525
-      }
+      "position_probs": null
     },
     {
       "rec_id": "test_minutes/20260906_1959",
       "true_activity": 1,
       "true_position": null,
       "true_combined": "sleep",
-      "pred_combined": "present(right)",
-      "pred_activity": "present",
-      "pred_position": "right",
+      "pred_combined": "sleep",
+      "pred_activity": "sleep",
+      "pred_position": null,
+      "occupancy_prob": 0.9194915294647217,
       "activity_probs": {
-        "sleep": 0.49991118907928467,
-        "present": 0.5000888109207153
+        "sleep": 0.999226265179459,
+        "present": 0.0007737348205409944
       },
-      "position_probs": {
-        "left": 0.07028698921203613,
-        "right": 0.9297130107879639
-      }
+      "position_probs": null
     },
     {
       "rec_id": "test_minutes/20260906_2000",
@@ -1093,9 +1169,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9279161691665649,
       "activity_probs": {
-        "sleep": 0.5047533512115479,
-        "present": 0.49524664878845215
+        "sleep": 0.999349630845245,
+        "present": 0.0006503691547550261
       },
       "position_probs": null
     },
@@ -1107,9 +1184,10 @@
       "pred_combined": "sleep",
       "pred_activity": "sleep",
       "pred_position": null,
+      "occupancy_prob": 0.9423153400421143,
       "activity_probs": {
-        "sleep": 0.5053681135177612,
-        "present": 0.49463188648223877
+        "sleep": 0.8478876948356628,
+        "present": 0.15211230516433716
       },
       "position_probs": null
     },
@@ -1121,6 +1199,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23808899521827698,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1132,6 +1211,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24154132604599,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1143,6 +1223,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26100829243659973,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1154,6 +1235,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2548231780529022,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1165,6 +1247,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24749065935611725,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1176,6 +1259,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2624742090702057,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1187,6 +1271,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.262556254863739,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1198,6 +1283,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2661999762058258,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1209,6 +1295,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24894073605537415,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1220,6 +1307,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2703206241130829,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1231,6 +1319,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2475035935640335,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1242,6 +1331,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.22094717621803284,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1253,6 +1343,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2655399739742279,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1264,6 +1355,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2878072261810303,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1275,6 +1367,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.22953541576862335,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1286,6 +1379,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2507903575897217,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1297,6 +1391,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2507224977016449,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1308,6 +1403,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.261867880821228,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1319,6 +1415,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25601911544799805,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1330,6 +1427,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2608394920825958,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1341,6 +1439,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2678822875022888,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1352,6 +1451,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24497593939304352,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1363,6 +1463,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2589200735092163,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1374,6 +1475,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2627582252025604,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1385,6 +1487,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2419118583202362,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1396,6 +1499,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2548433244228363,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1407,6 +1511,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24263520538806915,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1418,6 +1523,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23774106800556183,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1429,6 +1535,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2553034722805023,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1440,6 +1547,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24727419018745422,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1451,6 +1559,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26691949367523193,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1462,6 +1571,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2536256015300751,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1473,6 +1583,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24824605882167816,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1484,6 +1595,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24498921632766724,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1495,6 +1607,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2484453022480011,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1506,6 +1619,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.241374209523201,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1517,6 +1631,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.274222731590271,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1528,6 +1643,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26934394240379333,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1539,6 +1655,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25885316729545593,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1550,6 +1667,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.29061585664749146,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1561,6 +1679,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25707197189331055,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1572,6 +1691,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.28444531559944153,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1583,6 +1703,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2592323422431946,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1594,6 +1715,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25770339369773865,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1605,6 +1727,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25178512930870056,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1616,6 +1739,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.27286654710769653,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1627,6 +1751,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2605339586734772,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1638,6 +1763,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2773533761501312,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1649,6 +1775,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24250265955924988,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1660,6 +1787,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2632715404033661,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1671,6 +1799,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24697664380073547,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1682,6 +1811,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2369188666343689,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1693,6 +1823,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25148487091064453,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1704,6 +1835,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.28608325123786926,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1715,6 +1847,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.27082568407058716,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1726,6 +1859,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2544040381908417,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1737,6 +1871,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2448265254497528,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1748,6 +1883,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24911069869995117,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1759,6 +1895,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2733365595340729,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1770,6 +1907,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26004156470298767,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1781,6 +1919,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2440107762813568,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1792,6 +1931,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2665766477584839,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1803,6 +1943,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23488879203796387,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1814,6 +1955,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2541710138320923,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1825,6 +1967,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2504948079586029,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1836,6 +1979,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2646133601665497,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1847,6 +1991,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26869481801986694,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1858,6 +2003,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26336923241615295,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1869,6 +2015,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2576279044151306,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1880,6 +2027,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23708011209964752,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1891,6 +2039,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2889629304409027,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1902,6 +2051,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25677329301834106,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1913,6 +2063,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2554079592227936,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1924,6 +2075,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25409847497940063,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1935,6 +2087,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2492014318704605,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1946,6 +2099,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26623278856277466,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1957,6 +2111,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.252841979265213,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1968,6 +2123,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25630325078964233,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1979,6 +2135,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25107455253601074,
       "activity_probs": null,
       "position_probs": null
     },
@@ -1990,6 +2147,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.275054007768631,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2001,6 +2159,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2522437572479248,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2012,6 +2171,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2451077550649643,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2023,6 +2183,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24236474931240082,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2034,6 +2195,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.3093496859073639,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2045,6 +2207,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2744632661342621,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2056,6 +2219,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2628299593925476,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2067,6 +2231,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24788421392440796,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2078,6 +2243,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26417046785354614,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2089,6 +2255,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2807241678237915,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2100,6 +2267,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2612699866294861,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2111,6 +2279,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23718659579753876,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2122,6 +2291,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26742178201675415,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2133,6 +2303,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24014946818351746,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2144,6 +2315,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26308029890060425,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2155,6 +2327,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.27119943499565125,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2166,6 +2339,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.25723955035209656,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2177,6 +2351,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24812445044517517,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2188,6 +2363,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2922576367855072,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2199,6 +2375,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2475794106721878,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2210,6 +2387,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26667520403862,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2221,6 +2399,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.259522408246994,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2232,6 +2411,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26819443702697754,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2243,6 +2423,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.26627081632614136,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2254,6 +2435,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23875181376934052,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2265,6 +2447,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2651520073413849,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2276,6 +2459,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.23775078356266022,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2287,6 +2471,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.252838671207428,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2298,6 +2483,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2252231240272522,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2309,6 +2495,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2860631048679352,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2320,6 +2507,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24848146736621857,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2331,6 +2519,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24857132136821747,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2342,6 +2531,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.2585628032684326,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2353,6 +2543,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.29709574580192566,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2364,6 +2555,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24483519792556763,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2375,6 +2567,7 @@
       "pred_combined": "empty",
       "pred_activity": "empty",
       "pred_position": null,
+      "occupancy_prob": 0.24727721512317657,
       "activity_probs": null,
       "position_probs": null
     },
@@ -2383,154 +2576,198 @@
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8743212223052979,
       "activity_probs": {
-        "sleep": 0.5104780793190002,
-        "present": 0.48952192068099976
+        "sleep": 0.10776078701019287,
+        "present": 0.8922392129898071
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.01519864797592163,
+        "right": 0.9848013520240784
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2318",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8391643762588501,
       "activity_probs": {
-        "sleep": 0.5251533687114716,
-        "present": 0.47484663128852844
+        "sleep": 0.0826408863067627,
+        "present": 0.9173591136932373
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.010864555835723877,
+        "right": 0.9891354441642761
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2321",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8800324201583862,
       "activity_probs": {
-        "sleep": 0.5236590802669525,
-        "present": 0.4763409197330475
+        "sleep": 0.08219456672668457,
+        "present": 0.9178054332733154
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.010540485382080078,
+        "right": 0.9894595146179199
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2322",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.869746208190918,
       "activity_probs": {
-        "sleep": 0.5204403102397919,
-        "present": 0.47955968976020813
+        "sleep": 0.0722852349281311,
+        "present": 0.9277147650718689
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.013126611709594727,
+        "right": 0.9868733882904053
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2324",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8492740988731384,
       "activity_probs": {
-        "sleep": 0.5174253284931183,
-        "present": 0.4825746715068817
+        "sleep": 0.06297910213470459,
+        "present": 0.9370208978652954
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.012819945812225342,
+        "right": 0.9871800541877747
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2325",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8498817086219788,
       "activity_probs": {
-        "sleep": 0.5269678831100464,
-        "present": 0.4730321168899536
+        "sleep": 0.05096328258514404,
+        "present": 0.949036717414856
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.016757965087890625,
+        "right": 0.9832420349121094
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2326",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8418800234794617,
       "activity_probs": {
-        "sleep": 0.5154488980770111,
-        "present": 0.4845511019229889
+        "sleep": 0.06549334526062012,
+        "present": 0.9345066547393799
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.010844528675079346,
+        "right": 0.9891554713249207
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2327",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.9346232414245605,
       "activity_probs": {
-        "sleep": 0.5176150500774384,
-        "present": 0.48238494992256165
+        "sleep": 0.13125914335250854,
+        "present": 0.8687408566474915
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.015774428844451904,
+        "right": 0.9842255711555481
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2328",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.9179171323776245,
       "activity_probs": {
-        "sleep": 0.5165356695652008,
-        "present": 0.4834643304347992
+        "sleep": 0.11544537544250488,
+        "present": 0.8845546245574951
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.014073371887207031,
+        "right": 0.985926628112793
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2330",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8818933963775635,
       "activity_probs": {
-        "sleep": 0.5296890437602997,
-        "present": 0.4703109562397003
+        "sleep": 0.07947999238967896,
+        "present": 0.920520007610321
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.01284712553024292,
+        "right": 0.9871528744697571
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2331",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.9161627888679504,
       "activity_probs": {
-        "sleep": 0.5203184187412262,
-        "present": 0.4796815812587738
+        "sleep": 0.08055174350738525,
+        "present": 0.9194482564926147
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.01003563404083252,
+        "right": 0.9899643659591675
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2332",
@@ -2540,13 +2777,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.8587813973426819,
       "activity_probs": {
-        "sleep": 0.4143982529640198,
-        "present": 0.5856017470359802
+        "sleep": 0.03330892324447632,
+        "present": 0.9666910767555237
       },
       "position_probs": {
-        "left": 0.029471635818481445,
-        "right": 0.9705283641815186
+        "left": 0.09099739789962769,
+        "right": 0.9090026021003723
       }
     },
     {
@@ -2557,13 +2795,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.8566162586212158,
       "activity_probs": {
-        "sleep": 0.45177215337753296,
-        "present": 0.548227846622467
+        "sleep": 0.36369389295578003,
+        "present": 0.63630610704422
       },
       "position_probs": {
-        "left": 0.01449805498123169,
-        "right": 0.9855019450187683
+        "left": 0.049062132835388184,
+        "right": 0.9509378671646118
       }
     },
     {
@@ -2574,13 +2813,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.8635328412055969,
       "activity_probs": {
-        "sleep": 0.44628095626831055,
-        "present": 0.5537190437316895
+        "sleep": 0.04989147186279297,
+        "present": 0.950108528137207
       },
       "position_probs": {
-        "left": 0.016302883625030518,
-        "right": 0.9836971163749695
+        "left": 0.056709468364715576,
+        "right": 0.9432905316352844
       }
     },
     {
@@ -2591,13 +2831,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.8782294392585754,
       "activity_probs": {
-        "sleep": 0.4330441951751709,
-        "present": 0.5669558048248291
+        "sleep": 0.15629172325134277,
+        "present": 0.8437082767486572
       },
       "position_probs": {
-        "left": 0.013020098209381104,
-        "right": 0.9869799017906189
+        "left": 0.04543960094451904,
+        "right": 0.954560399055481
       }
     },
     {
@@ -2608,13 +2849,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.8848944306373596,
       "activity_probs": {
-        "sleep": 0.45340627431869507,
-        "present": 0.5465937256813049
+        "sleep": 0.10871285200119019,
+        "present": 0.8912871479988098
       },
       "position_probs": {
-        "left": 0.02306962013244629,
-        "right": 0.9769303798675537
+        "left": 0.050975024700164795,
+        "right": 0.9490249752998352
       }
     },
     {
@@ -2622,14 +2864,18 @@
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8914220333099365,
       "activity_probs": {
-        "sleep": 0.5236172676086426,
-        "present": 0.4763827323913574
+        "sleep": 0.034104228019714355,
+        "present": 0.9658957719802856
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.016442298889160156,
+        "right": 0.9835577011108398
+      }
     },
     {
       "rec_id": "test_minutes/20260906_2339",
@@ -2639,13 +2885,14 @@
       "pred_combined": "present(right)",
       "pred_activity": "present",
       "pred_position": "right",
+      "occupancy_prob": 0.8787449598312378,
       "activity_probs": {
-        "sleep": 0.4688291549682617,
-        "present": 0.5311708450317383
+        "sleep": 0.2560182809829712,
+        "present": 0.7439817190170288
       },
       "position_probs": {
-        "left": 0.016008496284484863,
-        "right": 0.9839915037155151
+        "left": 0.06354290246963501,
+        "right": 0.936457097530365
       }
     },
     {
@@ -2653,252 +2900,324 @@
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8839955925941467,
       "activity_probs": {
-        "sleep": 0.5011053085327148,
-        "present": 0.49889469146728516
+        "sleep": 0.030448317527770996,
+        "present": 0.969551682472229
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.009267151355743408,
+        "right": 0.9907328486442566
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2247",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8695850968360901,
       "activity_probs": {
-        "sleep": 0.5229772627353668,
-        "present": 0.4770227372646332
+        "sleep": 0.01797795295715332,
+        "present": 0.9820220470428467
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.050068199634552,
+        "right": 0.949931800365448
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2248",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.865745484828949,
       "activity_probs": {
-        "sleep": 0.5247261822223663,
-        "present": 0.47527381777763367
+        "sleep": 0.008642494678497314,
+        "present": 0.9913575053215027
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.03293013572692871,
+        "right": 0.9670698642730713
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2249",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8512842059135437,
       "activity_probs": {
-        "sleep": 0.5333650410175323,
-        "present": 0.46663495898246765
+        "sleep": 0.006638705730438232,
+        "present": 0.9933612942695618
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.033380866050720215,
+        "right": 0.9666191339492798
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2250",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.875942587852478,
       "activity_probs": {
-        "sleep": 0.5231370031833649,
-        "present": 0.47686299681663513
+        "sleep": 0.00678938627243042,
+        "present": 0.9932106137275696
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.022900879383087158,
+        "right": 0.9770991206169128
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2251",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8884223699569702,
       "activity_probs": {
-        "sleep": 0.5216728150844574,
-        "present": 0.4783271849155426
+        "sleep": 0.004670381546020508,
+        "present": 0.9953296184539795
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.04034548997879028,
+        "right": 0.9596545100212097
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2253",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.879237174987793,
       "activity_probs": {
-        "sleep": 0.5279377400875092,
-        "present": 0.47206225991249084
+        "sleep": 0.00768280029296875,
+        "present": 0.9923171997070312
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.02089548110961914,
+        "right": 0.9791045188903809
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2254",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8558149337768555,
       "activity_probs": {
-        "sleep": 0.5290066599845886,
-        "present": 0.4709933400154114
+        "sleep": 0.008011877536773682,
+        "present": 0.9919881224632263
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.021167218685150146,
+        "right": 0.9788327813148499
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2255",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8995596170425415,
       "activity_probs": {
-        "sleep": 0.5291610360145569,
-        "present": 0.4708389639854431
+        "sleep": 0.0074204206466674805,
+        "present": 0.9925795793533325
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.021045386791229248,
+        "right": 0.9789546132087708
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2257",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8686685562133789,
       "activity_probs": {
-        "sleep": 0.5240594148635864,
-        "present": 0.4759405851364136
+        "sleep": 0.010148763656616211,
+        "present": 0.9898512363433838
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.020727813243865967,
+        "right": 0.979272186756134
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2258",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.9099297523498535,
       "activity_probs": {
-        "sleep": 0.5216169059276581,
-        "present": 0.4783830940723419
+        "sleep": 0.009205937385559082,
+        "present": 0.9907940626144409
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.024191856384277344,
+        "right": 0.9758081436157227
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2259",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.7885465621948242,
       "activity_probs": {
-        "sleep": 0.5172784626483917,
-        "present": 0.4827215373516083
+        "sleep": 0.012683868408203125,
+        "present": 0.9873161315917969
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.019387483596801758,
+        "right": 0.9806125164031982
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2300",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.9057468175888062,
       "activity_probs": {
-        "sleep": 0.5174322128295898,
-        "present": 0.48256778717041016
+        "sleep": 0.012263178825378418,
+        "present": 0.9877368211746216
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.028704464435577393,
+        "right": 0.9712955355644226
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2302",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8921679258346558,
       "activity_probs": {
-        "sleep": 0.5229952037334442,
-        "present": 0.4770047962665558
+        "sleep": 0.014712095260620117,
+        "present": 0.9852879047393799
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.026133239269256592,
+        "right": 0.9738667607307434
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2303",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8874499797821045,
       "activity_probs": {
-        "sleep": 0.5216538608074188,
-        "present": 0.4783461391925812
+        "sleep": 0.014042139053344727,
+        "present": 0.9859578609466553
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.02714097499847412,
+        "right": 0.9728590250015259
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2304",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8464218378067017,
       "activity_probs": {
-        "sleep": 0.5274661481380463,
-        "present": 0.47253385186195374
+        "sleep": 0.01465904712677002,
+        "present": 0.98534095287323
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.022953271865844727,
+        "right": 0.9770467281341553
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2305",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8319315314292908,
       "activity_probs": {
-        "sleep": 0.5198621153831482,
-        "present": 0.4801378846168518
+        "sleep": 0.016887128353118896,
+        "present": 0.9831128716468811
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.028436362743377686,
+        "right": 0.9715636372566223
+      }
     },
     {
       "rec_id": "test_minutes/20260907_2307",
       "true_activity": 2,
       "true_position": 1,
       "true_combined": "present(right)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(right)",
+      "pred_activity": "present",
+      "pred_position": "right",
+      "occupancy_prob": 0.8437796831130981,
       "activity_probs": {
-        "sleep": 0.5246972143650055,
-        "present": 0.4753027856349945
+        "sleep": 0.016348958015441895,
+        "present": 0.9836510419845581
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.024449527263641357,
+        "right": 0.9755504727363586
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0029",
@@ -2908,13 +3227,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.9058721661567688,
       "activity_probs": {
-        "sleep": 0.45856183767318726,
-        "present": 0.5414381623268127
+        "sleep": 0.01044607162475586,
+        "present": 0.9895539283752441
       },
       "position_probs": {
-        "left": 0.9697558451443911,
-        "right": 0.03024415485560894
+        "left": 0.9621657952666283,
+        "right": 0.037834204733371735
       }
     },
     {
@@ -2922,70 +3242,90 @@
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8961700201034546,
       "activity_probs": {
-        "sleep": 0.5037876665592194,
-        "present": 0.49621233344078064
+        "sleep": 0.0028734207153320312,
+        "present": 0.997126579284668
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9972810989711434,
+        "right": 0.002718901028856635
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0031",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.7705526351928711,
       "activity_probs": {
-        "sleep": 0.530022919178009,
-        "present": 0.46997708082199097
+        "sleep": 0.003912925720214844,
+        "present": 0.9960870742797852
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9975102378521115,
+        "right": 0.0024897621478885412
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0032",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9072925448417664,
       "activity_probs": {
-        "sleep": 0.5037283003330231,
-        "present": 0.49627169966697693
+        "sleep": 0.0029064416885375977,
+        "present": 0.9970935583114624
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9974987008608878,
+        "right": 0.002501299139112234
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0033",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9210823774337769,
       "activity_probs": {
-        "sleep": 0.5257686972618103,
-        "present": 0.4742313027381897
+        "sleep": 0.0036197900772094727,
+        "present": 0.9963802099227905
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9982326237950474,
+        "right": 0.0017673762049525976
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0034",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9157419800758362,
       "activity_probs": {
-        "sleep": 0.5166586339473724,
-        "present": 0.48334136605262756
+        "sleep": 0.0033746957778930664,
+        "present": 0.9966253042221069
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9980250506196171,
+        "right": 0.0019749493803828955
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0035",
@@ -2995,13 +3335,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.8884106874465942,
       "activity_probs": {
-        "sleep": 0.4766048192977905,
-        "present": 0.5233951807022095
+        "sleep": 0.0025121569633483887,
+        "present": 0.9974878430366516
       },
       "position_probs": {
-        "left": 0.9939504764042795,
-        "right": 0.0060495235957205296
+        "left": 0.99588359054178,
+        "right": 0.004116409458220005
       }
     },
     {
@@ -3009,182 +3350,234 @@
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9295317530632019,
       "activity_probs": {
-        "sleep": 0.5179344117641449,
-        "present": 0.4820655882358551
+        "sleep": 0.004097998142242432,
+        "present": 0.9959020018577576
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9977857042104006,
+        "right": 0.0022142957895994186
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0038",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8702614307403564,
       "activity_probs": {
-        "sleep": 0.510997861623764,
-        "present": 0.48900213837623596
+        "sleep": 0.005551517009735107,
+        "present": 0.9944484829902649
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9974934430792928,
+        "right": 0.002506556920707226
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0039",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.889295756816864,
       "activity_probs": {
-        "sleep": 0.5221770703792572,
-        "present": 0.4778229296207428
+        "sleep": 0.005851268768310547,
+        "present": 0.9941487312316895
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9976409177761525,
+        "right": 0.0023590822238475084
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0040",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8619594573974609,
       "activity_probs": {
-        "sleep": 0.5107728242874146,
-        "present": 0.48922717571258545
+        "sleep": 0.0061664581298828125,
+        "present": 0.9938335418701172
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9972562885377556,
+        "right": 0.0027437114622443914
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0041",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9029971957206726,
       "activity_probs": {
-        "sleep": 0.5279135704040527,
-        "present": 0.47208642959594727
+        "sleep": 0.007622241973876953,
+        "present": 0.992377758026123
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9974273850675672,
+        "right": 0.0025726149324327707
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0042",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.896709144115448,
       "activity_probs": {
-        "sleep": 0.5286507606506348,
-        "present": 0.47134923934936523
+        "sleep": 0.0065898895263671875,
+        "present": 0.9934101104736328
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9977539973333478,
+        "right": 0.0022460026666522026
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0043",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8616420030593872,
       "activity_probs": {
-        "sleep": 0.5243954062461853,
-        "present": 0.4756045937538147
+        "sleep": 0.00753098726272583,
+        "present": 0.9924690127372742
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9975761428941041,
+        "right": 0.002423857105895877
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0045",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8215600252151489,
       "activity_probs": {
-        "sleep": 0.5310986936092377,
-        "present": 0.46890130639076233
+        "sleep": 0.010294735431671143,
+        "present": 0.9897052645683289
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9968319537583739,
+        "right": 0.0031680462416261435
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0046",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8865222930908203,
       "activity_probs": {
-        "sleep": 0.5123325288295746,
-        "present": 0.4876674711704254
+        "sleep": 0.008744418621063232,
+        "present": 0.9912555813789368
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9979291041381657,
+        "right": 0.0020708958618342876
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0047",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8771867156028748,
       "activity_probs": {
-        "sleep": 0.5164593458175659,
-        "present": 0.4835406541824341
+        "sleep": 0.009263217449188232,
+        "present": 0.9907367825508118
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9980950594181195,
+        "right": 0.0019049405818805099
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0049",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.8862771987915039,
       "activity_probs": {
-        "sleep": 0.524602085351944,
-        "present": 0.47539791464805603
+        "sleep": 0.009821295738220215,
+        "present": 0.9901787042617798
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9985557142645121,
+        "right": 0.001444285735487938
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0050",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9023659229278564,
       "activity_probs": {
-        "sleep": 0.5266031324863434,
-        "present": 0.4733968675136566
+        "sleep": 0.009498238563537598,
+        "present": 0.9905017614364624
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9988041025353596,
+        "right": 0.0011958974646404386
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0051",
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9078055620193481,
       "activity_probs": {
-        "sleep": 0.5097678005695343,
-        "present": 0.4902321994304657
+        "sleep": 0.014162540435791016,
+        "present": 0.985837459564209
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.998504042159766,
+        "right": 0.0014959578402340412
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0052",
@@ -3194,13 +3587,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.8830999135971069,
       "activity_probs": {
-        "sleep": 0.45701050758361816,
-        "present": 0.5429894924163818
+        "sleep": 0.004051327705383301,
+        "present": 0.9959486722946167
       },
       "position_probs": {
-        "left": 0.990077069029212,
-        "right": 0.009922930970788002
+        "left": 0.9924477329477668,
+        "right": 0.007552267052233219
       }
     },
     {
@@ -3211,13 +3605,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.8905802965164185,
       "activity_probs": {
-        "sleep": 0.4721341133117676,
-        "present": 0.5278658866882324
+        "sleep": 0.038758933544158936,
+        "present": 0.9612410664558411
       },
       "position_probs": {
-        "left": 0.9872308894991875,
-        "right": 0.01276911050081253
+        "left": 0.9903967175632715,
+        "right": 0.009603282436728477
       }
     },
     {
@@ -3225,14 +3620,18 @@
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.7928674221038818,
       "activity_probs": {
-        "sleep": 0.5275344848632812,
-        "present": 0.47246551513671875
+        "sleep": 0.011070549488067627,
+        "present": 0.9889294505119324
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9975485426839441,
+        "right": 0.002451457316055894
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0055",
@@ -3242,13 +3641,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.9200320839881897,
       "activity_probs": {
-        "sleep": 0.49094754457473755,
-        "present": 0.5090524554252625
+        "sleep": 0.11671227216720581,
+        "present": 0.8832877278327942
       },
       "position_probs": {
-        "left": 0.9968056848738343,
-        "right": 0.0031943151261657476
+        "left": 0.9981767706340179,
+        "right": 0.0018232293659821153
       }
     },
     {
@@ -3259,13 +3659,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.8672462701797485,
       "activity_probs": {
-        "sleep": 0.4544817805290222,
-        "present": 0.5455182194709778
+        "sleep": 0.007974445819854736,
+        "present": 0.9920255541801453
       },
       "position_probs": {
-        "left": 0.9957082103937864,
-        "right": 0.00429178960621357
+        "left": 0.9969555311836302,
+        "right": 0.003044468816369772
       }
     },
     {
@@ -3273,14 +3674,18 @@
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9205037355422974,
       "activity_probs": {
-        "sleep": 0.5063356459140778,
-        "present": 0.49366435408592224
+        "sleep": 0.06289702653884888,
+        "present": 0.9371029734611511
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9991160633508116,
+        "right": 0.0008839366491883993
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0059",
@@ -3290,13 +3695,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.8395676612854004,
       "activity_probs": {
-        "sleep": 0.4858124256134033,
-        "present": 0.5141875743865967
+        "sleep": 0.04731714725494385,
+        "present": 0.9526828527450562
       },
       "position_probs": {
-        "left": 0.994991643819958,
-        "right": 0.005008356180042028
+        "left": 0.9960472942329943,
+        "right": 0.003952705767005682
       }
     },
     {
@@ -3304,14 +3710,18 @@
       "true_activity": 2,
       "true_position": 0,
       "true_combined": "present(left)",
-      "pred_combined": "sleep",
-      "pred_activity": "sleep",
-      "pred_position": null,
+      "pred_combined": "present(left)",
+      "pred_activity": "present",
+      "pred_position": "left",
+      "occupancy_prob": 0.9203069806098938,
       "activity_probs": {
-        "sleep": 0.5029308199882507,
-        "present": 0.49706918001174927
+        "sleep": 0.08041876554489136,
+        "present": 0.9195812344551086
       },
-      "position_probs": null
+      "position_probs": {
+        "left": 0.9986695507541299,
+        "right": 0.0013304492458701134
+      }
     },
     {
       "rec_id": "test_minutes/20260908_0101",
@@ -3321,13 +3731,14 @@
       "pred_combined": "present(left)",
       "pred_activity": "present",
       "pred_position": "left",
+      "occupancy_prob": 0.9052340388298035,
       "activity_probs": {
-        "sleep": 0.4901193380355835,
-        "present": 0.5098806619644165
+        "sleep": 0.12211465835571289,
+        "present": 0.8778853416442871
       },
       "position_probs": {
-        "left": 0.995799093041569,
-        "right": 0.0042009069584310055
+        "left": 0.9972033633384854,
+        "right": 0.00279663666151464
       }
     }
   ]
