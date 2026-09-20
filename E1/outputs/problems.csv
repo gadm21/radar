@@ -282,729 +282,1382 @@ train_minutes,20260827_2029,unknown_label,label 'empty' not in taxonomy
 train_minutes,20260827_2029,manifest_error,Radar analysis exceeded its shutdown deadline.
 train_minutes,20260827_2035,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
 train_minutes,20260827_2036,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
-val_minutes,20260906_1805,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1805,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1805,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1806,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1808,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1811,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_1811,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1811,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1811,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1812,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1812,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1812,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1813,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1814,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1816,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1817,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1817,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
-val_minutes,20260906_1818,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1818,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1818,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1819,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1820,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1821,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1827,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1828,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1829,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1831,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1833,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1833,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1833,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1834,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1834,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1834,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1835,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1835,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1835,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1836,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1836,chunk_count_mismatch,expected_chunks=58 but 43 radar_*.bin on disk
-val_minutes,20260906_1837,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1837,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1837,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1838,malformed_manifest,parse_mode=regex
-val_minutes,20260906_1838,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1839,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1840,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1840,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1840,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1846,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1847,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1847,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
-val_minutes,20260906_1848,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1848,chunk_count_mismatch,expected_chunks=58 but 32 radar_*.bin on disk
-val_minutes,20260906_1851,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1851,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1851,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1852,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1853,malformed_manifest,parse_mode=regex
-val_minutes,20260906_1853,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1854,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1855,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1855,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
-val_minutes,20260906_1859,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1859,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
-val_minutes,20260906_1900,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1902,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1903,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1904,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1905,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_1905,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1906,leftover_tmp,1 .tmp file(s): .capture.npz.10073.tmp
-val_minutes,20260906_1906,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1907,chunk_count_mismatch,expected_chunks=58 but 19 radar_*.bin on disk
-val_minutes,20260906_1908,chunk_count_mismatch,expected_chunks=58 but 16 radar_*.bin on disk
-val_minutes,20260906_1913,leftover_tmp,1 .tmp file(s): .capture.npz.11461.tmp
-val_minutes,20260906_1913,chunk_count_mismatch,expected_chunks=58 but 8 radar_*.bin on disk
-val_minutes,20260906_1914,chunk_count_mismatch,expected_chunks=58 but 7 radar_*.bin on disk
-val_minutes,20260906_1921,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1922,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1923,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1924,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1924,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1924,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1925,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1929,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1929,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
-val_minutes,20260906_1930,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1931,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1931,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
-val_minutes,20260906_1932,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_1932,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1932,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
-val_minutes,20260906_1933,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1933,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1933,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1936,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1936,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
-val_minutes,20260906_1938,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1939,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1940,leftover_tmp,1 .tmp file(s): .capture.npz.14793.tmp
-val_minutes,20260906_1940,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1941,chunk_count_mismatch,expected_chunks=58 but 37 radar_*.bin on disk
-val_minutes,20260906_1942,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
-val_minutes,20260906_1946,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1947,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1948,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_1948,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_1948,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_1948,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1950,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1952,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_1952,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1952,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
-val_minutes,20260906_1954,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1955,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1956,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_1959,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2001,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2001,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2001,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2002,leftover_tmp,1 .tmp file(s): .capture.npz.18040.tmp
-val_minutes,20260906_2002,chunk_count_mismatch,expected_chunks=58 but 26 radar_*.bin on disk
-val_minutes,20260906_2003,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
-val_minutes,20260906_2004,chunk_count_mismatch,expected_chunks=58 but 35 radar_*.bin on disk
-val_minutes,20260906_2104,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2105,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2108,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2111,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2111,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2111,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2117,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2118,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2118,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2118,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2125,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2126,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2128,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2129,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2129,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
-val_minutes,20260906_2131,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2131,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2131,chunk_count_mismatch,expected_chunks=58 but 34 radar_*.bin on disk
-val_minutes,20260906_2133,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2133,chunk_count_mismatch,expected_chunks=58 but 51 radar_*.bin on disk
-val_minutes,20260906_2136,manifest_error,Radar produced no complete 10-frame chunks for this minute.
-val_minutes,20260906_2136,missing_xytracking,no xy-tracking.json
-val_minutes,20260906_2138,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2138,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
-val_minutes,20260906_2140,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2140,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2140,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2141,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2142,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2144,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2144,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2144,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2145,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2146,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2147,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2151,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2151,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2151,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2152,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2152,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2152,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2152,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2153,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
-val_minutes,20260906_2153,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2154,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2155,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2155,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2155,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2156,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2156,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
-val_minutes,20260906_2157,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2157,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
-val_minutes,20260906_2159,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2200,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2201,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2201,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2201,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2202,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2203,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2204,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2204,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2204,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2206,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2207,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2209,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2210,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2212,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2212,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2212,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2214,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2215,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2215,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2215,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2216,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2216,chunk_count_mismatch,expected_chunks=58 but 22 radar_*.bin on disk
-val_minutes,20260906_2219,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2219,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2219,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2220,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2223,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2223,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2223,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2224,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2224,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
-val_minutes,20260906_2226,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2226,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2226,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2227,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2228,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2229,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2229,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
-val_minutes,20260906_2231,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2231,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2231,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2232,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2232,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
-val_minutes,20260906_2235,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2236,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2241,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2242,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2242,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
-val_minutes,20260906_2243,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2243,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2243,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2246,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2247,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2249,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2249,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2251,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2253,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2254,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2254,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
-val_minutes,20260906_2255,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2256,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2258,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2259,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2259,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2301,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2303,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2306,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2307,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2307,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2307,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2307,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2311,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2312,leftover_tmp,1 .tmp file(s): .capture.npz.33714.tmp
-val_minutes,20260906_2312,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
-val_minutes,20260906_2313,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
-val_minutes,20260906_2314,chunk_count_mismatch,expected_chunks=58 but 17 radar_*.bin on disk
-val_minutes,20260906_2319,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2319,chunk_count_mismatch,expected_chunks=58 but 44 radar_*.bin on disk
-val_minutes,20260906_2320,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2320,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2320,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
-val_minutes,20260906_2322,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2323,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2323,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
-val_minutes,20260906_2324,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2325,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2325,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2325,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2325,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2326,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2326,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2326,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2327,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2327,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260906_2327,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2328,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2333,malformed_manifest,parse_mode=json_partial
-val_minutes,20260906_2333,unknown_label,label 'present' not in taxonomy
-val_minutes,20260906_2333,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2334,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260906_2334,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2334,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
-val_minutes,20260906_2337,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2338,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260906_2341,leftover_tmp,1 .tmp file(s): .capture.npz.38232.tmp
-val_minutes,20260906_2341,chunk_count_mismatch,expected_chunks=58 but 22 radar_*.bin on disk
-val_minutes,20260906_2342,chunk_count_mismatch,expected_chunks=58 but 44 radar_*.bin on disk
-val_minutes,20260906_2343,chunk_count_mismatch,expected_chunks=58 but 6 radar_*.bin on disk
-val_minutes,20260907_2248,malformed_manifest,parse_mode=json_partial
-val_minutes,20260907_2248,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260907_2248,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2249,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2250,malformed_manifest,parse_mode=json_partial
-val_minutes,20260907_2250,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260907_2250,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2251,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2252,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260907_2252,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2252,chunk_count_mismatch,expected_chunks=58 but 38 radar_*.bin on disk
-val_minutes,20260907_2254,malformed_manifest,parse_mode=json_partial
-val_minutes,20260907_2254,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260907_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2256,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2256,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
-val_minutes,20260907_2305,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2306,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260907_2306,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260907_2306,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
-val_minutes,20260907_2308,chunk_count_mismatch,expected_chunks=58 but 46 radar_*.bin on disk
-val_minutes,20260907_2309,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260907_2309,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
-val_minutes,20260908_0031,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
-val_minutes,20260908_0031,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0032,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0033,malformed_manifest,parse_mode=json_partial
-val_minutes,20260908_0033,unknown_label,label 'present' not in taxonomy
-val_minutes,20260908_0033,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0034,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0035,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0037,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0037,manifest_error,Synchronized container finalization failed: dictionary changed size during iteration
-val_minutes,20260908_0038,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0040,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0044,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-val_minutes,20260908_0044,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0044,chunk_count_mismatch,expected_chunks=58 but 51 radar_*.bin on disk
-val_minutes,20260908_0048,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0048,chunk_count_mismatch,expected_chunks=58 but 46 radar_*.bin on disk
-val_minutes,20260908_0050,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0051,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0052,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0055,malformed_manifest,parse_mode=json_partial
-val_minutes,20260908_0055,unknown_label,label 'empty' not in taxonomy
-val_minutes,20260908_0055,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0056,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0101,manifest_error,Radar analysis exceeded its shutdown deadline.
-val_minutes,20260908_0102,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
-val_minutes,20260908_0103,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
-test_minutes,20260915_1941,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1941,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1942,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1942,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1943,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1943,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1944,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1944,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1945,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1945,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1946,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1946,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1947,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1947,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1948,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1948,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1949,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1949,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1950,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1950,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1951,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1951,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1952,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1952,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1953,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1953,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1954,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1954,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1955,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1955,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1956,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1956,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1957,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1957,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1958,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1958,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_1959,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_1959,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2000,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2000,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2001,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2001,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2002,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2002,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2003,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2003,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2004,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2004,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2005,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2005,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2006,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2006,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2007,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2007,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2008,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2008,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2009,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2009,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2010,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2010,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2011,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2011,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2012,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2012,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2013,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2013,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2014,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2014,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2015,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2015,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2016,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2016,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2017,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2017,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2018,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2018,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2019,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2019,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2020,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2020,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2021,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2021,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2022,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2022,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2023,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2023,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2024,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2024,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2025,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2025,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2026,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2026,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2027,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2027,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2028,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2028,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2029,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2029,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2030,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2030,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2031,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2031,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2032,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2032,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2033,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2033,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2034,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2034,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2035,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2035,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2036,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2036,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2037,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2037,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2038,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2038,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2039,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2039,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2040,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2040,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2041,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2041,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2042,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2042,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2043,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2043,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2044,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2044,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2045,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2045,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2046,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2046,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2047,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2047,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2048,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2048,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2049,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2049,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2050,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2050,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2051,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2051,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2052,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2052,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2053,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2053,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2054,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2054,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2055,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2055,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2056,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2056,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2057,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2057,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2058,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2058,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2059,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2059,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2100,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2100,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2101,leftover_tmp,1 .tmp file(s): .capture.npz.6418.tmp
-test_minutes,20260915_2101,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2101,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2101,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
-test_minutes,20260915_2117,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2117,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2118,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2118,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2119,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2119,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2120,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2120,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2121,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2121,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2122,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2122,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2123,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2123,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2124,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2124,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2125,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2125,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2126,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2126,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2127,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2127,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2128,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2128,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2129,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2129,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2130,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2130,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2131,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2131,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2132,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2132,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2133,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2133,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2134,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2134,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2135,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2135,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2136,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2136,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2137,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2137,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2138,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2138,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2139,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2139,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2140,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2140,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2141,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2141,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2142,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2142,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2143,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2143,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2144,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2144,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2145,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2145,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2146,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2146,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2147,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2147,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2148,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2148,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2149,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2149,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2150,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2150,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2151,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2151,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2152,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2152,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2153,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2153,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2154,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2154,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2155,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2155,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2156,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2156,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2157,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2157,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2158,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2158,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2159,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2159,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2200,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2200,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2201,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2201,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2202,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2202,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2203,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2203,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2204,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2204,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2205,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2205,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2206,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2206,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2207,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2207,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2208,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2208,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2209,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2209,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2210,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2210,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2211,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2211,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2212,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2212,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2213,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2213,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2214,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2214,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2215,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2215,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2216,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2216,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2217,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2217,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2218,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2218,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2219,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2219,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2220,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2220,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2221,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2221,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2222,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2222,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2223,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2223,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2224,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2224,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2225,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2225,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2226,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2226,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2227,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2227,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2228,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2228,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2229,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2229,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2230,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2230,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2231,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2231,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2232,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2232,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2233,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2233,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2234,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2234,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2235,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2235,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2236,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2236,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2237,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2237,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2238,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2238,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2239,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2239,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2240,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2240,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2241,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2241,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2242,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2242,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2243,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2243,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2244,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2244,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2245,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2245,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2246,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2246,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2247,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2247,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2248,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2248,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2249,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2249,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2250,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2250,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2251,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2251,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2252,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2252,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2253,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2253,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2254,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2254,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2255,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2255,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2256,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2256,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2257,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2257,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2258,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2258,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2259,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2259,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2300,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2300,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2301,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2301,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2302,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2302,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2303,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2303,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2304,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2304,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2305,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2305,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2306,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2306,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2307,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2307,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2308,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2308,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2309,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
-test_minutes,20260915_2309,missing_xytracking,no xy-tracking.json
-test_minutes,20260915_2309,chunk_count_mismatch,expected_chunks=58 but 34 radar_*.bin on disk
+train2_minutes,20260906_1805,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1805,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1805,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1806,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1808,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1811,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_1811,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1811,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1811,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1812,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1812,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1812,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1813,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1814,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1816,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1817,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1817,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
+train2_minutes,20260906_1818,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1818,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1818,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1819,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1820,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1821,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1827,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1828,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1829,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1831,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1833,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1833,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1833,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1834,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1834,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1834,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1835,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1835,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1835,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1836,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1836,chunk_count_mismatch,expected_chunks=58 but 43 radar_*.bin on disk
+train2_minutes,20260906_1837,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1837,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1837,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1838,malformed_manifest,parse_mode=regex
+train2_minutes,20260906_1838,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1839,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1840,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1840,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1840,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1846,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1847,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1847,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
+train2_minutes,20260906_1848,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1848,chunk_count_mismatch,expected_chunks=58 but 32 radar_*.bin on disk
+train2_minutes,20260906_1851,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1851,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1851,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1852,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1853,malformed_manifest,parse_mode=regex
+train2_minutes,20260906_1853,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1854,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1855,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1855,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
+train2_minutes,20260906_1859,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1859,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+train2_minutes,20260906_1900,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1902,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1903,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1904,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1905,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_1905,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1906,leftover_tmp,1 .tmp file(s): .capture.npz.10073.tmp
+train2_minutes,20260906_1906,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1907,chunk_count_mismatch,expected_chunks=58 but 19 radar_*.bin on disk
+train2_minutes,20260906_1908,chunk_count_mismatch,expected_chunks=58 but 16 radar_*.bin on disk
+train2_minutes,20260906_1913,leftover_tmp,1 .tmp file(s): .capture.npz.11461.tmp
+train2_minutes,20260906_1913,chunk_count_mismatch,expected_chunks=58 but 8 radar_*.bin on disk
+train2_minutes,20260906_1914,chunk_count_mismatch,expected_chunks=58 but 7 radar_*.bin on disk
+train2_minutes,20260906_1921,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1922,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1923,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1924,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1924,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1924,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1925,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1929,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1929,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+train2_minutes,20260906_1930,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1931,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1931,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
+train2_minutes,20260906_1932,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_1932,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1932,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
+train2_minutes,20260906_1933,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1933,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1933,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1936,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1936,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
+train2_minutes,20260906_1938,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1939,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1940,leftover_tmp,1 .tmp file(s): .capture.npz.14793.tmp
+train2_minutes,20260906_1940,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1941,chunk_count_mismatch,expected_chunks=58 but 37 radar_*.bin on disk
+train2_minutes,20260906_1942,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
+train2_minutes,20260906_1946,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1947,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1948,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_1948,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_1948,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_1948,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1950,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1952,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_1952,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1952,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+train2_minutes,20260906_1954,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1955,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1956,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_1959,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2001,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2001,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2001,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2002,leftover_tmp,1 .tmp file(s): .capture.npz.18040.tmp
+train2_minutes,20260906_2002,chunk_count_mismatch,expected_chunks=58 but 26 radar_*.bin on disk
+train2_minutes,20260906_2003,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train2_minutes,20260906_2004,chunk_count_mismatch,expected_chunks=58 but 35 radar_*.bin on disk
+train2_minutes,20260906_2104,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2105,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2108,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2111,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2111,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2111,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2117,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2118,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2118,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2118,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2125,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2126,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2128,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2129,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2129,chunk_count_mismatch,expected_chunks=58 but 49 radar_*.bin on disk
+train2_minutes,20260906_2131,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2131,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2131,chunk_count_mismatch,expected_chunks=58 but 34 radar_*.bin on disk
+train2_minutes,20260906_2133,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2133,chunk_count_mismatch,expected_chunks=58 but 51 radar_*.bin on disk
+train2_minutes,20260906_2136,manifest_error,Radar produced no complete 10-frame chunks for this minute.
+train2_minutes,20260906_2136,missing_xytracking,no xy-tracking.json
+train2_minutes,20260906_2138,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2138,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+train2_minutes,20260906_2140,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2140,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2140,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2141,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2142,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2144,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2144,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2144,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2145,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2146,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2147,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2151,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2151,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2151,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2152,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2152,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2152,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2152,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2153,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+train2_minutes,20260906_2153,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2154,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2155,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2155,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2155,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2156,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2156,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+train2_minutes,20260906_2157,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2157,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
+train2_minutes,20260906_2159,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2200,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2201,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2201,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2201,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2202,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2203,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2204,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2204,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2204,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2206,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2207,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2209,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2210,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2212,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2212,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2212,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2214,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2215,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2215,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2215,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2216,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2216,chunk_count_mismatch,expected_chunks=58 but 22 radar_*.bin on disk
+train2_minutes,20260906_2219,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2219,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2219,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2220,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2223,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2223,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2223,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2224,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2224,chunk_count_mismatch,expected_chunks=58 but 28 radar_*.bin on disk
+train2_minutes,20260906_2226,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2226,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2226,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2227,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2228,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2229,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2229,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
+train2_minutes,20260906_2231,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2231,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2231,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2232,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2232,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
+train2_minutes,20260906_2235,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2236,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2241,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2242,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2242,chunk_count_mismatch,expected_chunks=58 but 54 radar_*.bin on disk
+train2_minutes,20260906_2243,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2243,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2243,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2246,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2247,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2249,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2249,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2251,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2253,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2254,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2254,chunk_count_mismatch,expected_chunks=58 but 47 radar_*.bin on disk
+train2_minutes,20260906_2255,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2256,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2258,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2259,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2259,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2301,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2303,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2306,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2307,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2307,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2307,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2307,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2311,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2312,leftover_tmp,1 .tmp file(s): .capture.npz.33714.tmp
+train2_minutes,20260906_2312,chunk_count_mismatch,expected_chunks=58 but 36 radar_*.bin on disk
+train2_minutes,20260906_2313,chunk_count_mismatch,expected_chunks=58 but 53 radar_*.bin on disk
+train2_minutes,20260906_2314,chunk_count_mismatch,expected_chunks=58 but 17 radar_*.bin on disk
+train2_minutes,20260906_2319,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2319,chunk_count_mismatch,expected_chunks=58 but 44 radar_*.bin on disk
+train2_minutes,20260906_2320,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2320,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2320,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+train2_minutes,20260906_2322,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2323,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2323,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+train2_minutes,20260906_2324,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2325,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2325,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2325,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2325,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2326,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2326,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2326,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2327,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2327,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260906_2327,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2328,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2333,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260906_2333,unknown_label,label 'present' not in taxonomy
+train2_minutes,20260906_2333,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2334,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260906_2334,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2334,chunk_count_mismatch,expected_chunks=58 but 39 radar_*.bin on disk
+train2_minutes,20260906_2337,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2338,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260906_2341,leftover_tmp,1 .tmp file(s): .capture.npz.38232.tmp
+train2_minutes,20260906_2341,chunk_count_mismatch,expected_chunks=58 but 22 radar_*.bin on disk
+train2_minutes,20260906_2342,chunk_count_mismatch,expected_chunks=58 but 44 radar_*.bin on disk
+train2_minutes,20260906_2343,chunk_count_mismatch,expected_chunks=58 but 6 radar_*.bin on disk
+train2_minutes,20260907_2248,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260907_2248,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260907_2248,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2249,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2250,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260907_2250,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260907_2250,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2251,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2252,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260907_2252,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2252,chunk_count_mismatch,expected_chunks=58 but 38 radar_*.bin on disk
+train2_minutes,20260907_2254,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260907_2254,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260907_2254,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2256,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2256,chunk_count_mismatch,expected_chunks=58 but 41 radar_*.bin on disk
+train2_minutes,20260907_2305,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2306,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260907_2306,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260907_2306,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+train2_minutes,20260907_2308,chunk_count_mismatch,expected_chunks=58 but 46 radar_*.bin on disk
+train2_minutes,20260907_2309,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260907_2309,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
+train2_minutes,20260908_0031,leftover_tmp,1 .tmp file(s): xy-tracking.json.tmp
+train2_minutes,20260908_0031,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0032,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0033,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260908_0033,unknown_label,label 'present' not in taxonomy
+train2_minutes,20260908_0033,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0034,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0035,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0037,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0037,manifest_error,Synchronized container finalization failed: dictionary changed size during iteration
+train2_minutes,20260908_0038,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0040,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0044,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+train2_minutes,20260908_0044,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0044,chunk_count_mismatch,expected_chunks=58 but 51 radar_*.bin on disk
+train2_minutes,20260908_0048,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0048,chunk_count_mismatch,expected_chunks=58 but 46 radar_*.bin on disk
+train2_minutes,20260908_0050,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0051,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0052,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0055,malformed_manifest,parse_mode=json_partial
+train2_minutes,20260908_0055,unknown_label,label 'empty' not in taxonomy
+train2_minutes,20260908_0055,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0056,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0101,manifest_error,Radar analysis exceeded its shutdown deadline.
+train2_minutes,20260908_0102,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+train2_minutes,20260908_0103,chunk_count_mismatch,expected_chunks=58 but 42 radar_*.bin on disk
+validation_minutes,20260915_1941,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1941,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1942,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1942,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1943,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1943,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1944,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1944,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1945,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1945,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1946,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1946,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1947,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1947,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1948,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1948,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1949,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1949,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1950,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1950,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1951,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1951,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1952,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1952,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1953,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1953,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1954,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1954,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1955,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1955,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1956,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1956,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1957,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1957,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1958,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1958,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_1959,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_1959,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2000,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2000,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2001,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2001,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2002,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2002,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2003,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2003,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2004,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2004,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2005,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2005,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2006,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2006,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2007,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2007,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2008,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2008,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2009,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2009,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2010,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2010,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2011,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2011,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2012,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2012,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2013,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2013,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2014,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2014,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2015,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2015,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2016,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2016,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2017,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2017,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2018,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2018,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2019,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2019,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2020,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2020,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2021,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2021,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2022,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2022,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2023,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2023,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2024,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2024,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2025,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2025,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2026,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2026,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2027,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2027,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2028,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2028,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2029,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2029,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2030,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2030,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2031,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2031,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2032,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2032,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2033,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2033,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2034,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2034,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2035,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2035,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2036,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2036,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2037,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2037,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2038,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2038,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2039,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2039,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2040,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2040,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2041,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2041,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2042,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2042,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2043,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2043,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2044,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2044,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2045,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2045,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2046,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2046,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2047,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2047,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2048,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2048,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2049,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2049,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2050,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2050,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2051,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2051,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2052,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2052,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2053,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2053,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2054,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2054,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2055,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2055,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2056,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2056,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2057,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2057,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2058,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2058,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2059,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2059,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2100,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2100,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2101,leftover_tmp,1 .tmp file(s): .capture.npz.6418.tmp
+validation_minutes,20260915_2101,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2101,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2101,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+validation_minutes,20260915_2117,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2117,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2118,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2118,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2119,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2119,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2120,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2120,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2121,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2121,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2122,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2122,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2123,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2123,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2124,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2124,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2125,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2125,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2126,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2126,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2127,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2127,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2128,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2128,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2129,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2129,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2130,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2130,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2131,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2131,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2132,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2132,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2133,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2133,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2134,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2134,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2135,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2135,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2136,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2136,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2137,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2137,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2138,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2138,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2139,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2139,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2140,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2140,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2141,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2141,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2142,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2142,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2143,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2143,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2144,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2144,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2145,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2145,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2146,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2146,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2147,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2147,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2148,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2148,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2149,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2149,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2150,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2150,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2151,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2151,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2152,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2152,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2153,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2153,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2154,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2154,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2155,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2155,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2156,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2156,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2157,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2157,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2158,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2158,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2159,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2159,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2200,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2200,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2201,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2201,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2202,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2202,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2203,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2203,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2204,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2204,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2205,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2205,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2206,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2206,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2207,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2207,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2208,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2208,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2209,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2209,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2210,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2210,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2211,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2211,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2212,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2212,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2213,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2213,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2214,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2214,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2215,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2215,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2216,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2216,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2217,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2217,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2218,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2218,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2219,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2219,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2220,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2220,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2221,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2221,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2222,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2222,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2223,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2223,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2224,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2224,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2225,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2225,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2226,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2226,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2227,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2227,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2228,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2228,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2229,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2229,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2230,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2230,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2231,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2231,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2232,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2232,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2233,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2233,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2234,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2234,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2235,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2235,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2236,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2236,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2237,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2237,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2238,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2238,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2239,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2239,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2240,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2240,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2241,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2241,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2242,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2242,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2243,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2243,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2244,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2244,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2245,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2245,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2246,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2246,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2247,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2247,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2248,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2248,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2249,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2249,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2250,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2250,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2251,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2251,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2252,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2252,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2253,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2253,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2254,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2254,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2255,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2255,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2256,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2256,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2257,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2257,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2258,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2258,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2259,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2259,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2300,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2300,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2301,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2301,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2302,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2302,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2303,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2303,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2304,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2304,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2305,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2305,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2306,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2306,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2307,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2307,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2308,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2308,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2309,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+validation_minutes,20260915_2309,missing_xytracking,no xy-tracking.json
+validation_minutes,20260915_2309,chunk_count_mismatch,expected_chunks=58 but 34 radar_*.bin on disk
+test_minutes,20260916_2210,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2210,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2211,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2211,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2212,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2212,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2213,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2213,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2214,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2214,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2215,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2215,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2216,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2216,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2217,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2217,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2218,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2218,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2219,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2219,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2220,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2220,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2221,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2221,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2222,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2222,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2223,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2223,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2224,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2224,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2225,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2225,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2226,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2226,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2227,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2227,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2228,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2228,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2229,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2229,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2230,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2230,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2231,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2231,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2232,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2232,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2233,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2233,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2234,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2234,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2235,leftover_tmp,1 .tmp file(s): .capture.npz.41917.tmp
+test_minutes,20260916_2235,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2235,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2235,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2235,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+test_minutes,20260916_2236,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2236,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2236,corrupt_bin,radar_030_20260916_223631_432.bin: empty file
+test_minutes,20260916_2236,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2236,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
+test_minutes,20260916_2238,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2238,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2239,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2239,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2240,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2240,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2241,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2241,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2242,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2242,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2243,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2243,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2244,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2244,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2245,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2245,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2246,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2246,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2247,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2247,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2248,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2248,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2249,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2249,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2250,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2250,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2251,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2251,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2252,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2252,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2253,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2253,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2254,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2254,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2255,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2255,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2256,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2256,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2257,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2257,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2258,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2258,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2259,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2259,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2300,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2300,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2301,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2301,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2302,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2302,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2303,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2303,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2304,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2304,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2305,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2305,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2306,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2306,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2307,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2307,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2308,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2308,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2309,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2309,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2310,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2310,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2311,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2311,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2312,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2312,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2313,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2313,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2314,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2314,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2315,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2315,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2316,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2316,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2317,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2317,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2318,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2318,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2319,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2319,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2320,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2320,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2321,leftover_tmp,1 .tmp file(s): .capture.npz.62611.tmp
+test_minutes,20260916_2321,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2321,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2321,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2321,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+test_minutes,20260916_2322,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2322,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2322,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2322,chunk_count_mismatch,expected_chunks=58 but 5 radar_*.bin on disk
+test_minutes,20260916_2323,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2323,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2323,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2323,chunk_count_mismatch,expected_chunks=58 but 1 radar_*.bin on disk
+test_minutes,20260916_2324,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2324,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2325,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2325,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2326,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2326,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2327,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2327,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2328,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2328,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2329,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2329,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2330,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2330,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2331,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2331,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2332,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2332,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2333,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2333,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2334,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2334,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2335,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2335,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2336,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2336,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2337,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2337,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2338,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2338,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2339,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2339,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2340,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2340,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2341,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2341,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2342,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2342,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2343,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2343,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2343,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2343,chunk_count_mismatch,expected_chunks=58 but 13 radar_*.bin on disk
+test_minutes,20260916_2344,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2344,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2344,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2344,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
+test_minutes,20260916_2345,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2345,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2346,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2346,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2347,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2347,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2348,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260916_2348,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2348,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2348,chunk_count_mismatch,expected_chunks=58 but 33 radar_*.bin on disk
+test_minutes,20260916_2349,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2349,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2350,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2350,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2351,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2351,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2352,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2352,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2353,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2353,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2354,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2354,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2355,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2355,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2356,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2356,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2357,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2357,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2358,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2358,missing_xytracking,no xy-tracking.json
+test_minutes,20260916_2359,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260916_2359,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0000,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0000,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0001,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0001,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0002,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0002,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0003,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0003,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0004,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0004,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0005,leftover_tmp,1 .tmp file(s): .capture.npz.82830.tmp
+test_minutes,20260917_0005,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0005,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0005,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0005,chunk_count_mismatch,expected_chunks=58 but 52 radar_*.bin on disk
+test_minutes,20260917_0006,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0006,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0006,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0006,chunk_count_mismatch,expected_chunks=58 but 2 radar_*.bin on disk
+test_minutes,20260917_0007,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0007,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0008,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0008,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0009,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0009,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0010,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0010,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0011,leftover_tmp,1 .tmp file(s): .capture.npz.83347.tmp
+test_minutes,20260917_0011,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0011,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0011,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0011,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
+test_minutes,20260917_0012,leftover_tmp,1 .tmp file(s): .capture.npz.83471.tmp
+test_minutes,20260917_0012,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0012,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0012,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0012,chunk_count_mismatch,expected_chunks=58 but 52 radar_*.bin on disk
+test_minutes,20260917_0013,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0013,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0013,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0013,chunk_count_mismatch,expected_chunks=58 but 2 radar_*.bin on disk
+test_minutes,20260917_0014,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0014,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0015,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0015,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0016,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0016,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0017,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0017,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0018,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0018,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0019,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0019,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0020,leftover_tmp,1 .tmp file(s): .capture.npz.84136.tmp
+test_minutes,20260917_0020,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0020,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0020,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0020,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
+test_minutes,20260917_0021,leftover_tmp,1 .tmp file(s): .capture.npz.84197.tmp
+test_minutes,20260917_0021,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0021,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0021,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0021,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
+test_minutes,20260917_0022,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0022,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0022,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0022,chunk_count_mismatch,expected_chunks=58 but 23 radar_*.bin on disk
+test_minutes,20260917_0023,missing_manifest,no manifest.json
+test_minutes,20260917_0023,missing_radar,no capture.npz and no radar_*.bin
+test_minutes,20260917_0023,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0024,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0024,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0025,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0025,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0026,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0026,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0026,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0026,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0027,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0027,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0028,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0028,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0029,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0029,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0029,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0030,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0030,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0031,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0031,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0032,leftover_tmp,1 .tmp file(s): .capture.npz.84742.tmp
+test_minutes,20260917_0032,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0032,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0032,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0032,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
+test_minutes,20260917_0033,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0033,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0033,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0033,chunk_count_mismatch,expected_chunks=58 but 29 radar_*.bin on disk
+test_minutes,20260917_0034,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+test_minutes,20260917_0034,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0034,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0034,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0034,chunk_count_mismatch,expected_chunks=58 but 20 radar_*.bin on disk
+test_minutes,20260917_0036,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0036,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0037,leftover_tmp,1 .tmp file(s): .capture.npz.85014.tmp
+test_minutes,20260917_0037,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0037,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0037,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0037,chunk_count_mismatch,expected_chunks=58 but 35 radar_*.bin on disk
+test_minutes,20260917_0038,leftover_tmp,1 .tmp file(s): .capture.npz.85093.tmp
+test_minutes,20260917_0038,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0038,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0038,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0038,chunk_count_mismatch,expected_chunks=58 but 20 radar_*.bin on disk
+test_minutes,20260917_0039,leftover_tmp,1 .tmp file(s): manifest.json.tmp
+test_minutes,20260917_0039,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0039,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0039,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0039,chunk_count_mismatch,expected_chunks=58 but 23 radar_*.bin on disk
+test_minutes,20260917_0040,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0040,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0040,missing_radar,no capture.npz and no radar_*.bin
+test_minutes,20260917_0040,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0042,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0042,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0043,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0043,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0044,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0044,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0045,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0045,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0045,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0045,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0046,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0046,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0047,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0047,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0048,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0048,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0049,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0049,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0050,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0050,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0051,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0051,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0052,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0052,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0052,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0052,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
+test_minutes,20260917_0053,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0053,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0054,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0054,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0055,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0055,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0056,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0056,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0057,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0057,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0058,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0058,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0059,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0059,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0100,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0100,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0101,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0101,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0101,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0102,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0102,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0103,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0103,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0104,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0104,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0104,manifest_error,'GPIO busy'
+test_minutes,20260917_0104,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0104,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0105,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0105,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0105,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0106,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0106,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0107,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0107,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0108,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0108,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0109,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0109,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0110,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0110,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0111,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0111,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0112,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0112,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0112,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0112,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0113,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0113,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0114,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0114,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0114,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0114,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0115,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0115,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0116,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0116,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0117,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0117,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0118,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0118,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0119,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0119,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0120,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0120,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0120,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0120,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0121,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0121,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0122,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0122,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0122,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0122,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0123,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0123,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0124,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0124,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0125,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0125,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0125,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0126,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0126,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0126,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0126,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0127,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0127,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0128,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0128,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0129,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0129,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0129,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0129,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0130,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0130,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0131,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0131,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0132,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0132,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0133,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0133,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0134,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0134,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0135,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0135,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0136,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0136,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0137,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0137,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0138,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0138,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0139,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0139,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0140,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0140,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0141,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0141,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0142,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0142,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0143,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0143,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0144,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0144,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0145,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0145,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0146,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0146,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0147,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0147,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0148,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0148,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0149,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0149,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0150,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0150,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0151,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0151,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0151,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0151,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0152,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0152,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0153,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0153,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0154,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0154,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0154,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0154,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0155,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0155,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0156,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0156,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0157,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0157,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0158,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0158,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0159,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0159,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0200,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0200,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0201,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0201,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0202,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0202,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0202,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0202,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0203,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0203,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0204,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0204,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0205,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0205,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0206,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0206,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0207,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0207,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0208,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0208,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0208,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0208,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0209,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0209,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0210,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0210,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0211,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0211,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0212,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0212,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0212,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0212,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0213,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0213,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0214,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0214,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0214,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0215,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0215,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0216,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0216,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0217,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0217,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0218,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0218,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0219,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0219,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0220,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0220,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0221,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0221,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0222,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0222,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0223,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0223,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0223,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0224,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0224,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0225,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0225,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0226,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0226,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0227,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0227,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0228,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0228,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0229,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0229,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0230,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0230,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0231,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0231,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0232,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0232,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0233,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0233,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0234,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0234,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0235,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0235,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0236,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0236,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0237,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0237,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0238,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0238,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0238,manifest_error,Radar analysis exceeded its shutdown deadline.
+test_minutes,20260917_0238,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0239,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0239,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0240,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0240,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0241,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0241,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0242,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0242,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0243,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0243,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0244,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0244,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0245,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0245,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0246,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0246,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0246,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0246,chunk_count_mismatch,expected_chunks=58 but 20 radar_*.bin on disk
+test_minutes,20260917_0247,unknown_label,label 'collecting' not in taxonomy
+test_minutes,20260917_0247,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
+test_minutes,20260917_0247,missing_xytracking,no xy-tracking.json
+test_minutes,20260917_0247,chunk_count_mismatch,expected_chunks=58 but 13 radar_*.bin on disk

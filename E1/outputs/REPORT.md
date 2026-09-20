@@ -1,16 +1,17 @@
 # E1 — Dataset Audit Report
 
-Exploratory inspection of `train_minutes/`, `val_minutes/` and `test_minutes/`: file completeness, manifest health, label taxonomy, sensor coverage, timing, and a catalog of every missing/corrupt instance.
+Exploratory inspection of `train_minutes/`, `train2_minutes/`, `validation_minutes/` and `test_minutes/`: file completeness, manifest health, label taxonomy, sensor coverage, timing, and a catalog of every missing/corrupt instance.
 
 ## 1. Overview
 | dataset | folders | empty | with manifest | size | radar .bin files | radar frames (bin) | CSI lines | .tmp leftovers |
 |---|---|---|---|---|---|---|---|---|
 | train_minutes | 1394 | 0 | 1394 | 34.10 GB | 61849 | 618350 | 7518261 | 30 |
-| val_minutes | 329 | 0 | 329 | 6.32 GB | 2093 | 20930 | 270525 | 30 |
-| test_minutes | 194 | 0 | 194 | 4.57 GB | 91 | 910 | 9649 | 1 |
+| train2_minutes | 329 | 0 | 329 | 6.32 GB | 2093 | 20930 | 270525 | 30 |
+| validation_minutes | 194 | 0 | 194 | 4.57 GB | 91 | 910 | 9649 | 1 |
+| test_minutes | 275 | 0 | 274 | 8.00 GB | 741 | 7400 | 91770 | 12 |
 
 ## 2. Labels
-Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements t1/t2), `t_*` in `val_minutes/` (placement t), and plain `empty`/`present` in `test_minutes/` (placement t, newer naming). `left`/`right` position labels and the `radar-missing` flag appear in `val_minutes/`. `absent`/`occupied` are auxiliary auto-labels written by the recorder (stripped from train/val manifests by `E2/clean_minutes.py`).
+Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements t1/t2), `t_*` in `train2_minutes/` (placement t, Sept 6-8), and plain `empty`/`present` in `validation_minutes/` (placement t, Sept 15, newer naming). `test_minutes/` (Pi captures, Sept 16-17 night) carries no manifest task labels — ground truth is the 1:10 AM boundary: minutes before `20260917_0110` are occupied, at/after are empty. `left`/`right` position labels and the `radar-missing` flag appear in `train2_minutes/`. `absent`/`occupied` are auxiliary auto-labels written by the recorder (stripped from train manifests by `E2/clean_minutes.py`).
 
 ### train_minutes (1394 folders)
 
@@ -41,7 +42,7 @@ Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements t1/t2), `t_*` in `val
 
 Label status: `{"ok": 1394}`
 
-### val_minutes (329 folders)
+### train2_minutes (329 folders)
 
 **Activity (task) labels**
 | activity | folders |
@@ -77,7 +78,7 @@ Label status: `{"ok": 1394}`
 
 Label status: `{"ok": 329}`
 
-### test_minutes (194 folders)
+### validation_minutes (194 folders)
 
 **Activity (task) labels**
 | activity | folders |
@@ -98,37 +99,68 @@ Label status: `{"ok": 329}`
 
 Label status: `{"ok": 194}`
 
+### test_minutes (275 folders)
+
+**Activity (task) labels**
+| activity | folders |
+|---|---|
+| empty | 98 |
+| none | 1 |
+| occupied | 176 |
+
+**Placement**
+| placement | folders |
+|---|---|
+| none | 1 |
+| pi | 274 |
+
+**Raw manifest labels**
+| label | occurrences |
+|---|---|
+| collecting | 41 |
+
+Label status: `{"ok": 274, "none": 1}`
+
 ## 3. Manifest health
 ### train_minutes
 - Parse modes: `{"json": 1383, "regex": 1, "json_partial": 10}`
 - Capture status: `{"success": 1226, "collecting": 83, "partial": 84, "none": 1}`
 - Schema versions: `{"thoth-minute-manifest/v5": 1320, "thoth-minute-manifest/v4": 73, "none": 1}`
 
-### val_minutes
+### train2_minutes
 - Parse modes: `{"json": 287, "json_partial": 40, "regex": 2}`
 - Capture status: `{"success": 136, "partial": 105, "collecting": 86, "none": 2}`
 - Schema versions: `{"thoth-minute-manifest/v6": 248, "thoth-minute-manifest/v4": 79, "none": 2}`
 
-### test_minutes
+### validation_minutes
 - Parse modes: `{"json": 194}`
 - Capture status: `{"partial": 192, "collecting": 2}`
 - Schema versions: `{"thoth-minute-manifest/v7": 194}`
+
+### test_minutes
+- Parse modes: `{"json": 274, "none": 1}`
+- Capture status: `{"partial": 248, "collecting": 26, "none": 1}`
+- Schema versions: `{"thoth-minute-manifest/v7": 274, "none": 1}`
 
 ## 4. Sensor / artefact coverage
 | dataset | folders | radar .bin | capture.npz | CSI >0 samples | xy-tracking | HA status | sense-hat error |
 |---|---|---|---|---|---|---|---|
 | train_minutes | 1394 | 1394 (100.0%) | 0 (0.0%) | 1347 (96.6%) | 1394 (100.0%) | 1394 (100.0%) | 0 (0.0%) |
-| val_minutes | 329 | 55 (16.7%) | 274 (83.3%) | 55 (16.7%) | 328 (99.7%) | 328 (99.7%) | 329 (100.0%) |
-| test_minutes | 194 | 2 (1.0%) | 192 (99.0%) | 2 (1.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| train2_minutes | 329 | 55 (16.7%) | 274 (83.3%) | 55 (16.7%) | 328 (99.7%) | 328 (99.7%) | 329 (100.0%) |
+| validation_minutes | 194 | 2 (1.0%) | 192 (99.0%) | 2 (1.0%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| test_minutes | 275 | 25 (9.1%) | 249 (90.5%) | 26 (9.5%) | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
 
 - **train_minutes** bin frames/folder: `{"n": 1394, "mean": 443.5796269727403, "min": 0.0, "max": 570.0, "median": 500.0}`
 - **train_minutes** duration s: `{"n": 1393, "mean": 105.62577171541339, "min": 58.0, "max": 195.86800003051758, "median": 107.34299993515015}`
-- **val_minutes** bin frames/folder: `{"n": 55, "mean": 380.54545454545456, "min": 60.0, "max": 570.0, "median": 410.0}`
-- **val_minutes** npz frames/folder: `{"n": 273, "mean": 361.5018315018315, "min": 10.0, "max": 570.0, "median": 380.0}`
-- **val_minutes** duration s: `{"n": 327, "mean": 130.3735443408336, "min": 58.0, "max": 214.29900002479553, "median": 147.65700006484985}`
-- **test_minutes** bin frames/folder: `{"n": 2, "mean": 455.0, "min": 340.0, "max": 570.0, "median": 455.0}`
-- **test_minutes** npz frames/folder: `{"n": 192, "mean": 552.8645833333334, "min": 440.0, "max": 570.0, "median": 570.0}`
-- **test_minutes** duration s: `{"n": 194, "mean": 58.89209278219754, "min": 58.0, "max": 61.14400005340576, "median": 58.68149995803833}`
+- **train2_minutes** bin frames/folder: `{"n": 55, "mean": 380.54545454545456, "min": 60.0, "max": 570.0, "median": 410.0}`
+- **train2_minutes** npz frames/folder: `{"n": 273, "mean": 361.5018315018315, "min": 10.0, "max": 570.0, "median": 380.0}`
+- **train2_minutes** duration s: `{"n": 327, "mean": 130.3735443408336, "min": 58.0, "max": 214.29900002479553, "median": 147.65700006484985}`
+- **validation_minutes** bin frames/folder: `{"n": 2, "mean": 455.0, "min": 340.0, "max": 570.0, "median": 455.0}`
+- **validation_minutes** npz frames/folder: `{"n": 192, "mean": 552.8645833333334, "min": 440.0, "max": 570.0, "median": 570.0}`
+- **validation_minutes** duration s: `{"n": 194, "mean": 58.89209278219754, "min": 58.0, "max": 61.14400005340576, "median": 58.68149995803833}`
+- **test_minutes** bin frames/folder: `{"n": 25, "mean": 296.0, "min": 10.0, "max": 570.0, "median": 300.0}`
+- **test_minutes** npz frames/folder: `{"n": 249, "mean": 364.09638554216866, "min": 50.0, "max": 570.0, "median": 350.0}`
+- **test_minutes** duration s: `{"n": 274, "mean": 81.6713321148044, "min": 58.0, "max": 162.68300008773804, "median": 62.786499977111816}`
 
 ## 5. Collection timeline
 ### train_minutes
@@ -139,33 +171,41 @@ Label status: `{"ok": 194}`
 | 2026-08-26 | 71 |
 | 2026-08-27 | 361 |
 
-### val_minutes
+### train2_minutes
 | day | folders |
 |---|---|
 | 2026-09-06 | 272 |
 | 2026-09-07 | 23 |
 | 2026-09-08 | 34 |
 
-### test_minutes
+### validation_minutes
 | day | folders |
 |---|---|
 | 2026-09-15 | 194 |
 
+### test_minutes
+| day | folders |
+|---|---|
+| 2026-09-16 | 109 |
+| 2026-09-17 | 166 |
+
 ## 6. Missing / corrupt instances
-Total problem instances: **1009**
+Total problem instances: **1662**
 
 | category | count |
 |---|---|
-| manifest_error | 504 |
-| missing_xytracking | 195 |
-| chunk_count_mismatch | 126 |
-| leftover_tmp | 61 |
+| manifest_error | 800 |
+| missing_xytracking | 470 |
+| chunk_count_mismatch | 151 |
+| unknown_label | 94 |
+| leftover_tmp | 73 |
 | malformed_manifest | 53 |
-| unknown_label | 53 |
-| corrupt_bin | 14 |
+| corrupt_bin | 15 |
 | corrupt_xytracking | 3 |
+| missing_radar | 2 |
+| missing_manifest | 1 |
 
-### manifest_error (504)
+### manifest_error (800)
 | source | folder | detail |
 |---|---|---|
 | train_minutes | 20260817_2147 | Radar analysis exceeded its shutdown deadline. |
@@ -229,75 +269,75 @@ Total problem instances: **1009**
 | train_minutes | 20260818_1818 | Radar analysis exceeded its shutdown deadline. |
 | train_minutes | 20260818_1819 | Radar analysis exceeded its shutdown deadline. |
 
-*... 444 more in `problems.csv`*
+*... 740 more in `problems.csv`*
 
-### missing_xytracking (195)
+### missing_xytracking (470)
 | source | folder | detail |
 |---|---|---|
-| val_minutes | 20260906_2136 | no xy-tracking.json |
-| test_minutes | 20260915_1941 | no xy-tracking.json |
-| test_minutes | 20260915_1942 | no xy-tracking.json |
-| test_minutes | 20260915_1943 | no xy-tracking.json |
-| test_minutes | 20260915_1944 | no xy-tracking.json |
-| test_minutes | 20260915_1945 | no xy-tracking.json |
-| test_minutes | 20260915_1946 | no xy-tracking.json |
-| test_minutes | 20260915_1947 | no xy-tracking.json |
-| test_minutes | 20260915_1948 | no xy-tracking.json |
-| test_minutes | 20260915_1949 | no xy-tracking.json |
-| test_minutes | 20260915_1950 | no xy-tracking.json |
-| test_minutes | 20260915_1951 | no xy-tracking.json |
-| test_minutes | 20260915_1952 | no xy-tracking.json |
-| test_minutes | 20260915_1953 | no xy-tracking.json |
-| test_minutes | 20260915_1954 | no xy-tracking.json |
-| test_minutes | 20260915_1955 | no xy-tracking.json |
-| test_minutes | 20260915_1956 | no xy-tracking.json |
-| test_minutes | 20260915_1957 | no xy-tracking.json |
-| test_minutes | 20260915_1958 | no xy-tracking.json |
-| test_minutes | 20260915_1959 | no xy-tracking.json |
-| test_minutes | 20260915_2000 | no xy-tracking.json |
-| test_minutes | 20260915_2001 | no xy-tracking.json |
-| test_minutes | 20260915_2002 | no xy-tracking.json |
-| test_minutes | 20260915_2003 | no xy-tracking.json |
-| test_minutes | 20260915_2004 | no xy-tracking.json |
-| test_minutes | 20260915_2005 | no xy-tracking.json |
-| test_minutes | 20260915_2006 | no xy-tracking.json |
-| test_minutes | 20260915_2007 | no xy-tracking.json |
-| test_minutes | 20260915_2008 | no xy-tracking.json |
-| test_minutes | 20260915_2009 | no xy-tracking.json |
-| test_minutes | 20260915_2010 | no xy-tracking.json |
-| test_minutes | 20260915_2011 | no xy-tracking.json |
-| test_minutes | 20260915_2012 | no xy-tracking.json |
-| test_minutes | 20260915_2013 | no xy-tracking.json |
-| test_minutes | 20260915_2014 | no xy-tracking.json |
-| test_minutes | 20260915_2015 | no xy-tracking.json |
-| test_minutes | 20260915_2016 | no xy-tracking.json |
-| test_minutes | 20260915_2017 | no xy-tracking.json |
-| test_minutes | 20260915_2018 | no xy-tracking.json |
-| test_minutes | 20260915_2019 | no xy-tracking.json |
-| test_minutes | 20260915_2020 | no xy-tracking.json |
-| test_minutes | 20260915_2021 | no xy-tracking.json |
-| test_minutes | 20260915_2022 | no xy-tracking.json |
-| test_minutes | 20260915_2023 | no xy-tracking.json |
-| test_minutes | 20260915_2024 | no xy-tracking.json |
-| test_minutes | 20260915_2025 | no xy-tracking.json |
-| test_minutes | 20260915_2026 | no xy-tracking.json |
-| test_minutes | 20260915_2027 | no xy-tracking.json |
-| test_minutes | 20260915_2028 | no xy-tracking.json |
-| test_minutes | 20260915_2029 | no xy-tracking.json |
-| test_minutes | 20260915_2030 | no xy-tracking.json |
-| test_minutes | 20260915_2031 | no xy-tracking.json |
-| test_minutes | 20260915_2032 | no xy-tracking.json |
-| test_minutes | 20260915_2033 | no xy-tracking.json |
-| test_minutes | 20260915_2034 | no xy-tracking.json |
-| test_minutes | 20260915_2035 | no xy-tracking.json |
-| test_minutes | 20260915_2036 | no xy-tracking.json |
-| test_minutes | 20260915_2037 | no xy-tracking.json |
-| test_minutes | 20260915_2038 | no xy-tracking.json |
-| test_minutes | 20260915_2039 | no xy-tracking.json |
+| train2_minutes | 20260906_2136 | no xy-tracking.json |
+| validation_minutes | 20260915_1941 | no xy-tracking.json |
+| validation_minutes | 20260915_1942 | no xy-tracking.json |
+| validation_minutes | 20260915_1943 | no xy-tracking.json |
+| validation_minutes | 20260915_1944 | no xy-tracking.json |
+| validation_minutes | 20260915_1945 | no xy-tracking.json |
+| validation_minutes | 20260915_1946 | no xy-tracking.json |
+| validation_minutes | 20260915_1947 | no xy-tracking.json |
+| validation_minutes | 20260915_1948 | no xy-tracking.json |
+| validation_minutes | 20260915_1949 | no xy-tracking.json |
+| validation_minutes | 20260915_1950 | no xy-tracking.json |
+| validation_minutes | 20260915_1951 | no xy-tracking.json |
+| validation_minutes | 20260915_1952 | no xy-tracking.json |
+| validation_minutes | 20260915_1953 | no xy-tracking.json |
+| validation_minutes | 20260915_1954 | no xy-tracking.json |
+| validation_minutes | 20260915_1955 | no xy-tracking.json |
+| validation_minutes | 20260915_1956 | no xy-tracking.json |
+| validation_minutes | 20260915_1957 | no xy-tracking.json |
+| validation_minutes | 20260915_1958 | no xy-tracking.json |
+| validation_minutes | 20260915_1959 | no xy-tracking.json |
+| validation_minutes | 20260915_2000 | no xy-tracking.json |
+| validation_minutes | 20260915_2001 | no xy-tracking.json |
+| validation_minutes | 20260915_2002 | no xy-tracking.json |
+| validation_minutes | 20260915_2003 | no xy-tracking.json |
+| validation_minutes | 20260915_2004 | no xy-tracking.json |
+| validation_minutes | 20260915_2005 | no xy-tracking.json |
+| validation_minutes | 20260915_2006 | no xy-tracking.json |
+| validation_minutes | 20260915_2007 | no xy-tracking.json |
+| validation_minutes | 20260915_2008 | no xy-tracking.json |
+| validation_minutes | 20260915_2009 | no xy-tracking.json |
+| validation_minutes | 20260915_2010 | no xy-tracking.json |
+| validation_minutes | 20260915_2011 | no xy-tracking.json |
+| validation_minutes | 20260915_2012 | no xy-tracking.json |
+| validation_minutes | 20260915_2013 | no xy-tracking.json |
+| validation_minutes | 20260915_2014 | no xy-tracking.json |
+| validation_minutes | 20260915_2015 | no xy-tracking.json |
+| validation_minutes | 20260915_2016 | no xy-tracking.json |
+| validation_minutes | 20260915_2017 | no xy-tracking.json |
+| validation_minutes | 20260915_2018 | no xy-tracking.json |
+| validation_minutes | 20260915_2019 | no xy-tracking.json |
+| validation_minutes | 20260915_2020 | no xy-tracking.json |
+| validation_minutes | 20260915_2021 | no xy-tracking.json |
+| validation_minutes | 20260915_2022 | no xy-tracking.json |
+| validation_minutes | 20260915_2023 | no xy-tracking.json |
+| validation_minutes | 20260915_2024 | no xy-tracking.json |
+| validation_minutes | 20260915_2025 | no xy-tracking.json |
+| validation_minutes | 20260915_2026 | no xy-tracking.json |
+| validation_minutes | 20260915_2027 | no xy-tracking.json |
+| validation_minutes | 20260915_2028 | no xy-tracking.json |
+| validation_minutes | 20260915_2029 | no xy-tracking.json |
+| validation_minutes | 20260915_2030 | no xy-tracking.json |
+| validation_minutes | 20260915_2031 | no xy-tracking.json |
+| validation_minutes | 20260915_2032 | no xy-tracking.json |
+| validation_minutes | 20260915_2033 | no xy-tracking.json |
+| validation_minutes | 20260915_2034 | no xy-tracking.json |
+| validation_minutes | 20260915_2035 | no xy-tracking.json |
+| validation_minutes | 20260915_2036 | no xy-tracking.json |
+| validation_minutes | 20260915_2037 | no xy-tracking.json |
+| validation_minutes | 20260915_2038 | no xy-tracking.json |
+| validation_minutes | 20260915_2039 | no xy-tracking.json |
 
-*... 135 more in `problems.csv`*
+*... 410 more in `problems.csv`*
 
-### chunk_count_mismatch (126)
+### chunk_count_mismatch (151)
 | source | folder | detail |
 |---|---|---|
 | train_minutes | 20260817_2147 | expected_chunks=58 but 57 radar_*.bin on disk |
@@ -361,9 +401,75 @@ Total problem instances: **1009**
 | train_minutes | 20260827_0534 | expected_chunks=58 but 41 radar_*.bin on disk |
 | train_minutes | 20260827_0557 | expected_chunks=58 but 53 radar_*.bin on disk |
 
-*... 66 more in `problems.csv`*
+*... 91 more in `problems.csv`*
 
-### leftover_tmp (61)
+### unknown_label (94)
+| source | folder | detail |
+|---|---|---|
+| train_minutes | 20260827_1858 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1918 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1925 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1944 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1946 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1953 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1957 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2003 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2005 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2024 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2029 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1805 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1811 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1812 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1818 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1833 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1834 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1835 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1837 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1838 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1840 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1851 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1853 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1924 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1933 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1948 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2001 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2111 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2118 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2140 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2144 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2151 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2152 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2155 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2201 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2204 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2212 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2215 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2219 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2223 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2226 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2231 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2243 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2307 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2325 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2326 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2327 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2333 | label 'present' not in taxonomy |
+| train2_minutes | 20260907_2248 | label 'empty' not in taxonomy |
+| train2_minutes | 20260907_2250 | label 'empty' not in taxonomy |
+| train2_minutes | 20260907_2254 | label 'empty' not in taxonomy |
+| train2_minutes | 20260908_0033 | label 'present' not in taxonomy |
+| train2_minutes | 20260908_0055 | label 'empty' not in taxonomy |
+| test_minutes | 20260916_2235 | label 'collecting' not in taxonomy |
+| test_minutes | 20260916_2236 | label 'collecting' not in taxonomy |
+| test_minutes | 20260916_2321 | label 'collecting' not in taxonomy |
+| test_minutes | 20260916_2322 | label 'collecting' not in taxonomy |
+| test_minutes | 20260916_2323 | label 'collecting' not in taxonomy |
+| test_minutes | 20260916_2343 | label 'collecting' not in taxonomy |
+| test_minutes | 20260916_2344 | label 'collecting' not in taxonomy |
+
+*... 34 more in `problems.csv`*
+
+### leftover_tmp (73)
 | source | folder | detail |
 |---|---|---|
 | train_minutes | 20260817_2206 | 1 .tmp file(s): manifest.json.tmp |
@@ -396,38 +502,38 @@ Total problem instances: **1009**
 | train_minutes | 20260827_1920 | 1 .tmp file(s): manifest.json.tmp |
 | train_minutes | 20260827_1933 | 1 .tmp file(s): manifest.json.tmp |
 | train_minutes | 20260827_2026 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_1811 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_1905 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_1906 | 1 .tmp file(s): .capture.npz.10073.tmp |
-| val_minutes | 20260906_1913 | 1 .tmp file(s): .capture.npz.11461.tmp |
-| val_minutes | 20260906_1932 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_1940 | 1 .tmp file(s): .capture.npz.14793.tmp |
-| val_minutes | 20260906_1948 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_1952 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2002 | 1 .tmp file(s): .capture.npz.18040.tmp |
-| val_minutes | 20260906_2131 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2152 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2153 | 1 .tmp file(s): xy-tracking.json.tmp |
-| val_minutes | 20260906_2216 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2229 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2232 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2249 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2254 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2259 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2307 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2312 | 1 .tmp file(s): .capture.npz.33714.tmp |
-| val_minutes | 20260906_2319 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2320 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2325 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2334 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260906_2341 | 1 .tmp file(s): .capture.npz.38232.tmp |
-| val_minutes | 20260907_2252 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260907_2306 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260907_2309 | 1 .tmp file(s): manifest.json.tmp |
-| val_minutes | 20260908_0031 | 1 .tmp file(s): xy-tracking.json.tmp |
-| val_minutes | 20260908_0044 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_1811 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_1905 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_1906 | 1 .tmp file(s): .capture.npz.10073.tmp |
+| train2_minutes | 20260906_1913 | 1 .tmp file(s): .capture.npz.11461.tmp |
+| train2_minutes | 20260906_1932 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_1940 | 1 .tmp file(s): .capture.npz.14793.tmp |
+| train2_minutes | 20260906_1948 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_1952 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2002 | 1 .tmp file(s): .capture.npz.18040.tmp |
+| train2_minutes | 20260906_2131 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2152 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2153 | 1 .tmp file(s): xy-tracking.json.tmp |
+| train2_minutes | 20260906_2216 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2229 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2232 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2249 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2254 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2259 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2307 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2312 | 1 .tmp file(s): .capture.npz.33714.tmp |
+| train2_minutes | 20260906_2319 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2320 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2325 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2334 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260906_2341 | 1 .tmp file(s): .capture.npz.38232.tmp |
+| train2_minutes | 20260907_2252 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260907_2306 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260907_2309 | 1 .tmp file(s): manifest.json.tmp |
+| train2_minutes | 20260908_0031 | 1 .tmp file(s): xy-tracking.json.tmp |
+| train2_minutes | 20260908_0044 | 1 .tmp file(s): manifest.json.tmp |
 
-*... 1 more in `problems.csv`*
+*... 13 more in `problems.csv`*
 
 ### malformed_manifest (53)
 | source | folder | detail |
@@ -443,107 +549,50 @@ Total problem instances: **1009**
 | train_minutes | 20260827_2005 | parse_mode=json_partial |
 | train_minutes | 20260827_2024 | parse_mode=json_partial |
 | train_minutes | 20260827_2029 | parse_mode=json_partial |
-| val_minutes | 20260906_1805 | parse_mode=json_partial |
-| val_minutes | 20260906_1811 | parse_mode=json_partial |
-| val_minutes | 20260906_1812 | parse_mode=json_partial |
-| val_minutes | 20260906_1818 | parse_mode=json_partial |
-| val_minutes | 20260906_1833 | parse_mode=json_partial |
-| val_minutes | 20260906_1834 | parse_mode=json_partial |
-| val_minutes | 20260906_1835 | parse_mode=json_partial |
-| val_minutes | 20260906_1837 | parse_mode=json_partial |
-| val_minutes | 20260906_1838 | parse_mode=regex |
-| val_minutes | 20260906_1840 | parse_mode=json_partial |
-| val_minutes | 20260906_1851 | parse_mode=json_partial |
-| val_minutes | 20260906_1853 | parse_mode=regex |
-| val_minutes | 20260906_1924 | parse_mode=json_partial |
-| val_minutes | 20260906_1933 | parse_mode=json_partial |
-| val_minutes | 20260906_1948 | parse_mode=json_partial |
-| val_minutes | 20260906_2001 | parse_mode=json_partial |
-| val_minutes | 20260906_2111 | parse_mode=json_partial |
-| val_minutes | 20260906_2118 | parse_mode=json_partial |
-| val_minutes | 20260906_2140 | parse_mode=json_partial |
-| val_minutes | 20260906_2144 | parse_mode=json_partial |
-| val_minutes | 20260906_2151 | parse_mode=json_partial |
-| val_minutes | 20260906_2152 | parse_mode=json_partial |
-| val_minutes | 20260906_2155 | parse_mode=json_partial |
-| val_minutes | 20260906_2201 | parse_mode=json_partial |
-| val_minutes | 20260906_2204 | parse_mode=json_partial |
-| val_minutes | 20260906_2212 | parse_mode=json_partial |
-| val_minutes | 20260906_2215 | parse_mode=json_partial |
-| val_minutes | 20260906_2219 | parse_mode=json_partial |
-| val_minutes | 20260906_2223 | parse_mode=json_partial |
-| val_minutes | 20260906_2226 | parse_mode=json_partial |
-| val_minutes | 20260906_2231 | parse_mode=json_partial |
-| val_minutes | 20260906_2243 | parse_mode=json_partial |
-| val_minutes | 20260906_2307 | parse_mode=json_partial |
-| val_minutes | 20260906_2325 | parse_mode=json_partial |
-| val_minutes | 20260906_2326 | parse_mode=json_partial |
-| val_minutes | 20260906_2327 | parse_mode=json_partial |
-| val_minutes | 20260906_2333 | parse_mode=json_partial |
-| val_minutes | 20260907_2248 | parse_mode=json_partial |
-| val_minutes | 20260907_2250 | parse_mode=json_partial |
-| val_minutes | 20260907_2254 | parse_mode=json_partial |
-| val_minutes | 20260908_0033 | parse_mode=json_partial |
-| val_minutes | 20260908_0055 | parse_mode=json_partial |
+| train2_minutes | 20260906_1805 | parse_mode=json_partial |
+| train2_minutes | 20260906_1811 | parse_mode=json_partial |
+| train2_minutes | 20260906_1812 | parse_mode=json_partial |
+| train2_minutes | 20260906_1818 | parse_mode=json_partial |
+| train2_minutes | 20260906_1833 | parse_mode=json_partial |
+| train2_minutes | 20260906_1834 | parse_mode=json_partial |
+| train2_minutes | 20260906_1835 | parse_mode=json_partial |
+| train2_minutes | 20260906_1837 | parse_mode=json_partial |
+| train2_minutes | 20260906_1838 | parse_mode=regex |
+| train2_minutes | 20260906_1840 | parse_mode=json_partial |
+| train2_minutes | 20260906_1851 | parse_mode=json_partial |
+| train2_minutes | 20260906_1853 | parse_mode=regex |
+| train2_minutes | 20260906_1924 | parse_mode=json_partial |
+| train2_minutes | 20260906_1933 | parse_mode=json_partial |
+| train2_minutes | 20260906_1948 | parse_mode=json_partial |
+| train2_minutes | 20260906_2001 | parse_mode=json_partial |
+| train2_minutes | 20260906_2111 | parse_mode=json_partial |
+| train2_minutes | 20260906_2118 | parse_mode=json_partial |
+| train2_minutes | 20260906_2140 | parse_mode=json_partial |
+| train2_minutes | 20260906_2144 | parse_mode=json_partial |
+| train2_minutes | 20260906_2151 | parse_mode=json_partial |
+| train2_minutes | 20260906_2152 | parse_mode=json_partial |
+| train2_minutes | 20260906_2155 | parse_mode=json_partial |
+| train2_minutes | 20260906_2201 | parse_mode=json_partial |
+| train2_minutes | 20260906_2204 | parse_mode=json_partial |
+| train2_minutes | 20260906_2212 | parse_mode=json_partial |
+| train2_minutes | 20260906_2215 | parse_mode=json_partial |
+| train2_minutes | 20260906_2219 | parse_mode=json_partial |
+| train2_minutes | 20260906_2223 | parse_mode=json_partial |
+| train2_minutes | 20260906_2226 | parse_mode=json_partial |
+| train2_minutes | 20260906_2231 | parse_mode=json_partial |
+| train2_minutes | 20260906_2243 | parse_mode=json_partial |
+| train2_minutes | 20260906_2307 | parse_mode=json_partial |
+| train2_minutes | 20260906_2325 | parse_mode=json_partial |
+| train2_minutes | 20260906_2326 | parse_mode=json_partial |
+| train2_minutes | 20260906_2327 | parse_mode=json_partial |
+| train2_minutes | 20260906_2333 | parse_mode=json_partial |
+| train2_minutes | 20260907_2248 | parse_mode=json_partial |
+| train2_minutes | 20260907_2250 | parse_mode=json_partial |
+| train2_minutes | 20260907_2254 | parse_mode=json_partial |
+| train2_minutes | 20260908_0033 | parse_mode=json_partial |
+| train2_minutes | 20260908_0055 | parse_mode=json_partial |
 
-### unknown_label (53)
-| source | folder | detail |
-|---|---|---|
-| train_minutes | 20260827_1858 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1918 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1925 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1944 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1946 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1953 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1957 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2003 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2005 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2024 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2029 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1805 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1811 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1812 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1818 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1833 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1834 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1835 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1837 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1838 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1840 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1851 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1853 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1924 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1933 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_1948 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2001 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2111 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2118 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2140 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2144 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2151 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2152 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2155 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2201 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2204 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2212 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2215 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2219 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2223 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2226 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2231 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2243 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2307 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2325 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2326 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2327 | label 'empty' not in taxonomy |
-| val_minutes | 20260906_2333 | label 'present' not in taxonomy |
-| val_minutes | 20260907_2248 | label 'empty' not in taxonomy |
-| val_minutes | 20260907_2250 | label 'empty' not in taxonomy |
-| val_minutes | 20260907_2254 | label 'empty' not in taxonomy |
-| val_minutes | 20260908_0033 | label 'present' not in taxonomy |
-| val_minutes | 20260908_0055 | label 'empty' not in taxonomy |
-
-### corrupt_bin (14)
+### corrupt_bin (15)
 | source | folder | detail |
 |---|---|---|
 | train_minutes | 20260818_1804 | radar_043_20260818_180445_941.bin: empty file |
@@ -560,6 +609,7 @@ Total problem instances: **1009**
 | train_minutes | 20260818_1805 | radar_000_20260818_180501_108.bin: empty file |
 | train_minutes | 20260818_1805 | radar_001_20260818_180502_107.bin: empty file |
 | train_minutes | 20260818_2057 | radar_038_20260818_205743_712.bin: empty file |
+| test_minutes | 20260916_2236 | radar_030_20260916_223631_432.bin: empty file |
 
 ### corrupt_xytracking (3)
 | source | folder | detail |
@@ -567,6 +617,17 @@ Total problem instances: **1009**
 | train_minutes | 20260818_1826 | truncated (no closing '}') |
 | train_minutes | 20260818_1831 | truncated (no closing '}') |
 | train_minutes | 20260818_2035 | truncated (no closing '}') |
+
+### missing_radar (2)
+| source | folder | detail |
+|---|---|---|
+| test_minutes | 20260917_0023 | no capture.npz and no radar_*.bin |
+| test_minutes | 20260917_0040 | no capture.npz and no radar_*.bin |
+
+### missing_manifest (1)
+| source | folder | detail |
+|---|---|---|
+| test_minutes | 20260917_0023 | no manifest.json |
 
 ## 7. Figures
 ![label_distribution.png](figs/label_distribution.png) — task-label distribution (activity / placement / position)

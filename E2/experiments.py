@@ -1,28 +1,24 @@
-"""Experiments for the E2 occupancy pipeline (3-folder design).
+"""Experiments for the E2 occupancy pipeline (4-folder design).
 
 Splits are the dataset folders:
-  E2: train = train_minutes/ (placements t1+t2), val = val_minutes/
-      (placement t), test = test_minutes/ (placement t, disjoint days).
-      The training set is class-balanced by subsampling majority-class
-      windows (empty/occupied). A small config search on train->val
-      selects the best hyperparameters; the best model is saved to
-      outputs/best_model.pt.
-  E3: few-shot adaptation. The E2 model is fine-tuned with 10 support
-      minutes from val_minutes (5 per class) and evaluated on
-      test_minutes; compared against the 0-shot baseline. Test minutes
-      are never used for training or selection.
+  train = train_minutes/ (placements t1+t2) + train2_minutes/
+      (placement t, Sept 6-8)
+  val   = validation_minutes/ (placement t, Sept 15) — early stopping,
+      threshold selection, hyperparameter search
+  test  = test_minutes/ (Pi captures, Sept 16-17 night, 1:10 AM
+      ground-truth boundary) — touched once for final metrics
 
-Windows are built per recording, so they never cross recording /
-placement / label boundaries. Normalization uses train statistics only.
+The training set is class-balanced by subsampling majority-class
+windows (empty/occupied). Windows are built per recording, so they
+never cross recording / placement / label boundaries. Normalization
+uses train statistics only.
 """
-import copy
 import json
 import sys
 from pathlib import Path
 
 import numpy as np
 import torch
-from torch import nn
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import common as C
@@ -47,15 +43,15 @@ def _paths(index, split):
 
 
 def load_e2_splits(index, norm_mode="global"):
-    """train=train_minutes, val=val_minutes, test=test_minutes;
-    norm stats from train only (global mode)."""
-    norm = T.fit_norm(_paths(index, "train_minutes")) \
-        if norm_mode == "global" else None
+    """train=train_minutes+train2_minutes, val=validation_minutes,
+    test=test_minutes; norm stats from the train pool only (global)."""
+    train_paths = _paths(index, "train_minutes") + \
+        _paths(index, "train2_minutes")
+    norm = T.fit_norm(train_paths) if norm_mode == "global" else None
     return {
         "norm": norm, "norm_mode": norm_mode,
-        "train": T.load_split_arrays(_paths(index, "train_minutes"),
-                                     norm, norm_mode),
-        "val": T.load_split_arrays(_paths(index, "val_minutes"),
+        "train": T.load_split_arrays(train_paths, norm, norm_mode),
+        "val": T.load_split_arrays(_paths(index, "validation_minutes"),
                                    norm, norm_mode),
         "test": T.load_split_arrays(_paths(index, "test_minutes"),
                                     norm, norm_mode),
@@ -133,34 +129,10 @@ def config_search(splits, modality="radar", quick_epochs=8,
     return cfg
 
 
-def _drop_recs(arrays, rec_ids):
-    keep = ~np.isin(arrays["rec_idx"], list(rec_ids))
-    return {k: (v[keep] if isinstance(v, np.ndarray)
-                and len(v) == len(arrays["y"]) else v)
-            for k, v in arrays.items()}
-
-
 def run_e2(index, cfg=None, modalities=("fusion", "radar", "csi"),
-           norm_mode="global", val_train_frac=0.8):
+           norm_mode="global"):
     splits = load_e2_splits(index, norm_mode)
-    # Fold val_train_frac of val_minutes recordings into the training set:
-    # test_minutes is a *different day* of placement t, and models trained
-    # on t1+t2 alone miss the weaker occupied signal of that day. A 20%
-    # recording-level holdout of val_minutes stays clean for early
-    # stopping and threshold selection.
-    val_paths = _paths(index, "val_minutes")
-    rng = np.random.RandomState(SEED)
-    perm = rng.permutation(len(val_paths))
-    n_tr = int(val_train_frac * len(val_paths))
-    val_tr = [val_paths[i] for i in perm[:n_tr]]
-    val_hold = [val_paths[i] for i in perm[n_tr:]]
-    train_paths = _paths(index, "train_minutes") + val_tr
-    splits["train"] = balance_windows(
-        T.load_split_arrays(train_paths, splits["norm"], norm_mode))
-    splits["val"] = T.load_split_arrays(val_hold, splits["norm"],
-                                        norm_mode)
-    print(f"  train += {len(val_tr)} val_minutes recs; "
-          f"val holdout = {len(val_hold)} recs", flush=True)
+    splits["train"] = balance_windows(splits["train"])
     if cfg is None:
         cfg = config_search(splits)
         _save(cfg, "best_config.json")
@@ -174,7 +146,7 @@ def run_e2(index, cfg=None, modalities=("fusion", "radar", "csi"),
         res = {"modality": mod, "cfg": cfg, "seed": SEED, "threshold": thr,
                "minute_threshold": mthr,
                "n_params": npar, "train_seconds": tsec, "history": hist,
-               "val_split": "val_minutes_holdout"}
+               "val_split": "validation_minutes"}
         res["val"] = _strip(T.evaluate(model, val_arr, mod, thr, mthr))
         res["test"] = _strip(T.evaluate(model, splits["test"], mod, thr,
                                         mthr))
@@ -188,8 +160,7 @@ def run_e2(index, cfg=None, modalities=("fusion", "radar", "csi"),
                     "norm_mode": splits["norm_mode"], "modality": mod},
                    C.OUTPUT_DIR / f"model_{mod}.pt")
         vacc = res["val"]["window"]["accuracy"]
-        # E4's stage-1 and E3's base model are radar-only — keep the
-        # exported checkpoint on the radar architecture
+        # the exported checkpoint is the radar-only architecture
         if mod == "radar" and vacc > best["val_acc"]:
             best = {"val_acc": vacc, "mod": mod, "model": model,
                     "thr": thr, "mthr": mthr}
@@ -206,95 +177,6 @@ def run_e2(index, cfg=None, modalities=("fusion", "radar", "csi"),
 
 
 # ---------------------------------------------------------------------------
-# E3: few-shot adaptation to placement t
-# ---------------------------------------------------------------------------
-def _finetune(model, strategy, sup_arrays, cfg, seed=SEED, epochs=10):
-    for p in model.parameters():
-        p.requires_grad = False
-    if strategy == "head":
-        for p in model.head.parameters():
-            p.requires_grad = True
-        lr = cfg["lr"] * 0.1
-    elif strategy == "fusion_head":
-        for p in model.head.parameters():
-            p.requires_grad = True
-        for p in model.fusion.parameters():
-            p.requires_grad = True
-        lr = cfg["lr"] * 0.1
-    else:  # full
-        for p in model.parameters():
-            p.requires_grad = True
-        lr = cfg["lr"] * 0.02
-    params = [p for p in model.parameters() if p.requires_grad]
-    opt = torch.optim.Adam(params, lr=lr)
-    pos = float(sup_arrays["y"].sum()); neg = len(sup_arrays["y"]) - pos
-    crit = nn.BCEWithLogitsLoss(pos_weight=torch.tensor(neg / max(pos, 1)))
-    loader = T.make_loader(sup_arrays, min(32, len(sup_arrays["y"])), True, seed)
-    model.train()
-    for _ in range(epochs):
-        for r, c, y, _ in loader:
-            out = model(r.float(), c.float())
-            loss = crit(out, y.float())
-            opt.zero_grad(); loss.backward(); opt.step()
-    return model
-
-
-def run_e3(index, n_support=10, strategies=None):
-    """Few-shot: fine-tune the saved E2 model on n_support val_minutes
-    (half per class), evaluate on test_minutes."""
-    from models import build_model
-    ckpt = torch.load(CKPT, map_location="cpu", weights_only=False)
-    cfg = ckpt["cfg"]; thr = ckpt["threshold"]
-    mthr = ckpt.get("minute_threshold", thr)
-    norm = ckpt["norm"]; norm_mode = ckpt.get("norm_mode", "global")
-    modality = ckpt.get("modality", "fusion")
-    if strategies is None:
-        strategies = (["head", "fusion_head", "full"] if modality == "fusion"
-                      else ["head", "full"])
-    base = build_model(modality, cfg["embed_dim"], cfg["dropout"])
-    base.load_state_dict(ckpt["state_dict"])
-
-    t_index = index[index.split == "val_minutes"].sort_values("rec_id")
-    rng = np.random.RandomState(SEED)
-    support = []
-    for label in (0, 1):
-        ids = t_index[t_index.label == label]["rec_id"].tolist()
-        rng.shuffle(ids)
-        support.extend(ids[: n_support // 2])
-    query = list(index[index.split == "test_minutes"]
-                 .sort_values("rec_id")["rec_id"])
-    _save({"support": support, "query": query, "n_support": n_support},
-          "e3_partition.json")
-
-    sub = index.set_index("rec_id")
-    sup = T.load_split_arrays([sub.loc[r, "path"] for r in support],
-                              norm, norm_mode)
-    qry = T.load_split_arrays([sub.loc[r, "path"] for r in query],
-                              norm, norm_mode)
-
-    results = {"n_support": n_support, "support_minutes": support,
-               "modality": modality}
-    ev = _strip(T.evaluate(base, qry, modality, thr, mthr))
-    results["zero_shot"] = {"window": ev["window"], "minute": ev["minute"]}
-    print(f"  E3 0-shot: acc={ev['window']['accuracy']:.3f} "
-          f"f1={ev['window']['macro_f1']:.3f}", flush=True)
-    for strat in strategies:
-        m = _finetune(copy.deepcopy(base), strat, sup, cfg)
-        ev = _strip(T.evaluate(m, qry, modality, thr, mthr))
-        results[strat] = {"window": ev["window"], "minute": ev["minute"]}
-        print(f"  E3 {strat}: acc={ev['window']['accuracy']:.3f} "
-              f"f1={ev['window']['macro_f1']:.3f}", flush=True)
-        torch.save({"state_dict": m.state_dict(), "cfg": cfg,
-                    "threshold": thr, "minute_threshold": mthr,
-                    "norm": norm,
-                    "norm_mode": norm_mode, "modality": modality,
-                    "e3_strategy": strat, "support_minutes": support},
-                   C.OUTPUT_DIR / f"model_{modality}_e3_{strat}.pt")
-    _save(results, "results_e3.json")
-    return results
-
-
-# ---------------------------------------------------------------------------
 def load_index():
     return T.load_index()
 
@@ -302,9 +184,8 @@ def load_index():
 def main():
     import argparse
     ap = argparse.ArgumentParser()
-    ap.add_argument("--steps", default="e2,e3")
+    ap.add_argument("--steps", default="e2")
     ap.add_argument("--quick", action="store_true")
-    ap.add_argument("--n-support", type=int, default=10)
     ap.add_argument("--norm-mode", default="global",
                     choices=("global", "local"))
     a = ap.parse_args()
@@ -317,8 +198,6 @@ def main():
         cfg = json.loads((OUT / "best_config.json").read_text())
     if "e2" in a.steps:
         run_e2(index, cfg, norm_mode=a.norm_mode)
-    if "e3" in a.steps:
-        run_e3(index, n_support=a.n_support)
 
 
 if __name__ == "__main__":

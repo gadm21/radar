@@ -1,0 +1,52 @@
+{
+  "schema": "thoth-model/v1",
+  "name": "Fusion Occupancy Scene",
+  "version": "scene1",
+  "inputs": [
+    {
+      "sensor": "radar",
+      "representation": "e2_maps",
+      "frames": 50,
+      "shape": [
+        1,
+        50,
+        2,
+        24,
+        24
+      ],
+      "fit": "left_pad_latest",
+      "normalization": {
+        "kind": "none"
+      }
+    },
+    {
+      "sensor": "csi",
+      "representation": "e2_grid",
+      "samples": 128,
+      "shape": [
+        1,
+        128,
+        52
+      ],
+      "fit": "left_pad_latest",
+      "normalization": {
+        "kind": "none"
+      }
+    }
+  ],
+  "output": {
+    "kind": "logits",
+    "path": []
+  },
+  "class_names": [
+    "empty",
+    "occupied"
+  ],
+  "execution": "minute",
+  "aggregation": {
+    "kind": "top2",
+    "threshold": 0.05
+  },
+  "binary_output": true,
+  "output_dimension": 1
+}

@@ -25,7 +25,8 @@ def fig_window_durations(index):
     """Histogram of 50-frame window durations + CSI counts per split."""
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
     for p, color in (("train_minutes", "tab:blue"),
-                     ("val_minutes", "tab:orange"),
+                     ("train2_minutes", "tab:orange"),
+                     ("validation_minutes", "tab:purple"),
                      ("test_minutes", "tab:green")):
         durs, cnts = [], []
         for f in index[index.split == p]["path"]:
@@ -46,13 +47,15 @@ def fig_window_durations(index):
 
 
 def fig_class_balance(index):
-    fig, ax = plt.subplots(figsize=(6, 4))
-    x = np.arange(3); w = 0.35
+    fig, ax = plt.subplots(figsize=(7, 4))
+    splits = ("train_minutes", "train2_minutes", "validation_minutes",
+              "test_minutes")
+    x = np.arange(len(splits)); w = 0.35
     for i, lab in enumerate((0, 1)):
         vals = [int((index[index.split == p]["label"] == lab).sum())
-                for p in ("train_minutes", "val_minutes", "test_minutes")]
+                for p in splits]
         ax.bar(x + (i - 0.5) * w, vals, w, label=CLASS_NAMES[lab])
-    ax.set_xticks(x, ["train", "val", "test"])
+    ax.set_xticks(x, [s.replace("_minutes", "") for s in splits])
     ax.set_ylabel("minutes"); ax.legend(); ax.set_title("Class balance per split")
     fig.tight_layout(); fig.savefig(FIGS / "class_balance.png", dpi=160)
     plt.close(fig)
@@ -110,29 +113,9 @@ def fig_e2(results):
         ax.plot([h["epoch"] for h in hist], [h["val_acc"] for h in hist],
                 marker="s", label="val accuracy")
         ax.set_xlabel("epoch"); ax.set_ylim(0, 1.05); ax.legend()
-        ax.set_title(f"E2 {curve_mod} training curve (val = val_minutes)")
+        ax.set_title(f"E2 {curve_mod} training curve (val = validation_minutes)")
         fig.tight_layout(); fig.savefig(FIGS / "e2_training.png", dpi=160)
         plt.close(fig)
-
-
-def fig_e3(results):
-    strats = ["zero_shot"] + [s for s in ("head", "fusion_head", "full")
-                              if s in results]
-    metrics = ["accuracy", "macro_f1", "false_empty_rate"]
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4))
-    x = np.arange(len(strats)); w = 0.25
-    for j, lev in enumerate(("window", "minute")):
-        ax = axes[j]
-        for i, k in enumerate(metrics):
-            vals = [results[s][lev][k] for s in strats]
-            ax.bar(x + (i - 1) * w, vals, w, label=k)
-        ax.set_xticks(x, strats, rotation=15)
-        ax.set_ylim(0, 1.05); ax.set_title(f"E3 few-shot ({lev} level)")
-        ax.legend()
-    fig.suptitle(f"E3: {results['n_support']} support minutes from "
-                 f"val_minutes ({', '.join(results['support_minutes'][:4])}...)")
-    fig.tight_layout(); fig.savefig(FIGS / "e3_fewshot.png", dpi=160)
-    plt.close(fig)
 
 
 def fig_hp_search(search):
@@ -144,7 +127,7 @@ def fig_hp_search(search):
     order = np.argsort(vals)
     ax.barh(np.arange(len(res)), [vals[i] for i in order])
     ax.set_yticks(np.arange(len(res)), [labels[i] for i in order], fontsize=8)
-    ax.set_xlabel("val accuracy (val_minutes)"); ax.set_xlim(0, 1.05)
+    ax.set_xlabel("val accuracy (validation_minutes)"); ax.set_xlim(0, 1.05)
     ax.set_title("Hyperparameter search (radar, train→val)")
     fig.tight_layout(); fig.savefig(FIGS / "hp_search.png", dpi=160)
     plt.close(fig)
@@ -158,9 +141,6 @@ def main():
     e2 = _load("results_e2.json")
     if e2:
         fig_e2(e2)
-    e3 = _load("results_e3.json")
-    if e3:
-        fig_e3(e3)
     hp = _load("hp_search.json")
     if hp:
         fig_hp_search(hp)

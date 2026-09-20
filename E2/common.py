@@ -1,9 +1,9 @@
 """Shared dataset utilities for the E2 occupancy-detection pipeline.
 
 Handles tolerant manifest parsing (some manifests are malformed JSON),
-unified discovery of `train_minutes/`, `val_minutes/` and
-`test_minutes/` recordings, label mapping to the binary occupancy
-task, and session inference.
+unified discovery of `train_minutes/`, `train2_minutes/`,
+`validation_minutes/` and `test_minutes/` recordings, label mapping to
+the binary occupancy task, and session inference.
 """
 import json
 import re
@@ -15,19 +15,23 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
 TRAIN_MINUTES_DIR = ROOT / "train_minutes"
-VAL_MINUTES_DIR = ROOT / "val_minutes"
-TEST_MINUTES_DIR = ROOT / "test_minutes"
+TRAIN2_MINUTES_DIR = ROOT / "train2_minutes"          # formerly val_minutes (Sept 6-8)
+VALIDATION_MINUTES_DIR = ROOT / "validation_minutes"  # formerly test_minutes (Sept 15)
+TEST_MINUTES_DIR = ROOT / "test_minutes"              # Pi captures, Sept 16-17 overnight
 E2_DIR = ROOT / "E2"
 OUTPUT_DIR = E2_DIR / "outputs"
 CACHE_DIR = E2_DIR / "cache"
-
 # ---------------------------------------------------------------------------
 # Label handling
 # ---------------------------------------------------------------------------
-# train_minutes/ : t1_empty, t1_sleep, t1_present, t2_empty, t2_sleep,
-#                  t2_present   (sleep counts as occupied)
-# val_minutes/   : t_empty, t_sleep, t_present
-# test_minutes/  : empty, present   (no sleep labels)
+# train_minutes/      : t1_empty, t1_sleep, t1_present, t2_empty, t2_sleep,
+#                       t2_present   (sleep counts as occupied)
+# train2_minutes/     : t_empty, t_sleep, t_present   (placement t, Sept 6-8)
+# validation_minutes/ : empty, present   (placement t, Sept 15 evening)
+# test_minutes/       : no labels — Pi captures from the night of
+#                       Sept 16-17. Ground truth is the 1:10 AM boundary:
+#                       minutes starting before 20260917_0110 are occupied,
+#                       minutes at/after are empty.
 # Only t_* / t1_* / t2_* labels are ground truth; absent/occupied/...
 # auto-labels were stripped by clean_minutes.py and are ignored here.
 TRAIN_LABELS = {
@@ -38,20 +42,25 @@ TRAIN_LABELS = {
     "t2_sleep": ("t2", 1),
     "t2_present": ("t2", 1),
 }
-VAL_LABELS = {
+TRAIN2_LABELS = {
     "t_empty": ("t", 0),
     "t_sleep": ("t", 1),
     "t_present": ("t", 1),
 }
-TEST_LABELS = {
+VALIDATION_LABELS = {
     "empty": ("t", 0),
     "present": ("t", 1),
 }
 LABEL_TABLES = {
     "train_minutes": TRAIN_LABELS,
-    "val_minutes": VAL_LABELS,
-    "test_minutes": TEST_LABELS,
+    "train2_minutes": TRAIN2_LABELS,
+    "validation_minutes": VALIDATION_LABELS,
+    "test_minutes": {},   # time-boundary ground truth, see below
 }
+
+# First empty minute on the Pi test night (folder-name timestamp, local time).
+TEST_BOUNDARY_FOLDER = "20260917_0110"
+TEST_PLACEMENT = "pi"
 CLASS_NAMES = ["empty", "occupied"]
 
 SESSION_GAP_SECONDS = 600.0  # gap larger than this starts a new session
@@ -186,11 +195,12 @@ class Recording:
 
 
 def discover_recordings():
-    """Scan the three dataset roots and return (recordings, problems)."""
+    """Scan the four dataset roots and return (recordings, problems)."""
     recordings = []
     problems = []
     for source, root in (("train_minutes", TRAIN_MINUTES_DIR),
-                         ("val_minutes", VAL_MINUTES_DIR),
+                         ("train2_minutes", TRAIN2_MINUTES_DIR),
+                         ("validation_minutes", VALIDATION_MINUTES_DIR),
                          ("test_minutes", TEST_MINUTES_DIR)):
         if not root.exists():
             problems.append(f"missing root: {root}")
@@ -204,7 +214,15 @@ def discover_recordings():
                 continue
             man, mode = load_manifest(mpath)
             labels = man.get("labels", []) or []
-            placement, y, status = map_labels(labels, source)
+            if source == "test_minutes":
+                # Pi test night: ground truth is the 1:10 AM boundary —
+                # occupied before, empty at/after (folder name = local
+                # scheduled start, fixed-width so string compare works).
+                placement = TEST_PLACEMENT
+                y = 0 if folder.name >= TEST_BOUNDARY_FOLDER else 1
+                status = "ok"
+            else:
+                placement, y, status = map_labels(labels, source)
             start = parse_iso(man.get("scheduled_start"))
             if not np.isfinite(start):
                 start = folder_start_ts(folder.name)
@@ -284,8 +302,9 @@ def iter_bin_frames(bin_path):
 def recording_radar_frames(rec, manifest=None):
     """Return (payloads, timestamps) for all radar frames of a recording.
 
-    val_minutes / test_minutes: per-second timestamps from capture.npz
-    (or chunked radar_*.bin for the few folders without one).
+    npz sources (train2/validation/test_minutes): per-second timestamps
+    from capture.npz (or chunked radar_*.bin for the few folders
+    without one).
     train_minutes: per-chunk timing from the manifest; frames inside a chunk are
     spaced uniformly between the chunk start and the next chunk's start
     (or finished_capture / nominal 100 ms spacing as fallback). The
@@ -422,8 +441,8 @@ def recording_csi(rec, receiver_index=None):
     train_minutes/: several wifi_csi_XX.csv files may exist; typically
     one is empty. The file with the most samples inside the recording's
     [start_ts, end_ts] window is used (documented rule); ties -> first.
-    val_minutes/ + test_minutes/: csi_sample_* arrays in capture.npz; the
-    receiver index with the most samples is used.
+    npz sources (train2/validation/test_minutes): csi_sample_* arrays
+    in capture.npz; the receiver index with the most samples is used.
     """
     if (rec.folder / "capture.npz").exists():
         d = np.load(rec.folder / "capture.npz")

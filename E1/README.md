@@ -1,7 +1,8 @@
 # E1 — Dataset Audit
 
-Exploratory inspection of the three dataset roots, `train_minutes/`,
-`val_minutes/` and `test_minutes/`. Produces detailed tables and figures
+Exploratory inspection of the four dataset roots, `train_minutes/`,
+`train2_minutes/`, `validation_minutes/` and `test_minutes/`. Produces
+detailed tables and figures
 on folder/file
 completeness, manifest health, the label taxonomy, sensor coverage
 (radar / Wi-Fi CSI / xy-tracking / Sense-HAT / camera), collection

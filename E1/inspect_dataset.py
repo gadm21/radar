@@ -1,7 +1,7 @@
 """Dataset audit for the E1 inspection stage.
 
-Scans every minute folder in `train_minutes/`, `val_minutes/` and
-`test_minutes/`, checks file
+Scans every minute folder in `train_minutes/`, `train2_minutes/`,
+`validation_minutes/` and `test_minutes/`, checks file
 completeness and integrity (manifest, radar .bin chunks / capture.npz,
 CSI csv, xy-tracking, home-assistant status, sense-hat), tabulates the
 label taxonomy, measures timing/coverage, and catalogs every missing or
@@ -105,7 +105,7 @@ def scan_folder(folder, source, rng, full_json_budget):
         rec["manifest_schema"] = str(man.get("schema") or "")
         labels = man.get("labels", []) or []
         rec["labels"] = "|".join(labels)
-        cls = C.classify_labels(labels, source)
+        cls = C.classify_labels(labels, source, folder.name)
         rec["placement"] = cls["placement"]
         rec["activity"] = cls["activity"]
         rec["position"] = cls["position"]
@@ -145,7 +145,7 @@ def scan_folder(folder, source, rng, full_json_budget):
     if bad_ts:
         prob("bad_bin_name", f"{bad_ts} radar_*.bin name(s) without a parseable timestamp")
 
-    # ---- radar: capture.npz (val_minutes / test_minutes) ----
+    # ---- radar: capture.npz (train2 / validation / test_minutes) ----
     npz = folder / "capture.npz"
     if npz.exists():
         rec["has_npz"] = True
@@ -157,7 +157,7 @@ def scan_folder(folder, source, rng, full_json_budget):
         rec["npz_camera_frames"] = info.get("npz_camera_frames", "")
         if not ok:
             prob("corrupt_npz", note)
-    elif source in ("val_minutes", "test_minutes") and not bin_files:
+    elif source in C.NPZ_SOURCES and not bin_files:
         prob("missing_radar", "no capture.npz and no radar_*.bin")
     if source == "train_minutes" and not bin_files:
         prob("missing_radar", "no radar_*.bin files")

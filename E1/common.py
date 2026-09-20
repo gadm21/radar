@@ -1,11 +1,11 @@
 """Shared dataset-inspection utilities for the E1 data-audit pipeline.
 
 E1 is the exploratory/audit stage: it scans every minute folder in
-`train_minutes/`, `val_minutes/` and `test_minutes/`, checks file
-completeness and integrity,
-parses manifests tolerantly (some manifests are malformed JSON — the
-same issue documented in `E2/common.py` and `E3/common.py`), tabulates
-labels, and catalogs every missing/corrupt instance.
+`train_minutes/`, `train2_minutes/`, `validation_minutes/` and
+`test_minutes/`, checks file completeness and integrity, parses manifests
+tolerantly (some manifests are malformed JSON — the same issue
+documented in `E2/common.py`), tabulates labels, and catalogs every
+missing/corrupt instance.
 
 On-disk formats (verified by direct inspection):
 
@@ -19,11 +19,12 @@ On-disk formats (verified by direct inspection):
                    `manifest.json`, `xy-tracking.json` and
                    `.home_assistant_status.json` complete the folder.
 
-  val_minutes/ +   same minute-folder convention, but radar/CSI/sense/camera
-  test_minutes/    samples are usually packed into a single synchronized
-                   `capture.npz` container. A minority of "eventful" minutes
-                   fall back to chunked `radar_*.bin` files instead.
-                   `sense_hat.error.json` records Sense-HAT failures.
+  train2_minutes/,   same minute-folder convention, but radar/CSI/sense/
+  validation_minutes/,  camera samples are usually packed into a single
+  test_minutes/      synchronized `capture.npz` container. A minority of
+                   "eventful" minutes fall back to chunked `radar_*.bin`
+                   files instead. `sense_hat.error.json` records
+                   Sense-HAT failures.
 """
 import json
 import re
@@ -34,16 +35,21 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parent.parent
 TRAIN_MINUTES_DIR = ROOT / "train_minutes"
-VAL_MINUTES_DIR = ROOT / "val_minutes"
-TEST_MINUTES_DIR = ROOT / "test_minutes"
+TRAIN2_MINUTES_DIR = ROOT / "train2_minutes"          # placement t, Sept 6-8
+VALIDATION_MINUTES_DIR = ROOT / "validation_minutes"  # placement t, Sept 15
+TEST_MINUTES_DIR = ROOT / "test_minutes"              # Pi night, Sept 16-17
 E1_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = E1_DIR / "outputs"
 FIGS_DIR = OUTPUT_DIR / "figs"
 
-SOURCES = ("train_minutes", "val_minutes", "test_minutes")
+SOURCES = ("train_minutes", "train2_minutes", "validation_minutes",
+           "test_minutes")
 SOURCE_ROOTS = {"train_minutes": TRAIN_MINUTES_DIR,
-                "val_minutes": VAL_MINUTES_DIR,
+                "train2_minutes": TRAIN2_MINUTES_DIR,
+                "validation_minutes": VALIDATION_MINUTES_DIR,
                 "test_minutes": TEST_MINUTES_DIR}
+# sources whose radar/CSI arrive as capture.npz (not chunked .bin/csv)
+NPZ_SOURCES = ("train2_minutes", "validation_minutes", "test_minutes")
 
 FRAME_HEADER_BYTES = 12
 NUM_CHIRPS = 64
@@ -53,22 +59,34 @@ NUM_ANTENNAS = 3
 EXPECTED_PAYLOAD_BYTES = NUM_CHIRPS * NUM_SAMPLES * NUM_ANTENNAS * 3 // 2  # 36864
 EXPECTED_FRAME_BYTES = FRAME_HEADER_BYTES + EXPECTED_PAYLOAD_BYTES          # 36876
 
-# Label taxonomy (documented in E2/E3):
-#   train_minutes/ : t1_empty/t1_sleep/t1_present (placement t1),
-#                    t2_empty/t2_sleep/t2_present (placement t2)
-#   val_minutes/   : t_empty/t_sleep/t_present    (placement t)
-#   test_minutes/  : empty/present                (placement t, new
-#                    naming — no t_ prefix, no sleep)
-#   position       : left / right                 (val_minutes only)
-#   flags          : radar-missing
-#   auxiliary      : absent, occupied (auto-labels from the recorder's
-#                    own minute_summary; stripped by E2/clean_minutes.py)
+# Label taxonomy (documented in E2):
+#   train_minutes/      : t1_empty/t1_sleep/t1_present (placement t1),
+#                         t2_empty/t2_sleep/t2_present (placement t2)
+#   train2_minutes/     : t_empty/t_sleep/t_present    (placement t)
+#   validation_minutes/ : empty/present                (placement t, new
+#                         naming — no t_ prefix, no sleep)
+#   test_minutes/       : no manifest labels — Pi captures from the night
+#                         of Sept 16-17; ground truth is the 1:10 AM
+#                         boundary (occupied before, empty at/after)
+#   position            : left / right                 (train2_minutes only)
+#   flags               : radar-missing
+#   auxiliary           : absent, occupied (auto-labels from the recorder's
+#                         own minute_summary; stripped by E2/clean_minutes.py)
 PLACEMENT_LABELS = {
     "train_minutes": {"t1_empty", "t1_sleep", "t1_present",
                       "t2_empty", "t2_sleep", "t2_present"},
-    "val_minutes": {"t_empty", "t_sleep", "t_present"},
-    "test_minutes": {"empty", "present"},
+    "train2_minutes": {"t_empty", "t_sleep", "t_present"},
+    "validation_minutes": {"empty", "present"},
+    "test_minutes": set(),   # boundary-derived, see boundary_label()
 }
+
+# First empty minute on the Pi test night (folder-name timestamp).
+TEST_BOUNDARY_FOLDER = "20260917_0110"
+
+
+def boundary_label(folder_name):
+    """test_minutes ground truth: 1 occupied / 0 empty by folder name."""
+    return 0 if folder_name >= TEST_BOUNDARY_FOLDER else 1
 ACTIVITY_OF = {
     "t1_empty": "empty", "t2_empty": "empty", "t_empty": "empty",
     "empty": "empty",
@@ -157,11 +175,13 @@ def radar_fname_ts(name):
 # ---------------------------------------------------------------------------
 # Label helpers
 # ---------------------------------------------------------------------------
-def classify_labels(labels, source):
+def classify_labels(labels, source, folder_name=""):
     """Map a manifest label list to task fields.
 
     Returns dict with placement, activity, position, flags, aux, and a
     status: 'ok' | 'unlabeled' | 'ambiguous' (conflicting task labels).
+    test_minutes has no task labels — activity/placement come from the
+    1:10 AM boundary rule instead.
     """
     labels = list(labels or [])
     task = [l for l in labels if l in PLACEMENT_LABELS.get(source, ())]
@@ -183,6 +203,19 @@ def classify_labels(labels, source):
         status = "ambiguous"
     if len(set(positions)) > 1:
         status = "ambiguous"
+    if source == "test_minutes":
+        # boundary-derived ground truth (no manifest task labels)
+        y = boundary_label(folder_name)
+        return {
+            "placement": "pi",
+            "activity": "occupied" if y else "empty",
+            "position": "",
+            "flags": flags,
+            "aux": aux,
+            "other": other,
+            "task_labels": task,
+            "status": "ok" if folder_name else "unlabeled",
+        }
     return {
         "placement": sorted(placements)[0] if len(placements) == 1 else "",
         "activity": sorted(activities)[0] if len(activities) == 1 else "",

@@ -1,6 +1,6 @@
 """Dataset inspection for the E2 occupancy pipeline.
 
-Scans train_minutes/, val_minutes/ and test_minutes/, validates
+Scans train_minutes/, train2_minutes/ and test_minutes/, validates
 structure, counts data by split / session / label, measures radar
 timing, and writes outputs/inspection.json plus a printed report.
 
@@ -30,7 +30,7 @@ def main():
           f"{len(problems)} problems (see outputs/inspection.json)")
 
     # ---- counts by split / label / session ----
-    for p in ("train_minutes", "val_minutes", "test_minutes"):
+    for p in ("train_minutes", "train2_minutes", "validation_minutes", "test_minutes"):
         recs = [r for r in usable if r.source == p]
         by_label = Counter(C.CLASS_NAMES[r.label] for r in recs)
         by_orig = Counter(l for r in recs for l in r.orig_labels)
@@ -63,7 +63,7 @@ def main():
     # ---- radar frame counts + timing on a sample of recordings ----
     print("\n=== radar timing (sampling up to 40 recordings/split) ===")
     timing = {}
-    for p in ("train_minutes", "val_minutes", "test_minutes"):
+    for p in ("train_minutes", "train2_minutes", "validation_minutes", "test_minutes"):
         recs = [r for r in usable if r.source == p]
         rng = np.random.RandomState(0)
         idx = rng.choice(len(recs), min(40, len(recs)), replace=False) if recs else []

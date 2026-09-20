@@ -31,15 +31,15 @@ def fig_label_distribution(rep, df):
     fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
     for ax, (key, title) in zip(axes, (("activity_counts", "Activity (task labels)"),
                                      ("placement_counts", "Placement / split"),
-                                     ("position_counts", "Position (val_minutes)"))):
+                                     ("position_counts", "Position (train2_minutes)"))):
         sources = C.SOURCES
         labels = sorted({k for s in sources for k in rep[s][key] if k != "none"})
         x = np.arange(len(labels))
-        w = 0.27
+        w = 0.8 / len(sources)
         for i, s in enumerate(sources):
             vals = [rep[s][key].get(l, 0) for l in labels]
-            ax.bar(x + (i - 1) * w, vals, w, label=s)
-            for xi, v in zip(x + (i - 1) * w, vals):
+            ax.bar(x + (i - (len(sources) - 1) / 2) * w, vals, w, label=s)
+            for xi, v in zip(x + (i - (len(sources) - 1) / 2) * w, vals):
                 if v:
                     ax.text(xi, v, str(v), ha="center", va="bottom", fontsize=8)
         ax.set_xticks(x)
@@ -55,8 +55,8 @@ def fig_label_distribution(rep, df):
 
 def fig_raw_labels(rep):
     """All raw manifest labels (incl. auxiliary) per source."""
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=False)
-    for ax, s in zip(axes, C.SOURCES):
+    fig, axes = plt.subplots(2, 2, figsize=(14, 9), sharey=False)
+    for ax, s in zip(axes.flat, C.SOURCES):
         counts = rep[s]["raw_label_counts"]
         items = sorted(counts.items(), key=lambda kv: kv[1])
         ax.barh([k for k, _ in items], [v for _, v in items])
@@ -113,11 +113,12 @@ def fig_file_completeness(rep):
             ("n_with_sense_error", "sense_hat.error.json")]
     fig, ax = plt.subplots(figsize=(11, 4.5))
     x = np.arange(len(keys))
-    w = 0.38
+    w = 0.8 / len(C.SOURCES)
     for i, s in enumerate(C.SOURCES):
         n = rep[s]["n_folders"]
         vals = [100.0 * rep[s][k] / max(n, 1) for k, _ in keys]
-        bars = ax.bar(x + (i - 0.5) * w, vals, w, label=f"{s} (n={n})")
+        bars = ax.bar(x + (i - (len(C.SOURCES) - 1) / 2) * w, vals, w,
+                      label=f"{s} (n={n})")
         for b, v in zip(bars, vals):
             ax.text(b.get_x() + b.get_width() / 2, v, f"{v:.0f}",
                     ha="center", va="bottom", fontsize=8)
@@ -141,11 +142,11 @@ def fig_manifest_health(rep):
         sources = C.SOURCES
         cats = sorted({k for s in sources for k in rep[s][key]})
         x = np.arange(len(cats))
-        w = 0.38
+        w = 0.8 / len(sources)
         for i, s in enumerate(sources):
             vals = [rep[s][key].get(c, 0) for c in cats]
-            ax.bar(x + (i - 0.5) * w, vals, w, label=s)
-            for xi, v in zip(x + (i - 0.5) * w, vals):
+            ax.bar(x + (i - (len(sources) - 1) / 2) * w, vals, w, label=s)
+            for xi, v in zip(x + (i - (len(sources) - 1) / 2) * w, vals):
                 if v:
                     ax.text(xi, v, str(v), ha="center", va="bottom", fontsize=8)
         ax.set_xticks(x)
@@ -169,7 +170,7 @@ def fig_radar_frames(df):
     d = df[df["npz_radar_frames"].apply(lambda v: isinstance(v, (int, float)) and v > 0)]
     if not d.empty:
         ax.hist(d["npz_radar_frames"].astype(float), bins=40, alpha=0.6,
-                label="val/test_minutes (npz)")
+                label="npz sources (capture.npz)")
     ax.set_title("Radar frames per minute folder")
     ax.set_xlabel("frames (10 Hz nominal -> ~600 = full minute)")
     ax.set_ylabel("folders")

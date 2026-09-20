@@ -1,0 +1,102 @@
+{
+  "fusion_occupancy_e2.pt": {
+    "modality": "fusion",
+    "threshold": 0.4800000000000001,
+    "minute_threshold": 0.7800000000000001,
+    "window": {
+      "accuracy": 0.5067240451855837,
+      "macro_f1": 0.47688358555210675,
+      "n": 1859
+    },
+    "partial_minute": {
+      "accuracy": 0.7821409359870898,
+      "macro_f1": 0.4642296747143049,
+      "n": 1859
+    },
+    "minute@0.5": {
+      "accuracy": 0.6444444444444445,
+      "macro_f1": 0.41090909090909095,
+      "n": 270
+    },
+    "minute@tuned": {
+      "accuracy": 0.5666666666666667,
+      "macro_f1": 0.5640293131288039,
+      "n": 270
+    }
+  },
+  "fusion_occupancy_scene.pt": {
+    "modality": "fusion",
+    "threshold": 0.05,
+    "minute_threshold": 0.05,
+    "window": {
+      "accuracy": 0.7799892415277031,
+      "macro_f1": 0.4476414021766531,
+      "n": 1859
+    },
+    "partial_minute": {
+      "accuracy": 0.7842926304464766,
+      "macro_f1": 0.4738049138241981,
+      "n": 1859
+    },
+    "minute@0.5": {
+      "accuracy": 0.6518518518518519,
+      "macro_f1": 0.4319097502014504,
+      "n": 270
+    },
+    "minute@tuned": {
+      "accuracy": 0.6407407407407407,
+      "macro_f1": 0.4001236858379716,
+      "n": 270
+    }
+  },
+  "radar_occupancy_e2.pt": {
+    "modality": "radar",
+    "threshold": 0.05,
+    "minute_threshold": 0.5650000000000002,
+    "window": {
+      "accuracy": 0.5438407746100054,
+      "macro_f1": 0.5171594211421319,
+      "n": 1859
+    },
+    "partial_minute": {
+      "accuracy": 0.7859064012910166,
+      "macro_f1": 0.6107670584868419,
+      "n": 1859
+    },
+    "minute@0.5": {
+      "accuracy": 0.7185185185185186,
+      "macro_f1": 0.6228218513344607,
+      "n": 270
+    },
+    "minute@tuned": {
+      "accuracy": 0.6555555555555556,
+      "macro_f1": 0.6554373927958834,
+      "n": 270
+    }
+  },
+  "radar_occupancy_scene.pt": {
+    "modality": "radar",
+    "threshold": 0.05,
+    "minute_threshold": 0.05,
+    "window": {
+      "accuracy": 0.7826788596019365,
+      "macro_f1": 0.4709344920087464,
+      "n": 1859
+    },
+    "partial_minute": {
+      "accuracy": 0.7832167832167832,
+      "macro_f1": 0.4733026107191693,
+      "n": 1859
+    },
+    "minute@0.5": {
+      "accuracy": 0.6518518518518519,
+      "macro_f1": 0.4319097502014504,
+      "n": 270
+    },
+    "minute@tuned": {
+      "accuracy": 0.6518518518518519,
+      "macro_f1": 0.4319097502014504,
+      "n": 270
+    }
+  }
+}

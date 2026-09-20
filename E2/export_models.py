@@ -92,28 +92,19 @@ def main():
     DEPLOY.mkdir(exist_ok=True)
     out = C.OUTPUT_DIR
 
-    # radar model trained on train_minutes + 80% val_minutes (E2)
+    # radar model trained on train_minutes + train2_minutes (E2)
     rad = out / "model_radar.pt"
     if rad.exists():
         export(rad, "radar_occupancy_e2.pt")
     else:
-        print(f"WARNING: {rad} missing — run experiments.py --steps e2,e3")
-
-    # radar model fine-tuned on val_minutes support minutes (E3 'full')
-    e3 = out / "model_radar_e3_full.pt"
-    if e3.exists():
-        export(e3, "radar_occupancy_e3_finetuned.pt",
-               {"finetune": "E3 full fine-tune on 10 support minutes of "
-                            "val_minutes"})
-    else:
-        print(f"WARNING: {e3} missing — run experiments.py --steps e2,e3")
+        print(f"WARNING: {rad} missing — run experiments.py --steps e2")
 
     # fusion model (radar encoder + CSI amplitude-stats encoder)
     fus = out / "model_fusion.pt"
     if fus.exists():
         export(fus, "fusion_occupancy_e2.pt")
     else:
-        print(f"WARNING: {fus} missing — run experiments.py --steps e2,e3")
+        print(f"WARNING: {fus} missing — run experiments.py --steps e2")
 
 
 if __name__ == "__main__":

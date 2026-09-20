@@ -1,0 +1,38 @@
+{
+  "schema": "thoth-model/v1",
+  "name": "Radar Occupancy Scene",
+  "version": "scene1",
+  "inputs": [
+    {
+      "sensor": "radar",
+      "representation": "e2_maps",
+      "frames": 50,
+      "shape": [
+        1,
+        50,
+        2,
+        24,
+        24
+      ],
+      "fit": "left_pad_latest",
+      "normalization": {
+        "kind": "none"
+      }
+    }
+  ],
+  "output": {
+    "kind": "logits",
+    "path": []
+  },
+  "class_names": [
+    "empty",
+    "occupied"
+  ],
+  "execution": "minute",
+  "aggregation": {
+    "kind": "top2",
+    "threshold": 0.05
+  },
+  "binary_output": true,
+  "output_dimension": 1
+}

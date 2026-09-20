@@ -1,4 +1,4 @@
-"""Clean train_minutes/ and val_minutes/.
+"""Clean train_minutes/ and train2_minutes/.
 
 Rules (per user instruction):
   * Valid labels start with t_ / t1_ / t2_  (regex ^t\\d*_).
@@ -74,7 +74,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
-    for split in ("train_minutes", "val_minutes"):
+    for split in ("train_minutes", "train2_minutes"):
         root = ROOT / split
         kept = deleted = 0
         reasons = {}

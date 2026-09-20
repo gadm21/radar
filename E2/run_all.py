@@ -3,8 +3,9 @@
     python E2/run_all.py            # full pipeline
     python E2/run_all.py --skip-preprocess   # reuse existing cache
 
-Steps: inspect -> preprocess (cache) -> E2 (train t1/val t2/test t,
-balanced, config search) -> E3 (few-shot) -> figures -> report.
+Steps: inspect -> preprocess (cache) -> E2 (train+train2 / validation /
+test, balanced, config search) -> scene model (deployment export) ->
+deploy eval -> figures -> report.
 """
 import subprocess
 import sys
@@ -27,14 +28,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-preprocess", action="store_true")
     ap.add_argument("--workers", type=int, default=8)
-    ap.add_argument("--n-support", type=int, default=10)
     a = ap.parse_args()
 
     step([str(E2 / "inspect_dataset.py")])
     if not a.skip_preprocess:
         step([str(E2 / "preprocess.py"), "--workers", str(a.workers)])
-    step([str(E2 / "experiments.py"), "--steps", "e2,e3",
-          "--n-support", str(a.n_support)])
+    step([str(E2 / "experiments.py"), "--steps", "e2"])
+    step([str(E2 / "scene_model.py")])
+    step([str(E2 / "export_models.py")])
+    step([str(E2 / "eval_deploy.py")])
     step([str(E2 / "plots.py")])
     step([str(E2 / "report.py")])
     print("\nAll done. See E2/outputs/ (REPORT.md, figs/, *.json).")

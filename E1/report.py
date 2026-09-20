@@ -33,8 +33,9 @@ def main():
     L = []
     L.append("# E1 — Dataset Audit Report")
     L.append("")
-    L.append("Exploratory inspection of `train_minutes/`, `val_minutes/` "
-             "and `test_minutes/`: file completeness, manifest health, "
+    L.append("Exploratory inspection of `train_minutes/`, "
+             "`train2_minutes/`, `validation_minutes/` and "
+             "`test_minutes/`: file completeness, manifest health, "
              "label taxonomy, sensor coverage, timing, and a catalog of "
              "every missing/corrupt instance.")
     L.append("")
@@ -56,13 +57,16 @@ def main():
     # ---- labels ----
     L.append("## 2. Labels")
     L.append("Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements "
-             "t1/t2), `t_*` in `val_minutes/` (placement t), and plain "
-             "`empty`/`present` in `test_minutes/` (placement t, newer "
-             "naming). `left`/`right` position labels and the "
-             "`radar-missing` flag appear in `val_minutes/`. "
-             "`absent`/`occupied` are auxiliary auto-labels written by "
-             "the recorder (stripped from train/val manifests by "
-             "`E2/clean_minutes.py`).")
+             "t1/t2), `t_*` in `train2_minutes/` (placement t, Sept 6-8), "
+             "and plain `empty`/`present` in `validation_minutes/` "
+             "(placement t, Sept 15, newer naming). `test_minutes/` "
+             "(Pi captures, Sept 16-17 night) carries no manifest task "
+             "labels — ground truth is the 1:10 AM boundary: minutes "
+             "before `20260917_0110` are occupied, at/after are empty. "
+             "`left`/`right` position labels and the `radar-missing` "
+             "flag appear in `train2_minutes/`. `absent`/`occupied` are "
+             "auxiliary auto-labels written by the recorder (stripped "
+             "from train manifests by `E2/clean_minutes.py`).")
     L.append("")
     for s in C.SOURCES:
         r = rep[s]

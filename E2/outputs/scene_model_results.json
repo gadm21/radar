@@ -1,0 +1,196 @@
+{
+  "radar": {
+    "threshold": 0.05,
+    "minute_threshold": 0.05,
+    "val": {
+      "window": {
+        "accuracy": 0.42829457364341084,
+        "macro_f1": 0.3160956980792991,
+        "empty_precision": 1.0,
+        "empty_recall": 0.019933554817275746,
+        "empty_f1": 0.03908794788273615,
+        "occupied_precision": 0.4215686274509804,
+        "occupied_recall": 1.0,
+        "occupied_f1": 0.593103448275862,
+        "false_empty_rate": 0.0,
+        "confusion_matrix": [
+          [
+            24,
+            1180
+          ],
+          [
+            0,
+            860
+          ]
+        ],
+        "n": 2064
+      },
+      "minute": {
+        "accuracy": 0.4175257731958763,
+        "macro_f1": 0.29454545454545455,
+        "empty_precision": 0.0,
+        "empty_recall": 0.0,
+        "empty_f1": 0.0,
+        "occupied_precision": 0.4175257731958763,
+        "occupied_recall": 1.0,
+        "occupied_f1": 0.5890909090909091,
+        "false_empty_rate": 0.0,
+        "confusion_matrix": [
+          [
+            0,
+            113
+          ],
+          [
+            0,
+            81
+          ]
+        ],
+        "n": 194
+      }
+    },
+    "test": {
+      "window": {
+        "accuracy": 0.7826788596019365,
+        "macro_f1": 0.4709344920087464,
+        "empty_precision": 0.6086956521739131,
+        "empty_recall": 0.034229828850855744,
+        "empty_f1": 0.06481481481481481,
+        "occupied_precision": 0.7848583877995643,
+        "occupied_recall": 0.9937931034482759,
+        "occupied_f1": 0.877054169202678,
+        "false_empty_rate": 0.006206896551724138,
+        "confusion_matrix": [
+          [
+            14,
+            395
+          ],
+          [
+            9,
+            1441
+          ]
+        ],
+        "n": 1859
+      },
+      "minute": {
+        "accuracy": 0.6518518518518519,
+        "macro_f1": 0.4319097502014504,
+        "empty_precision": 1.0,
+        "empty_recall": 0.04081632653061224,
+        "empty_f1": 0.0784313725490196,
+        "occupied_precision": 0.6466165413533834,
+        "occupied_recall": 1.0,
+        "occupied_f1": 0.7853881278538812,
+        "false_empty_rate": 0.0,
+        "confusion_matrix": [
+          [
+            4,
+            94
+          ],
+          [
+            0,
+            172
+          ]
+        ],
+        "n": 270
+      }
+    },
+    "file": "radar_occupancy_scene.pt"
+  },
+  "fusion": {
+    "threshold": 0.05,
+    "minute_threshold": 0.05,
+    "val": {
+      "window": {
+        "accuracy": 0.42829457364341084,
+        "macro_f1": 0.3160956980792991,
+        "empty_precision": 1.0,
+        "empty_recall": 0.019933554817275746,
+        "empty_f1": 0.03908794788273615,
+        "occupied_precision": 0.4215686274509804,
+        "occupied_recall": 1.0,
+        "occupied_f1": 0.593103448275862,
+        "false_empty_rate": 0.0,
+        "confusion_matrix": [
+          [
+            24,
+            1180
+          ],
+          [
+            0,
+            860
+          ]
+        ],
+        "n": 2064
+      },
+      "minute": {
+        "accuracy": 0.4175257731958763,
+        "macro_f1": 0.29454545454545455,
+        "empty_precision": 0.0,
+        "empty_recall": 0.0,
+        "empty_f1": 0.0,
+        "occupied_precision": 0.4175257731958763,
+        "occupied_recall": 1.0,
+        "occupied_f1": 0.5890909090909091,
+        "false_empty_rate": 0.0,
+        "confusion_matrix": [
+          [
+            0,
+            113
+          ],
+          [
+            0,
+            81
+          ]
+        ],
+        "n": 194
+      }
+    },
+    "test": {
+      "window": {
+        "accuracy": 0.7799892415277031,
+        "macro_f1": 0.4476414021766531,
+        "empty_precision": 0.5,
+        "empty_recall": 0.009779951100244499,
+        "empty_f1": 0.019184652278177457,
+        "occupied_precision": 0.7811993517017828,
+        "occupied_recall": 0.9972413793103448,
+        "occupied_f1": 0.8760981520751288,
+        "false_empty_rate": 0.002758620689655172,
+        "confusion_matrix": [
+          [
+            4,
+            405
+          ],
+          [
+            4,
+            1446
+          ]
+        ],
+        "n": 1859
+      },
+      "minute": {
+        "accuracy": 0.6407407407407407,
+        "macro_f1": 0.4001236858379716,
+        "empty_precision": 1.0,
+        "empty_recall": 0.01020408163265306,
+        "empty_f1": 0.020202020202020204,
+        "occupied_precision": 0.6394052044609665,
+        "occupied_recall": 1.0,
+        "occupied_f1": 0.780045351473923,
+        "false_empty_rate": 0.0,
+        "confusion_matrix": [
+          [
+            1,
+            97
+          ],
+          [
+            0,
+            172
+          ]
+        ],
+        "n": 270
+      }
+    },
+    "file": "fusion_occupancy_scene.pt"
+  }
+}

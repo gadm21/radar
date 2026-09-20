@@ -40,9 +40,10 @@ Thumbs.db
 # Data (large, not for GitHub)
 minutes/
 train_minutes/
+train2_minutes/
 val_minutes/
+validation_minutes/
 test_minutes/
 _trash/
 output/
 E2/cache/
-E3/cache/
