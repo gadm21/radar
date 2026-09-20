@@ -1059,11 +1059,9 @@ test_minutes,20260916_2233,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2234,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2234,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2235,leftover_tmp,1 .tmp file(s): .capture.npz.41917.tmp
-test_minutes,20260916_2235,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2235,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2235,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2235,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
-test_minutes,20260916_2236,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2236,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2236,corrupt_bin,radar_030_20260916_223631_432.bin: empty file
 test_minutes,20260916_2236,missing_xytracking,no xy-tracking.json
@@ -1155,15 +1153,12 @@ test_minutes,20260916_2319,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2320,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2320,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2321,leftover_tmp,1 .tmp file(s): .capture.npz.62611.tmp
-test_minutes,20260916_2321,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2321,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2321,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2321,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
-test_minutes,20260916_2322,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2322,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2322,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2322,chunk_count_mismatch,expected_chunks=58 but 5 radar_*.bin on disk
-test_minutes,20260916_2323,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2323,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2323,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2323,chunk_count_mismatch,expected_chunks=58 but 1 radar_*.bin on disk
@@ -1205,11 +1200,9 @@ test_minutes,20260916_2341,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260916_2341,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2342,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2342,missing_xytracking,no xy-tracking.json
-test_minutes,20260916_2343,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2343,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2343,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2343,chunk_count_mismatch,expected_chunks=58 but 13 radar_*.bin on disk
-test_minutes,20260916_2344,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2344,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2344,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2344,chunk_count_mismatch,expected_chunks=58 but 40 radar_*.bin on disk
@@ -1219,7 +1212,6 @@ test_minutes,20260916_2346,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260916_2346,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2347,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2347,missing_xytracking,no xy-tracking.json
-test_minutes,20260916_2348,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260916_2348,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260916_2348,missing_xytracking,no xy-tracking.json
 test_minutes,20260916_2348,chunk_count_mismatch,expected_chunks=58 but 33 radar_*.bin on disk
@@ -1256,11 +1248,9 @@ test_minutes,20260917_0003,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0004,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0004,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0005,leftover_tmp,1 .tmp file(s): .capture.npz.82830.tmp
-test_minutes,20260917_0005,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0005,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0005,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0005,chunk_count_mismatch,expected_chunks=58 but 52 radar_*.bin on disk
-test_minutes,20260917_0006,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0006,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0006,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0006,chunk_count_mismatch,expected_chunks=58 but 2 radar_*.bin on disk
@@ -1273,16 +1263,13 @@ test_minutes,20260917_0009,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0010,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0010,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0011,leftover_tmp,1 .tmp file(s): .capture.npz.83347.tmp
-test_minutes,20260917_0011,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0011,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0011,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0011,chunk_count_mismatch,expected_chunks=58 but 50 radar_*.bin on disk
 test_minutes,20260917_0012,leftover_tmp,1 .tmp file(s): .capture.npz.83471.tmp
-test_minutes,20260917_0012,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0012,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0012,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0012,chunk_count_mismatch,expected_chunks=58 but 52 radar_*.bin on disk
-test_minutes,20260917_0013,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0013,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0013,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0013,chunk_count_mismatch,expected_chunks=58 but 2 radar_*.bin on disk
@@ -1299,27 +1286,22 @@ test_minutes,20260917_0018,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0019,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0019,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0020,leftover_tmp,1 .tmp file(s): .capture.npz.84136.tmp
-test_minutes,20260917_0020,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0020,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0020,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0020,chunk_count_mismatch,expected_chunks=58 but 57 radar_*.bin on disk
 test_minutes,20260917_0021,leftover_tmp,1 .tmp file(s): .capture.npz.84197.tmp
-test_minutes,20260917_0021,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0021,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0021,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0021,chunk_count_mismatch,expected_chunks=58 but 45 radar_*.bin on disk
-test_minutes,20260917_0022,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0022,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0022,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0022,chunk_count_mismatch,expected_chunks=58 but 23 radar_*.bin on disk
-test_minutes,20260917_0023,missing_manifest,no manifest.json
 test_minutes,20260917_0023,missing_radar,no capture.npz and no radar_*.bin
 test_minutes,20260917_0023,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0024,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0024,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0025,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0025,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0026,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0026,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0026,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0026,missing_xytracking,no xy-tracking.json
@@ -1335,37 +1317,30 @@ test_minutes,20260917_0030,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0031,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0031,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0032,leftover_tmp,1 .tmp file(s): .capture.npz.84742.tmp
-test_minutes,20260917_0032,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0032,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0032,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0032,chunk_count_mismatch,expected_chunks=58 but 30 radar_*.bin on disk
-test_minutes,20260917_0033,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0033,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0033,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0033,chunk_count_mismatch,expected_chunks=58 but 29 radar_*.bin on disk
 test_minutes,20260917_0034,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-test_minutes,20260917_0034,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0034,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0034,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0034,chunk_count_mismatch,expected_chunks=58 but 20 radar_*.bin on disk
 test_minutes,20260917_0036,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0036,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0037,leftover_tmp,1 .tmp file(s): .capture.npz.85014.tmp
-test_minutes,20260917_0037,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0037,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0037,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0037,chunk_count_mismatch,expected_chunks=58 but 35 radar_*.bin on disk
 test_minutes,20260917_0038,leftover_tmp,1 .tmp file(s): .capture.npz.85093.tmp
-test_minutes,20260917_0038,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0038,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0038,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0038,chunk_count_mismatch,expected_chunks=58 but 20 radar_*.bin on disk
 test_minutes,20260917_0039,leftover_tmp,1 .tmp file(s): manifest.json.tmp
-test_minutes,20260917_0039,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0039,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0039,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0039,chunk_count_mismatch,expected_chunks=58 but 23 radar_*.bin on disk
-test_minutes,20260917_0040,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0040,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0040,missing_radar,no capture.npz and no radar_*.bin
 test_minutes,20260917_0040,missing_xytracking,no xy-tracking.json
@@ -1375,7 +1350,6 @@ test_minutes,20260917_0043,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0043,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0044,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0044,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0045,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0045,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0045,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0045,missing_xytracking,no xy-tracking.json
@@ -1391,7 +1365,6 @@ test_minutes,20260917_0050,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0050,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0051,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0051,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0052,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0052,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0052,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0052,chunk_count_mismatch,expected_chunks=58 but 31 radar_*.bin on disk
@@ -1418,7 +1391,6 @@ test_minutes,20260917_0102,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0102,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0103,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0103,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0104,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0104,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0104,manifest_error,'GPIO busy'
 test_minutes,20260917_0104,manifest_error,Radar analysis exceeded its shutdown deadline.
@@ -1438,13 +1410,11 @@ test_minutes,20260917_0110,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0110,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0111,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0111,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0112,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0112,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0112,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0112,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0113,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0113,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0114,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0114,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0114,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0114,missing_xytracking,no xy-tracking.json
@@ -1458,13 +1428,11 @@ test_minutes,20260917_0118,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0118,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0119,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0119,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0120,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0120,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0120,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0120,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0121,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0121,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0122,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0122,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0122,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0122,missing_xytracking,no xy-tracking.json
@@ -1475,7 +1443,6 @@ test_minutes,20260917_0124,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0125,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0125,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0125,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0126,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0126,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0126,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0126,missing_xytracking,no xy-tracking.json
@@ -1483,7 +1450,6 @@ test_minutes,20260917_0127,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0127,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0128,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0128,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0129,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0129,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0129,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0129,missing_xytracking,no xy-tracking.json
@@ -1529,7 +1495,6 @@ test_minutes,20260917_0149,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0149,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0150,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0150,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0151,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0151,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0151,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0151,missing_xytracking,no xy-tracking.json
@@ -1537,7 +1502,6 @@ test_minutes,20260917_0152,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0152,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0153,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0153,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0154,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0154,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0154,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0154,missing_xytracking,no xy-tracking.json
@@ -1555,7 +1519,6 @@ test_minutes,20260917_0200,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0200,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0201,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0201,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0202,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0202,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0202,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0202,missing_xytracking,no xy-tracking.json
@@ -1569,7 +1532,6 @@ test_minutes,20260917_0206,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0206,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0207,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0207,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0208,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0208,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0208,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0208,missing_xytracking,no xy-tracking.json
@@ -1579,7 +1541,6 @@ test_minutes,20260917_0210,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0210,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0211,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0211,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0212,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0212,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0212,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0212,missing_xytracking,no xy-tracking.json
@@ -1635,7 +1596,6 @@ test_minutes,20260917_0236,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0236,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0237,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0237,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0238,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0238,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0238,manifest_error,Radar analysis exceeded its shutdown deadline.
 test_minutes,20260917_0238,missing_xytracking,no xy-tracking.json
@@ -1653,11 +1613,9 @@ test_minutes,20260917_0244,manifest_error,Sense HAT capture failed: Cannot detec
 test_minutes,20260917_0244,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0245,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0245,missing_xytracking,no xy-tracking.json
-test_minutes,20260917_0246,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0246,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0246,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0246,chunk_count_mismatch,expected_chunks=58 but 20 radar_*.bin on disk
-test_minutes,20260917_0247,unknown_label,label 'collecting' not in taxonomy
 test_minutes,20260917_0247,manifest_error,Sense HAT capture failed: Cannot detect RPi-Sense FB device
 test_minutes,20260917_0247,missing_xytracking,no xy-tracking.json
 test_minutes,20260917_0247,chunk_count_mismatch,expected_chunks=58 but 13 radar_*.bin on disk

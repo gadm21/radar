@@ -18,9 +18,10 @@ One folder per captured minute (`YYYYMMDD_HHMM`).
 | `test_minutes/` | 275 | 8.0 GB | test — Pi captures, Sept 16-17 night |
 
 **Labels.** `t1_*`/`t2_*` (train_minutes), `t_*` (train2_minutes),
-`empty`/`present` (validation_minutes). `test_minutes` has no manifest
-labels — ground truth is the 1:10 AM boundary: minutes before
-`20260917_0110` are occupied (176), at/after empty (98). Auto-labels
+`empty`/`present` (validation_minutes and test_minutes — the Pi night
+was labeled by `E2/label_test_minutes.py` from the 1:10 AM boundary:
+`present` before `20260917_0110` (177), `empty` at/after (98)).
+Auto-labels
 (`absent`/`occupied`) were stripped by `E2/clean_minutes.py`; folders
 with no valid label, no manifest, or no radar data were moved to
 `_trash/`.
@@ -28,7 +29,7 @@ with no valid label, no manifest, or no radar data were moved to
 **Class balance (minutes).** train_minutes: 184 empty / 1025 sleep /
 185 present. train2_minutes: 220 empty / 20 sleep / 89 present.
 validation_minutes: 113 empty / 81 present. test_minutes: 98 empty /
-176 occupied.
+177 present.
 
 **Data quality (1662 flagged instances).** 800 manifest-reported errors
 (mostly "Radar analysis exceeded its shutdown deadline"), 470 folders

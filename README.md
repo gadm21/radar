@@ -13,7 +13,7 @@ One folder per captured minute (`YYYYMMDD_HHMM`):
 | `train_minutes/` | 1394 | train — placements t1+t2 (chunked `radar_*.bin` + `wifi_csi*.csv`) |
 | `train2_minutes/` | 329 | train — placement t, Sept 6-8 (`capture.npz`) |
 | `validation_minutes/` | 194 | validation — placement t, Sept 15 |
-| `test_minutes/` | 275 | test — Pi captures, Sept 16-17 night (1:10 AM boundary labels) |
+| `test_minutes/` | 275 | test — Pi captures, Sept 16-17 night (labeled `present`/`empty` by the 1:10 AM boundary) |
 
 Data directories are gitignored (large). See `REPORT.md` for results.
 

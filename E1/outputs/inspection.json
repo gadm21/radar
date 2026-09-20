@@ -1,5 +1,5 @@
 {
-  "n_problems": 1662,
+  "n_problems": 1620,
   "problem_categories": {
     "manifest_error": 800,
     "chunk_count_mismatch": 151,
@@ -7,9 +7,8 @@
     "corrupt_bin": 15,
     "corrupt_xytracking": 3,
     "malformed_manifest": 53,
-    "unknown_label": 94,
+    "unknown_label": 53,
     "missing_xytracking": 470,
-    "missing_manifest": 1,
     "missing_radar": 2
   },
   "train_minutes": {
@@ -247,10 +246,9 @@
   "test_minutes": {
     "n_folders": 275,
     "n_empty_folders": 0,
-    "n_with_manifest": 274,
+    "n_with_manifest": 275,
     "manifest_parse_modes": {
-      "json": 274,
-      "none": 1
+      "json": 275
     },
     "manifest_status": {
       "partial": 248,
@@ -262,19 +260,17 @@
       "none": 1
     },
     "label_status": {
-      "ok": 274,
-      "none": 1
+      "ok": 275
     },
     "raw_label_counts": {
-      "collecting": 41
+      "present": 177,
+      "empty": 98
     },
     "placement_counts": {
-      "pi": 274,
-      "none": 1
+      "pi": 275
     },
     "activity_counts": {
-      "occupied": 176,
-      "none": 1,
+      "present": 177,
       "empty": 98
     },
     "position_counts": {
@@ -289,7 +285,7 @@
     "total_radar_bin_files": 741,
     "total_radar_frames_bin": 7400,
     "total_csi_lines": 91770,
-    "total_bytes": 8003603879,
+    "total_bytes": 8003966065,
     "total_tmp_files": 12,
     "folders_per_day": {
       "2026-09-16": 109,
@@ -6681,12 +6677,6 @@
     {
       "source": "test_minutes",
       "folder": "20260916_2235",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2235",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -6701,12 +6691,6 @@
       "folder": "20260916_2235",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 57 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2236",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -7257,12 +7241,6 @@
     {
       "source": "test_minutes",
       "folder": "20260916_2321",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2321",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -7281,12 +7259,6 @@
     {
       "source": "test_minutes",
       "folder": "20260916_2322",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2322",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -7301,12 +7273,6 @@
       "folder": "20260916_2322",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 5 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2323",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -7557,12 +7523,6 @@
     {
       "source": "test_minutes",
       "folder": "20260916_2343",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2343",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -7577,12 +7537,6 @@
       "folder": "20260916_2343",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 13 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2344",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -7637,12 +7591,6 @@
       "folder": "20260916_2347",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260916_2348",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -7863,12 +7811,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0005",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0005",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -7883,12 +7825,6 @@
       "folder": "20260917_0005",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 52 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0006",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -7965,12 +7901,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0011",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0011",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -7995,12 +7925,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0012",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0012",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8015,12 +7939,6 @@
       "folder": "20260917_0012",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 52 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0013",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8121,12 +8039,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0020",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0020",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8151,12 +8063,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0021",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0021",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8175,12 +8081,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0022",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0022",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8195,12 +8095,6 @@
       "folder": "20260917_0022",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 23 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0023",
-      "category": "missing_manifest",
-      "detail": "no manifest.json"
     },
     {
       "source": "test_minutes",
@@ -8237,12 +8131,6 @@
       "folder": "20260917_0025",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0026",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8337,12 +8225,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0032",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0032",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8357,12 +8239,6 @@
       "folder": "20260917_0032",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 30 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0033",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8387,12 +8263,6 @@
       "folder": "20260917_0034",
       "category": "leftover_tmp",
       "detail": "1 .tmp file(s): manifest.json.tmp"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0034",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8433,12 +8303,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0037",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0037",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8459,12 +8323,6 @@
       "folder": "20260917_0038",
       "category": "leftover_tmp",
       "detail": "1 .tmp file(s): .capture.npz.85093.tmp"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0038",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8493,12 +8351,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0039",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0039",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8513,12 +8365,6 @@
       "folder": "20260917_0039",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 23 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0040",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8573,12 +8419,6 @@
       "folder": "20260917_0044",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0045",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8669,12 +8509,6 @@
       "folder": "20260917_0051",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0052",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -8835,12 +8669,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0104",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0104",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8955,12 +8783,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0112",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0112",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -8987,12 +8809,6 @@
       "folder": "20260917_0113",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0114",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -9075,12 +8891,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0120",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0120",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -9107,12 +8917,6 @@
       "folder": "20260917_0121",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0122",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -9177,12 +8981,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0126",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0126",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -9221,12 +9019,6 @@
       "folder": "20260917_0128",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0129",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -9501,12 +9293,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0151",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0151",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -9545,12 +9331,6 @@
       "folder": "20260917_0153",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0154",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -9657,12 +9437,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0202",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0202",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -9741,12 +9515,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0208",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0208",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -9797,12 +9565,6 @@
       "folder": "20260917_0211",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0212",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -10137,12 +9899,6 @@
     {
       "source": "test_minutes",
       "folder": "20260917_0238",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0238",
       "category": "manifest_error",
       "detail": "Sense HAT capture failed: Cannot detect RPi-Sense FB device"
     },
@@ -10241,12 +9997,6 @@
       "folder": "20260917_0245",
       "category": "missing_xytracking",
       "detail": "no xy-tracking.json"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0246",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",
@@ -10265,12 +10015,6 @@
       "folder": "20260917_0246",
       "category": "chunk_count_mismatch",
       "detail": "expected_chunks=58 but 20 radar_*.bin on disk"
-    },
-    {
-      "source": "test_minutes",
-      "folder": "20260917_0247",
-      "category": "unknown_label",
-      "detail": "label 'collecting' not in taxonomy"
     },
     {
       "source": "test_minutes",

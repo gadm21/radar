@@ -35,8 +35,8 @@ python E2/run_all.py --skip-preprocess   # reuse cache
   t1+t2) + `train2_minutes/` (labels `t_*`, placement t, Sept 6-8);
   validation = `validation_minutes/` (labels `empty`/`present`,
   placement t, Sept 15); test = `test_minutes/` (Pi captures, Sept 16-17
-  night — no manifest labels; ground truth is the 1:10 AM boundary:
-  minutes before `20260917_0110` are occupied, at/after are empty).
+  night — manifests labeled by `label_test_minutes.py` from the 1:10 AM
+  boundary: `present` before `20260917_0110`, `empty` at/after).
   Sleep counts as occupied.
 - **Windows**: 50 consecutive radar frames (~5-7 s, long enough for
   breathing) inside one recording, non-overlapping. Never cross

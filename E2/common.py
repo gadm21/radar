@@ -28,10 +28,11 @@ CACHE_DIR = E2_DIR / "cache"
 #                       t2_present   (sleep counts as occupied)
 # train2_minutes/     : t_empty, t_sleep, t_present   (placement t, Sept 6-8)
 # validation_minutes/ : empty, present   (placement t, Sept 15 evening)
-# test_minutes/       : no labels — Pi captures from the night of
-#                       Sept 16-17. Ground truth is the 1:10 AM boundary:
-#                       minutes starting before 20260917_0110 are occupied,
-#                       minutes at/after are empty.
+# test_minutes/       : empty, present — Pi captures from the night of
+#                       Sept 16-17, labeled by label_test_minutes.py from
+#                       the 1:10 AM boundary (present before
+#                       20260917_0110, empty at/after). The boundary is
+#                       also the fallback for unlabeled folders.
 # Only t_* / t1_* / t2_* labels are ground truth; absent/occupied/...
 # auto-labels were stripped by clean_minutes.py and are ignored here.
 TRAIN_LABELS = {
@@ -51,11 +52,15 @@ VALIDATION_LABELS = {
     "empty": ("t", 0),
     "present": ("t", 1),
 }
+TEST_LABELS = {
+    "empty": ("pi", 0),
+    "present": ("pi", 1),
+}
 LABEL_TABLES = {
     "train_minutes": TRAIN_LABELS,
     "train2_minutes": TRAIN2_LABELS,
     "validation_minutes": VALIDATION_LABELS,
-    "test_minutes": {},   # time-boundary ground truth, see below
+    "test_minutes": TEST_LABELS,
 }
 
 # First empty minute on the Pi test night (folder-name timestamp, local time).
@@ -215,12 +220,16 @@ def discover_recordings():
             man, mode = load_manifest(mpath)
             labels = man.get("labels", []) or []
             if source == "test_minutes":
-                # Pi test night: ground truth is the 1:10 AM boundary —
-                # occupied before, empty at/after (folder name = local
-                # scheduled start, fixed-width so string compare works).
-                placement = TEST_PLACEMENT
-                y = 0 if folder.name >= TEST_BOUNDARY_FOLDER else 1
-                status = "ok"
+                # Pi test night: manifests carry ground truth written by
+                # label_test_minutes.py; fall back to the 1:10 AM
+                # boundary when a folder is unlabeled (folder name =
+                # local scheduled start, fixed-width so string compare
+                # works).
+                placement, y, status = map_labels(labels, source)
+                if status != "ok":
+                    placement = TEST_PLACEMENT
+                    y = 0 if folder.name >= TEST_BOUNDARY_FOLDER else 1
+                    status = "ok"
             else:
                 placement, y, status = map_labels(labels, source)
             start = parse_iso(man.get("scheduled_start"))

@@ -6,10 +6,10 @@ Binary task: **empty** vs **occupied** (sleep + present merged).
 - **train_minutes**: 1394 minutes, labels {'occupied': 1210, 'empty': 184}, original {'t1_sleep': 808, 't2_empty': 84, 't2_present': 122, 't2_sleep': 217, 't1_present': 63, 't1_empty': 100, 'absent': 11, 'empty': 11}
 - **train2_minutes**: 329 minutes, labels {'empty': 220, 'occupied': 109}, original {'t_empty': 220, 'absent': 40, 'empty': 40, 't_present': 89, 't_sleep': 20, 'right': 7, 'present': 2, 'occupied': 2, 'left': 2}
 - **validation_minutes**: 194 minutes, labels {'occupied': 81, 'empty': 113}, original {'present': 81, 'empty': 113}
-- **test_minutes**: 274 minutes, labels {'occupied': 176, 'empty': 98}, original {'collecting': 41}
-- **Problems**: 54 (malformed manifests recovered via regex fallback, ignored/ambiguous labels) — see `inspection.json`
+- **test_minutes**: 275 minutes, labels {'occupied': 177, 'empty': 98}, original {'present': 177, 'empty': 98}
+- **Problems**: 53 (malformed manifests recovered via regex fallback, ignored/ambiguous labels) — see `inspection.json`
 
-Splits are the dataset folders: **train = train_minutes (placements t1+t2) + train2_minutes (placement t, Sept 6-8), val = validation_minutes (placement t, Sept 15), test = test_minutes (Pi captures, Sept 16-17 night — ground truth is the 1:10 AM boundary: occupied before, empty after)**. Windows are 50 consecutive radar frames (~5-7 s — long enough to capture breathing) built inside one recording — they can never cross recording/placement/label boundaries.
+Splits are the dataset folders: **train = train_minutes (placements t1+t2) + train2_minutes (placement t, Sept 6-8), val = validation_minutes (placement t, Sept 15), test = test_minutes (Pi captures, Sept 16-17 night — manifests labeled by label_test_minutes.py from the 1:10 AM boundary: present before, empty after)**. Windows are 50 consecutive radar frames (~5-7 s — long enough to capture breathing) built inside one recording — they can never cross recording/placement/label boundaries.
 
 **CSI coverage**: train_minutes ~57% of recordings (t1 only — t2 had no receiver), train2/validation/test ~99% via capture.npz. Fusion uses missing-CSI masking + CSI-dropout training so radar-only windows still work.
 
@@ -20,7 +20,7 @@ Splits are the dataset folders: **train = train_minutes (placements t1+t2) + tra
 - **train_minutes** 50-frame window: mean=5.188s median=4.900s std=2.312s
 - **train2_minutes** 50-frame window: mean=6.239s median=5.829s std=3.484s
 - **validation_minutes** 50-frame window: mean=4.869s median=4.900s std=2.056s
-- **test_minutes** 50-frame window: mean=6.482s median=4.900s std=4.901s
+- **test_minutes** 50-frame window: mean=6.489s median=4.917s std=4.784s
 
 ## 3. Model
 Radar encoder: per-pixel **temporal-std map** of the 50-frame window (range-Doppler + range-azimuth), pooled spatially to mean/std/max per channel -> small MLP. Temporal variation is the placement-invariant occupancy cue; absolute levels flip sign across placements and were removed after diagnosis. CSI-only encoder: temporal Conv1d over causal **rolling variance** (w=20) of the 52-subcarrier amplitude (128 steps) — the 'rolling_variance' pipeline from WifiSensingESP32HAR; amplitude only, no phase. The **fusion** model instead uses a CSIStatsEncoder (MLP on per-window amplitude variance/mean/temporal-std): conv CSI features are receiver/day-specific and hijack the gate on the gain-shifted test day, while amplitude variance is the robust cross-day occupancy cue. Gated fusion: per-feature sigmoid gate z = g*r + (1-g)*c with missing-CSI masking. Binary head.

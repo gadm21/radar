@@ -8,10 +8,10 @@ Exploratory inspection of `train_minutes/`, `train2_minutes/`, `validation_minut
 | train_minutes | 1394 | 0 | 1394 | 34.10 GB | 61849 | 618350 | 7518261 | 30 |
 | train2_minutes | 329 | 0 | 329 | 6.32 GB | 2093 | 20930 | 270525 | 30 |
 | validation_minutes | 194 | 0 | 194 | 4.57 GB | 91 | 910 | 9649 | 1 |
-| test_minutes | 275 | 0 | 274 | 8.00 GB | 741 | 7400 | 91770 | 12 |
+| test_minutes | 275 | 0 | 275 | 8.00 GB | 741 | 7400 | 91770 | 12 |
 
 ## 2. Labels
-Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements t1/t2), `t_*` in `train2_minutes/` (placement t, Sept 6-8), and plain `empty`/`present` in `validation_minutes/` (placement t, Sept 15, newer naming). `test_minutes/` (Pi captures, Sept 16-17 night) carries no manifest task labels — ground truth is the 1:10 AM boundary: minutes before `20260917_0110` are occupied, at/after are empty. `left`/`right` position labels and the `radar-missing` flag appear in `train2_minutes/`. `absent`/`occupied` are auxiliary auto-labels written by the recorder (stripped from train manifests by `E2/clean_minutes.py`).
+Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements t1/t2), `t_*` in `train2_minutes/` (placement t, Sept 6-8), and plain `empty`/`present` in `validation_minutes/` (placement t, Sept 15, newer naming) and `test_minutes/` (Pi captures, Sept 16-17 night — labeled by `E2/label_test_minutes.py` from the 1:10 AM boundary: minutes before `20260917_0110` are `present`, at/after `empty`). `left`/`right` position labels and the `radar-missing` flag appear in `train2_minutes/`. `absent`/`occupied` are auxiliary auto-labels written by the recorder (stripped from train manifests by `E2/clean_minutes.py`).
 
 ### train_minutes (1394 folders)
 
@@ -105,21 +105,20 @@ Label status: `{"ok": 194}`
 | activity | folders |
 |---|---|
 | empty | 98 |
-| none | 1 |
-| occupied | 176 |
+| present | 177 |
 
 **Placement**
 | placement | folders |
 |---|---|
-| none | 1 |
-| pi | 274 |
+| pi | 275 |
 
 **Raw manifest labels**
 | label | occurrences |
 |---|---|
-| collecting | 41 |
+| present | 177 |
+| empty | 98 |
 
-Label status: `{"ok": 274, "none": 1}`
+Label status: `{"ok": 275}`
 
 ## 3. Manifest health
 ### train_minutes
@@ -138,7 +137,7 @@ Label status: `{"ok": 274, "none": 1}`
 - Schema versions: `{"thoth-minute-manifest/v7": 194}`
 
 ### test_minutes
-- Parse modes: `{"json": 274, "none": 1}`
+- Parse modes: `{"json": 275}`
 - Capture status: `{"partial": 248, "collecting": 26, "none": 1}`
 - Schema versions: `{"thoth-minute-manifest/v7": 274, "none": 1}`
 
@@ -190,20 +189,19 @@ Label status: `{"ok": 274, "none": 1}`
 | 2026-09-17 | 166 |
 
 ## 6. Missing / corrupt instances
-Total problem instances: **1662**
+Total problem instances: **1620**
 
 | category | count |
 |---|---|
 | manifest_error | 800 |
 | missing_xytracking | 470 |
 | chunk_count_mismatch | 151 |
-| unknown_label | 94 |
 | leftover_tmp | 73 |
 | malformed_manifest | 53 |
+| unknown_label | 53 |
 | corrupt_bin | 15 |
 | corrupt_xytracking | 3 |
 | missing_radar | 2 |
-| missing_manifest | 1 |
 
 ### manifest_error (800)
 | source | folder | detail |
@@ -403,72 +401,6 @@ Total problem instances: **1662**
 
 *... 91 more in `problems.csv`*
 
-### unknown_label (94)
-| source | folder | detail |
-|---|---|---|
-| train_minutes | 20260827_1858 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1918 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1925 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1944 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1946 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1953 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_1957 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2003 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2005 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2024 | label 'empty' not in taxonomy |
-| train_minutes | 20260827_2029 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1805 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1811 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1812 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1818 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1833 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1834 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1835 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1837 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1838 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1840 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1851 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1853 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1924 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1933 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_1948 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2001 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2111 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2118 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2140 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2144 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2151 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2152 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2155 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2201 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2204 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2212 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2215 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2219 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2223 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2226 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2231 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2243 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2307 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2325 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2326 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2327 | label 'empty' not in taxonomy |
-| train2_minutes | 20260906_2333 | label 'present' not in taxonomy |
-| train2_minutes | 20260907_2248 | label 'empty' not in taxonomy |
-| train2_minutes | 20260907_2250 | label 'empty' not in taxonomy |
-| train2_minutes | 20260907_2254 | label 'empty' not in taxonomy |
-| train2_minutes | 20260908_0033 | label 'present' not in taxonomy |
-| train2_minutes | 20260908_0055 | label 'empty' not in taxonomy |
-| test_minutes | 20260916_2235 | label 'collecting' not in taxonomy |
-| test_minutes | 20260916_2236 | label 'collecting' not in taxonomy |
-| test_minutes | 20260916_2321 | label 'collecting' not in taxonomy |
-| test_minutes | 20260916_2322 | label 'collecting' not in taxonomy |
-| test_minutes | 20260916_2323 | label 'collecting' not in taxonomy |
-| test_minutes | 20260916_2343 | label 'collecting' not in taxonomy |
-| test_minutes | 20260916_2344 | label 'collecting' not in taxonomy |
-
-*... 34 more in `problems.csv`*
-
 ### leftover_tmp (73)
 | source | folder | detail |
 |---|---|---|
@@ -592,6 +524,63 @@ Total problem instances: **1662**
 | train2_minutes | 20260908_0033 | parse_mode=json_partial |
 | train2_minutes | 20260908_0055 | parse_mode=json_partial |
 
+### unknown_label (53)
+| source | folder | detail |
+|---|---|---|
+| train_minutes | 20260827_1858 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1918 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1925 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1944 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1946 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1953 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_1957 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2003 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2005 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2024 | label 'empty' not in taxonomy |
+| train_minutes | 20260827_2029 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1805 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1811 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1812 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1818 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1833 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1834 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1835 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1837 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1838 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1840 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1851 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1853 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1924 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1933 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_1948 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2001 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2111 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2118 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2140 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2144 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2151 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2152 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2155 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2201 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2204 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2212 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2215 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2219 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2223 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2226 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2231 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2243 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2307 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2325 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2326 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2327 | label 'empty' not in taxonomy |
+| train2_minutes | 20260906_2333 | label 'present' not in taxonomy |
+| train2_minutes | 20260907_2248 | label 'empty' not in taxonomy |
+| train2_minutes | 20260907_2250 | label 'empty' not in taxonomy |
+| train2_minutes | 20260907_2254 | label 'empty' not in taxonomy |
+| train2_minutes | 20260908_0033 | label 'present' not in taxonomy |
+| train2_minutes | 20260908_0055 | label 'empty' not in taxonomy |
+
 ### corrupt_bin (15)
 | source | folder | detail |
 |---|---|---|
@@ -623,11 +612,6 @@ Total problem instances: **1662**
 |---|---|---|
 | test_minutes | 20260917_0023 | no capture.npz and no radar_*.bin |
 | test_minutes | 20260917_0040 | no capture.npz and no radar_*.bin |
-
-### missing_manifest (1)
-| source | folder | detail |
-|---|---|---|
-| test_minutes | 20260917_0023 | no manifest.json |
 
 ## 7. Figures
 ![label_distribution.png](figs/label_distribution.png) — task-label distribution (activity / placement / position)

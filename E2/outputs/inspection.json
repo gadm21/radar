@@ -52,8 +52,7 @@
     "train2_minutes/20260907_2250: malformed manifest (regex fallback)",
     "train2_minutes/20260907_2254: malformed manifest (regex fallback)",
     "train2_minutes/20260908_0033: malformed manifest (regex fallback)",
-    "train2_minutes/20260908_0055: malformed manifest (regex fallback)",
-    "test_minutes/20260917_0023: no manifest.json"
+    "train2_minutes/20260908_0055: malformed manifest (regex fallback)"
   ],
   "splits": {
     "train_minutes": {
@@ -231,18 +230,19 @@
       }
     },
     "test_minutes": {
-      "n_recordings": 274,
+      "n_recordings": 275,
       "by_binary_label": {
-        "occupied": 176,
+        "occupied": 177,
         "empty": 98
       },
       "by_original_label": {
-        "collecting": 41
+        "present": 177,
+        "empty": 98
       },
       "n_sessions": 2,
       "sessions": {
         "pi_s01": {
-          "n_minutes": 176,
+          "n_minutes": 177,
           "label": "occupied",
           "start": 1789611000.0,
           "end": 1789621812.499
@@ -255,7 +255,7 @@
         }
       },
       "parse_modes": {
-        "json": 274
+        "json": 275
       }
     }
   },
@@ -365,35 +365,35 @@
     "test_minutes": {
       "n_recordings_sampled": 40,
       "radar_frames_per_recording": {
-        "mean": 364.25,
+        "mean": 350.25,
         "min": 80,
         "max": 570
       },
       "csi_samples_per_recording": {
-        "mean": 5031.184210526316,
+        "mean": 5034.1578947368425,
         "min": 2067,
         "max": 7443
       },
       "radar_fps": {
-        "mean": 309.63437801516295,
+        "mean": 322.61039227820277,
         "median": 10.000009536752259,
-        "std": 34887.02570968357
+        "std": 35563.94029925447
       },
       "frame_interval_s": {
-        "mean": 0.11456897964298061,
+        "mean": 0.11991828316616401,
         "median": 0.09999990463256836,
-        "std": 0.29942755405510624,
-        "p5": 0.016666650772094727,
-        "p95": 0.16666650772094727
+        "std": 0.32257134784252345,
+        "p5": 0.014285802841186523,
+        "p95": 0.16666674613952637
       },
       "window_50f_s": {
-        "mean": 6.482146048027536,
-        "median": 4.900000095367432,
-        "std": 4.901094072773901,
-        "p5": 1.1134021878242493,
+        "mean": 6.489481038216389,
+        "median": 4.916666626930237,
+        "std": 4.783849569563473,
+        "p5": 0.9285390853881836,
         "p95": 16.90000009536743,
         "min": 0.40400004386901855,
-        "max": 30.90000009536743
+        "max": 26.90000009536743
       }
     }
   }

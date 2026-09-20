@@ -65,9 +65,11 @@ EXPECTED_FRAME_BYTES = FRAME_HEADER_BYTES + EXPECTED_PAYLOAD_BYTES          # 36
 #   train2_minutes/     : t_empty/t_sleep/t_present    (placement t)
 #   validation_minutes/ : empty/present                (placement t, new
 #                         naming — no t_ prefix, no sleep)
-#   test_minutes/       : no manifest labels — Pi captures from the night
-#                         of Sept 16-17; ground truth is the 1:10 AM
-#                         boundary (occupied before, empty at/after)
+#   test_minutes/       : empty/present — Pi captures from the night of
+#                         Sept 16-17, labeled by E2/label_test_minutes.py
+#                         from the 1:10 AM boundary (present before
+#                         20260917_0110, empty at/after); the boundary is
+#                         the fallback for unlabeled folders
 #   position            : left / right                 (train2_minutes only)
 #   flags               : radar-missing
 #   auxiliary           : absent, occupied (auto-labels from the recorder's
@@ -77,7 +79,7 @@ PLACEMENT_LABELS = {
                       "t2_empty", "t2_sleep", "t2_present"},
     "train2_minutes": {"t_empty", "t_sleep", "t_present"},
     "validation_minutes": {"empty", "present"},
-    "test_minutes": set(),   # boundary-derived, see boundary_label()
+    "test_minutes": {"empty", "present"},
 }
 
 # First empty minute on the Pi test night (folder-name timestamp).
@@ -204,17 +206,23 @@ def classify_labels(labels, source, folder_name=""):
     if len(set(positions)) > 1:
         status = "ambiguous"
     if source == "test_minutes":
-        # boundary-derived ground truth (no manifest task labels)
-        y = boundary_label(folder_name)
+        # manifests carry empty/present written by label_test_minutes.py;
+        # fall back to the 1:10 AM boundary for unlabeled folders
+        if task:
+            act = sorted(activities)[0] if len(activities) == 1 else ""
+            st = "ok" if act else "ambiguous"
+        else:
+            act = "empty" if boundary_label(folder_name) == 0 else "present"
+            st = "ok" if folder_name else "unlabeled"
         return {
             "placement": "pi",
-            "activity": "occupied" if y else "empty",
+            "activity": act,
             "position": "",
             "flags": flags,
             "aux": aux,
             "other": other,
             "task_labels": task,
-            "status": "ok" if folder_name else "unlabeled",
+            "status": st,
         }
     return {
         "placement": sorted(placements)[0] if len(placements) == 1 else "",

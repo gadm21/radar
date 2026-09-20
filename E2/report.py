@@ -60,8 +60,9 @@ def main():
     L.append("Splits are the dataset folders: **train = train_minutes "
              "(placements t1+t2) + train2_minutes (placement t, Sept 6-8), "
              "val = validation_minutes (placement t, Sept 15), test = "
-             "test_minutes (Pi captures, Sept 16-17 night — ground truth "
-             "is the 1:10 AM boundary: occupied before, empty after)**. "
+             "test_minutes (Pi captures, Sept 16-17 night — manifests "
+             "labeled by label_test_minutes.py from the 1:10 AM "
+             "boundary: present before, empty after)**. "
              "Windows are 50 consecutive radar frames (~5-7 s — long "
              "enough to capture breathing) built inside one recording — "
              "they can never cross recording/placement/label boundaries.")
