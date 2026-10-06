@@ -1,54 +1,32 @@
-# E1 — Dataset Audit
+# E1 — Class-Separability Analysis (empty vs occupied)
 
-Exploratory inspection of the four dataset roots, `train_minutes/`,
-`train2_minutes/`, `validation_minutes/` and `test_minutes/`. Produces
-detailed tables and figures
-on folder/file
-completeness, manifest health, the label taxonomy, sensor coverage
-(radar / Wi-Fi CSI / xy-tracking / Sense-HAT / camera), collection
-timing, and a catalog of every missing or corrupt instance.
+Physical descriptors and compressed-PCA features that distinguish the
+two classes, applied to two corpora:
 
-## Layout
+| corpus | data | modalities |
+|---|---|---|
+| `multilink` | `multilink_train/` — 4 JSONL captures (Oct 3–5): chen `csi-bb8b`, peer `csi-8b45` (april→toronto), chen `radar-a316` | 2 CSI links + radar |
+| `legacy` | `train_minutes/train` + `test_minutes` minutes via `E1/cache/win` + `E2/outputs/occupancy/features_{5,10}s.csv` | 1 CSI link + radar |
 
-| file | purpose |
-|---|---|
-| `common.py` | paths, tolerant manifest parsing, label taxonomy, `.bin`/`capture.npz`/CSV/JSON integrity helpers |
-| `inspect_dataset.py` | full scan -> `outputs/inspection.json`, `outputs/per_minute.csv`, `outputs/problems.csv` |
-| `plots.py` | figures -> `outputs/figs/` |
-| `report.py` | `outputs/REPORT.md` |
-| `run_all.py` | one-command pipeline |
+## Descriptors (per 5 s / 10 s window)
+
+- **CSI per link**: amplitude stats, 0.2 s rolling-variance stats,
+  total variation, high-band PSD fraction, `pcv1-3` (variance of the
+  3-D PCA projection of per-second 104-d mean|std "dots").
+- **Radar**: SNR, `rad_pcv1-3` (variance of 3-D PCA projection of
+  per-second mean-RD "dots"), RD/RA/RE/XY map descriptors, physical
+  RD descriptors (range/doppler centroids, doppler spread, changed-
+  area density, energy).
+- **Screening**: iterative — univariate AUC / Cohen's d / Mann-Whitney,
+  collinearity prune, RF importance, top-15 grouped-CV probe.
 
 ## Run
 
 ```powershell
-pip install -r E1/requirements.txt
-python E1/run_all.py
+python E1/run_all.py                 # full pipeline (extract + analyze)
+python E1/run_all.py --skip-extract  # reuse E1/cache
 ```
 
-## What is checked (per minute folder)
-
-- **Folder**: file count, total bytes, leftover `*.tmp` files, empty folders.
-- **Manifest**: presence; parse mode (`json` / `json_partial` / `regex` /
-  `unparsable`); `status` field (`success` / `partial` / `collecting`);
-  schema version; `warnings`/`errors`; `expected_chunks` vs on-disk
-  `radar_*.bin` count; capture duration.
-- **Labels**: full raw counts plus mapping to the task taxonomy —
-  placement (`t1`/`t2`/`t`), activity (`empty`/`sleep`/`present`),
-  position (`left`/`right`), `radar-missing` flag, auxiliary auto-labels
-  (`absent`/`empty`/`present`/`occupied`); unlabeled and ambiguous
-  folders are flagged.
-- **Radar**: `radar_*.bin` — count, byte size, frame count
-  (size / 36876 B frame), truncated/partial-frame files, unparseable
-  filename timestamps. `capture.npz` — zip opens, required arrays
-  present, radar/CSI/sense/camera sample counts.
-- **CSI**: `wifi_csi*.csv` count, sizes, `CSI_DATA` line counts
-  (header-only ~54 B receiver files detected).
-- **Other sensors**: `xy-tracking.json` presence + truncation check
-  (full `json.loads` on a sample), `.home_assistant_status.json`,
-  `sense_hat.error.json`.
-
-## Outputs
-
-`outputs/`: `inspection.json` (aggregate), `per_minute.csv` (one row per
-folder), `problems.csv` (one row per problem instance), `REPORT.md`,
-`figs/*.png`.
+Outputs land in `E1/outputs/`: `REPORT.md`, `analysis.json`,
+`features_{multilink,old}_{5,10}s*.csv`, `rankings_*.csv`,
+`pc_dots_*.npz`, `pcas_multilink.joblib`, `figs/`.

@@ -1,179 +1,187 @@
-"""Generate E1/outputs/REPORT.md from the inspection outputs.
-
-Usage:  python E1/report.py
-"""
+"""Build E1/outputs/REPORT.md from analysis.json + rankings + tables."""
 import json
 import sys
-from collections import Counter
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import common as C
+import common as C  # noqa: E402
+
+OUT = C.OUTPUT_DIR
 
 
-def _md_table(rows, headers):
+def _md_table(rows, cols, headers=None):
+    headers = headers or cols
     out = ["| " + " | ".join(headers) + " |",
-           "|" + "|".join("---" for _ in headers) + "|"]
+           "|" + "|".join("---" for _ in cols) + "|"]
     for r in rows:
-        out.append("| " + " | ".join(str(x) for x in r) + " |")
+        out.append("| " + " | ".join(str(r.get(c, "")) for c in cols)
+                   + " |")
     return "\n".join(out)
 
 
-def _pct(n, d):
-    return f"{100.0 * n / d:.1f}%" if d else "-"
-
-
 def main():
-    rep = json.loads((C.OUTPUT_DIR / "inspection.json").read_text())
-    df = pd.read_csv(C.OUTPUT_DIR / "per_minute.csv")
-    problems = rep.get("problems", [])
-
+    res = json.loads((OUT / "analysis.json").read_text())
     L = []
-    L.append("# E1 — Dataset Audit Report")
-    L.append("")
-    L.append("Exploratory inspection of `train_minutes/`, "
-             "`train2_minutes/`, `validation_minutes/` and "
-             "`test_minutes/`: file completeness, manifest health, "
-             "label taxonomy, sensor coverage, timing, and a catalog of "
-             "every missing/corrupt instance.")
-    L.append("")
+    L.append("# E1 — Class-Separability Analysis: Empty vs Occupied\n")
+    L.append("Physical descriptors and compressed-PCA features that "
+             "distinguish the two classes, computed identically on the "
+             "new **multilink** captures (`multilink_train/`, 2 CSI links "
+             "+ BGT60TR13C radar, JSONL streams) and the **legacy** "
+             "train/test minutes (1 CSI link + radar, E2 cache + "
+             "published feature tables extended with the same physical "
+             "descriptors).\n")
 
-    # ---- overview ----
-    L.append("## 1. Overview")
+    L.append("## Datasets\n")
+    ml5 = pd.read_csv(OUT / "features_multilink_5s.csv")
+    o5 = pd.read_csv(OUT / "features_old_5s_ext.csv")
+    rows = [
+        {"dataset": "multilink (4 captures)",
+         "windows_5s": len(ml5),
+         "empty": int((ml5.label == 0).sum()),
+         "occupied": int((ml5.label == 1).sum()),
+         "csi_links": 2, "grouping": "capture"},
+        {"dataset": "legacy train (wall1+wall2 mins)",
+         "windows_5s": int((o5.dataset == "train").sum()),
+         "empty": int(((o5.dataset == "train") & (o5.label == 0)).sum()),
+         "occupied": int(((o5.dataset == "train") & (o5.label == 1)).sum()),
+         "csi_links": 1, "grouping": "minute"},
+        {"dataset": "legacy test (wall3 mins)",
+         "windows_5s": int((o5.dataset == "test").sum()),
+         "empty": int(((o5.dataset == "test") & (o5.label == 0)).sum()),
+         "occupied": int(((o5.dataset == "test") & (o5.label == 1)).sum()),
+         "csi_links": 1, "grouping": "minute"},
+    ]
+    L.append(_md_table(rows, list(rows[0])) + "\n")
+
+    L.append("## Method\n")
+    L.append("Per 5 s and 10 s non-overlapping windows:\n"
+             "- **CSI (per link)**: amplitude mean/std/q90; 0.2 s causal "
+             "rolling-variance mean/q90/max (log1p); total variation of "
+             "the mean-amplitude trace; high-band PSD fraction "
+             "(micro-Doppler proxy); `pcv1-3` — variance of the 3-D PCA "
+             "projection of the per-second 104-d amplitude 'dots'.\n"
+             "- **radar**: clutter-masked `snr_max/mean`; `rad_pcv1-3` — "
+             "variance of the 3-D PCA projection of the per-second mean "
+             "RD-map 'dots'; per-view RD/RA/RE/XY descriptors "
+             "(mean/p90/std90/delta/peak); physical descriptors "
+             "`rd_range_cm` (range-bin centroid), `rd_dop_cm` (doppler "
+             "centroid), `rd_dop_spread`, `rd_dca` (hot-pixel area "
+             "fraction), `rd_energy`.\n\n"
+             "Screening is iterative: junk-column drop -> univariate "
+             "ROC-AUC/Cohen's-d/Mann-Whitney -> collinearity prune "
+             "(|r|>0.95) -> RF importance -> top-15 grouped 5-fold CV "
+             "probe (LogReg and RF; folds grouped by capture/minute so "
+             "windows never leak across recordings).\n")
+
+    L.append("## Separation quality (W=5s)\n")
+    L.append("`cv_*` = 5-fold stratified grouped CV (by minute) for "
+             "legacy, window-stratified CV for multilink (only 4 capture "
+             "groups). `loco_e/o` = leave-one-capture-out recall, "
+             "empty/occupied — the honest cross-session estimate.\n")
     rows = []
-    for s in C.SOURCES:
-        r = rep[s]
-        rows.append([s, r["n_folders"], r["n_empty_folders"],
-                     r["n_with_manifest"], f"{r['total_bytes'] / 1e9:.2f} GB",
-                     r["total_radar_bin_files"], r["total_radar_frames_bin"],
-                     r["total_csi_lines"], r["total_tmp_files"]])
-    L.append(_md_table(rows, ["dataset", "folders", "empty", "with manifest",
-                              "size", "radar .bin files", "radar frames (bin)",
-                              "CSI lines", ".tmp leftovers"]))
-    L.append("")
+    for k, v in res.items():
+        if "_5s/" not in k:
+            continue
+        loco = "-"
+        if np.isfinite(v.get("lr_recall_empty", np.nan)):
+            loco = (f"{v['lr_recall_empty']:.2f}/"
+                    f"{v['lr_recall_occ']:.2f}")
+        rows.append({"group": k,
+                     "n": v["n_windows"],
+                     "best_feature": v["best_single"],
+                     "best_auc": f"{v['best_single_auc']:.3f}",
+                     "cv_logreg": f"{v['cv_acc_logreg']:.3f}",
+                     "cv_rf": f"{v['cv_acc_rf']:.3f}",
+                     "loco_e/o": loco})
+    L.append(_md_table(rows, list(rows[0])) + "\n")
 
-    # ---- labels ----
-    L.append("## 2. Labels")
-    L.append("Task labels: `t1_*`/`t2_*` in `train_minutes/` (placements "
-             "t1/t2), `t_*` in `train2_minutes/` (placement t, Sept 6-8), "
-             "and plain `empty`/`present` in `validation_minutes/` "
-             "(placement t, Sept 15, newer naming) and `test_minutes/` "
-             "(Pi captures, Sept 16-17 night — labeled by "
-             "`E2/label_test_minutes.py` from the 1:10 AM boundary: "
-             "minutes before `20260917_0110` are `present`, at/after "
-             "`empty`). "
-             "`left`/`right` position labels and the `radar-missing` "
-             "flag appear in `train2_minutes/`. `absent`/`occupied` are "
-             "auxiliary auto-labels written by the recorder (stripped "
-             "from train manifests by `E2/clean_minutes.py`).")
-    L.append("")
-    for s in C.SOURCES:
-        r = rep[s]
-        L.append(f"### {s} ({r['n_folders']} folders)")
-        L.append("")
-        L.append("**Activity (task) labels**")
-        L.append(_md_table(sorted(r["activity_counts"].items()),
-                           ["activity", "folders"]))
-        L.append("")
-        L.append("**Placement**")
-        L.append(_md_table(sorted(r["placement_counts"].items()),
-                           ["placement", "folders"]))
-        L.append("")
-        if any(k != "none" for k in r["position_counts"]):
-            L.append("**Position**")
-            L.append(_md_table(sorted(r["position_counts"].items()),
-                               ["position", "folders"]))
-            L.append("")
-        L.append("**Raw manifest labels**")
-        L.append(_md_table(sorted(r["raw_label_counts"].items(),
-                                  key=lambda kv: -kv[1]),
-                           ["label", "occurrences"]))
-        L.append("")
-        L.append(f"Label status: `{json.dumps(r['label_status'])}`")
-        L.append("")
+    for W in (5, 10):
+        L.append(f"## Top descriptors (combined rank), W={W}s\n")
+        for name, tag in (("multilink", f"ml{W}s"),
+                          ("legacy train", f"oldtrain{W}s"),
+                          ("legacy test", f"oldtest{W}s")):
+            p = OUT / f"rankings_{tag}_fusion.csv"
+            if not p.exists():
+                continue
+            r = pd.read_csv(p).head(12)
+            rows = [{"feature": f, "auc": f"{a:.3f}",
+                     "d": f"{d:+.2f}", "rf_imp": f"{i:.4f}"}
+                    for f, a, d, i in zip(r.feature, r.auc_dir,
+                                          r.cohen_d, r.rf_imp)]
+            L.append(f"**{name}**\n")
+            L.append(_md_table(rows, ["feature", "auc", "d", "rf_imp"])
+                     + "\n")
 
-    # ---- manifest health ----
-    L.append("## 3. Manifest health")
-    for s in C.SOURCES:
-        r = rep[s]
-        L.append(f"### {s}")
-        L.append(f"- Parse modes: `{json.dumps(r['manifest_parse_modes'])}`")
-        L.append(f"- Capture status: `{json.dumps(r['manifest_status'])}`")
-        L.append(f"- Schema versions: `{json.dumps(r['manifest_schema'])}`")
-        L.append("")
+    L.append("## Cross-dataset check — shared descriptors\n")
+    L.append("Same feature, univariate direction-free AUC, multilink "
+             "vs legacy train vs legacy test (W=5s):\n")
+    from sklearn.metrics import roc_auc_score
+    shared = {}
+    ml = pd.read_csv(OUT / "features_multilink_5s.csv")
+    for s in C.CSI_LINK_COLS:                       # csiM_ derivation
+        ml[f"csiM_{s}"] = ml[[f"csi1_{s}", f"csi2_{s}"]].mean(axis=1)
+    old = pd.read_csv(OUT / "features_old_5s_ext.csv")
+    shared["multilink"] = ml
+    shared["legacy train"] = old[old.dataset == "train"]
+    shared["legacy test"] = old[old.dataset == "test"]
 
-    # ---- sensor coverage ----
-    L.append("## 4. Sensor / artefact coverage")
+    def auc_of(df, col):
+        if col not in df.columns:
+            return np.nan
+        d = df[[col, "label"]].dropna()
+        if len(d) < 40 or d.label.nunique() < 2:
+            return np.nan
+        try:
+            a = roc_auc_score(d.label, d[col])
+            return max(a, 1 - a)
+        except Exception:
+            return np.nan
+
+    # rows: (display name, multilink col, legacy col)
+    keys = [("snr_mean", "snr_mean", "snr_mean"),
+            ("snr_max", "snr_max", "snr_max"),
+            ("rad_pcv1", "rad_pcv1", "rad_pcv1"),
+            ("rd_delta", "rd_delta", "rd_delta"),
+            ("rd_std90", "rd_std90", "rd_std90"),
+            ("rd_dca", "rd_dca", "rd_dca"),
+            ("rd_dop_spread", "rd_dop_spread", "rd_dop_spread"),
+            ("rd_range_cm", "rd_range_cm", "rd_range_cm"),
+            ("csi rv_mean", "csiM_rv_mean", "csi_rv_mean"),
+            ("csi pcv1", "csiM_pcv1", "csi_pcv1"),
+            ("csi amp_std", "csiM_amp_std", "csi_amp_std"),
+            ("csi amp_q90", "csiM_amp_q90", "csi_amp_q90"),
+            ("csi tv", "csiM_tv", "csi_tv"),
+            ("csi dop_frac", "csiM_dop_frac", "csi_dop_frac")]
     rows = []
-    for s in C.SOURCES:
-        r = rep[s]
-        n = r["n_folders"]
-        rows.append([s, n,
-                     f"{r['n_with_radar_bin']} ({_pct(r['n_with_radar_bin'], n)})",
-                     f"{r['n_with_npz']} ({_pct(r['n_with_npz'], n)})",
-                     f"{r['n_with_csi']} ({_pct(r['n_with_csi'], n)})",
-                     f"{r['n_with_xytracking']} ({_pct(r['n_with_xytracking'], n)})",
-                     f"{r['n_with_ha_status']} ({_pct(r['n_with_ha_status'], n)})",
-                     f"{r['n_with_sense_error']} ({_pct(r['n_with_sense_error'], n)})"])
-    L.append(_md_table(rows, ["dataset", "folders", "radar .bin", "capture.npz",
-                              "CSI >0 samples", "xy-tracking", "HA status",
-                              "sense-hat error"]))
-    L.append("")
-    for s in C.SOURCES:
-        r = rep[s]
-        L.append(f"- **{s}** bin frames/folder: `{json.dumps(r['bin_frames_per_folder'])}`")
-        if r["npz_frames_per_folder"].get("n"):
-            L.append(f"- **{s}** npz frames/folder: `{json.dumps(r['npz_frames_per_folder'])}`")
-        L.append(f"- **{s}** duration s: `{json.dumps(r['duration_s'])}`")
-    L.append("")
+    for disp, kml, kold in keys:
+        row = {"descriptor": disp}
+        for ds, df_ in shared.items():
+            kk = kml if ds == "multilink" else kold
+            v = auc_of(df_, kk)
+            row[ds] = f"{v:.3f}" if np.isfinite(v) else "-"
+        rows.append(row)
+    L.append(_md_table(rows, ["descriptor", *shared]) + "\n")
+    L.append("`-` = descriptor not present for that dataset.\n")
 
-    # ---- timeline ----
-    L.append("## 5. Collection timeline")
-    for s in C.SOURCES:
-        days = rep[s]["folders_per_day"]
-        L.append(f"### {s}")
-        L.append(_md_table(sorted(days.items()), ["day", "folders"]))
-        L.append("")
+    L.append("## Figures\n")
+    for f in sorted((OUT / "figs").glob("*.png")):
+        L.append(f"- `figs/{f.name}`")
+    L.append("\n")
+    L.append("## Caveats\n"
+             "- Multilink link2 (thoth-toronto) stopped streaming ~70 min "
+             "into the Oct-5 occupied capture; affected windows are "
+             "masked by `csi2_ok`.\n"
+             "- PCAs are fit unsupervised per dataset (multilink) or "
+             "reused from E2 (legacy) — pcv magnitudes are not directly "
+             "comparable across datasets; compare AUCs, not raw values.\n"
+             "- `csi_tv`/`csi_dop_frac`/`rd_*_cm` units are descriptor-"
+             "internal (bins/log-power), not calibrated physics units.\n")
 
-    # ---- problems ----
-    L.append("## 6. Missing / corrupt instances")
-    cats = Counter(p["category"] for p in problems)
-    L.append(f"Total problem instances: **{len(problems)}**")
-    L.append("")
-    L.append(_md_table(sorted(cats.items(), key=lambda kv: -kv[1]),
-                       ["category", "count"]))
-    L.append("")
-    # per-category detail tables (bounded)
-    for cat, n in sorted(cats.items(), key=lambda kv: -kv[1]):
-        L.append(f"### {cat} ({n})")
-        rows = [[p["source"], p["folder"], p["detail"][:110]]
-                for p in problems if p["category"] == cat]
-        L.append(_md_table(rows[:60], ["source", "folder", "detail"]))
-        if len(rows) > 60:
-            L.append(f"\n*... {len(rows) - 60} more in `problems.csv`*")
-        L.append("")
-
-    # ---- figures ----
-    L.append("## 7. Figures")
-    for name, desc in [
-        ("label_distribution.png", "task-label distribution (activity / placement / position)"),
-        ("raw_labels.png", "all raw manifest labels incl. auxiliary auto-labels"),
-        ("collection_timeline.png", "folders per day + cumulative coverage"),
-        ("file_completeness.png", "artefact presence per dataset"),
-        ("manifest_health.png", "manifest parse modes + capture status"),
-        ("radar_frames.png", "radar frame / bin-file counts per folder"),
-        ("csi_coverage.png", "CSI sample counts per folder"),
-        ("durations.png", "capture duration distribution"),
-        ("problems.png", "problem categories"),
-    ]:
-        L.append(f"![{name}](figs/{name}) — {desc}")
-        L.append("")
-
-    out = C.OUTPUT_DIR / "REPORT.md"
-    out.write_text("\n".join(L), encoding="utf-8")
-    print(f"Wrote {out}")
+    (OUT / "REPORT.md").write_text("\n".join(L))
+    print("wrote", OUT / "REPORT.md", flush=True)
 
 
 if __name__ == "__main__":

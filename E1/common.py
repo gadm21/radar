@@ -1,334 +1,189 @@
-"""Shared dataset-inspection utilities for the E1 data-audit pipeline.
+"""Shared constants and helpers for the E1 class-separability stage.
 
-E1 is the exploratory/audit stage: it scans every minute folder in
-`train_minutes/`, `train2_minutes/`, `validation_minutes/` and
-`test_minutes/`, checks file completeness and integrity, parses manifests
-tolerantly (some manifests are malformed JSON — the same issue
-documented in `E2/common.py`), tabulates labels, and catalogs every
-missing/corrupt instance.
+E1 (redefined): physical descriptors + features that separate the two
+classes (empty vs occupied), applied uniformly to
 
-On-disk formats (verified by direct inspection):
+  * ``multilink_train/``  — the Oct 3-5 captures (2 CSI links on
+    thoth-chen/thoth-toronto + BGT60TR13C radar, JSONL streams), and
+  * the legacy minutes (``train_minutes/train`` + ``test_minutes``) —
+    one CSI link + radar, via the E1 pass-A cache produced by
+    ``_extract_old.py`` (E2's per-minute products) and E2's published
+    feature tables (``E2/outputs/occupancy/features_{5,10}s.csv``).
 
-  train_minutes/   one folder per captured minute, named YYYYMMDD_HHMM.
-                   Radar is stored as chunked `radar_NNN_YYYYMMDD_HHMMSS_mmm.bin`
-                   files (each nominally one second / 10 frames of MMW-HAT
-                   frames: 12-byte header + uint12-packed ADC payload of
-                   64 chirps x 128 samples x 3 RX = 36864 payload bytes).
-                   CSI is stored as `wifi_csi.csv` / `wifi_csi_XX.csv` text
-                   files (one per ESP32 receiver; typically one is empty).
-                   `manifest.json`, `xy-tracking.json` and
-                   `.home_assistant_status.json` complete the folder.
-
-  train2_minutes/,   same minute-folder convention, but radar/CSI/sense/
-  validation_minutes/,  camera samples are usually packed into a single
-  test_minutes/      synchronized `capture.npz` container. A minority of
-                   "eventful" minutes fall back to chunked `radar_*.bin`
-                   files instead. `sense_hat.error.json` records
-                   Sense-HAT failures.
+Per-second products (the "dots"):
+  CSI   : 104-d [mean_52 | std_52] amplitude summary per second.
+  radar : 576-d log1p mean range-Doppler map per second.
+Both are projected with a 3-D PCA and the within-window variance of
+the projected trajectory is the compressed-PCA descriptor (pcv1-3).
 """
+import base64
 import json
-import re
-from datetime import datetime
 from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parent.parent
-TRAIN_MINUTES_DIR = ROOT / "train_minutes"
-TRAIN2_MINUTES_DIR = ROOT / "train2_minutes"          # placement t, Sept 6-8
-VALIDATION_MINUTES_DIR = ROOT / "validation_minutes"  # placement t, Sept 15
-TEST_MINUTES_DIR = ROOT / "test_minutes"              # Pi night, Sept 16-17
+ROOT = Path(__file__).resolve().parent.parent          # .../radar
 E1_DIR = Path(__file__).resolve().parent
 OUTPUT_DIR = E1_DIR / "outputs"
 FIGS_DIR = OUTPUT_DIR / "figs"
+CACHE = E1_DIR / "cache"
+ML_DIR = ROOT / "multilink_train"
+ML_CACHE = CACHE / "multilink"
+OLD_CACHE = CACHE / "win"                               # from _extract_old.py
+OLD_FEATS = ROOT / "E2" / "outputs" / "occupancy"      # features_*.csv
+OLD_PCAS = OLD_FEATS / "pcas.joblib"
 
-SOURCES = ("train_minutes", "train2_minutes", "validation_minutes",
-           "test_minutes")
-SOURCE_ROOTS = {"train_minutes": TRAIN_MINUTES_DIR,
-                "train2_minutes": TRAIN2_MINUTES_DIR,
-                "validation_minutes": VALIDATION_MINUTES_DIR,
-                "test_minutes": TEST_MINUTES_DIR}
-# sources whose radar/CSI arrive as capture.npz (not chunked .bin/csv)
-NPZ_SOURCES = ("train2_minutes", "validation_minutes", "test_minutes")
+N_SUB = 52
+CSI_SUBCARRIER_MASK = np.array(
+    [False] * 6 + [True] * 26 + [False] + [True] * 26 + [False] * 5,
+    dtype=bool)
 
-FRAME_HEADER_BYTES = 12
-NUM_CHIRPS = 64
-NUM_SAMPLES = 128
-NUM_ANTENNAS = 3
-# uint12 packing: 2 samples per 3 bytes
-EXPECTED_PAYLOAD_BYTES = NUM_CHIRPS * NUM_SAMPLES * NUM_ANTENNAS * 3 // 2  # 36864
-EXPECTED_FRAME_BYTES = FRAME_HEADER_BYTES + EXPECTED_PAYLOAD_BYTES          # 36876
+WIN_LIST = (5, 10)
+PCA_DIM = 3
+MIN_COV = 0.8                    # fraction of valid seconds per window
+VIEW_NAMES = ("rd", "ra", "re", "xy")
+DESC_STATS = ("mean", "p90", "std90", "delta", "peak")
 
-# Label taxonomy (documented in E2):
-#   train_minutes/      : t1_empty/t1_sleep/t1_present (placement t1),
-#                         t2_empty/t2_sleep/t2_present (placement t2)
-#   train2_minutes/     : t_empty/t_sleep/t_present    (placement t)
-#   validation_minutes/ : empty/present                (placement t, new
-#                         naming — no t_ prefix, no sleep)
-#   test_minutes/       : empty/present — Pi captures from the night of
-#                         Sept 16-17, labeled by E2/label_test_minutes.py
-#                         from the 1:10 AM boundary (present before
-#                         20260917_0110, empty at/after); the boundary is
-#                         the fallback for unlabeled folders
-#   position            : left / right                 (train2_minutes only)
-#   flags               : radar-missing
-#   auxiliary           : absent, occupied (auto-labels from the recorder's
-#                         own minute_summary; stripped by E2/clean_minutes.py)
-PLACEMENT_LABELS = {
-    "train_minutes": {"t1_empty", "t1_sleep", "t1_present",
-                      "t2_empty", "t2_sleep", "t2_present"},
-    "train2_minutes": {"t_empty", "t_sleep", "t_present"},
-    "validation_minutes": {"empty", "present"},
-    "test_minutes": {"empty", "present"},
-}
+# ---------------------------------------------------------------------------
+# feature-name registry (shared vocabulary; per-dataset prefixes differ)
+# ---------------------------------------------------------------------------
+RADAR_VIEW_COLS = [f"{v}_{s}" for v in VIEW_NAMES for s in DESC_STATS]
+RADAR_PHYS = ["rd_range_cm", "rd_dop_cm", "rd_dop_spread", "rd_dca",
+              "rd_energy"]
+RADAR_COLS = (["snr_max", "snr_mean"]
+              + [f"rad_pcv{i}" for i in range(1, PCA_DIM + 1)]
+              + RADAR_VIEW_COLS + RADAR_PHYS)
 
-# First empty minute on the Pi test night (folder-name timestamp).
-TEST_BOUNDARY_FOLDER = "20260917_0110"
+# per-link CSI descriptors (multilink: csi1_* / csi2_*; legacy: csi_*)
+CSI_LINK_COLS = (["amp_mean", "amp_std", "amp_q90",
+                  "rv_mean", "rv_q90", "rv_max",
+                  "tv", "dop_frac"]
+                 + [f"pcv{i}" for i in range(1, PCA_DIM + 1)])
 
 
-def boundary_label(folder_name):
-    """test_minutes ground truth: 1 occupied / 0 empty by folder name."""
-    return 0 if folder_name >= TEST_BOUNDARY_FOLDER else 1
-ACTIVITY_OF = {
-    "t1_empty": "empty", "t2_empty": "empty", "t_empty": "empty",
-    "empty": "empty",
-    "t1_sleep": "sleep", "t2_sleep": "sleep", "t_sleep": "sleep",
-    "t1_present": "present", "t2_present": "present",
-    "t_present": "present", "present": "present",
-}
-PLACEMENT_OF = {
-    "t1_empty": "t1", "t1_sleep": "t1", "t1_present": "t1",
-    "t2_empty": "t2", "t2_sleep": "t2", "t2_present": "t2",
-    "t_empty": "t", "t_sleep": "t", "t_present": "t",
-    "empty": "t", "present": "t",
-}
-POSITION_LABELS = ("left", "right")
-FLAG_LABELS = ("radar-missing",)
-AUX_LABELS = ("absent", "occupied")
-
-NPZ_REQUIRED_ARRAYS = (
-    "radar_sample_bytes", "radar_sample_offsets", "radar_sample_sequence",
-    "radar_sample_second_index", "second_start_unix_ns",
-)
+def csi_cols(prefix):
+    """CSI feature names for one link, e.g. csi_cols('csi1_')."""
+    return [prefix + c for c in CSI_LINK_COLS]
 
 
 # ---------------------------------------------------------------------------
-# Tolerant manifest parsing
+# JSONL decoding
 # ---------------------------------------------------------------------------
-def load_manifest(path):
-    """Return (manifest_dict, parse_mode).
+def decode_csi_iq(payload):
+    """payload dict -> complex64 [52] via the int8 'data' field."""
+    b = base64.b64decode(payload["data"])
+    v = np.frombuffer(b, np.int8).astype(np.float32)
+    imag = v[0::2][CSI_SUBCARRIER_MASK]
+    real = v[1::2][CSI_SUBCARRIER_MASK]
+    return real + 1j * imag
 
-    parse_mode is 'json' (clean), 'json_partial' (leading valid JSON
-    recovered via raw_decode — duplicated/truncated manifests), 'regex'
-    (only labels/timestamps recovered), or 'unparsable'.
+
+def decode_radar_views(payload):
+    """payload dict -> f32 views [4,24,24] (log1p power maps)."""
+    b = base64.b64decode(payload["views_b64"])
+    return np.frombuffer(b, np.float16).reshape(4, 24, 24)
+
+
+def iter_jsonl(path):
+    """Yield (ts, seq, payload_dict) rows from a sensor JSONL file."""
+    with open(path, "r", encoding="utf-8", errors="replace") as fh:
+        for line in fh:
+            try:
+                d = json.loads(line)
+            except Exception:
+                continue
+            yield float(d["ts"]), int(d.get("seq", 0)), d["payload"]
+
+
+def load_manifest(cap_dir):
+    return json.loads((cap_dir / "manifest.json").read_text())
+
+
+# ---------------------------------------------------------------------------
+# window-level radar view descriptors (shared with E2 formulas)
+# ---------------------------------------------------------------------------
+def view_descriptors(maps_window):
+    """maps_window: (n,4,24,24) log1p maps -> dict of 20 descriptors."""
+    out = {}
+    for vi, v in enumerate(VIEW_NAMES):
+        mp = maps_window[:, vi].astype(np.float32)
+        mean_img = mp.mean(axis=0)
+        std_img = mp.std(axis=0)
+        delta = (np.abs(np.diff(mp, axis=0)).mean()
+                 if len(mp) > 1 else 0.0)
+        out[f"{v}_mean"] = float(mean_img.mean())
+        out[f"{v}_p90"] = float(np.quantile(mean_img, 0.9))
+        out[f"{v}_std90"] = float(np.quantile(std_img, 0.9))
+        out[f"{v}_delta"] = float(delta)
+        out[f"{v}_peak"] = float(mean_img.max())
+    return out
+
+
+# physical descriptors on the mean RD power map (power, not log)
+_DC_ROWS = (10, 14)            # masked clutter rows (E2 convention)
+_NEAR = 2                      # masked near-range bins
+
+
+def rd_phys_descriptors(mean_rd_log):
+    """Physical RD descriptors from a 24x24 log1p mean map.
+
+    rd_range_cm  power-weighted range-bin centroid (row, 0..23)
+    rd_dop_cm    power-weighted doppler-bin centroid (col, 0..23,
+                 12 = DC/clutter centre)
+    rd_dop_spread  power-weighted std of the doppler coordinate
+    rd_dca       density of changed area — fraction of unmasked bins
+                 above the 90th percentile (hot-pixel area)
+    rd_energy    total exmp1 power of the unmasked map
     """
-    text = Path(path).read_text(encoding="utf-8", errors="replace")
-    try:
-        return json.loads(text), "json"
-    except Exception:
-        pass
-    decoder = json.JSONDecoder()
-    try:
-        obj, _ = decoder.raw_decode(text)
-        if isinstance(obj, dict):
-            return obj, "json_partial"
-    except Exception:
-        pass
-    m = re.search(r'"labels"\s*:\s*\[([^\]]*)\]', text)
-    labels = re.findall(r'"([^"]+)"', m.group(1)) if m else []
-    if labels or '"labels"' in text:
-        return {"labels": labels}, "regex"
-    return {}, "unparsable"
+    p = np.expm1(mean_rd_log.astype(np.float64))
+    mask = np.ones_like(p, bool)
+    mask[_DC_ROWS[0]:_DC_ROWS[1], :] = False
+    mask[:, :_NEAR] = False
+    pm = np.where(mask, p, 0.0)
+    tot = pm.sum() + 1e-12
+    rr = np.arange(24)[:, None] * np.ones((1, 24))
+    dd = np.ones((24, 1)) * np.arange(24)[None, :]
+    rcm = float((pm * rr).sum() / tot)
+    dcm = float((pm * dd).sum() / tot)
+    dspread = float(np.sqrt((pm * (dd - dcm) ** 2).sum() / tot))
+    nz = p[mask]
+    dca = float((p[mask] > np.quantile(nz, 0.9)).mean()) if nz.size else 0.
+    return {"rd_range_cm": rcm, "rd_dop_cm": dcm,
+            "rd_dop_spread": dspread, "rd_dca": dca,
+            "rd_energy": float(tot)}
 
 
-def parse_iso(ts):
-    """ISO-8601 timestamp -> unix seconds (float). NaN on failure."""
-    if ts is None:
-        return float("nan")
-    if isinstance(ts, (int, float)):
-        return float(ts)
-    try:
-        return datetime.fromisoformat(str(ts)).timestamp()
-    except Exception:
-        return float("nan")
+def rollvar(x, w):
+    """Causal trailing variance along axis 0 (E2 _rollvar)."""
+    z = np.zeros((1, x.shape[1]), dtype=np.float64)
+    cs = np.concatenate([z, np.cumsum(x, axis=0)], axis=0)
+    cs2 = np.concatenate([z, np.cumsum(x * x, axis=0)], axis=0)
+    hi = np.arange(1, x.shape[0] + 1)
+    lo = np.clip(hi - w, 0, None)
+    cnt = (hi - lo).astype(np.float64)[:, None]
+    mean = (cs[hi] - cs[lo]) / cnt
+    msq = (cs2[hi] - cs2[lo]) / cnt
+    return np.clip(msq - mean * mean, 0, None)
 
 
-def folder_start_ts(name):
-    """Parse folder name YYYYMMDD_HHMM as a fallback timestamp."""
-    try:
-        return datetime.strptime(name, "%Y%m%d_%H%M").timestamp()
-    except Exception:
-        return float("nan")
+def interp_seconds(mat, ok):
+    """Per-column linear interp across invalid rows (E2 _interp_seconds)."""
+    xs = np.flatnonzero(ok)
+    if len(xs) == 0:
+        return None
+    out = np.empty(mat.shape, np.float32)
+    grid = np.arange(len(mat))
+    for c in range(mat.shape[1]):
+        out[:, c] = np.interp(grid, xs, mat[xs, c])
+    return out
 
 
-def radar_fname_ts(name):
-    """Parse radar_000_20260817_183201_192.bin -> unix seconds."""
-    m = re.search(r"(\d{8})_(\d{6})_(\d{3})", name)
-    if not m:
-        return float("nan")
-    d, t, ms = m.groups()
-    try:
-        base = datetime.strptime(d + t, "%Y%m%d%H%M%S").timestamp()
-        return base + int(ms) / 1000.0
-    except Exception:
-        return float("nan")
-
-
-# ---------------------------------------------------------------------------
-# Label helpers
-# ---------------------------------------------------------------------------
-def classify_labels(labels, source, folder_name=""):
-    """Map a manifest label list to task fields.
-
-    Returns dict with placement, activity, position, flags, aux, and a
-    status: 'ok' | 'unlabeled' | 'ambiguous' (conflicting task labels).
-    test_minutes has no task labels — activity/placement come from the
-    1:10 AM boundary rule instead.
-    """
-    labels = list(labels or [])
-    task = [l for l in labels if l in PLACEMENT_LABELS.get(source, ())]
-    positions = [l for l in labels if l in POSITION_LABELS]
-    flags = [l for l in labels if l in FLAG_LABELS]
-    aux = [l for l in labels if l in AUX_LABELS and l not in task]
-    other = [l for l in labels
-             if l not in PLACEMENT_LABELS.get(source, ())
-             and l not in POSITION_LABELS
-             and l not in FLAG_LABELS
-             and l not in AUX_LABELS]
-
-    placements = {PLACEMENT_OF[l] for l in task}
-    activities = {ACTIVITY_OF[l] for l in task}
-    status = "ok"
-    if not task:
-        status = "unlabeled"
-    elif len(placements) > 1 or len(activities) > 1:
-        status = "ambiguous"
-    if len(set(positions)) > 1:
-        status = "ambiguous"
-    if source == "test_minutes":
-        # manifests carry empty/present written by label_test_minutes.py;
-        # fall back to the 1:10 AM boundary for unlabeled folders
-        if task:
-            act = sorted(activities)[0] if len(activities) == 1 else ""
-            st = "ok" if act else "ambiguous"
-        else:
-            act = "empty" if boundary_label(folder_name) == 0 else "present"
-            st = "ok" if folder_name else "unlabeled"
-        return {
-            "placement": "pi",
-            "activity": act,
-            "position": "",
-            "flags": flags,
-            "aux": aux,
-            "other": other,
-            "task_labels": task,
-            "status": st,
-        }
-    return {
-        "placement": sorted(placements)[0] if len(placements) == 1 else "",
-        "activity": sorted(activities)[0] if len(activities) == 1 else "",
-        "position": positions[0] if len(set(positions)) == 1 else "",
-        "flags": flags,
-        "aux": aux,
-        "other": other,
-        "task_labels": task,
-        "status": status,
-    }
-
-
-# ---------------------------------------------------------------------------
-# File-level integrity checks
-# ---------------------------------------------------------------------------
-def check_bin_file(path, frame_bytes=EXPECTED_FRAME_BYTES):
-    """Cheap integrity check for a chunked radar .bin file.
-
-    Returns (n_frames, ok, note). A file is OK when its size is an exact
-    multiple of the frame size (12-byte header + fixed payload). Files
-    smaller than one frame or with a trailing partial frame are flagged.
-    """
-    size = path.stat().st_size
-    if size == 0:
-        return 0, False, "empty file"
-    if size < frame_bytes:
-        return 0, False, f"smaller than one frame ({size} B)"
-    if size % frame_bytes != 0:
-        return size // frame_bytes, False, f"trailing partial frame ({size % frame_bytes} B)"
-    return size // frame_bytes, True, ""
-
-
-def check_npz(path):
-    """Inspect a capture.npz container without decompressing payloads.
-
-    Returns (info_dict, ok, note). np.load is lazy: reading array shapes
-    only parses the zip directory + array headers, so this is fast.
-    """
-    info = {}
-    try:
-        d = np.load(path, allow_pickle=True)
-    except Exception as exc:
-        return info, False, f"npz open failed: {exc}"
-    try:
-        files = set(d.files)
-        info["npz_keys"] = sorted(files)
-        missing = [k for k in NPZ_REQUIRED_ARRAYS if k not in files]
-        info["npz_missing_keys"] = missing
-        if "radar_sample_offsets" in files:
-            info["npz_radar_frames"] = int(len(d["radar_sample_offsets"]) - 1)
-        if "csi_sample_offsets" in files:
-            info["npz_csi_samples"] = int(len(d["csi_sample_offsets"]) - 1)
-        if "csi_sample_receiver_index" in files:
-            rx = d["csi_sample_receiver_index"]
-            info["npz_csi_receivers"] = sorted(int(v) for v in np.unique(rx))
-        if "sense_sample_offsets" in files:
-            info["npz_sense_samples"] = int(len(d["sense_sample_offsets"]) - 1)
-        if "camera_jpeg_offsets" in files:
-            info["npz_camera_frames"] = int(len(d["camera_jpeg_offsets"]) - 1)
-        if "camera_present" in files:
-            info["npz_camera_present"] = int(np.asarray(d["camera_present"]).sum())
-        ok = not missing
-        return info, ok, ("missing arrays: " + ",".join(missing)) if missing else ""
-    except Exception as exc:
-        return info, False, f"npz read failed: {exc}"
-
-
-def count_csv_lines(path, chunk_size=1 << 20):
-    """Count newlines in a file via buffered binary reads (fast)."""
-    n = 0
-    with open(path, "rb") as fh:
-        while True:
-            buf = fh.read(chunk_size)
-            if not buf:
-                break
-            n += buf.count(b"\n")
-    return n
-
-
-def check_json_file(path, full_parse=False):
-    """Cheap structural check: non-empty, starts with '{', ends with '}'.
-
-    Optionally json.loads the whole file (used on a sample only — the
-    multi-MB xy-tracking files are expensive to parse exhaustively).
-    """
-    try:
-        size = path.stat().st_size
-    except OSError as exc:
-        return False, f"stat failed: {exc}"
-    if size == 0:
-        return False, "empty file"
-    try:
-        with open(path, "rb") as fh:
-            head = fh.read(4096).lstrip()
-            fh.seek(max(0, size - 4096))
-            tail = fh.read(4096).rstrip()
-    except OSError as exc:
-        return False, f"read failed: {exc}"
-    if not head.startswith(b"{"):
-        return False, "does not start with '{'"
-    if not tail.endswith(b"}"):
-        return False, "truncated (no closing '}')"
-    if full_parse:
-        try:
-            json.loads(path.read_text(encoding="utf-8", errors="replace"))
-        except Exception as exc:
-            return False, f"json parse failed: {exc}"
-    return True, ""
+def cohen_d(a, b):
+    a, b = np.asarray(a, float), np.asarray(b, float)
+    a, b = a[np.isfinite(a)], b[np.isfinite(b)]
+    if len(a) < 3 or len(b) < 3:
+        return np.nan
+    sp = np.sqrt(((a.var(ddof=1) * (len(a) - 1))
+                  + (b.var(ddof=1) * (len(b) - 1)))
+                 / max(len(a) + len(b) - 2, 1))
+    return float((b.mean() - a.mean()) / (sp + 1e-12))

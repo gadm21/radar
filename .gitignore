@@ -25,6 +25,7 @@ venv/
 ENV/
 env/
 .venv/
+.tmp_csi_packages/
 
 # IDE
 .vscode/
@@ -44,6 +45,8 @@ train2_minutes/
 val_minutes/
 validation_minutes/
 test_minutes/
+multilink_train/
 _trash/
 output/
 E2/cache/
+E1/cache/
