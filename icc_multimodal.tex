@@ -1,0 +1,262 @@
+\documentclass[conference,10pt,letterpaper]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,bm,booktabs,cite}
+\usepackage{graphicx,tikz,pgfplots}
+\usepackage[hidelinks]{hyperref}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepgfplotslibrary{statistics,groupplots}
+\pgfplotsset{compat=1.18}
+\definecolor{valColor}{RGB}{38,118,168}
+\definecolor{testColor}{RGB}{216,121,39}
+\definecolor{emptycolor}{RGB}{75,75,75}
+\definecolor{occColor}{RGB}{181,41,54}
+\input{icc_assets/metrics}
+\input{icc_assets/results_rows}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\DeclareMathOperator{\med}{median}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\mean}{mean}
+\title{Multimodal Wireless Sensing for Room Occupancy:\\Uniform-Rate CSI Variance and FMCW Radar}
+\author{\IEEEauthorblockN{Gad Gad\IEEEauthorrefmark{1}, Iqra Batool\IEEEauthorrefmark{1}, Mostafa Fouda\IEEEauthorrefmark{2},\\Shikhar Verma\IEEEauthorrefmark{3}, Zubair Md Fadlullah\IEEEauthorrefmark{1}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Computer Science, Western University, London, ON, Canada\\
+\IEEEauthorrefmark{2}Department of Electrical and Computer Engineering, Idaho State University, Pocatello, ID, USA\\
+\IEEEauthorrefmark{3}School of Informatics, Kochi University of Technology, Kochi, Japan}}
+\begin{document}
+\maketitle
+\begin{abstract}
+Room occupancy sensing must detect both moving and stationary occupants despite intermittent measurements and changing propagation conditions. We study lightweight fusion of WiFi channel state information (CSI) and frequency-modulated continuous-wave radar using 1,523 labeled minute recordings. CSI amplitudes are resampled to a uniform 100 Hz grid before fixed two-dimensional principal component analysis. A three-second projection-variance statistic is combined with radar signal-to-background and range--Doppler, range--azimuth, range--elevation, and XY energy descriptors. Both evaluation sets are class-balanced: validation contains 80 empty and 80 occupied minutes, and test contains 96 of each. We define the two signal branches mathematically from observations to classification and evaluate 26 conventional model/input combinations. The validation-selected \SelectedFeatures{} (\SelectedModel{}) achieves \TestBA\% test balanced accuracy and \TestAUC{} ROC AUC. Native-rate and interpolated-sample coverage are audited separately. Results remain exploratory because these sessions have been inspected during development; uniform sampling and multimodal fusion do not by themselves establish improved generalization.
+\end{abstract}
+\begin{IEEEkeywords}
+Room occupancy, WiFi CSI, FMCW radar, sensor fusion, principal component analysis, resampling.
+\end{IEEEkeywords}
+
+\section{Introduction}
+Room occupancy differs from motion detection: an occupied room may contain a seated, standing, or sleeping person with little movement. Radar evidence can be weak outside its field of view, while CSI reflects multipath changes along wireless propagation paths. Their complementary sensitivities motivate fusion, but noise, gaps, and acquisition changes can also produce correlated errors. Our objective is binary occupancy in the room containing the collection devices.
+
+The supplied WiFi-sensing manuscript~\cite{wifi} motivates amplitude-based processing with inexpensive receivers. We combine its channel model with the FMCW signal formulation in HOOD~\cite{hood}, then define the specific processing used in this collection. The contribution is an auditable end-to-end baseline, not a claim that radar--WiFi fusion or efficient classification is new. A uniform input rate, fixed feature coordinates, chronological partitions, and explicit coverage accounting make the empirical comparison reproducible.
+
+Our CSI feature measures the dispersion of three consecutive one-second PCA observations. It is not the cumulative distance traveled by the projections. Radar contributes a signal-to-background proxy and compact map summaries. We compare logistic regression (LR) and random forests (RF) with identical evaluation minute IDs. The study reports availability and classification together and separates processed 100 Hz sampling from the actual rate at which packets arrive.
+
+\section{Related Work}
+DeMan addresses moving and stationary presence using WiFi measurements, including breathing-related evidence~\cite{deman}. SHARP studies activity recognition with Doppler information derived from phase-processed CSI~\cite{sharp}. LiteHAR investigates efficient random-convolution features and ridge classification~\cite{litehar}. These methods motivate sensitivity to subtle motion and processing cost, but their datasets and tasks do not provide directly comparable numerical baselines here.
+
+HOOD uses macro/micro range--Doppler images and reconstruction-based learning for human presence and out-of-distribution detection~\cite{hood}. We use its FMCW physical formulation as a starting point, while implementing conventional FFT and beamforming descriptors. HOOD's micro-RDI stacking, E-RESPD, and neural architecture are not components of this experiment. Radar--WiFi learned fusion has also been studied~\cite{fusion}; our focus is interpretable features and temporal transfer within a measured collection.
+
+\begin{figure*}[t]
+\centering\resizebox{\textwidth}{!}{\input{icc_assets/overview}}
+\caption{Data sources, processing branches, and learning protocol. The input symbols $x_1$ and $x_2$ are defined in Section~\ref{sec:model}. CSI is resampled before summary extraction and PCA. Fusion operates on minute-level features, not hardware-synchronized samples.}
+\label{fig:overview}
+\end{figure*}
+
+\section{System Model}\label{sec:model}
+Let $m$ index a nominal minute, $i$ a CSI packet, and $k$ a retained subcarrier. Radar indices are frame $f$, receiver $r$, chirp $c$, and fast-time sample $n$. The observed modalities are $x_1$ (complex CSI) and $x_2$ (real radar ADC data). The label is $y_m=0$ for empty and $y_m=1$ for occupied; sleep is mapped to occupied during training.
+
+\subsection{WiFi observation $x_1$}
+Following the supplied channel model~\cite{wifi}, define
+\begin{align}
+x_1[k,i]&=H_k(t_i)e^{j\phi_k(t_i)}+\eta_1[k,i],\label{eq:wifi}\\
+H_k(t)&=\sum_{\ell=1}^{L}a_\ell(t)e^{-j2\pi(f_{\rm W}+k\Delta f)\tau_\ell(t)}.\label{eq:paths}
+\end{align}
+Here $a_\ell$ and $\tau_\ell$ are path gain and delay; $\eta_1$ is observation noise. Hardware phase terms can be represented as
+\begin{equation}
+\phi_k=-2\pi k(\tau_{\rm SFO}+\tau_{\rm PDD})/T
++\phi_{\rm CFO}+\phi_{\rm PPO}+\phi_{\rm PA}.
+\end{equation}
+The experiment retains 52 subcarriers and uses $A_k(t_i)=|x_1[k,i]|$. No phase sanitization is applied. This removes an ideal multiplicative phase factor but does not remove gain drift or measurement noise. Motion and stationary occupancy can perturb the paths differently; amplitude variation is not a calibrated displacement.
+
+\subsection{FMCW observation $x_2$}
+Using the chirp model in~\cite{hood}, with slope $S=B/T_c$,
+\begin{equation}
+s(t)=\exp\{j2\pi(f_{\rm R}t+St^2/2)\},\quad 0\leq t<T_c.
+\end{equation}
+A useful narrowband, constant-velocity approximation to the mixed and digitized return is
+\begin{align}
+x_2^{(f)}[r,c,n]&=\Re\Big\{\sum_{\ell}\beta_{\ell,f}
+ e^{j\psi_{\ell,r,c,n}}\Big\}+\eta_2^{(f)}[r,c,n],\\
+\psi_{\ell,r,c,n}&=2\pi\Big(f_{b,\ell}\frac{n}{f_{\rm ADC}}
++f_{D,\ell}cT_{\rm rep}+\frac{\mathbf d_r^T\mathbf u_\ell}{\lambda}\Big)
++\varphi_\ell.\label{eq:radar}
+\end{align}
+The approximate beat and Doppler frequencies are $f_b\simeq2SR/c_0$ and $f_D=2v/\lambda$, subject to mixer convention and range--Doppler coupling. The receiver displacement is $\mathbf d_r$ and target direction is $\mathbf u_\ell$. Our decoded frame has $N_R=3$, $N_c=64$, and $N_s=128$, with packed 12-bit ADC samples. These dimensions are observed in the collection. HOOD's RF settings are not assumed to be this dataset's settings: physical range, velocity, and angle calibration have not been verified.
+
+\section{Data Collection and Evaluation Sets}\label{sec:data}
+\subsection{Collection organization}
+The 1,523 labeled minute folders comprise 808 calibration, 274 training, 192 validation, and 249 test recordings. Manifests identify ESP32 CSI and DreamHAT radar, stored as chunked files or synchronized-capture containers. One CSI receiver stream is selected by packet coverage. Recording identity and host timing pair the modalities; hardware-trigger synchronization is not established. Room dimensions, participant count, and exact sensor positions remain unverified in available metadata. The target is presence in the collection room, including sitting, standing, and walking; these postures are not separate test labels.
+
+\begin{table}[t]
+\centering\caption{Collection and evaluation counts in nominal minutes. E/S/P: empty/sleep/present. Sleep is occupied for binary training.}
+\label{tab:data}\footnotesize
+\begin{tabular}{lccc}\toprule
+Partition & Dates, 2026 & Collected E/S/P & Evaluated E/S/P\\\midrule
+Calibration & Aug. 17--18 & 0/808/0 & PCA only\\
+Training & Sep. 6--8 & 188/16/70 & 184/16/68\\
+Validation & Sep. 15 & 112/0/80 & 80/0/80\\
+Test & Sep. 16--17 & 96/0/153 & 96/0/96\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Validation dataset}
+Validation was collected on 15 September, from 19:41 to 23:08 by local folder timestamps, with gaps. It contains 112 empty and 80 present minute recordings, without sleep labels. The selected stream supplies \ValPackets{} decoded CSI packets; map extraction uses \ValFrames{} radar frames. All required features are available for all 192 minutes. A fixed balanced subset contains 80 empty and all 80 present minutes, with \ValSelectedPackets{} CSI packets and \ValSelectedFrames{} radar frames over 160 nominal minutes. This later acquisition session selects models and thresholds, but does not fit PCA or scaling.
+
+\subsection{Test dataset}
+Test was collected overnight from 22:10 on 16 September to 02:45 on 17 September. It contains 96 empty and 153 present minutes; no sleep class is available. There are \TestPackets{} decoded CSI packets and \TestFrames{} radar frames in the original collection. The balanced subset contains all 96 empty and 96 sampled present minutes, with \TestSelectedPackets{} packets and \TestSelectedFrames{} frames. Test labels follow the acquisition schedule, with empty beginning at 01:10; they are not independently frame-verified. Acquisition identifiers differ ($t$ versus $pi$), but these identifiers alone do not establish a change of room or geometry.
+
+\subsection{Balance and coverage}
+Majority-class undersampling within each evaluation partition uses chronologically sorted minute IDs and seed 42, without replacement. The selected 160 validation and 192 test minutes are identical to the preceding experiment. The discarded 32 validation-empty and 57 test-present minutes remain in the collection audit. They are not sensor failures. No overlapping window is assigned across partitions.
+
+The training cohort contains 184 empty and 84 occupied minutes after six radar/SNR exclusions. Calibration supplies PCA observations only. The reported baseline uses class-weighted learning on these 268 unique training minutes. Class weighting equalizes the classes' contributions to the training objective; it does not change the number of unique recordings or generate synthetic observations.
+
+\begin{figure}[t]
+\centering\input{icc_assets/coverage}
+\caption{Feature availability before class balancing. CSI and radar are the two physical modalities; SNR, RD, RA, RE, and XY share the radar source. All collected evaluation minutes have the required features.}
+\label{fig:coverage}
+\end{figure}
+
+\section{Processing and Fusion}\label{sec:processing}
+\subsection{Guaranteed 100 Hz CSI grid}
+Within each minute, finite CSI observations are restricted to $[0,60)$ seconds, sorted, and deduplicated. The guaranteed-rate method from the companion WiFiSensing code is executed unchanged with $F=100$ Hz. Let $t_0$ be the first observed timestamp and $u_j=t_0+j/F$. Centered bins define
+\begin{align}
+\mathcal I_j&=\{i:u_j-1/(2F)\leq t_i<u_j+1/(2F)\},\\
+\widetilde A_k[j]&=\frac{1}{|\mathcal I_j|}\sum_{i\in\mathcal I_j}A_k(t_i),
+\quad |\mathcal I_j|>0.\label{eq:resample}
+\end{align}
+There are $J=\lceil F(t_{\rm last}-t_0)\rceil$ bins; endpoint assignments are clipped into the first/last bin as in the source routine. Empty bins between populated $j_-$ and $j_+$ are interpolated:
+\begin{equation}
+\widetilde A_k[j]=(1-\alpha_j)\widetilde A_k[j_-]+\alpha_j\widetilde A_k[j_+],\quad
+\alpha_j=\frac{u_j-u_{j_-}}{u_{j_+}-u_{j_-}}.\label{eq:interpolation}
+\end{equation}
+Thus 100 Hz is a processed-grid rate, not a guarantee of received packets. Median native packet rates are \ValPacketRate{} and \TestPacketRate{} Hz for validation and test. Among samples used in accepted summaries, median interpolated fractions are \ValInterpolation\% and \TestInterpolation\%, respectively (Fig.~\ref{fig:temporal}).
+
+\begin{figure}[t]
+\centering\input{icc_assets/temporal}
+\caption{Within-minute CSI support in the original collections: accepted one-second bins and interpolated fraction of samples used by those bins. Uniform sampling does not create additional independent observations.}
+\label{fig:temporal}
+\end{figure}
+
+\subsection{PCA and three-second variance of $x_1$}
+An accepted second $s$ must retain at least five original packets, span at least 0.5 s, and have no original packet or boundary gap above 0.5 s. It must also contain exactly 100 resampled samples. Incomplete edge seconds are omitted; interpolation alone cannot make a second eligible. Define
+\begin{align}
+\mu_{k,s}&=\frac{1}{100}\sum_{j\in\mathcal J_s}\widetilde A_k[j],\qquad
+\sigma_{k,s}^2=\frac{1}{100}\sum_{j\in\mathcal J_s}(\widetilde A_k[j]-\mu_{k,s})^2,\\
+\mathbf v_s&=[\mu_{1,s},\ldots,\mu_{52,s},\sigma_{1,s},\ldots,\sigma_{52,s}]^T,\\
+\mathbf z_s&=\mathbf W_2^T(\mathbf v_s-\overline{\mathbf v})\in\R^2.\label{eq:pca}
+\end{align}
+The center and two eigenvectors are fitted on \FitDots{} valid calibration/training vectors, without whitening or per-feature standardization before PCA. The previous PCA model is replaced, since resampling changes the summaries. Validation and test do not affect this fit.
+
+Three adjacent valid seconds define the population-variance trace
+\begin{align}
+\overline{\mathbf z}_{s}&=\tfrac13\sum_{j=0}^{2}\mathbf z_{s+j},\\
+V_s&=\tfrac13\sum_{j=0}^{2}\|\mathbf z_{s+j}-\overline{\mathbf z}_{s}\|_2^2
+=\Var(z^{(1)})+\Var(z^{(2)}),\\
+f_{1,m}&=\log\!\left(1+\med_{s\in\mathcal W_m}V_s\right).\label{eq:csi-feature}
+\end{align}
+The hop is one second, and $\mathcal W_m$ includes only fully valid three-second windows. This statistic is invariant to the order of the three dots; unlike path length, it measures dispersion rather than travel. PCA dots remain one second apart despite the 100 Hz amplitude grid.
+
+\subsection{Range, Doppler, angle, and XY processing of $x_2$}
+Subtract the fast-time mean and apply a Hann window $w_n$. The range transform is
+\begin{equation}
+R_f[r,c,q]=\sum_{n=0}^{127}w_n\big(x_2^{(f)}[r,c,n]-\overline{x}_{2,f,r,c}\big)e^{-j2\pi qn/128}.
+\end{equation}
+Retain $q=0,\ldots,63$. A Hann-windowed slow-time transform gives
+\begin{align}
+D_f[r,p,q]&=\operatorname{fftshift}_p\!\left\{\sum_{c=0}^{63}w_cR_f[r,c,q]e^{-j2\pi pc/64}\right\},\\
+M_{{\rm RD},f}[p,q]&=\tfrac13\sum_{r=1}^3|D_f[r,p,q]|^2.\label{eq:rd}
+\end{align}
+No slow-time MTI is applied; static energy is retained. For the assumed half-wavelength L-array, pairs $(1,3)$ and $(2,3)$ produce RA and RE:
+\begin{equation}
+M_{a,f}[q,\theta]=\tfrac1{64}\sum_c
+\left|R_f[r_a,c,q]+e^{-j\pi\sin\theta}R_f[3,c,q]\right|^2,
+\end{equation}
+where $r_{\rm RA}=1$, $r_{\rm RE}=2$, and 25 angles span $[-60^\circ,60^\circ]$. Range bins 0 and 1 are zeroed in each map. XY projects RA onto a $24\times24$ grid using normalized $\rho=q/63$, $x=\rho\sin\theta$, and $y=\rho\cos\theta$. Each cell keeps the maximum colliding energy. XY is therefore a deterministic RA representation, not another sensor.
+
+For view $a\in\{{\rm RD,RA,RE,XY}\}$, let $L_{a,f}=\log(1+M_{a,f})$. Over available frames, compute mean image $\overline L_a$ and population standard-deviation image $S_a$. Five descriptors are
+\begin{equation}
+\mathbf g_{a,m}=\begin{bmatrix}
+\mean_u\overline L_a(u)\\Q_{.9,u}\overline L_a(u)\\
+Q_{.9,u}S_a(u)\\\mean_{f,u}|L_{a,f+1}(u)-L_{a,f}(u)|\\
+\max_u\overline L_a(u)
+\end{bmatrix}.\label{eq:pool}
+\end{equation}
+Here $u$ indexes map cells. Frame differences are not time-normalized, so acquisition irregularity can influence them. The cached historical SNR proxy is
+\begin{equation}
+b_m=\max_f10\log_{10}\!\frac{\max_{u\in\Omega}B_f(u)}{\med_u B_f(u)+10^{-9}},
+\end{equation}
+where $\Omega$ excludes columns 0--1 and rows 10--13 of the cached $24\times24$ RD amplitude map $B_f$ (zero-based indices). The median uses the full unmasked map. This is an amplitude-ratio discrimination proxy, not calibrated power SNR; its cached frame coverage can differ from the map extraction. The radar branch is
+\begin{equation}
+\mathbf f_{2,m}=[b_m;\mathbf g_{{\rm RD},m};\mathbf g_{{\rm RA},m};
+\mathbf g_{{\rm RE},m};\mathbf g_{{\rm XY},m}]\in\R^{21}.
+\end{equation}
+
+\subsection{Fusion and learning}
+Concatenate branches and apply training-fitted feature scaling:
+\begin{equation}
+\mathbf f_m=[f_{1,m};\mathbf f_{2,m}],\qquad
+\mathbf h_m=(\mathbf f_m-\bm\mu_{\rm tr})\oslash\bm\sigma_{\rm tr}.\label{eq:fusion}
+\end{equation}
+The full input has 22 scalars; CSI+SNR has two, and adding one map gives seven. All compared inputs use the same complete-case cohort. Median imputation is fitted on training but no missing values occur in the primary cohort.
+
+LR estimates $p_m=\sigma(\mathbf w^T\mathbf h_m+b)$ by minimizing
+\begin{equation}
+\frac{\|\mathbf w\|_2^2}{2C}-\sum_{m\in\mathcal T}a_{y_m}
+\{y_m\log p_m+(1-y_m)\log(1-p_m)\},
+\end{equation}
+with $C=0.3$, at most 3,000 iterations, and class weights $a_y=N/(2N_y)$. RF averages 200 tree probabilities, with depth at most 4, minimum leaf size 5, balanced class weights, and seed 42:
+\begin{equation}
+p_m^{\rm RF}=\tfrac1{200}\sum_{b=1}^{200}p_b(y=1\mid\mathbf h_m),\qquad
+\widehat y_m=\mathbf{1}[p_m\geq\tau].\label{eq:decision}
+\end{equation}
+For each candidate, validation chooses $\tau$ maximizing balanced accuracy (BA), with ties closest to 0.5. Overall selection uses validation BA, then AUC and deterministic names. Neither test labels nor test scores choose the candidate or threshold in this run. Decisions are minute-level: the three-second CSI window does not imply three-second system latency.
+
+\begin{figure*}[t]
+\centering\input{icc_assets/boxplots}
+\caption{Native LaTeX feature boxplots on the balanced validation (80/class) and test (96/class) cohorts. Gray: empty; red: occupied. Boxes show quartiles, the center line is the median, whiskers extend to observations within 1.5 IQR, and points are outliers. CSI uses a logarithmic axis. Each radar map panel displays its mean log-power descriptor; learning uses all five descriptors in~\eqref{eq:pool}.}
+\label{fig:boxes}
+\end{figure*}
+
+\section{Results and Discussion}
+\subsection{Matched-cohort comparison}
+Thirteen input sets and two classifiers yield 26 candidates. BA is $\tfrac12[\mathrm{TN}/(\mathrm{TN}+\mathrm{FP})+\mathrm{TP}/(\mathrm{TP}+\mathrm{FN})]$. On balanced evaluation sets it equals ordinary accuracy. AUC measures ranking, not the performance of the frozen threshold. Table~\ref{tab:results} uses the validation-selected classifier within each input set.
+
+\begin{table}[t]
+\centering\caption{100 Hz CSI experiment. Classifier and threshold are selected on validation only. All rows share the same balanced cohorts.}
+\label{tab:results}\footnotesize
+\begin{tabular}{lcccc}\toprule
+Inputs & Model & Val. BA & Test BA & Test AUC\\\midrule
+\ResultRows
+\bottomrule\end{tabular}
+\end{table}
+
+The overall selected model is \SelectedFeatures{} (\SelectedModel{}), with validation BA \ValBA\% and AUC \ValAUC. Its threshold is \SelectedThreshold. Test BA is \TestBA\% and AUC is \TestAUC, with TN=$\TestTN$, FP=$\TestFP$, FN=$\TestFN$, and TP=$\TestTP$. CSI+SNR gives \SnrFusionBA\% BA; CSI+SNR+RD gives \RdBA\% BA and \RdAUC{} AUC. RA fusion gives \RaBA\% BA and full fusion gives \AllBA\%. These are descriptive test comparisons, not a rule for selecting the best test configuration.
+
+\begin{figure}[t]
+\centering\input{icc_assets/performance}
+\caption{Validation and test ROC AUC for CSI and fusion variants. Classifiers are selected by validation balanced accuracy, with AUC breaking ties. AUC summarizes ranking across decision thresholds.}
+\label{fig:performance}
+\end{figure}
+
+In a controlled preprocessing ablation on identical minute IDs, native-rate summaries give 67.2\% BA for CSI and 69.3\% for CSI+SNR+RD, compared with \CsiBA\% and \RdBA\% after resampling. Uniform sampling standardizes the processing grid, but does not improve these test operating points. The comparison retains the training observations, radar features, classifiers, and evaluation subsets; PCA and thresholds are refitted for each CSI representation.
+
+\subsection{Coverage, transfer, and interpretation}
+Every collected validation and test minute still contains the required features. This means at least one valid three-second CSI window and sufficient radar evidence, not uninterrupted measurements. Median accepted CSI support is \ValValidSeconds{} seconds per validation minute and \TestValidSeconds{} per test minute. Interpolation can smooth local variation; the source fingerprint, gap statistics, and interpolated counts are saved to make this effect inspectable.
+
+The class boxes overlap and shift between sessions (Fig.~\ref{fig:boxes}). More descriptors do not imply more independent information: all radar views share one sensor, and XY derives from RA. Map pooling also discards spatial structure. The current experiment cannot isolate whether poor transfer arises from placement, hardware, background, label error, or their combination. It therefore does not establish that raw radar is uninformative.
+
+\subsection{Computation and limitations}
+The representation uses fixed PCA projection and conventional classifiers. LR inference scales linearly with feature count; a depth-4, 200-tree forest needs at most about 800 internal decision tests. These structural bounds are not a measured speed advantage. Radar decoding, FFTs, beamforming, and observation time may dominate. No matched deep-learning runtime or energy benchmark was performed.
+
+Adjacent minutes and overlapping windows are dependent. Undersampling changes class prevalence without removing this dependence. The same evaluation sessions have been examined during development, including the decision to shorten CSI windows. Thus scores are exploratory, not a new untouched holdout. Sleep is absent from validation/test, and no three-class claim follows. A prospective session with verified geometry, stationary occupants, outside-view motion, and empty-room disturbances is required to confirm practical benefit.
+
+\section{Conclusion}
+We defined a complete mathematical path from WiFi observations $x_1$ and radar observations $x_2$ to compact branch features, fusion, and binary occupancy decisions. A guaranteed-rate routine supplies 100 Hz CSI before PCA; the resulting three-second variance preserves full minute-level feature availability on balanced evaluation cohorts. The validation-selected classifier reaches \TestBA\% test BA. Uniform sampling improves comparability of processing, but measured results do not establish an accuracy or speed advantage. The dataset manifests, source fingerprint, fixed split IDs, and native LaTeX figures support reproducible follow-up experiments.
+
+\begin{thebibliography}{9}
+\bibitem{wifi} G. Gad, I. Batool, M. Fouda, S. Verma, and Z. M. Fadlullah, ``WiFi Sensing-Based Human Activity Recognition for Smart Home Applications Using Commodity Access Points,'' supplied manuscript, 2026.
+\bibitem{hood} S. M. Kahya, M. S. Yavuz, and E. Steinbach, ``HOOD: Real-Time Human Presence and Out-of-Distribution Detection Using FMCW Radar,'' arXiv:2308.02396, version 2, Mar. 2024. \url{https://arxiv.org/abs/2308.02396}.
+\bibitem{deman} C. Wu et al., ``Non-Invasive Detection of Moving and Stationary Human With WiFi,'' \emph{IEEE J. Sel. Areas Commun.}, vol. 33, no. 11, pp. 2329--2342, 2015, doi: 10.1109/JSAC.2015.2430294.
+\bibitem{sharp} F. Meneghello et al., ``SHARP: Environment and Person Independent Activity Recognition With Commodity IEEE 802.11 Access Points,'' \emph{IEEE Trans. Mobile Comput.}, 2023, doi: 10.1109/TMC.2022.3185681.
+\bibitem{litehar} H. Salehinejad and S. Valaee, ``LiteHAR: Lightweight Human Activity Recognition from WiFi Signals with Random Convolution Kernels,'' in \emph{Proc. ICASSP}, 2022, doi: 10.1109/ICASSP43922.2022.9746803.
+\bibitem{fusion} Z. Chen, Y. Sun, and L. Qu, ``Research on Cross-Scene Human Activity Recognition Based on Radar and Wi-Fi Multimodal Fusion,'' \emph{Electronics}, vol. 14, no. 8, art. 1518, 2025, doi: 10.3390/electronics14081518.
+\end{thebibliography}
+\end{document}

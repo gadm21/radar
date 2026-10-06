@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1,horizontal sep=.9cm},width=.45\columnwidth,height=3.5cm,boxplot/draw direction=y,xtick={1,2},xticklabels={Val.,Test},xmin=.4,xmax=2.6,tick label style={font=\scriptsize},title style={font=\scriptsize},ymajorgrids,grid style={gray!15}]
+\nextgroupplot[title={Valid seconds}]
+\addplot+[boxplot prepared={lower whisker=29,lower quartile=38,median=45,upper quartile=52,upper whisker=57},boxplot/draw position=1,fill=valColor!65,draw=valColor,mark=*,mark size=.55pt] coordinates {};
+\addplot+[boxplot prepared={lower whisker=15,lower quartile=33,median=39,upper quartile=45,upper whisker=57},boxplot/draw position=2,fill=testColor!65,draw=testColor,mark=*,mark size=.55pt] coordinates {(2,9) (2,14) (2,12)};
+\nextgroupplot[title={Interpolated (\%)}]
+\addplot+[boxplot prepared={lower whisker=1.60377358,lower quartile=5.28888045,median=7.89529725,upper quartile=10.4327493,upper whisker=14.8888889},boxplot/draw position=1,fill=valColor!65,draw=valColor,mark=*,mark size=.55pt] coordinates {};
+\addplot+[boxplot prepared={lower whisker=3.23636364,lower quartile=10.1521739,median=12.5925926,upper quartile=15.6969697,upper whisker=23.2352941},boxplot/draw position=2,fill=testColor!65,draw=testColor,mark=*,mark size=.55pt] coordinates {(2,25.8064516) (2,24.9268293) (2,26.4827586) (2,25.4210526) (2,26.9615385)};
+\end{groupplot}
+\end{tikzpicture}

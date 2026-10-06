@@ -1,0 +1,14 @@
+{
+  "seed": 42,
+  "method": "uniform majority-class undersampling without replacement after sorting minute IDs; minority retained in full",
+  "validation": [
+    80,
+    80
+  ],
+  "test": [
+    96,
+    96
+  ],
+  "training": "unchanged",
+  "selection_uses": "labels and IDs only; no features, predictions or scores"
+}

@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+\begin{axis}[width=\columnwidth,height=4.1cm,ybar,bar width=5pt,ymin=0,ymax=290,symbolic x coords={CSI,SNR,RD,RA,RE,XY,Joint},xtick=data,tick label style={font=\scriptsize},ylabel={Usable collected minutes},label style={font=\scriptsize},legend style={at={(.5,1.02)},anchor=south,font=\scriptsize,legend columns=2,draw=none},nodes near coords,nodes near coords style={font=\tiny},enlarge x limits=.1]
+\addplot[fill=valColor,draw=none] coordinates {(CSI,192) (SNR,192) (RD,192) (RA,192) (RE,192) (XY,192) (Joint,192)};
+\addplot[fill=testColor,draw=none] coordinates {(CSI,249) (SNR,249) (RD,249) (RA,249) (RE,249) (XY,249) (Joint,249)};
+\legend{Validation,Test}
+\end{axis}
+\end{tikzpicture}

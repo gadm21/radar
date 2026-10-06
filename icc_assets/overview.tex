@@ -1,0 +1,23 @@
+\begin{tikzpicture}[>=Latex,font=\footnotesize,
+ source/.style={draw,rounded corners,fill=gray!8,align=center,text width=2.3cm,minimum height=1.05cm},
+ process/.style={draw,rounded corners,align=center,text width=2.25cm,minimum height=1.05cm},
+ arrow/.style={->,thick},every edge/.style={arrow}]
+\node[source] (data) at (0,0) {Room recordings\\Minute identity + labels\\Train / validation / test};
+\node[process,fill=valColor!10] (wifi) at (3,1) {CSI $x_1[k,i]$\\52 complex tones\\ESP32 receiver};
+\node[process,fill=valColor!10] (csi) at (6,1) {$|x_1|\to100$ Hz\\Bin mean + fill\\1 s mean/std};
+\node[process,fill=valColor!10] (pca) at (9,1) {Fixed 2D PCA\\3-second variance\\Minute median $f_1$};
+\node[process,fill=testColor!12] (radar) at (3,-1) {Radar $x_2$\\$3\times64\times128$\\ADC samples};
+\node[process,fill=testColor!12] (maps) at (6,-1) {Range/Doppler FFT\\RA/RE beamforming\\XY projection};
+\node[process,fill=testColor!12] (pool) at (9,-1) {Log-power pooling\\Cached SNR proxy\\$\mathbf f_2\in\mathbb R^{21}$};
+\node[process,fill=gray!10,text width=1.8cm] (fusion) at (11.9,0) {Concatenate\\$[f_1;\mathbf f_2]$\\Train-fit scaling};
+\node[process,fill=green!10,text width=1.9cm] (learn) at (14.45,0) {LR / RF\\$p_\theta(y=1\mid\mathbf f)$\\Val. threshold};
+\node[process,fill=green!10,text width=1.9cm] (output) at (14.45,-2) {$\widehat y=\mathbf{1}[p\geq\tau]$\\Empty / occupied};
+\draw[arrow] (data.east) -- ++(.2,0) |- (wifi.west);
+\draw[arrow] (data.east) -- ++(.2,0) |- (radar.west);
+\draw[arrow] (wifi) -- (csi);\draw[arrow] (csi) -- (pca);
+\draw[arrow] (radar) -- (maps);\draw[arrow] (maps) -- (pool);
+\draw[arrow] (pca.east) -- ++(.2,0) |- (fusion.west);
+\draw[arrow] (pool.east) -- ++(.2,0) |- (fusion.west);
+\draw[arrow] (fusion) -- (learn);\draw[arrow] (learn) -- (output);
+\node[align=center,font=\scriptsize] at (6,-2.25) {PCA: calibration + training only.\quad Classifier: training only.\\Validation: model and threshold selection.\quad Test: frozen evaluation.};
+\end{tikzpicture}

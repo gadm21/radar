@@ -1,0 +1,17 @@
+{
+  "window_seconds": 3,
+  "dots_per_window": 3,
+  "hop_seconds": 1,
+  "dimensions": 2,
+  "variance_ddof": 0,
+  "feature": "sum of coordinate variances (covariance trace)",
+  "minute_aggregation": "median of valid windows",
+  "pca": "fixed calibration+train basis, centered, unwhitened",
+  "one_second_quality": "original packet quality rules plus exactly 100 resampled values",
+  "decision_unit": "minute",
+  "selection": "validation only; test already explored historically",
+  "target_sampling_rate_hz": 100,
+  "resampling": "upstream bin averaging and linear interpolation before one-second mean/std and PCA",
+  "pca_fit_dots": 51287,
+  "balanced_cohort": "same minute IDs as previous balanced experiment"
+}

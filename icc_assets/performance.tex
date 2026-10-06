@@ -1,0 +1,7 @@
+\begin{tikzpicture}
+\begin{axis}[width=.98\columnwidth,height=5.2cm,xbar,bar width=3pt,xmin=0,xmax=1,ytick={0,1,2,3,4,5,6},yticklabels={CSI,{+SNR},{+SNR+RD},{+SNR+RA},{+SNR+RE},{+SNR+XY},{+all radar}},y dir=reverse,xlabel={ROC AUC},tick label style={font=\scriptsize},label style={font=\footnotesize},legend style={font=\scriptsize,at={(.5,1.03)},anchor=south,legend columns=2,draw=none},enlarge y limits=.12]
+\addplot[fill=valColor,draw=none] coordinates {(0.90078125,0) (0.885,1) (0.87734375,2) (0.892421875,3) (0.886171875,4) (0.89609375,5) (0.87703125,6)};
+\addplot[fill=testColor,draw=none] coordinates {(0.70844184,0) (0.722873264,1) (0.760416667,2) (0.739366319,3) (0.752604167,4) (0.739040799,5) (0.696126302,6)};
+\legend{Validation,Test}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,128 @@
+def _resample_equal_intervals(self, mag, phase, real, imag, rssi, timestamps):
+        """Resample all channels to equal intervals at guaranteed_sr Hz.
+
+        Uses vectorized bin assignment (np.searchsorted) instead of a
+        per-bin Python loop, so it scales to 200k+ samples without stalling.
+
+        Samples falling in the same time-bin are averaged.
+        Empty bins are filled via linear interpolation.
+
+        Returns
+        -------
+        tuple
+            (mag, phase, real, imag, rssi, timestamps, samples_per_bin, stats)
+            samples_per_bin is an int array of length n_out.
+        """
+        n_orig = len(timestamps)
+        zero_spb = np.array([], dtype=np.int64)
+        empty_stats = {
+            'original_samples': 0, 'resampled_samples': 0,
+            'empty_slots': 0, 'empty_slots_pct': 0.0,
+            'overlapping_samples': 0, 'actual_sampling_rate': 0.0,
+            'target_sampling_rate': self.guaranteed_sr,
+            'duration_sec': 0.0,
+            'samples_per_bin_stats': {'mean': 0.0, 'std': 0.0, 'min': 0, 'max': 0},
+        }
+        if n_orig == 0:
+            return mag, phase, real, imag, rssi, timestamps, zero_spb, empty_stats
+
+        # Convert ESP32 microsecond timestamps to seconds
+        ts_sec = timestamps.astype(np.float64) / 1_000_000
+        start, end = ts_sec[0], ts_sec[-1]
+        duration = end - start
+
+        n_out = int(np.ceil(duration * self.guaranteed_sr))
+        if n_out < 2:
+            self._log(f"Warning: Too short duration ({duration:.3f}s) for resampling")
+            trivial = empty_stats.copy()
+            trivial.update(original_samples=n_orig, resampled_samples=n_orig,
+                           actual_sampling_rate=n_orig / max(duration, 1e-8),
+                           duration_sec=duration,
+                           samples_per_bin_stats={'mean': 1.0, 'std': 0.0, 'min': 1, 'max': 1})
+            spb = np.ones(n_orig, dtype=np.int64)
+            return mag, phase, real, imag, rssi, timestamps, spb, trivial
+
+        target_t = start + np.arange(n_out) / self.guaranteed_sr
+        dt = 1.0 / self.guaranteed_sr
+        n_sc = mag.shape[1]
+
+        # --- Vectorized bin assignment ---
+        # Bin edges: each bin i covers [target_t[i] - dt/2, target_t[i] + dt/2)
+        bin_edges = target_t - dt / 2
+        # np.searchsorted gives the bin index for each sample
+        bin_idx = np.searchsorted(bin_edges, ts_sec, side='right') - 1
+        bin_idx = np.clip(bin_idx, 0, n_out - 1)
+
+        # Count samples per bin
+        samples_per_bin = np.bincount(bin_idx, minlength=n_out).astype(np.int64)
+
+        # Accumulate sums per bin for each channel, then divide by count
+        channels = {'mag': mag, 'phase': phase, 'real': real, 'imag': imag}
+        resampled = {}
+        for k, src in channels.items():
+            acc = np.zeros((n_out, n_sc), dtype=np.float64)
+            np.add.at(acc, bin_idx, src)
+            resampled[k] = acc
+
+        rssi_acc = np.zeros(n_out, dtype=np.float64)
+        np.add.at(rssi_acc, bin_idx, rssi)
+
+        # Divide by count where non-zero
+        populated = samples_per_bin > 0
+        for k in channels:
+            resampled[k][populated] /= samples_per_bin[populated, None]
+        rssi_acc[populated] /= samples_per_bin[populated]
+
+        # Identify empty / overpopulated bins
+        empty_mask = samples_per_bin == 0
+        empty_slots = np.where(empty_mask)[0]
+
+        # Interpolate empty bins
+        if len(empty_slots) > 0:
+            valid_idx = np.where(populated)[0]
+            if len(valid_idx) >= 2:
+                for k in channels:
+                    for sc in range(n_sc):
+                        resampled[k][empty_slots, sc] = np.interp(
+                            target_t[empty_slots], target_t[valid_idx],
+                            resampled[k][valid_idx, sc])
+                rssi_acc[empty_slots] = np.interp(
+                    target_t[empty_slots], target_t[valid_idx], rssi_acc[valid_idx])
+            elif len(valid_idx) == 1:
+                for k in channels:
+                    resampled[k][empty_slots] = resampled[k][valid_idx[0]]
+                rssi_acc[empty_slots] = rssi_acc[valid_idx[0]]
+            else:
+                self._log("Warning: No valid samples for interpolation")
+
+        n_empty = int(empty_mask.sum())
+        overlapping = int((samples_per_bin[samples_per_bin > 1] - 1).sum())
+        empty_pct = 100 * n_empty / n_out if n_out > 0 else 0.0
+
+        if n_empty and self.verbose:
+            self._log(f"Empty slots: {n_empty}/{n_out} ({empty_pct:.1f}%)")
+
+        resampled_ts = (target_t * 1_000_000).astype(np.int64)
+
+        stats = {
+            'original_samples': n_orig,
+            'resampled_samples': n_out,
+            'empty_slots': n_empty,
+            'empty_slots_pct': empty_pct,
+            'overlapping_samples': overlapping,
+            'actual_sampling_rate': n_orig / max(duration, 1e-8),
+            'target_sampling_rate': self.guaranteed_sr,
+            'duration_sec': duration,
+            'samples_per_bin_stats': {
+                'mean': float(samples_per_bin.mean()),
+                'std': float(samples_per_bin.std()),
+                'min': int(samples_per_bin.min()),
+                'max': int(samples_per_bin.max()),
+            },
+        }
+
+        self._log(f"Resampled: {n_orig} -> {n_out} samples @ {self.guaranteed_sr} Hz")
+        self._log(f"Empty slots: {n_empty} ({empty_pct:.1f}%), Overlapping: {overlapping}")
+
+        return (resampled['mag'], resampled['phase'], resampled['real'],
+                resampled['imag'], rssi_acc, resampled_ts, samples_per_bin, stats)

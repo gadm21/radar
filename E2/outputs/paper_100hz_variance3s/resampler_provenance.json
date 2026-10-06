@@ -1,0 +1,8 @@
+{
+  "path": "C:\\Users\\ggad\\Desktop\\WifiSensingESP32HAR\\src\\train\\utils.py",
+  "method": "CSI_Loader._resample_equal_intervals",
+  "sha256": "c5614d2d4eea1137100e6041b2711a386fc8e77928977c3e689fc37bb7b18607",
+  "target_hz": 100,
+  "timestamp_source": "relative host timestamps; converted to microseconds",
+  "amplitude": "upstream magnitude bin averages and interpolation used directly"
+}

@@ -1,0 +1,17 @@
+{
+  "features": "CSI",
+  "model": "LR",
+  "split": "validation_minutes",
+  "n": 160,
+  "empty": 80,
+  "occupied": 80,
+  "auc": 0.90078125,
+  "balanced_accuracy": 0.84375,
+  "accuracy": 0.84375,
+  "f1": 0.8603351955307262,
+  "threshold": 0.47070819790783247,
+  "tn": 58,
+  "fp": 22,
+  "fn": 3,
+  "tp": 77
+}
