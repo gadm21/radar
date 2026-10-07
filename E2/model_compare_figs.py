@@ -216,6 +216,16 @@ def report(res):
          "- cal_sup: several models reach 1.00 occupied recall on a "
          "10-minute t1_sleep block — a one-class calibration visit "
          "works.",
+         "- `jev` (gpt-4o-mini LLM judge, per-window percentile-rank "
+         "descriptors + train class percentile profiles): bal 0.976 / "
+         "AUC 0.999 on testml — best model overall; the percentile "
+         "encoding makes it fully domain-invariant. Raw-value "
+         "prompting (jev_v1..v4 history) was chance; evidence-line "
+         "prompting inverted on testml.",
+         "- `jev_emb` (text-embedding-3-small band-phrase prototypes): "
+         "val bal 0.78 but testml <0.50 — text embedding space does "
+         "not preserve the numeric descriptor pattern across "
+         "sessions.",
          "",
          "## Best per model class (test=multilink)"]
     rows = []

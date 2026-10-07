@@ -33,24 +33,33 @@ TIMEOUT = 45
 RETRIES = 3
 
 SYS = """You are a strict binary occupancy judge for a radar+CSI room
-sensor.  You receive per-window physical descriptors for the CURRENT
-window and reference statistics (mean, std) for the two classes
+sensor.  All descriptor values are PERCENTILE RANKS (0-1) computed
+within their own capture session: 0 = lowest window in that session,
+0.5 = session median, 1 = highest.  You receive the current window's
+percentile profile and the mean percentile profiles of the classes
 'empty' and 'occupied' measured on the training site.  Reply with a
 JSON object only: {"occupied": <0..1>, "reason": <short string>}.
 Score = probability the room is occupied during this window.
-Descriptors with 'std' are window variances of PCA-compressed streams;
-'traj' stats summarise the window's trajectory in PCA space; 'fft_'
-columns are spectral band powers; 'clu_' are distances to unsupervised
-clusters.  Decide by comparing the window's descriptors against BOTH
-class reference distributions."""
+Physical priors: occupied rooms show HIGHER percentiles on activity /
+range-spread / variance descriptors (r_, ra_, rd_, csi_rv, pcv, traj)
+and lower percentiles on quiet-baseline descriptors (fft low band,
+c_min).  Decide by comparing the window's percentile profile against
+BOTH class percentile profiles."""
+
+
+def _pct(df: pd.DataFrame, cols: list[str]) -> pd.DataFrame:
+    """within-session percentile rank per column (0-1)."""
+    return df[cols].rank(pct=True)
 
 
 def class_stats(df_train: pd.DataFrame, cols: list[str]) -> dict:
+    """mean/std of within-train percentiles per class."""
+    pt = _pct(df_train, cols)
     s = {}
     for lab, name in ((0, "empty"), (1, "occupied")):
-        d = df_train[df_train.label == lab]
-        s[name] = {c: {"mean": round(float(d[c].mean()), 4),
-                       "std": round(float(d[c].std()), 4)}
+        d = pt[df_train.label.values == lab]
+        s[name] = {c: {"pct_mean": round(float(d[c].mean()), 3),
+                       "pct_std": round(float(d[c].std()), 3)}
                    for c in cols}
     return s
 
@@ -125,20 +134,42 @@ def _parse(txt: str) -> float:
         return float(np.clip(float(m.group(1)), 0, 1)) if m else 0.5
 
 
-def make_prompt(row: pd.Series, cols: list[str],
+def make_prompt(row_pct: pd.Series, cols: list[str],
                 stats: dict) -> str:
-    win = {c: round(float(row[c]), 4) for c in cols}
-    return ("Window descriptors: " + json.dumps(win)
-            + "\nClass reference stats (train): "
+    win = {c: round(float(row_pct[c]), 2) for c in cols}
+    return ("Window descriptor percentiles (rank within this "
+            "session): " + json.dumps(win)
+            + "\nClass percentile profiles (train): "
             + json.dumps(stats)
             + "\nReturn JSON only.")
 
 
-def jev_predict(rows: Iterable[pd.Series],
+def pick_stable_cols(df_train: pd.DataFrame, df_ref: pd.DataFrame,
+                     k: int = 10) -> list[str]:
+    """top-k descriptors by |cohen d| on train, restricted to those
+    whose class-separation sign is consistent between train and a
+    reference session (cal_sup) — direction-stable across domains."""
+    def signs(df):
+        y = df.label.values
+        d0 = df[y == 0].mean(numeric_only=True)
+        d1 = df[y == 1].mean(numeric_only=True)
+        return np.sign(d1 - d0)
+    s_tr, s_rf = signs(df_train), signs(df_ref)
+    cand = pick_cols(df_train, k * 3)
+    stable = [c for c in cand
+              if c in s_rf.index and s_tr[c] == s_rf[c]
+              and s_tr[c] != 0][:k]
+    if len(stable) < 5:                      # fallback: plain pick
+        stable = pick_cols(df_train, k)
+    return stable
+
+
+def jev_predict(df_eval: pd.DataFrame,
                 df_train: pd.DataFrame,
                 cols: list[str] | None = None,
                 delay: float = 0.0) -> np.ndarray:
-    """P(occupied) per window.  Raises RuntimeError if unconfigured."""
+    """P(occupied) per eval window.  Raises RuntimeError if
+    unconfigured."""
     key = os.environ.get("JEV_API_KEY")
     if not key:
         raise RuntimeError("JEV_API_KEY not set — jev disabled")
@@ -151,17 +182,17 @@ def jev_predict(rows: Iterable[pd.Series],
     }
     cols = cols or pick_cols(df_train)
     stats = class_stats(df_train, cols)
+    pe = _pct(df_eval, cols)
     call = _call_anthropic if cfg["provider"] == "anthropic" \
         else _call_openai
-    out = np.empty(len(list(rows)), np.float32)
-    rows = list(rows)
-    for i, row in enumerate(rows):
+    out = np.empty(len(pe), np.float32)
+    for i, (_, row) in enumerate(pe.iterrows()):
         p = make_prompt(row, cols, stats)
         out[i] = _parse(call(p, cfg))
         if delay:
             time.sleep(delay)
         if (i + 1) % 25 == 0:
-            print(f"    jev {i + 1}/{len(rows)}", flush=True)
+            print(f"    jev {i + 1}/{len(pe)}", flush=True)
     return out
 
 
@@ -189,8 +220,11 @@ def _embed(texts: list[str], cfg: dict,
 def emb_predict(df_eval: pd.DataFrame, df_train: pd.DataFrame,
                 cols: list[str] | None = None, n_train: int = 400,
                 k: int = 15) -> np.ndarray:
-    """P(occupied) per eval window = occupied fraction among the k
-    nearest labeled train windows in text-embedding space."""
+    """Per-descriptor band prototypes: each eval percentile is banded
+    into a phrase 'descriptor is <band>'; band phrases are embedded,
+    per-class per-descriptor prototype embeddings are built from
+    labeled train windows, and P(occupied) = softmax over the
+    |cohen-d|-weighted similarity margin."""
     key = os.environ.get("JEV_API_KEY")
     if not key:
         raise RuntimeError("JEV_API_KEY not set — jev disabled")
@@ -199,16 +233,39 @@ def emb_predict(df_eval: pd.DataFrame, df_train: pd.DataFrame,
                                   "https://api.openai.com/v1")}
     cols = cols or pick_cols(df_train)
     tr = df_train.sample(min(n_train, len(df_train)), random_state=0)
-
-    def _text(row: pd.Series) -> str:
-        return json.dumps({c: round(float(row[c]), 4) for c in cols})
-
-    texts = [_text(r) for _, r in tr.iterrows()] + \
-            [_text(r) for _, r in df_eval.iterrows()]
-    E = _embed(texts, cfg)
-    E /= np.linalg.norm(E, axis=1, keepdims=True) + 1e-12
-    Etr, Eev = E[:len(tr)], E[len(tr):]
+    pt = _pct(df_train, cols).loc[tr.index]
+    pe = _pct(df_eval, cols)
     ytr = tr.label.values.astype(int)
-    sim = Eev @ Etr.T                                # (n_eval, n_train)
-    nn = np.argsort(-sim, axis=1)[:, :k]
-    return ytr[nn].mean(axis=1).astype(np.float32)
+
+    bands = ("very low", "low", "mid", "high", "very high")
+    phrases = [f"sensor descriptor {c} is {b}"
+               for c in cols for b in bands]
+    E = _embed(phrases, cfg)
+    E /= np.linalg.norm(E, axis=1, keepdims=True) + 1e-12
+    B = E.reshape(len(cols), len(bands), -1)           # (d, 5, emb)
+
+    # per-descriptor class prototypes = mean band embedding per class
+    proto = np.zeros((len(cols), 2, B.shape[2]), np.float32)
+    for j, c in enumerate(cols):
+        bidx = np.clip((pt[c].values * 5).astype(int), 0, 4)
+        for lab in (0, 1):
+            sel = bidx[ytr == lab]
+            proto[j, lab] = (B[j, sel].mean(0)
+                             if len(sel) else np.zeros(B.shape[2]))
+        proto[j] /= np.linalg.norm(proto[j], axis=1,
+                                   keepdims=True) + 1e-12
+
+    # cohen-d weights from train percentiles
+    w = np.array([abs((pt.loc[tr.index[ytr == 1], c].mean()
+                       - pt.loc[tr.index[ytr == 0], c].mean()) + 1e-3)
+                  for c in cols], np.float32)
+    w /= w.sum()
+
+    bidx_e = np.clip((pe[cols].values * 5).astype(int), 0, 4)
+    score = np.zeros((len(pe), 2), np.float32)
+    for j in range(len(cols)):
+        ve = B[j][bidx_e[:, j]]                      # (n, emb)
+        score[:, 0] += w[j] * (ve * proto[j, 0]).sum(1)
+        score[:, 1] += w[j] * (ve * proto[j, 1]).sum(1)
+    m = score - score.mean(0)
+    return (1 / (1 + np.exp(-8 * (m[:, 1] - m[:, 0])))).astype(np.float32)

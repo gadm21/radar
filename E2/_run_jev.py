@@ -48,8 +48,10 @@ def main() -> None:
     t0 = time.time()
     dfs = mc.load()
     tr = dfs["train"]
-    cols = jev.pick_cols(tr)
-    print(f"jev cols ({len(cols)}): {cols[:8]}...", flush=True)
+    cols = (jev.pick_stable_cols(tr, dfs["calib"])
+            if dfs.get("calib") is not None and len(dfs["calib"])
+            else jev.pick_cols(tr))
+    print(f"jev cols ({len(cols)}): {cols}", flush=True)
 
     probs_p = OUT / "probs.pkl"
     probs = pickle.loads(probs_p.read_bytes()) if probs_p.exists() else {}
@@ -57,9 +59,7 @@ def main() -> None:
     jres, eres = {}, {}
     for s, df in ssets.items():
         y = df.label.values.astype(int)
-        pr = jev.jev_predict(
-            (row for _, row in df.iterrows()), tr, cols=cols,
-            delay=0.05)
+        pr = jev.jev_predict(df, tr, cols=cols, delay=0.05)
         jres[s] = {k: v for k, v in
                    mc.metrics(y, (pr > .5).astype(int), pr).items()}
         probs.setdefault("jev", {})[s] = pr
@@ -78,6 +78,13 @@ def main() -> None:
     res_csv = OUT / "results.csv"
     if res_csv.exists():
         flat = pd.read_csv(res_csv)
+        # archive previous iteration as _vN before overwriting
+        if flat.model.isin(["jev"]).any():
+            i = 1
+            while flat.model.isin([f"jev_v{i}"]).any():
+                i += 1
+            flat.loc[flat.model == "jev", "model"] = f"jev_v{i}"
+            flat.loc[flat.model == "jev_emb", "model"] = f"jev_emb_v{i}"
         flat = flat[~flat.model.isin(["jev", "jev_emb"])]
         flat = pd.concat([flat, pd.DataFrame(
             [{"model": "jev", "set": s, **m} for s, m in jres.items()]
@@ -87,6 +94,12 @@ def main() -> None:
 
     res_json = OUT / "results.json"
     res = json.loads(res_json.read_text()) if res_json.exists() else {}
+    if "jev" in res:
+        i = 1
+        while f"jev_v{i}" in res:
+            i += 1
+        res[f"jev_v{i}"] = res["jev"]
+        res[f"jev_emb_v{i}"] = res.get("jev_emb", {})
     res["jev"] = jres
     res["jev"]["note"] = (
         f"model={jev.os.environ.get('JEV_MODEL', 'gpt-4o-mini')} "
