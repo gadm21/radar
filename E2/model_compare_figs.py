@@ -221,7 +221,7 @@ def report(res):
     rows = []
     for k, sets in res.items():
         m = k.split("/")[0]
-        cls = ("jev" if m == "jev" else
+        cls = ("jev" if m.startswith("jev") else
                "dl" if m.startswith(("seqcnn", "mlp"))
                else "rule" if m.startswith(
                    ("stump", "knn", "centroid", "clustervote",

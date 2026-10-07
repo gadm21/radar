@@ -57,6 +57,12 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | fusemean_rf/prob | testml_norm | 0.750 | 0.725 | 0.769 | 0.59 | 0.91 |
 | fusw_gbm/prob | testml | 0.737 | 0.709 | 0.785 | 0.56 | 0.91 |
 
+### jev
+| model | set | bal | acc | auc | rec_e | rec_o |
+|---|---|---|---|---|---|---|
+| jev | testml | 0.500 | 0.623 | 0.468 | 1.00 | 0.00 |
+| jev_emb | testml | 0.066 | 0.053 | 0.023 | 0.02 | 0.12 |
+
 ## Full results (val + test + calibration)
 
 | model | set | bal | acc | f1 | auc | rec_e | rec_o |
@@ -76,6 +82,7 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | mlp/csi | cal_sup | 0.454 | 0.454 | 0.624 | nan | nan | 0.45 |
 | threshcal/all | cal_sup | 0.454 | 0.454 | 0.624 | nan | nan | 0.45 |
 | emb_svm/all | cal_sup | 0.441 | 0.441 | 0.612 | nan | nan | 0.44 |
+| jev | cal_sup | 0.435 | 0.435 | 0.606 | nan | nan | 0.43 |
 | knn/csi | cal_sup | 0.399 | 0.399 | 0.571 | nan | nan | 0.40 |
 | knn/joint | cal_sup | 0.214 | 0.214 | 0.353 | nan | nan | 0.21 |
 | fusemax_gbm/prob | cal_sup | 0.185 | 0.185 | 0.312 | nan | nan | 0.18 |
@@ -114,11 +121,14 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | emb_logreg/all | cal_sup | 0.000 | 0.000 | 0.000 | nan | nan | 0.00 |
 | emb_mlp/all | cal_sup | 0.000 | 0.000 | 0.000 | nan | nan | 0.00 |
 | seqcnn/jointseq | cal_sup | 0.000 | 0.000 | 0.000 | nan | nan | 0.00 |
+| jev_emb | cal_sup | 0.000 | 0.000 | 0.000 | nan | nan | 0.00 |
 | gbm/csi | cal_unsup | 0.750 | 0.758 | 0.808 | 0.927 | 0.51 | 0.99 |
 | rf/csi | cal_unsup | 0.737 | 0.744 | 0.800 | 0.924 | 0.48 | 0.99 |
 | stump/csi | cal_unsup | 0.700 | 0.709 | 0.780 | 0.930 | 0.40 | 1.00 |
 | stump/joint | cal_unsup | 0.700 | 0.709 | 0.780 | 0.930 | 0.40 | 1.00 |
 | fusw_gbm/prob | cal_unsup | 0.678 | 0.687 | 0.766 | 0.927 | 0.36 | 0.99 |
+| jev_emb | cal_unsup | 0.607 | 0.500 | 0.593 | 0.862 | 0.21 | 1.00 |
+| jev | cal_unsup | 0.562 | 0.545 | 0.500 | 0.679 | 0.50 | 0.62 |
 | mlp/all | cal_unsup | 0.526 | 0.533 | 0.629 | 0.532 | 0.28 | 0.77 |
 | mlp/csi | cal_unsup | 0.505 | 0.520 | 0.682 | 0.523 | 0.01 | 1.00 |
 | knn/joint | cal_unsup | 0.505 | 0.520 | 0.682 | 0.505 | 0.01 | 1.00 |
@@ -192,6 +202,7 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | emb_logreg/all | testml | 0.500 | 0.579 | 0.000 | 0.322 | 1.00 | 0.00 |
 | emb_svm/all | testml | 0.500 | 0.421 | 0.592 | 0.740 | 0.00 | 1.00 |
 | fusemax_mlp/prob | testml | 0.500 | 0.421 | 0.592 | 0.500 | 0.00 | 1.00 |
+| jev | testml | 0.500 | 0.623 | 0.000 | 0.468 | 1.00 | 0.00 |
 | gbm/all | testml | 0.500 | 0.420 | 0.592 | 0.185 | 0.00 | 1.00 |
 | fusemax_gbm/prob | testml | 0.500 | 0.420 | 0.592 | 0.080 | 0.00 | 1.00 |
 | fusemax_rf/prob | testml | 0.499 | 0.420 | 0.591 | 0.125 | 0.00 | 1.00 |
@@ -218,6 +229,7 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | fusemean_mlp/prob | testml | 0.244 | 0.205 | 0.341 | 0.217 | 0.00 | 0.49 |
 | seqcnn/jointseq | testml | 0.169 | 0.142 | 0.249 | 0.012 | 0.00 | 0.34 |
 | mlp/radar | testml | 0.101 | 0.085 | 0.157 | 0.015 | 0.00 | 0.20 |
+| jev_emb | testml | 0.066 | 0.053 | 0.084 | 0.023 | 0.02 | 0.12 |
 | knn/sel | testml | 0.035 | 0.031 | 0.053 | 0.013 | 0.01 | 0.06 |
 | threshcal/all | testml | 0.018 | 0.015 | 0.030 | 0.005 | 0.00 | 0.04 |
 | svm/csi | testml_norm | 0.865 | 0.857 | 0.843 | 0.933 | 0.81 | 0.92 |
@@ -269,6 +281,7 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | stump/joint | val | 0.856 | 0.862 | 0.832 | 0.863 | 0.89 | 0.82 |
 | gbm/csi | val | 0.821 | 0.800 | 0.799 | 0.955 | 0.69 | 0.95 |
 | fusw_gbm/prob | val | 0.749 | 0.712 | 0.739 | 0.955 | 0.52 | 0.98 |
+| jev_emb | val | 0.590 | 0.527 | 0.636 | 0.885 | 0.20 | 0.98 |
 | fusw_mlp/prob | val | 0.586 | 0.527 | 0.625 | 0.663 | 0.23 | 0.94 |
 | fusemean_mlp/prob | val | 0.585 | 0.526 | 0.624 | 0.665 | 0.23 | 0.94 |
 | mlp/csi | val | 0.580 | 0.524 | 0.618 | 0.655 | 0.24 | 0.92 |
@@ -307,6 +320,7 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | fusemax_rf/prob | val | 0.500 | 0.418 | 0.589 | 0.942 | 0.00 | 1.00 |
 | fusemax_gbm/prob | val | 0.500 | 0.418 | 0.589 | 0.900 | 0.00 | 1.00 |
 | fusemax_mlp/prob | val | 0.500 | 0.418 | 0.589 | 0.500 | 0.00 | 1.00 |
+| jev | val | 0.500 | 0.580 | 0.000 | 0.491 | 1.00 | 0.00 |
 | gbm/joint | val | 0.500 | 0.418 | 0.589 | 0.937 | 0.00 | 1.00 |
 | rf/radar | val | 0.500 | 0.417 | 0.589 | 0.597 | 0.00 | 1.00 |
 | knn/radar | val | 0.500 | 0.417 | 0.589 | 0.499 | 0.00 | 1.00 |
@@ -361,8 +375,6 @@ Feature views: radar = physical radar + radar-PC + fft_snr; csi = physical csi +
 | mlp/csi | val_norm | 0.415 | 0.373 | 0.472 | 0.538 | 0.16 | 0.67 |
 | logreg/radar | val_norm | 0.408 | 0.411 | 0.354 | 0.369 | 0.43 | 0.39 |
 | logreg/all | val_norm | 0.174 | 0.152 | 0.234 | 0.160 | 0.04 | 0.31 |
-
-JEV: JEV_API_KEY not set (client in E2/jev.py; set JEV_API_KEY to run)
 
 ## Figures
 - figs/model_bars.png

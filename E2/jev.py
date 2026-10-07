@@ -167,3 +167,48 @@ def jev_predict(rows: Iterable[pd.Series],
 
 def configured() -> bool:
     return bool(os.environ.get("JEV_API_KEY"))
+
+
+# ---------------- embedding-model judge (text-embedding + kNN) ----------------
+
+def _embed(texts: list[str], cfg: dict,
+           batch: int = 512) -> np.ndarray:
+    """OpenAI /embeddings; returns (n, d) float32."""
+    model = os.environ.get("JEV_EMB_MODEL", "text-embedding-3-small")
+    vecs = []
+    for i in range(0, len(texts), batch):
+        out = _post(
+            f"{cfg['base']}/embeddings",
+            {"Authorization": f"Bearer {cfg['key']}",
+             "Content-Type": "application/json"},
+            {"model": model, "input": texts[i:i + batch]})
+        vecs.extend(d["embedding"] for d in out["data"])
+    return np.asarray(vecs, np.float32)
+
+
+def emb_predict(df_eval: pd.DataFrame, df_train: pd.DataFrame,
+                cols: list[str] | None = None, n_train: int = 400,
+                k: int = 15) -> np.ndarray:
+    """P(occupied) per eval window = occupied fraction among the k
+    nearest labeled train windows in text-embedding space."""
+    key = os.environ.get("JEV_API_KEY")
+    if not key:
+        raise RuntimeError("JEV_API_KEY not set — jev disabled")
+    cfg = {"key": key,
+           "base": os.environ.get("JEV_BASE_URL",
+                                  "https://api.openai.com/v1")}
+    cols = cols or pick_cols(df_train)
+    tr = df_train.sample(min(n_train, len(df_train)), random_state=0)
+
+    def _text(row: pd.Series) -> str:
+        return json.dumps({c: round(float(row[c]), 4) for c in cols})
+
+    texts = [_text(r) for _, r in tr.iterrows()] + \
+            [_text(r) for _, r in df_eval.iterrows()]
+    E = _embed(texts, cfg)
+    E /= np.linalg.norm(E, axis=1, keepdims=True) + 1e-12
+    Etr, Eev = E[:len(tr)], E[len(tr):]
+    ytr = tr.label.values.astype(int)
+    sim = Eev @ Etr.T                                # (n_eval, n_train)
+    nn = np.argsort(-sim, axis=1)[:, :k]
+    return ytr[nn].mean(axis=1).astype(np.float32)
