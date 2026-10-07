@@ -37,8 +37,12 @@ def main():
     step([E1 / "analyze.py"])
     step([E1 / "plots.py"])
     step([E1 / "report.py"])
+    step([E1 / "pca_deep.py"])        # deep PCA descriptors + clusters
+    step([E1 / "pca_deep_figs.py"])   # figs_pca/ + REPORT_PCA.md
     print("\nAll done. See E1/outputs/ (REPORT.md, analysis.json, "
-          "features_*.csv, rankings_*.csv, figs/).")
+          "features_*.csv, rankings_*.csv, figs/) and "
+          "E1/outputs/pca_deep/ (REPORT_PCA.md, desc_*_5s.csv, "
+          "figs_pca/).")
 
 
 if __name__ == "__main__":

@@ -50,3 +50,9 @@ _trash/
 output/
 E2/cache/
 E1/cache/
+# large regenerable artifacts (keep reports/figs/small tables)
+E1/outputs/pca_deep/desc_*.csv
+E1/outputs/pca_deep/pc_dots_*.npz
+E1/outputs/pca_deep/pcas_deep.joblib
+E1/outputs/pca_deep/run.log
+E2/outputs/model_compare/probs.pkl

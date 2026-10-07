@@ -30,3 +30,26 @@ python E1/run_all.py --skip-extract  # reuse E1/cache
 Outputs land in `E1/outputs/`: `REPORT.md`, `analysis.json`,
 `features_{multilink,old}_{5,10}s*.csv`, `rankings_*.csv`,
 `pc_dots_*.npz`, `pcas_multilink.joblib`, `figs/`.
+
+## Deep-PCA stage (`pca_deep.py` + `pca_deep_figs.py`)
+
+Second-pass analysis producing the window descriptor tables used by
+`E2/model_compare.py`:
+
+- **Splits**: `train` = train_minutes/train, `val` = validation_minutes,
+  `calib` = calibration_minutes (all `t1_sleep` → occupied),
+  `testml` = multilink captures.
+- **Preprocessing**: per-second validity masks (no interpolation),
+  StandardScaler + PCA fit on train seconds (multilink: unsupervised
+  self-fit), CSI=104-d dots (multilink = 2-link availability mean),
+  radar = flattened per-second maps.
+- **Window descriptors (5 s, hop 2 s)**: PC stats (mean/std/iqr/min/max
+  per component), windowed PC variance, temporal-trajectory features
+  (speed, path, displacement, tortuosity, reversals, lag-1 autocorr,
+  slope), cluster geometry (kmeans/GMM distances + labels fit on train
+  joint-PC space), FFT band descriptors (radar SNR stream all sets;
+  100-Hz CSI amplitude FFT legacy-only), plus shared physical
+  descriptors (rd/ra/re/xy stats, centroids, SNR, CSI amp/rv/tv/dop).
+- **Outputs**: `E1/outputs/pca_deep/` — `desc_<split>_5s.csv`,
+  `sep_<split>.csv`, `analysis_pca.json`, `pcas_deep.joblib`,
+  `pc_dots_<split>.npz`, `REPORT_PCA.md`, `figs_pca/`.

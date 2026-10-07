@@ -61,10 +61,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--sources", nargs="*", default=list(SOURCES),
+                    help="e.g. calibration_minutes train test_minutes")
     args = ap.parse_args()
     recs, probs = C.discover_recordings()
     recs = C.assign_sessions(recs)
-    recs = [r for r in recs if r.source in SOURCES and r.status == "ok"]
+    recs = [r for r in recs
+            if r.source in args.sources and r.status == "ok"]
     if args.limit:
         recs = recs[: args.limit]
     todo = [r for r in recs
