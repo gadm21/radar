@@ -1,0 +1,165 @@
+{
+  "model": "gpt-5.4",
+  "descriptors": [
+    "csi_amp_mean",
+    "csi_amp_std",
+    "csi_rv_mean",
+    "snr_mean",
+    "ra_std90",
+    "re_std90",
+    "xy_std90",
+    "ra_delta",
+    "re_delta"
+  ],
+  "reference_models": [
+    [
+      "rf_late",
+      "RF|late probability fusion|rescaled"
+    ],
+    [
+      "mlp_csi",
+      "MLP|CSI|raw"
+    ]
+  ],
+  "sampling": "20% per validation class and multilink capture, seed 42",
+  "prompt_versions": [
+    "v1",
+    "v2"
+  ],
+  "training_stats": {
+    "empty": {
+      "csi_amp_mean": [
+        23.306,
+        0.289
+      ],
+      "csi_amp_std": [
+        5.089,
+        0.525
+      ],
+      "csi_rv_mean": [
+        0.013,
+        0.006
+      ],
+      "snr_mean": [
+        7.563,
+        0.269
+      ],
+      "ra_std90": [
+        0.119,
+        0.005
+      ],
+      "re_std90": [
+        0.111,
+        0.004
+      ],
+      "xy_std90": [
+        0.11,
+        0.003
+      ],
+      "ra_delta": [
+        0.086,
+        0.004
+      ],
+      "re_delta": [
+        0.075,
+        0.003
+      ]
+    },
+    "occupied": {
+      "csi_amp_mean": [
+        21.831,
+        3.09
+      ],
+      "csi_amp_std": [
+        5.492,
+        0.809
+      ],
+      "csi_rv_mean": [
+        0.013,
+        0.005
+      ],
+      "snr_mean": [
+        8.842,
+        3.81
+      ],
+      "ra_std90": [
+        0.196,
+        0.129
+      ],
+      "re_std90": [
+        0.232,
+        0.155
+      ],
+      "xy_std90": [
+        0.153,
+        0.059
+      ],
+      "ra_delta": [
+        0.101,
+        0.019
+      ],
+      "re_delta": [
+        0.101,
+        0.024
+      ]
+    }
+  },
+  "training_examples": [
+    {
+      "label": "empty",
+      "x": {
+        "csi_amp_mean": 23.428,
+        "csi_amp_std": 4.038,
+        "csi_rv_mean": 0.015,
+        "snr_mean": 7.674,
+        "ra_std90": 0.118,
+        "re_std90": 0.114,
+        "xy_std90": 0.112,
+        "ra_delta": 0.08,
+        "re_delta": 0.074
+      }
+    },
+    {
+      "label": "empty",
+      "x": {
+        "csi_amp_mean": 23.704,
+        "csi_amp_std": 4.309,
+        "csi_rv_mean": 0.015,
+        "snr_mean": 7.491,
+        "ra_std90": 0.115,
+        "re_std90": 0.111,
+        "xy_std90": 0.11,
+        "ra_delta": 0.08,
+        "re_delta": 0.072
+      }
+    },
+    {
+      "label": "occupied",
+      "x": {
+        "csi_amp_mean": 23.127,
+        "csi_amp_std": 5.872,
+        "csi_rv_mean": 0.016,
+        "snr_mean": 16.772,
+        "ra_std90": 0.554,
+        "re_std90": 0.633,
+        "xy_std90": 0.3,
+        "ra_delta": 0.14,
+        "re_delta": 0.146
+      }
+    },
+    {
+      "label": "occupied",
+      "x": {
+        "csi_amp_mean": 22.806,
+        "csi_amp_std": 5.128,
+        "csi_rv_mean": 0.017,
+        "snr_mean": 14.041,
+        "ra_std90": 0.349,
+        "re_std90": 0.392,
+        "xy_std90": 0.224,
+        "ra_delta": 0.107,
+        "re_delta": 0.106
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "model": "gpt-4o-mini",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "fcbdf296f7d5e53cc78a79d781864da2018527d6d9f5ea84a9d260c5448914a7",
+  "response": {
+    "results": [
+      {
+        "id": "m0126",
+        "occupied_probability": 0.0,
+        "predicted_class": "empty",
+        "reason": "High CSI amplitude, low SNR, ML and DL predict empty."
+      },
+      {
+        "id": "m0278",
+        "occupied_probability": 0.0,
+        "predicted_class": "empty",
+        "reason": "High CSI amplitude, low SNR, ML and DL predict empty."
+      },
+      {
+        "id": "m0228",
+        "occupied_probability": 0.0,
+        "predicted_class": "empty",
+        "reason": "Moderate CSI amplitude, low SNR, ML and DL predict empty."
+      },
+      {
+        "id": "m0150",
+        "occupied_probability": 0.9539,
+        "predicted_class": "occupied",
+        "reason": "Low CSI amplitude, high SNR, DL predicts occupied."
+      },
+      {
+        "id": "m0201",
+        "occupied_probability": 0.7873,
+        "predicted_class": "occupied",
+        "reason": "Low CSI amplitude, high SNR, ML and DL predict occupied."
+      },
+      {
+        "id": "m0148",
+        "occupied_probability": 0.0019,
+        "predicted_class": "empty",
+        "reason": "Moderate CSI amplitude, high SNR, ML predicts occupied, DL predicts empty."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1425,
+    "completion_tokens": 320,
+    "total_tokens": 1745,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

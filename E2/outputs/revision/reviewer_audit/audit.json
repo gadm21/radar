@@ -1,0 +1,160 @@
+{
+  "source": "saved E2 occupancy benchmark; no models retrained",
+  "minute_counts": [
+    {
+      "dataset": "test",
+      "is_val": false,
+      "usable": true,
+      "label": 0,
+      "count": 112
+    },
+    {
+      "dataset": "test",
+      "is_val": false,
+      "usable": true,
+      "label": 1,
+      "count": 80
+    },
+    {
+      "dataset": "train",
+      "is_val": false,
+      "usable": false,
+      "label": 0,
+      "count": 1
+    },
+    {
+      "dataset": "train",
+      "is_val": false,
+      "usable": true,
+      "label": 0,
+      "count": 159
+    },
+    {
+      "dataset": "train",
+      "is_val": false,
+      "usable": true,
+      "label": 1,
+      "count": 760
+    },
+    {
+      "dataset": "train",
+      "is_val": true,
+      "usable": true,
+      "label": 0,
+      "count": 28
+    },
+    {
+      "dataset": "train",
+      "is_val": true,
+      "usable": true,
+      "label": 1,
+      "count": 134
+    }
+  ],
+  "feature_minute_counts": [
+    {
+      "dataset": "test",
+      "is_val": false,
+      "aug": false,
+      "label": 0,
+      "count": 112
+    },
+    {
+      "dataset": "test",
+      "is_val": false,
+      "aug": false,
+      "label": 1,
+      "count": 80
+    },
+    {
+      "dataset": "train",
+      "is_val": false,
+      "aug": false,
+      "label": 0,
+      "count": 159
+    },
+    {
+      "dataset": "train",
+      "is_val": false,
+      "aug": false,
+      "label": 1,
+      "count": 760
+    },
+    {
+      "dataset": "train",
+      "is_val": false,
+      "aug": true,
+      "label": 0,
+      "count": 601
+    },
+    {
+      "dataset": "train",
+      "is_val": true,
+      "aug": false,
+      "label": 0,
+      "count": 28
+    },
+    {
+      "dataset": "train",
+      "is_val": true,
+      "aug": false,
+      "label": 1,
+      "count": 134
+    }
+  ],
+  "augmentation": {
+    "planned_and_observed_synthetic_minutes": 601,
+    "parents_in_fit_only": true,
+    "mixup_partners_in_fit_only": true,
+    "fit_validation_parent_overlap": 0,
+    "lineage_file": "augmentation_lineage.csv"
+  },
+  "pca_fit_seconds": {
+    "csi": 43500,
+    "rad": 37314
+  },
+  "fit_seconds_recount": {
+    "csi": 43500,
+    "rad": 37314
+  },
+  "session_overlap": {
+    "fit_sessions": 9,
+    "validation_sessions": 9,
+    "shared_session_ids": [
+      "wall1_s01",
+      "wall2_s01",
+      "wall2_s02",
+      "wall2_s03",
+      "wall2_s04",
+      "wall2_s05",
+      "wall2_s06",
+      "wall2_s07",
+      "wall2_s08"
+    ]
+  },
+  "test_minutes_before_label_balance": {
+    "0": 112,
+    "1": 80
+  },
+  "test_minutes_after_label_balance": {
+    "empty": 80,
+    "occupied": 80
+  },
+  "primary_e2_validation_equals_benchmark_raw_test": true,
+  "shared_validation_benchmark_minutes": 192,
+  "archived_five_second_rf_moe_seeds": [
+    42,
+    43,
+    44
+  ],
+  "archived_five_second_radar_lstm_seeds": [
+    42
+  ],
+  "multilink_captures_single_class": true,
+  "multilink_capture_class_counts_file": "multilink_capture_class_counts.csv",
+  "benchmark_test_sessions_single_class": true,
+  "benchmark_test_session_class_counts_file": "benchmark_test_session_class_counts.csv",
+  "observed_rate_medians_file": "observed_rate_medians.csv",
+  "gate_weights_file": "fusion_gate_weights.csv",
+  "seed_counts_file": "seed_counts.csv"
+}

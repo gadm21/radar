@@ -291,7 +291,6 @@ def main():
     FIGS.mkdir(parents=True, exist_ok=True)
     print("[figs]", flush=True)
     fig_pc_scatter()
-    fig_trajectories()
     fig_pcv_box()
     fig_descriptor_dists()
     fig_importance()

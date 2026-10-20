@@ -48,7 +48,7 @@ def main():
     # ---- dataset ----
     L.append("## 1. Dataset")
     if insp:
-        for p in ("train_minutes", "train2_minutes", "validation_minutes", "test_minutes"):
+        for p in ("calibration_minutes", "train", "validation_minutes", "test_minutes"):
             pl = insp["splits"].get(p, {})
             L.append(f"- **{p}**: {pl.get('n_recordings')} minutes, "
                      f"labels {pl.get('by_binary_label')}, "
@@ -57,8 +57,8 @@ def main():
                  f"(malformed manifests recovered via regex fallback, "
                  f"ignored/ambiguous labels) — see `inspection.json`")
     L.append("")
-    L.append("Splits are the dataset folders: **train = train_minutes "
-             "(placements t1+t2) + train2_minutes (placement t, Sept 6-8), "
+    L.append("Splits are the dataset folders: **train = calibration_minutes "
+             "(placements t1+t2) + train (placement t, Sept 6-8), "
              "val = validation_minutes (placement t, Sept 15), test = "
              "test_minutes (Pi captures, Sept 16-17 night — manifests "
              "labeled by label_test_minutes.py from the 1:10 AM "
@@ -67,22 +67,22 @@ def main():
              "enough to capture breathing) built inside one recording — "
              "they can never cross recording/placement/label boundaries.")
     L.append("")
-    L.append("**CSI coverage**: train_minutes ~57% of recordings (t1 "
-             "only — t2 had no receiver), train2/validation/test ~99% "
+    L.append("**CSI coverage**: calibration_minutes ~57% of recordings (t1 "
+             "only — t2 had no receiver), train/validation/test ~99% "
              "via capture.npz. Fusion uses missing-CSI masking + "
              "CSI-dropout training so radar-only windows still work.")
     L.append("")
 
     # ---- timing ----
     L.append("## 2. Timing")
-    L.append("- `train_minutes/`: each `radar_*.bin` filename is its "
+    L.append("- `calibration_minutes/`: each `radar_*.bin` filename is its "
              "capture timestamp and holds one second of frames "
              "(nominally 10); frame times = filename ts + j/n.")
-    L.append("- `train2_minutes/` + `validation_minutes/` + "
+    L.append("- `train/` + `validation_minutes/` + "
              "`test_minutes/`: per-frame npz timestamps are "
              "burst-flushed (degenerate); frames are distributed "
              "uniformly inside their `second_start` bucket (~10/s).")
-    L.append("- CSI: `train_minutes/` uses the `wifi_csi_XX.csv` with "
+    L.append("- CSI: `calibration_minutes/` uses the `wifi_csi_XX.csv` with "
              "most samples inside the minute (the other receiver is "
              "usually empty); the npz sources use the capture.npz "
              "receiver with most samples.")
@@ -115,7 +115,7 @@ def main():
              "missing-CSI masking. Binary head.")
     L.append("")
     L.append("Training: Adam + BCE (pos_weight). The train set is "
-             "train_minutes + train2_minutes, class-balanced by "
+             "calibration_minutes + train, class-balanced by "
              "subsampling majority-class windows. validation_minutes "
              "drives early stopping and threshold selection; "
              "test_minutes is evaluated once. Normalization statistics "
@@ -148,7 +148,7 @@ def main():
 
     # ---- E2 ----
     if e2:
-        L.append("## 5. E2 — train+train2 / validation / test")
+        L.append("## 5. E2 — train+train / validation / test")
         L.append("")
         L.append("### Window level (test = test_minutes)")
         L.append(metrics_table({m: r["test"] for m, r in e2.items()}))
@@ -172,7 +172,7 @@ def main():
                  "TorchScript forward pass (mean/std maps, range/azimuth "
                  "profiles, CSI stats) — the exported .pt is "
                  "self-contained (identity normalization in meta.json). "
-                 "Trained on train+train2, thresholds tuned on "
+                 "Trained on train+train, thresholds tuned on "
                  "validation_minutes, evaluated on test_minutes.")
         L.append("")
         L.append("### Window level")
@@ -196,7 +196,7 @@ def main():
     L.append("- Windows are built inside a single recording; no window "
              "spans two recordings or labels.")
     L.append("- Normalization statistics are computed on the train pool "
-             "(train_minutes + train2_minutes) only and applied to "
+             "(calibration_minutes + train) only and applied to "
              "val/test.")
     L.append("- Early stopping, threshold selection and hyperparameter "
              "search use validation_minutes only; test_minutes is "

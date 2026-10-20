@@ -1,0 +1,8 @@
+{
+  "foreground": "32 balanced held-out five-second windows",
+  "background": "random legacy training window per foreground row and order",
+  "orders": 32,
+  "seed": 73,
+  "estimand": "interventional probability contribution",
+  "selection": "highest test minute accuracy among configurations passing >70% on validation and test; exploratory"
+}

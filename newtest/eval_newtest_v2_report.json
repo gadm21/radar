@@ -1,0 +1,971 @@
+{
+  "protocol": {
+    "validation": "old validation minutes + old multilink test minutes",
+    "test": "newtest dataset",
+    "window_seconds": 15,
+    "windows_per_minute": 4
+  },
+  "results": [
+    {
+      "model": "RF",
+      "view": "CSI",
+      "threshold": 0.6587,
+      "val_minutes": 584,
+      "window_acc": 0.3808353808353808,
+      "minute_acc": 0.3717105263157895,
+      "minute_balanced_acc": 0.5051813471502591,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.4841568706386068,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.4313029372259551,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.47321711101398606,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 2,
+          "mean_p": 0.5007838480046081,
+          "window_acc": 0.1125,
+          "minute_acc": 0.05
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.45864335664335665,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.44755833333333334,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 5,
+          "mean_p": 0.5946979717920661
+        }
+      }
+    },
+    {
+      "model": "RF",
+      "view": "radar",
+      "threshold": 0.6177,
+      "val_minutes": 584,
+      "window_acc": 0.7911547911547911,
+      "minute_acc": 0.805921052631579,
+      "minute_balanced_acc": 0.8471502590673575,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.3306059795236737,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.32928600727644913,
+          "window_acc": 0.9806763285024155,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.9906866777211634,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.9630739146460918,
+          "window_acc": 0.9625,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 12,
+          "mean_p": 0.5095273171304827,
+          "window_acc": 0.14335664335664336,
+          "minute_acc": 0.16901408450704225
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9856204911441296,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 16,
+          "mean_p": 0.8462556286448581
+        }
+      }
+    },
+    {
+      "model": "RF",
+      "view": "early_fusion",
+      "threshold": 0.5557,
+      "val_minutes": 224,
+      "window_acc": 0.7927927927927928,
+      "minute_acc": 0.8092105263157895,
+      "minute_balanced_acc": 0.8497409326424871,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.36946249999999997,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.33785507246376806,
+          "window_acc": 0.9806763285024155,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.9289567307692308,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.9141625,
+          "window_acc": 0.96875,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 13,
+          "mean_p": 0.520597027972028,
+          "window_acc": 0.14685314685314685,
+          "minute_acc": 0.18309859154929578
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9240333333333333,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 17,
+          "mean_p": 0.8292166666666667
+        }
+      }
+    },
+    {
+      "model": "RF",
+      "view": "late",
+      "threshold": 0.6193,
+      "val_minutes": 584,
+      "window_acc": 0.7886977886977887,
+      "minute_acc": 0.7927631578947368,
+      "minute_balanced_acc": 0.8367875647668394,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.4073814250811402,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.38029447225120205,
+          "window_acc": 0.9903381642512077,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.7319518943675747,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.7319288813253501,
+          "window_acc": 0.96875,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 8,
+          "mean_p": 0.4840853368869197,
+          "window_acc": 0.12237762237762238,
+          "minute_acc": 0.11267605633802817
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.7165894122387314,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 15,
+          "mean_p": 0.720476800218462
+        }
+      }
+    },
+    {
+      "model": "GBM",
+      "view": "CSI",
+      "threshold": 0.9998,
+      "val_minutes": 224,
+      "window_acc": 0.4004914004914005,
+      "minute_acc": 0.39473684210526316,
+      "minute_balanced_acc": 0.5233160621761658,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.9597602856723497,
+          "window_acc": 0.9958333333333333,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.9925728042671087,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.9933300280551407,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 9,
+          "mean_p": 0.95574575013272,
+          "window_acc": 0.26875,
+          "minute_acc": 0.225
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.9950249519715814,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.9963988657075986,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 6,
+          "mean_p": 0.9764260743794487
+        }
+      }
+    },
+    {
+      "model": "GBM",
+      "view": "radar",
+      "threshold": 0.25,
+      "val_minutes": 224,
+      "window_acc": 0.9598689598689598,
+      "minute_acc": 0.9703947368421053,
+      "minute_balanced_acc": 0.9594594594594594,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 8,
+          "mean_p": 0.10434035823023997,
+          "window_acc": 0.8416666666666667,
+          "minute_acc": 0.8666666666666667
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 1,
+          "mean_p": 0.018647503985907074,
+          "window_acc": 0.9806763285024155,
+          "minute_acc": 0.9803921568627451
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.9999995477402298,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.9766609014000218,
+          "window_acc": 0.98125,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 71,
+          "mean_p": 0.6950183068404269,
+          "window_acc": 0.986013986013986,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9999993308404719,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 20,
+          "mean_p": 0.8566014838733971
+        }
+      }
+    },
+    {
+      "model": "GBM",
+      "view": "early_fusion",
+      "threshold": 0.2513,
+      "val_minutes": 584,
+      "window_acc": 0.9565929565929566,
+      "minute_acc": 0.9671052631578947,
+      "minute_balanced_acc": 0.954954954954955,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 9,
+          "mean_p": 0.149402930524165,
+          "window_acc": 0.8333333333333334,
+          "minute_acc": 0.85
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 1,
+          "mean_p": 0.030726821314844173,
+          "window_acc": 0.966183574879227,
+          "minute_acc": 0.9803921568627451
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.9999985560775337,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.9867141398152235,
+          "window_acc": 0.9875,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 71,
+          "mean_p": 0.9227278391383413,
+          "window_acc": 0.986013986013986,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9999985450472157,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 20,
+          "mean_p": 0.8875701058472618
+        }
+      }
+    },
+    {
+      "model": "GBM",
+      "view": "late",
+      "threshold": 0.6249,
+      "val_minutes": 224,
+      "window_acc": 0.9565929565929566,
+      "minute_acc": 0.9703947368421053,
+      "minute_balanced_acc": 0.9594594594594594,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 8,
+          "mean_p": 0.532050321951295,
+          "window_acc": 0.8416666666666667,
+          "minute_acc": 0.8666666666666667
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 1,
+          "mean_p": 0.5056101541265079,
+          "window_acc": 0.9806763285024155,
+          "minute_acc": 0.9803921568627451
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.9966647878976852,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.966203325766371,
+          "window_acc": 0.95625,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 71,
+          "mean_p": 0.8450216294060041,
+          "window_acc": 0.986013986013986,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9981990982740352,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 20,
+          "mean_p": 0.9165137791264231
+        }
+      }
+    },
+    {
+      "model": "MLP",
+      "view": "CSI",
+      "threshold": 0.0,
+      "val_minutes": 224,
+      "window_acc": 0.5937755937755937,
+      "minute_acc": 0.6019736842105263,
+      "minute_balanced_acc": 0.4740932642487047,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 60,
+          "mean_p": 0.0031478900966399872,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 51,
+          "mean_p": 0.0009692276925049702,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 1.3257320106878028e-16,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 34,
+          "mean_p": 0.05388286977916172,
+          "window_acc": 0.85,
+          "minute_acc": 0.85
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 69,
+          "mean_p": 5.955141771469377e-15,
+          "window_acc": 0.9440559440559441,
+          "minute_acc": 0.971830985915493
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 28,
+          "mean_p": 4.4066540212211595e-33,
+          "window_acc": 0.925,
+          "minute_acc": 0.9333333333333333
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 20,
+          "mean_p": 0.12433818325057125
+        }
+      }
+    },
+    {
+      "model": "MLP",
+      "view": "radar",
+      "threshold": 0.4494,
+      "val_minutes": 224,
+      "window_acc": 0.9533169533169533,
+      "minute_acc": 0.9572368421052632,
+      "minute_balanced_acc": 0.966321243523316,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.003698084023891427,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.0028594324559329254,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.8441027250638697,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.9456618422460036,
+          "window_acc": 0.95625,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 58,
+          "mean_p": 0.6676493335922801,
+          "window_acc": 0.8251748251748252,
+          "minute_acc": 0.8169014084507042
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9995685348908261,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 12,
+          "mean_p": 0.6364551383271863
+        }
+      }
+    },
+    {
+      "model": "MLP",
+      "view": "early_fusion",
+      "threshold": 0.4964,
+      "val_minutes": 584,
+      "window_acc": 0.5937755937755937,
+      "minute_acc": 0.5986842105263158,
+      "minute_balanced_acc": 0.6839378238341969,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 5.624208976997129e-11,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 1.3394204239621205e-06,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 3,
+          "mean_p": 0.06408201939201479,
+          "window_acc": 0.0673076923076923,
+          "minute_acc": 0.057692307692307696
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 35,
+          "mean_p": 0.8155021898261909,
+          "window_acc": 0.84375,
+          "minute_acc": 0.875
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 3,
+          "mean_p": 0.09158435177590388,
+          "window_acc": 0.04895104895104895,
+          "minute_acc": 0.04225352112676056
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.8543731405945668,
+          "window_acc": 0.9583333333333334,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 10,
+          "mean_p": 0.4680640162508424
+        }
+      }
+    },
+    {
+      "model": "MLP",
+      "view": "late",
+      "threshold": 0.2008,
+      "val_minutes": 224,
+      "window_acc": 0.9696969696969697,
+      "minute_acc": 0.9769736842105263,
+      "minute_balanced_acc": 0.9818652849740932,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.003422987060265707,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.0019143300742189477,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.4220513625319349,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.49977235601258274,
+          "window_acc": 0.9875,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 64,
+          "mean_p": 0.33382466679614303,
+          "window_acc": 0.8776223776223776,
+          "minute_acc": 0.9014084507042254
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.49978426744541304,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 18,
+          "mean_p": 0.38039666078887874
+        }
+      }
+    },
+    {
+      "model": "SVM",
+      "view": "CSI",
+      "threshold": 0.7913,
+      "val_minutes": 224,
+      "window_acc": 0.76003276003276,
+      "minute_acc": 0.756578947368421,
+      "minute_balanced_acc": 0.7891518461466649,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 10,
+          "mean_p": 0.7913067369447931,
+          "window_acc": 0.6833333333333333,
+          "minute_acc": 0.8333333333333334
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.7516103336992851,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 21,
+          "mean_p": 0.7913066451510438,
+          "window_acc": 0.49038461538461536,
+          "minute_acc": 0.40384615384615385
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 7,
+          "mean_p": 0.7907197367525776,
+          "window_acc": 0.30625,
+          "minute_acc": 0.175
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 71,
+          "mean_p": 0.7913068327103411,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.7913068327102175,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 1,
+          "mean_p": 0.7911326714615236
+        }
+      }
+    },
+    {
+      "model": "SVM",
+      "view": "radar",
+      "threshold": 0.9763,
+      "val_minutes": 224,
+      "window_acc": 0.5192465192465192,
+      "minute_acc": 0.4967105263157895,
+      "minute_balanced_acc": 0.6036269430051814,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.46083127306338056,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.6750208828942141,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 3,
+          "mean_p": 0.8996092411067618,
+          "window_acc": 0.057692307692307696,
+          "minute_acc": 0.057692307692307696
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 19,
+          "mean_p": 0.9395319148531897,
+          "window_acc": 0.51875,
+          "minute_acc": 0.475
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.6838320479859806,
+          "window_acc": 0.03496503496503497,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 18,
+          "mean_p": 0.9757670748653765,
+          "window_acc": 0.6833333333333333,
+          "minute_acc": 0.6
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 6,
+          "mean_p": 0.753836163391477
+        }
+      }
+    },
+    {
+      "model": "SVM",
+      "view": "early_fusion",
+      "threshold": 0.9582,
+      "val_minutes": 224,
+      "window_acc": 0.6347256347256347,
+      "minute_acc": 0.6348684210526315,
+      "minute_balanced_acc": 0.5,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 60,
+          "mean_p": 0.993893540839349,
+          "window_acc": 0.0,
+          "minute_acc": 0.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 51,
+          "mean_p": 0.9876028809997611,
+          "window_acc": 0.004830917874396135,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 52,
+          "mean_p": 0.9938965034022664,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 40,
+          "mean_p": 0.9938314836215326,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 71,
+          "mean_p": 0.993905698944768,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 30,
+          "mean_p": 0.9939057003551298,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 20,
+          "mean_p": 0.9936795961353877
+        }
+      }
+    },
+    {
+      "model": "SVM",
+      "view": "late",
+      "threshold": 0.8836,
+      "val_minutes": 224,
+      "window_acc": 0.547911547911548,
+      "minute_acc": 0.506578947368421,
+      "minute_balanced_acc": 0.6113989637305699,
+      "n_windows": 1221,
+      "n_minutes": 304,
+      "per_capture": {
+        "empty_2fa6d3f1bf90": {
+          "minutes": 60,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.6260690050040867,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "empty_whispy": {
+          "minutes": 51,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.7133156082967499,
+          "window_acc": 1.0,
+          "minute_acc": 1.0
+        },
+        "occupied_whispy": {
+          "minutes": 52,
+          "occ_minutes_pred": 3,
+          "mean_p": 0.8454579431289028,
+          "window_acc": 0.07692307692307693,
+          "minute_acc": 0.057692307692307696
+        },
+        "occupied_whispy2": {
+          "minutes": 40,
+          "occ_minutes_pred": 21,
+          "mean_p": 0.8651258258028836,
+          "window_acc": 0.65,
+          "minute_acc": 0.525
+        },
+        "occupied_whispy11": {
+          "minutes": 71,
+          "occ_minutes_pred": 0,
+          "mean_p": 0.7375694403481609,
+          "window_acc": 0.03496503496503497,
+          "minute_acc": 0.0
+        },
+        "occupied_whispy12": {
+          "minutes": 30,
+          "occ_minutes_pred": 19,
+          "mean_p": 0.8835369537877968,
+          "window_acc": 0.7666666666666667,
+          "minute_acc": 0.6333333333333333
+        },
+        "capture3_768c3d688716": {
+          "minutes": 20,
+          "occ_minutes_pred": 6,
+          "mean_p": 0.7724844174265002
+        }
+      }
+    }
+  ],
+  "elapsed_s": 1152.1
+}

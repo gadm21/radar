@@ -1,0 +1,260 @@
+{
+  "reference_models": {
+    "ML": {
+      "key": "RF|late probability fusion",
+      "threshold": 0.6198426373340676,
+      "validation_balanced_accuracy": 0.81875
+    },
+    "DL": {
+      "key": "MLP|CSI",
+      "threshold": 0.42897004090384955,
+      "validation_balanced_accuracy": 0.95625
+    }
+  },
+  "training_class_mean_std": {
+    "empty": {
+      "csi_amp_mean": [
+        23.306,
+        0.289
+      ],
+      "csi_amp_std": [
+        5.089,
+        0.525
+      ],
+      "csi_rv_mean": [
+        0.013,
+        0.006
+      ],
+      "snr_mean": [
+        7.563,
+        0.269
+      ],
+      "ra_std90": [
+        0.119,
+        0.005
+      ],
+      "re_std90": [
+        0.111,
+        0.004
+      ],
+      "xy_std90": [
+        0.11,
+        0.003
+      ],
+      "ra_delta": [
+        0.086,
+        0.004
+      ],
+      "re_delta": [
+        0.075,
+        0.003
+      ]
+    },
+    "occupied": {
+      "csi_amp_mean": [
+        21.831,
+        3.09
+      ],
+      "csi_amp_std": [
+        5.492,
+        0.809
+      ],
+      "csi_rv_mean": [
+        0.013,
+        0.005
+      ],
+      "snr_mean": [
+        8.842,
+        3.81
+      ],
+      "ra_std90": [
+        0.196,
+        0.129
+      ],
+      "re_std90": [
+        0.232,
+        0.155
+      ],
+      "xy_std90": [
+        0.153,
+        0.059
+      ],
+      "ra_delta": [
+        0.101,
+        0.019
+      ],
+      "re_delta": [
+        0.101,
+        0.024
+      ]
+    }
+  },
+  "labeled_training_examples": [
+    {
+      "class": "empty",
+      "descriptors": {
+        "csi_amp_mean": 23.428,
+        "csi_amp_std": 4.038,
+        "csi_rv_mean": 0.015,
+        "snr_mean": 7.674,
+        "ra_std90": 0.118,
+        "re_std90": 0.114,
+        "xy_std90": 0.112,
+        "ra_delta": 0.08,
+        "re_delta": 0.074
+      }
+    },
+    {
+      "class": "empty",
+      "descriptors": {
+        "csi_amp_mean": 23.704,
+        "csi_amp_std": 4.309,
+        "csi_rv_mean": 0.015,
+        "snr_mean": 7.491,
+        "ra_std90": 0.115,
+        "re_std90": 0.111,
+        "xy_std90": 0.11,
+        "ra_delta": 0.08,
+        "re_delta": 0.072
+      }
+    },
+    {
+      "class": "occupied",
+      "descriptors": {
+        "csi_amp_mean": 23.127,
+        "csi_amp_std": 5.872,
+        "csi_rv_mean": 0.016,
+        "snr_mean": 16.772,
+        "ra_std90": 0.554,
+        "re_std90": 0.633,
+        "xy_std90": 0.3,
+        "ra_delta": 0.14,
+        "re_delta": 0.146
+      }
+    },
+    {
+      "class": "occupied",
+      "descriptors": {
+        "csi_amp_mean": 22.806,
+        "csi_amp_std": 5.128,
+        "csi_rv_mean": 0.017,
+        "snr_mean": 14.041,
+        "ra_std90": 0.349,
+        "re_std90": 0.392,
+        "xy_std90": 0.224,
+        "ra_delta": 0.107,
+        "re_delta": 0.106
+      }
+    }
+  ],
+  "minutes": [
+    {
+      "id": "m0126",
+      "descriptors": {
+        "csi_amp_mean": 32.198,
+        "csi_amp_std": 4.558,
+        "csi_rv_mean": 0.011,
+        "snr_mean": 7.53,
+        "ra_std90": 0.119,
+        "re_std90": 0.107,
+        "xy_std90": 0.109,
+        "ra_delta": 0.09,
+        "re_delta": 0.08
+      },
+      "ml_probability": 0.3945,
+      "ml_prediction": 0,
+      "dl_probability": 0.0,
+      "dl_prediction": 0
+    },
+    {
+      "id": "m0278",
+      "descriptors": {
+        "csi_amp_mean": 36.218,
+        "csi_amp_std": 4.827,
+        "csi_rv_mean": 0.01,
+        "snr_mean": 7.685,
+        "ra_std90": 0.117,
+        "re_std90": 0.107,
+        "xy_std90": 0.107,
+        "ra_delta": 0.088,
+        "re_delta": 0.081
+      },
+      "ml_probability": 0.4664,
+      "ml_prediction": 0,
+      "dl_probability": 0.0,
+      "dl_prediction": 0
+    },
+    {
+      "id": "m0228",
+      "descriptors": {
+        "csi_amp_mean": 23.557,
+        "csi_amp_std": 3.135,
+        "csi_rv_mean": 0.009,
+        "snr_mean": 7.797,
+        "ra_std90": 0.118,
+        "re_std90": 0.109,
+        "xy_std90": 0.108,
+        "ra_delta": 0.088,
+        "re_delta": 0.077
+      },
+      "ml_probability": 0.3904,
+      "ml_prediction": 0,
+      "dl_probability": 0.0049,
+      "dl_prediction": 0
+    },
+    {
+      "id": "m0150",
+      "descriptors": {
+        "csi_amp_mean": 13.95,
+        "csi_amp_std": 3.223,
+        "csi_rv_mean": 0.016,
+        "snr_mean": 8.705,
+        "ra_std90": 0.148,
+        "re_std90": 0.145,
+        "xy_std90": 0.12,
+        "ra_delta": 0.087,
+        "re_delta": 0.079
+      },
+      "ml_probability": 0.5683,
+      "ml_prediction": 0,
+      "dl_probability": 0.9539,
+      "dl_prediction": 1
+    },
+    {
+      "id": "m0201",
+      "descriptors": {
+        "csi_amp_mean": 13.376,
+        "csi_amp_std": 2.922,
+        "csi_rv_mean": 0.019,
+        "snr_mean": 9.217,
+        "ra_std90": 0.168,
+        "re_std90": 0.166,
+        "xy_std90": 0.127,
+        "ra_delta": 0.094,
+        "re_delta": 0.087
+      },
+      "ml_probability": 0.7533,
+      "ml_prediction": 1,
+      "dl_probability": 0.7873,
+      "dl_prediction": 1
+    },
+    {
+      "id": "m0148",
+      "descriptors": {
+        "csi_amp_mean": 23.579,
+        "csi_amp_std": 5.034,
+        "csi_rv_mean": 0.012,
+        "snr_mean": 8.621,
+        "ra_std90": 0.338,
+        "re_std90": 0.431,
+        "xy_std90": 0.227,
+        "ra_delta": 0.123,
+        "re_delta": 0.132
+      },
+      "ml_probability": 0.7063,
+      "ml_prediction": 1,
+      "dl_probability": 0.0019,
+      "dl_prediction": 0
+    }
+  ]
+}

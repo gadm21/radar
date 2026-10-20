@@ -1,8 +1,11 @@
 """Experiments for the E2 occupancy pipeline (4-folder design).
 
 Splits are the dataset folders:
-  train = train_minutes/ (placements t1+t2) + train2_minutes/
-      (placement t, Sept 6-8)
+  train = train/ (placement t, Sept 6-8) — the ONLY supervised
+      training set
+  calib = calibration_minutes/ (placements t1+t2, sleep-only) — used for
+      normalization statistics / calibration / pretraining ONLY, never
+      supervised training
   val   = validation_minutes/ (placement t, Sept 15) — early stopping,
       threshold selection, hyperparameter search
   test  = test_minutes/ (Pi captures, Sept 16-17 night, 1:10 AM
@@ -43,10 +46,13 @@ def _paths(index, split):
 
 
 def load_e2_splits(index, norm_mode="global"):
-    """train=train_minutes+train2_minutes, val=validation_minutes,
-    test=test_minutes; norm stats from the train pool only (global)."""
-    train_paths = _paths(index, "train_minutes") + \
-        _paths(index, "train2_minutes")
+    """train=train only, val=validation_minutes, test=test_minutes.
+
+    calibration_minutes is NOT part of supervised training: it is
+    sleep-only (its empty/present minutes were archived for missing
+    CSI) and is reserved for calibration/pretraining. Normalization
+    statistics come from the train pool only (global)."""
+    train_paths = _paths(index, "train")
     norm = T.fit_norm(train_paths) if norm_mode == "global" else None
     return {
         "norm": norm, "norm_mode": norm_mode,

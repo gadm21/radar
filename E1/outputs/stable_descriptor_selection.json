@@ -1,0 +1,15 @@
+{
+  "selection_splits": [
+    "train",
+    "validation"
+  ],
+  "selected": [
+    "ra_peak",
+    "ra_std90",
+    "re_std90",
+    "rd_peak",
+    "xy_peak",
+    "xy_std90"
+  ],
+  "rule": "same AUC direction and minimum direction-adjusted AUC >= 0.55"
+}

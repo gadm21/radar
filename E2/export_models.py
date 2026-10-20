@@ -92,7 +92,7 @@ def main():
     DEPLOY.mkdir(exist_ok=True)
     out = C.OUTPUT_DIR
 
-    # radar model trained on train_minutes + train2_minutes (E2)
+    # radar model trained on calibration_minutes + train (E2)
     rad = out / "model_radar.pt"
     if rad.exists():
         export(rad, "radar_occupancy_e2.pt")

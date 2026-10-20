@@ -1,0 +1,298 @@
+{
+  "selection_sha256": "2e161775b93eac91f922201db899add9ae6a2dd283948c08d8783bed719162c9",
+  "test_source_sha256": "441f2e7e69187471347b39a380703fe3aa6efa02a9925744244cb066401ad0ec",
+  "test_windows": 4320,
+  "test_minutes": 360,
+  "results": {
+    "MLP|CSI": {
+      "validation": {
+        "threshold": 0.42897004090384955,
+        "accuracy": 0.953125,
+        "balanced_accuracy": 0.95625,
+        "roc_auc": 0.99453125,
+        "confusion_matrix": [
+          [
+            105,
+            7
+          ],
+          [
+            2,
+            78
+          ]
+        ]
+      },
+      "validation_window": {
+        "accuracy": 0.7087673611111112,
+        "balanced_accuracy": 0.7054315476190476,
+        "roc_auc": 0.8146852523561507,
+        "confusion_matrix": [
+          [
+            975,
+            369
+          ],
+          [
+            302,
+            658
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.5888888888888889,
+        "balanced_accuracy": 0.5888888888888889,
+        "roc_auc": 0.8285493827160494,
+        "confusion_matrix": [
+          [
+            178,
+            2
+          ],
+          [
+            146,
+            34
+          ]
+        ]
+      },
+      "test_window": {
+        "accuracy": 0.5861111111111111,
+        "balanced_accuracy": 0.5861111111111111,
+        "roc_auc": 0.6592605452674898,
+        "confusion_matrix": [
+          [
+            2141,
+            19
+          ],
+          [
+            1769,
+            391
+          ]
+        ]
+      },
+      "test_capture_accuracy": {
+        "capture_empty_20261003_195314": 1.0,
+        "capture_empty_20261004_171234": 0.9833333333333333,
+        "capture_occupied_20261003_183049": 0.5166666666666667,
+        "capture_occupied_20261005_124135": 0.025
+      },
+      "test_minutes": 360
+    },
+    "RF|radar": {
+      "validation": {
+        "threshold": 0.6045833333333333,
+        "accuracy": 0.7395833333333334,
+        "balanced_accuracy": 0.7089285714285715,
+        "roc_auc": 0.7699218750000001,
+        "confusion_matrix": [
+          [
+            100,
+            12
+          ],
+          [
+            38,
+            42
+          ]
+        ]
+      },
+      "validation_window": {
+        "accuracy": 0.6050347222222222,
+        "balanced_accuracy": 0.5427083333333333,
+        "roc_auc": 0.5509002201140872,
+        "confusion_matrix": [
+          [
+            1232,
+            112
+          ],
+          [
+            798,
+            162
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.9888888888888889,
+        "balanced_accuracy": 0.9888888888888889,
+        "roc_auc": 0.9967901234567902,
+        "confusion_matrix": [
+          [
+            180,
+            0
+          ],
+          [
+            4,
+            176
+          ]
+        ]
+      },
+      "test_window": {
+        "accuracy": 0.9708333333333333,
+        "balanced_accuracy": 0.9708333333333333,
+        "roc_auc": 0.9843516375171469,
+        "confusion_matrix": [
+          [
+            2160,
+            0
+          ],
+          [
+            126,
+            2034
+          ]
+        ]
+      },
+      "test_capture_accuracy": {
+        "capture_empty_20261003_195314": 1.0,
+        "capture_empty_20261004_171234": 1.0,
+        "capture_occupied_20261003_183049": 0.9666666666666667,
+        "capture_occupied_20261005_124135": 0.9833333333333333
+      },
+      "test_minutes": 360
+    },
+    "GBM|early fusion": {
+      "validation": {
+        "threshold": 0.08346560187833292,
+        "accuracy": 0.65625,
+        "balanced_accuracy": 0.6928571428571428,
+        "roc_auc": 0.7511160714285714,
+        "confusion_matrix": [
+          [
+            53,
+            59
+          ],
+          [
+            7,
+            73
+          ]
+        ]
+      },
+      "validation_window": {
+        "accuracy": 0.5993923611111112,
+        "balanced_accuracy": 0.5450148809523809,
+        "roc_auc": 0.5996442522321429,
+        "confusion_matrix": [
+          [
+            1171,
+            173
+          ],
+          [
+            750,
+            210
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.9861111111111112,
+        "balanced_accuracy": 0.9861111111111112,
+        "roc_auc": 0.9959567901234568,
+        "confusion_matrix": [
+          [
+            179,
+            1
+          ],
+          [
+            4,
+            176
+          ]
+        ]
+      },
+      "test_window": {
+        "accuracy": 0.9627314814814815,
+        "balanced_accuracy": 0.9627314814814815,
+        "roc_auc": 0.980698731138546,
+        "confusion_matrix": [
+          [
+            2140,
+            20
+          ],
+          [
+            141,
+            2019
+          ]
+        ]
+      },
+      "test_capture_accuracy": {
+        "capture_empty_20261003_195314": 0.9833333333333333,
+        "capture_empty_20261004_171234": 1.0,
+        "capture_occupied_20261003_183049": 1.0,
+        "capture_occupied_20261005_124135": 0.9666666666666667
+      },
+      "test_minutes": 360
+    },
+    "RF|late probability fusion": {
+      "validation": {
+        "threshold": 0.6198426373340676,
+        "accuracy": 0.8385416666666666,
+        "balanced_accuracy": 0.81875,
+        "roc_auc": 0.8434151785714286,
+        "confusion_matrix": [
+          [
+            105,
+            7
+          ],
+          [
+            24,
+            56
+          ]
+        ]
+      },
+      "validation_window": {
+        "accuracy": 0.6423611111111112,
+        "balanced_accuracy": 0.6425595238095239,
+        "roc_auc": 0.6448606460813492,
+        "confusion_matrix": [
+          [
+            862,
+            482
+          ],
+          [
+            342,
+            618
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.9694444444444444,
+        "balanced_accuracy": 0.9694444444444444,
+        "roc_auc": 1.0,
+        "confusion_matrix": [
+          [
+            180,
+            0
+          ],
+          [
+            11,
+            169
+          ]
+        ]
+      },
+      "test_window": {
+        "accuracy": 0.9476851851851852,
+        "balanced_accuracy": 0.9476851851851852,
+        "roc_auc": 0.9984044924554182,
+        "confusion_matrix": [
+          [
+            2160,
+            0
+          ],
+          [
+            226,
+            1934
+          ]
+        ]
+      },
+      "test_capture_accuracy": {
+        "capture_empty_20261003_195314": 1.0,
+        "capture_empty_20261004_171234": 1.0,
+        "capture_occupied_20261003_183049": 0.9666666666666667,
+        "capture_occupied_20261005_124135": 0.925
+      },
+      "test_minutes": 360
+    }
+  },
+  "selected_views": {
+    "CSI": "MLP|CSI",
+    "radar": "RF|radar",
+    "early fusion": "GBM|early fusion",
+    "late probability fusion": "RF|late probability fusion"
+  },
+  "references": {
+    "ML": "RF|late probability fusion",
+    "DL": "MLP|CSI"
+  }
+}

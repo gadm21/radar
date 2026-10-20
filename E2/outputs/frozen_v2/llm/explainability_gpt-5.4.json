@@ -1,0 +1,61 @@
+{
+  "model": "gpt-5.4",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, training-basis PCA coordinates, training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "aaaf9f487b521070980c2041671b72d7918e7141eb43538b2977954e3d3c0be9",
+  "response": {
+    "results": [
+      {
+        "id": "m0133",
+        "occupied_probability": 0.077,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude/SNR and radar spreads/deltas match empty; extreme CSI PCs conflict. Reference models split: ML empty 0.077, DL occupied 0.9994."
+      },
+      {
+        "id": "m0286",
+        "occupied_probability": 0.514,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude, SNR, radar spreads/deltas look empty; CSI PCs are extreme/out-of-distribution. Reference models conflict: ML empty 0.5138, DL occupied 0.9685."
+      },
+      {
+        "id": "m0215",
+        "occupied_probability": 0.201,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude/SNR and radar spreads/deltas strongly resemble empty; unusual CSI PCs weaken confidence. Reference models disagree: ML empty 0.2006, DL occupied 1.0."
+      },
+      {
+        "id": "m0146",
+        "occupied_probability": 0.9791,
+        "predicted_class": "occupied",
+        "reason": "Low CSI amplitude, high SNR/rv, large radar spreads/deltas, occupied-like radar PCs. Reference models agree: ML occupied 0.9582, DL occupied 1.0."
+      },
+      {
+        "id": "m0209",
+        "occupied_probability": 0.9999,
+        "predicted_class": "occupied",
+        "reason": "Very low CSI amplitude, occupied-like radar spreads and rad_pc2; radar deltas borderline. Reference models agree strongly: ML occupied 0.9998, DL occupied 1.0."
+      },
+      {
+        "id": "m0147",
+        "occupied_probability": 0.9999,
+        "predicted_class": "occupied",
+        "reason": "Low CSI amplitude and elevated radar spreads/deltas indicate occupancy, though SNR and radar PCs are weaker. Reference models agree: ML occupied 0.9999, DL occupied 1.0."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 2211,
+    "completion_tokens": 381,
+    "total_tokens": 2592,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

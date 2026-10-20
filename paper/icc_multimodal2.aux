@@ -1,0 +1,82 @@
+\relax 
+\citation{bgt60}
+\citation{hood}
+\citation{wifi}
+\citation{deman}
+\citation{sharp}
+\citation{litehar}
+\citation{wifi}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{}{section.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Sensor configuration. Radar operating band from the BGT60TR13C product brief~\cite  {bgt60}; frame structure follows HOOD~\cite  {hood}; WiFi settings follow~\cite  {wifi}.}}{1}{}\protected@file@percent }
+\newlabel{tab:radar}{{I}{1}{}{table.1}{}}
+\citation{hood}
+\citation{fusion}
+\citation{shap}
+\citation{hood}
+\citation{bgt60}
+\citation{hood}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{2}{}\protected@file@percent }
+\newlabel{sec:related}{{II}{2}{}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}WiFi CSI sensing}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}FMCW radar presence detection}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Room layout, sensor placements, and collection hardware. The co-located FMCW radar and CSI receiver were mounted on wall~4 and wall~2 for training sessions and on wall~3 for validation and test sessions; the CSI sender remained fixed on wall~1. Photographs show the DreamHAT+ mm-wave radar HAT mounted on its Raspberry Pi host (left) and the ESP32 board used for CSI collection (right).}}{2}{}\protected@file@percent }
+\newlabel{fig:layout}{{1}{2}{}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Radar--WiFi fusion and explanation}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Problem Definition}{2}{}\protected@file@percent }
+\newlabel{sec:problem}{{III}{2}{}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}System Model}{2}{}\protected@file@percent }
+\newlabel{sec:system}{{IV}{2}{}{section.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Data sizes in minutes per class: recorded (solid) and synthesized occupied minutes added for class balance (hatched). Test captures are never augmented.}}{3}{}\protected@file@percent }
+\newlabel{fig:sizes}{{2}{3}{}{figure.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Data Collection and Processing}{3}{}\protected@file@percent }
+\newlabel{sec:data}{{V}{3}{}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Collection protocol}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Data sets and preprocessing}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Physical and hierarchical PCA descriptors}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces RA and RE variability by class in the training, validation, and multilink test sets.}}{3}{}\protected@file@percent }
+\newlabel{fig:stable}{{3}{3}{}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Hierarchical PCA coordinates (PC1 vs PC2) at the one-second, five-second, and fifteen-second levels for CSI (top) and radar (bottom); multilink test points projected through training-fitted bases, no test fitting.}}{3}{}\protected@file@percent }
+\newlabel{fig:pca}{{4}{3}{}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Predictive Models and Evaluation}{3}{}\protected@file@percent }
+\newlabel{sec:models}{{VI}{3}{}{section.6}{}}
+\citation{shap}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Window and minute accuracy on validation (blue) and multilink test (orange), using validation-fixed models and thresholds.}}{4}{}\protected@file@percent }
+\newlabel{fig:pass}{{5}{4}{}{figure.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Language-Model Inference}{4}{}\protected@file@percent }
+\newlabel{sec:llm}{{VII}{4}{}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results and Discussion}{4}{}\protected@file@percent }
+\newlabel{sec:results}{{VIII}{4}{}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-A}}CSI-only results}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-B}}Radar-only results}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-C}}Sensor fusion: early features}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-D}}Decision fusion: late probabilities}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-E}}Descriptor importance}{4}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Frozen descriptor-to-LLM path. Twenty-nine minute-mean descriptors and the CSI RF and early-fusion MLP reference probabilities with their validation-fixed cutoffs enter a single chat request; the card shows the system rule and the JSON user keys. The LLM returns an occupancy probability thresholded at .5.}}{5}{}\protected@file@percent }
+\newlabel{fig:workflow}{{6}{5}{}{figure.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Six multilink minutes (three per class). $A/V$: CSI amplitude/rolling-variance mean; $S$: radar SNR; $R_A/R_E/X$: radar variability. References are CSI RF / early-fusion MLP; LLM reasons are verbatim.}}{5}{}\protected@file@percent }
+\newlabel{tab:explain}{{II}{5}{}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Test confusion matrices for Table~\ref {tab:primary}'s view leaders over 360 minutes. E/O: empty/occupied; rows are actual, columns predicted.}}{5}{}\protected@file@percent }
+\newlabel{fig:primarycm}{{7}{5}{}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-F}}Language-model evaluation}{5}{}\protected@file@percent }
+\bibstyle{IEEEtran}
+\bibdata{refs}
+\bibcite{bgt60}{1}
+\bibcite{hood}{2}
+\bibcite{wifi}{3}
+\bibcite{deman}{4}
+\bibcite{sharp}{5}
+\bibcite{litehar}{6}
+\bibcite{fusion}{7}
+\bibcite{shap}{8}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Fifteen-second models on physical + hierarchical PCA descriptors, minute evaluation, validation-fixed thresholds; mean $\pm $ sd over five seeds (sd omitted when $<.005$). $^\ast $~view leader by mean validation-minute AUC.}}{6}{}\protected@file@percent }
+\newlabel{tab:primary}{{III}{6}{}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Mean absolute interventional Shapley contribution to occupied probability for the ML reference (CSI RF), the DL reference (early-fusion MLP), and the late-fusion GBM (Late); 24 validation windows, training-window background.}}{6}{}\protected@file@percent }
+\newlabel{tab:shap}{{IV}{6}{}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-G}}LLM explanation check}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Limitations}{6}{}\protected@file@percent }
+\newlabel{sec:limits}{{IX}{6}{}{section.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {X}Conclusion}{6}{}\protected@file@percent }
+\newlabel{sec:conclusion}{{X}{6}{}{section.10}{}}
+\@writefile{toc}{\contentsline {section}{References}{6}{}\protected@file@percent }
+\gdef \@abspage@last{6}

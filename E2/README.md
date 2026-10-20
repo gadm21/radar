@@ -1,86 +1,55 @@
-# E2 — Occupancy Detection Pipeline
+# E2 — occupancy model comparison
 
-Binary occupancy detection (**empty** vs **occupied** = sleep + present)
-from mmWave radar + Wi-Fi CSI.
+The current study is `physical_comparison.py` followed by
+`summarize_physical.py` and `physical_shap.py`. It fits all models on the
+same real training descriptor windows, evaluates on the same
+validation windows, and tests on the same four multilink captures. The
+descriptor columns have the same physical meaning across cohorts; the
+historical separately fitted PCA and cluster coordinates are excluded.
 
-## Layout
+`outputs/revision/physical_all.csv` contains every window/minute,
+single-modality/early-fusion/late-fusion, model, scaling, and calibration
+result. `physical_over70_pairs.csv` lists only configurations above 70% on
+**both** validation and test with the **same** median or two-means rule.
+`physical_over70.csv` contains the paired split rows. This test-inspecting
+display filter is descriptive, not an unbiased selection estimate.
 
-| file | purpose |
-|---|---|
-| `common.py` | tolerant manifest parsing, recording discovery, label mapping, radar/CSI access |
-| `inspect_dataset.py` | dataset counts + timing report -> `outputs/inspection.json` |
-| `preprocess.py` | radar FFT maps + CSI windows -> per-recording cache in `cache/` |
-| `models.py` | RadarEncoder (temporal-std map -> spatial pooling -> MLP), CSIEncoder (Conv1d over rolling variance of amplitude), CSIStatsEncoder (MLP on amplitude var/mean/temporal-std — the fusion CSI branch), gated fusion, binary head |
-| `train.py` | split loading, train-only normalization, balancing helpers, training, metrics |
-| `experiments.py` | E2 train/val/test runs + hyperparameter search |
-| `scene_model.py` | deployment model: all preprocessing inside the TorchScript forward (scene-feature MLP) -> `deploy/` |
-| `clean_minutes.py` | strip auto-labels, remove empty/unlabeled folders |
-| `export_models.py` | TorchScript exports of the CNN models -> `deploy/` |
-| `eval_deploy.py` | evaluate `deploy/*.pt` on test_minutes (window / partial-minute / minute) |
-| `plots.py` | figures -> `outputs/figs/` |
-| `report.py` | `outputs/REPORT.md` |
-| `run_all.py` | one-command pipeline |
+The leading minute result is raw RF late probability fusion, 72.9%
+validation and 100.0% test with median calibration. The leading neural
+result is the raw two-hidden-layer MLP on stable radar descriptors at
+five-second window level, 85.5% validation and 95.7% test. The four
+test captures, not their 360 minute buckets or 4,320 overlapping windows,
+are the independent acquisition units. Both near-perfect scores require
+prospective session replication.
 
-## Run
+The current LLM comparison is `llm_20pct.py`: 38 validation minutes for
+prompt selection, then 72 multilink test minute buckets with the prompt
+frozen. GPT-5.4 receives physical descriptors, training statistics and
+labeled training examples, and probabilities from both RF late fusion and
+CSI MLP. It scores 85.6% ± 3.5% across three multilink runs; a transparent
+average of the two model ranks scores 94.4% on the same sample. The old
+`llm_10pct.py` pilot used only a single RF-MoE probability and is superseded.
+No API key is stored in the workspace.
 
-```powershell
-pip install -r E2/requirements.txt
-python E2/run_all.py            # full pipeline (~1-2 h on CPU)
-python E2/run_all.py --skip-preprocess   # reuse cache
-```
+Use the bundled Python environment with `E2/.deps` on `PYTHONPATH` to
+reproduce the analysis. `outputs/revision/REPORT.md` gives the measured
+values and limitations. Historical `model_compare.py` outputs that used
+test-refitted PCA are superseded and must not be cited.
 
-## Data rules (documented)
+`audit_reviewer.py`, `no_augmentation_ablation.py`, and
+`audit_paired_errors.py` provide the saved-data provenance and benchmark
+augmentation audit. All four multilink captures and both validation sessions
+are single-class, so current accuracy can reflect capture conditions. See
+`paper/REVIEW_RESPONSE.md` before interpreting transfer claims.
 
-- **Splits**: train = `train_minutes/` (labels `t1_*`/`t2_*`, placements
-  t1+t2) + `train2_minutes/` (labels `t_*`, placement t, Sept 6-8);
-  validation = `validation_minutes/` (labels `empty`/`present`,
-  placement t, Sept 15); test = `test_minutes/` (Pi captures, Sept 16-17
-  night — manifests labeled by `label_test_minutes.py` from the 1:10 AM
-  boundary: `present` before `20260917_0110`, `empty` at/after).
-  Sleep counts as occupied.
-- **Windows**: 50 consecutive radar frames (~5-7 s, long enough for
-  breathing) inside one recording, non-overlapping. Never cross
-  recordings/labels.
-- **Radar timing**: `train_minutes/` — `.bin` filename is the capture
-  timestamp; each file spans 1 s (frames at `ts + j/n`). The npz
-  sources — per-frame timestamps are burst-flushed; frames are spread
-  uniformly inside their `second_start` bucket.
-- **CSI**: one receiver per recording — the `wifi_csi_XX.csv` (or npz
-  receiver index) with most samples inside the minute. Amplitude of the
-  52 usable subcarriers, log1p, linearly interpolated onto a 128-step
-  grid spanning the radar window; windows with <2 samples are zeroed +
-  flagged, never fabricated. The CSI encoder consumes **causal rolling
-  variance (w=20) of amplitude** (WifiSensingESP32HAR pipeline; no
-  phase).
-- **Radar maps**: per frame, Hann-windowed FFT -> range-Doppler
-  (64x64) and range-azimuth (16x64), log1p, resized to 24x24.
-- **Features (CNN models)**: the encoder pools each window along time
-  into a per-pixel **temporal-std map** (motion/breathing energy), then
-  spatially to mean/std/max per channel. Absolute levels flip sign
-  across placements and are excluded — this is what makes the model
-  transfer to an unseen room.
-- **Features (scene model)**: per-window mean-map AND std-map spatial
-  stats + 12-bin range/azimuth profiles + argmax, computed inside the
-  TorchScript `forward` — the exported `.pt` is self-contained
-  (identity normalization in meta.json).
-- **Normalization**: mean/std computed on the train pool only
-  (`--norm-mode local` switches to per-recording z-score).
-- **Balancing**: training windows subsampled to equal class counts;
-  early stopping + threshold use a class-balanced val subsample.
-- **Augmentation**: doppler-sign/azimuth flip; 30% CSI dropout (fusion).
-- **Minute aggregation**: per-recording score = mean of the **top-2**
-  window probabilities (a still person still moves occasionally within
-  a minute; a plain mean is diluted by still windows). A separate
-  `minute_threshold` is tuned on validation_minutes — the median of the
-  optimal range, since saturated val probs make the argmax edge
-  miscalibrate on the shifted test day.
-- **Threshold/early stopping/HP search**: validation_minutes only;
-  test_minutes is touched once for final metrics.
+## Revision 3 (hierarchical PCA)
 
-## Outputs
-
-`outputs/`: `inspection.json`, `hp_search.json`, `best_config.json`,
-`results_e2.json`, `scene_model_results.json`,
-`deploy_eval_test_minutes.json`, `best_model.pt`, `model_{radar,fusion,csi}.pt`,
-`REPORT.md`, `figs/*.png`. Deployment artifacts land in `deploy/`
-(TorchScript + embedded `meta.json` + registry `*.meta.json`).
+`frozen_v3.py` replaces the twelve single-basis PC descriptors with a
+1 s / 5 s / 15 s hierarchical PCA (two components per level, each fitted on
+training output of the level below); classifiers use fifteen-second windows
+(four per minute). Outputs are in `outputs/frozen_v3`, the paper draft is
+`paper/icc_multimodal2.tex` with assets in `paper/icc_assets_v3`. LLM steps:
+`llm_full_frozen_v3.py --prepare-only` (done), then `--model gpt-4o-mini`,
+`--model gpt-5.4`, `prepare_llm_explanations_v3.py`,
+`run_llm_explanations_v3.py --model ...`, `export_explainability_rows_v3.py`.
+The v2 outputs are retained unchanged.

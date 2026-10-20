@@ -1,0 +1,8 @@
+{
+  "selection": "ML and DL model by validation-minute AUC only",
+  "foreground": "24 validation windows (12 per class)",
+  "background": "random training window for each foreground row and order",
+  "orders": 24,
+  "seed": 73,
+  "estimand": "Monte Carlo interventional Shapley contribution to occupied probability; descriptive, not causal"
+}

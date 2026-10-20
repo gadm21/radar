@@ -15,7 +15,8 @@ bypassed by exporting identity stats in meta.json (the model owns all
 preprocessing); the runtime still applies log1p to CSI grids itself, so
 training data must be log1p-transformed to match (see ``prep_csi``).
 
-Protocol: train on train_minutes + train2_minutes, tune thresholds on
+Protocol: train on train only (calibration_minutes is reserved for
+calibration/pretraining, never supervised training), tune thresholds on
 validation_minutes, evaluate once on test_minutes (Pi night, 1:10 AM
 boundary labels). The exported .pt is the deployment artifact.
 
@@ -268,7 +269,7 @@ def export(model: nn.Module, modality: str, dst_name: str,
                        (("radar", "csi") if modality == "fusion"
                         else ("radar",))},
         "n_params": sum(p.numel() for p in model.parameters()),
-        "trained_on": "train_minutes + train2_minutes "
+        "trained_on": "train "
                       "(thresholds tuned on validation_minutes)",
     }
     dst = DEPLOY / dst_name
@@ -307,8 +308,7 @@ def registry_metadata(name: str, modality: str,
 
 def main():
     DEPLOY.mkdir(exist_ok=True)
-    tr_r, tr_c, tr_y, tr_rec, _ = load_split_arrays(
-        ("train_minutes", "train2_minutes"))
+    tr_r, tr_c, tr_y, tr_rec, _ = load_split_arrays(("train",))
     va_r, va_c, va_y, va_rec, _ = load_split_arrays(("validation_minutes",))
     te_r, te_c, te_y, te_rec, te_idx = load_split_arrays(("test_minutes",))
     print(f"train: {len(tr_y)} win ({int((tr_y == 1).sum())} occ) | "

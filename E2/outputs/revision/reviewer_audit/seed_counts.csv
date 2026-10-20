@@ -1,0 +1,17 @@
+window,model,n_seeds
+5,csi-cnn,1
+5,csi-lstm,1
+5,dual-cnn,1
+5,dual-lstm,1
+5,radar-cnn,1
+5,radar-lstm,1
+5,rf,3
+5,xgb,3
+10,csi-cnn,1
+10,csi-lstm,1
+10,dual-cnn,1
+10,dual-lstm,1
+10,radar-cnn,1
+10,radar-lstm,1
+10,rf,3
+10,xgb,3

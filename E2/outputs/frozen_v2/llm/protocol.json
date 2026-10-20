@@ -1,0 +1,251 @@
+{
+  "protocol": "Balanced validation cohort and 360-minute multilink test. Train-only model scalers; mean validation AUC over seeds selects reference models; seed-0 models and validation-fixed thresholds supply probabilities; no test-batch calibration, statistics, percentile rank, or source ID in API input.",
+  "selection_sha256": "875669fa497697b6df6bf90767d4e8862a412990f8ea339ba18926ebedd11572",
+  "evaluation_sha256": "9a5df4849a918583ce1ee5ff73e8c4fd017eea57cf71c0cb45cd0acef1be149f",
+  "reference_models": {
+    "ML": {
+      "key": "GBM|late probability fusion",
+      "threshold": 0.6618721907396427,
+      "validation_balanced_accuracy": 0.9330357142857143
+    },
+    "DL": {
+      "key": "MLP|early fusion",
+      "threshold": 0.4835413053406011,
+      "validation_balanced_accuracy": 0.9330357142857143
+    }
+  },
+  "descriptors": [
+    "csi_amp_mean",
+    "csi_amp_std",
+    "csi_rv_mean",
+    "snr_mean",
+    "ra_std90",
+    "re_std90",
+    "xy_std90",
+    "ra_delta",
+    "re_delta",
+    "csi_pc1_mean",
+    "csi_pc2_mean",
+    "csi_pc3_mean",
+    "rad_pc1_mean",
+    "rad_pc2_mean",
+    "rad_pc3_mean"
+  ],
+  "training_class_mean_std": {
+    "empty": {
+      "csi_amp_mean": [
+        23.306,
+        0.289
+      ],
+      "csi_amp_std": [
+        5.089,
+        0.525
+      ],
+      "csi_rv_mean": [
+        0.013,
+        0.006
+      ],
+      "snr_mean": [
+        7.563,
+        0.269
+      ],
+      "ra_std90": [
+        0.119,
+        0.005
+      ],
+      "re_std90": [
+        0.111,
+        0.004
+      ],
+      "xy_std90": [
+        0.11,
+        0.003
+      ],
+      "ra_delta": [
+        0.086,
+        0.004
+      ],
+      "re_delta": [
+        0.075,
+        0.003
+      ],
+      "csi_pc1_mean": [
+        1.355,
+        3.409
+      ],
+      "csi_pc2_mean": [
+        -0.896,
+        3.427
+      ],
+      "csi_pc3_mean": [
+        -0.838,
+        1.014
+      ],
+      "rad_pc1_mean": [
+        -0.23,
+        1.703
+      ],
+      "rad_pc2_mean": [
+        1.419,
+        2.252
+      ],
+      "rad_pc3_mean": [
+        0.625,
+        2.518
+      ]
+    },
+    "occupied": {
+      "csi_amp_mean": [
+        21.831,
+        3.09
+      ],
+      "csi_amp_std": [
+        5.492,
+        0.809
+      ],
+      "csi_rv_mean": [
+        0.013,
+        0.005
+      ],
+      "snr_mean": [
+        8.842,
+        3.81
+      ],
+      "ra_std90": [
+        0.196,
+        0.129
+      ],
+      "re_std90": [
+        0.232,
+        0.155
+      ],
+      "xy_std90": [
+        0.153,
+        0.059
+      ],
+      "ra_delta": [
+        0.101,
+        0.019
+      ],
+      "re_delta": [
+        0.101,
+        0.024
+      ],
+      "csi_pc1_mean": [
+        -2.98,
+        9.457
+      ],
+      "csi_pc2_mean": [
+        2.058,
+        5.663
+      ],
+      "csi_pc3_mean": [
+        1.769,
+        3.637
+      ],
+      "rad_pc1_mean": [
+        0.406,
+        4.357
+      ],
+      "rad_pc2_mean": [
+        -3.059,
+        3.736
+      ],
+      "rad_pc3_mean": [
+        -1.194,
+        2.848
+      ]
+    }
+  },
+  "labeled_training_examples": [
+    {
+      "class": "empty",
+      "descriptors": {
+        "csi_amp_mean": 23.428,
+        "csi_amp_std": 4.038,
+        "csi_rv_mean": 0.015,
+        "snr_mean": 7.674,
+        "ra_std90": 0.118,
+        "re_std90": 0.114,
+        "xy_std90": 0.112,
+        "ra_delta": 0.08,
+        "re_delta": 0.074,
+        "csi_pc1_mean": 2.037,
+        "csi_pc2_mean": -0.175,
+        "csi_pc3_mean": -3.187,
+        "rad_pc1_mean": -0.047,
+        "rad_pc2_mean": -2.979,
+        "rad_pc3_mean": -0.986
+      }
+    },
+    {
+      "class": "empty",
+      "descriptors": {
+        "csi_amp_mean": 23.704,
+        "csi_amp_std": 4.309,
+        "csi_rv_mean": 0.015,
+        "snr_mean": 7.491,
+        "ra_std90": 0.115,
+        "re_std90": 0.111,
+        "xy_std90": 0.11,
+        "ra_delta": 0.08,
+        "re_delta": 0.072,
+        "csi_pc1_mean": 2.711,
+        "csi_pc2_mean": -0.837,
+        "csi_pc3_mean": -2.239,
+        "rad_pc1_mean": -0.28,
+        "rad_pc2_mean": -2.836,
+        "rad_pc3_mean": -1.583
+      }
+    },
+    {
+      "class": "occupied",
+      "descriptors": {
+        "csi_amp_mean": 23.127,
+        "csi_amp_std": 5.872,
+        "csi_rv_mean": 0.016,
+        "snr_mean": 16.772,
+        "ra_std90": 0.554,
+        "re_std90": 0.633,
+        "xy_std90": 0.3,
+        "ra_delta": 0.14,
+        "re_delta": 0.146,
+        "csi_pc1_mean": 2.168,
+        "csi_pc2_mean": 1.987,
+        "csi_pc3_mean": 1.528,
+        "rad_pc1_mean": 12.674,
+        "rad_pc2_mean": -2.334,
+        "rad_pc3_mean": -1.85
+      }
+    },
+    {
+      "class": "occupied",
+      "descriptors": {
+        "csi_amp_mean": 22.806,
+        "csi_amp_std": 5.128,
+        "csi_rv_mean": 0.017,
+        "snr_mean": 14.041,
+        "ra_std90": 0.349,
+        "re_std90": 0.392,
+        "xy_std90": 0.224,
+        "ra_delta": 0.107,
+        "re_delta": 0.106,
+        "csi_pc1_mean": 2.654,
+        "csi_pc2_mean": 2.525,
+        "csi_pc3_mean": -0.872,
+        "rad_pc1_mean": 9.192,
+        "rad_pc2_mean": 0.225,
+        "rad_pc3_mean": -3.338
+      }
+    }
+  ],
+  "system_prompt": "Classify room occupancy (empty=0, occupied=1) using physical WiFi CSI and radar descriptors, training-basis PCA coordinates, and two trained model references. Return only a JSON object with predictions: an array of {id,occupied_probability} for every input ID. The decision cutoff on your output is fixed at 0.5. The supplied reference thresholds and validation performances were fixed before multilink evaluation. Respect agreement of the two reference class predictions; when they disagree, consider their margins from the fixed thresholds and the training-class descriptor statistics. Use one consistent rule for all cases. IDs are arbitrary. Do not infer class prevalence from the batch or ordering.",
+  "decision_threshold": 0.5,
+  "runs": 3,
+  "batch_size": 10,
+  "model_order": [
+    "gpt-4o-mini",
+    "gpt-5.4"
+  ],
+  "second_model_gate": "mini mean multilink-test accuracy across three runs > 0.80"
+}

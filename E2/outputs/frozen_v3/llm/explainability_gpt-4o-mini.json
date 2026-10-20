@@ -1,0 +1,61 @@
+{
+  "model": "gpt-4o-mini",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, the hierarchical training-basis PCA descriptors (mean/std of one-second and five-second PC1/PC2 and the fifteen-second PC1/PC2; null marks missing values), training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "047326aa6b340f53268dd8d2b8cffb129285991a20a67bb70cbc5a522af49a04",
+  "response": {
+    "results": [
+      {
+        "id": "m0133",
+        "occupied_probability": 0.6485,
+        "predicted_class": "occupied",
+        "reason": "High CSI amplitude and PC1 mean; ML output supports occupancy."
+      },
+      {
+        "id": "m0286",
+        "occupied_probability": 0.6353,
+        "predicted_class": "occupied",
+        "reason": "High CSI amplitude and PC1 mean; ML output indicates occupancy."
+      },
+      {
+        "id": "m0215",
+        "occupied_probability": 0.6179,
+        "predicted_class": "empty",
+        "reason": "Low CSI amplitude and PC1 mean; ML output suggests emptiness."
+      },
+      {
+        "id": "m0146",
+        "occupied_probability": 0.696,
+        "predicted_class": "occupied",
+        "reason": "High SNR and significant radar PC1 mean; ML output confirms occupancy."
+      },
+      {
+        "id": "m0209",
+        "occupied_probability": 0.8136,
+        "predicted_class": "occupied",
+        "reason": "Strong radar evidence and high ML probability indicate occupancy."
+      },
+      {
+        "id": "m0147",
+        "occupied_probability": 0.7944,
+        "predicted_class": "occupied",
+        "reason": "Radar PC1 mean suggests occupancy; ML output supports this."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 4409,
+    "completion_tokens": 313,
+    "total_tokens": 4722,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

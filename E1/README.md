@@ -1,55 +1,32 @@
-# E1 — Class-Separability Analysis (empty vs occupied)
+# E1 — class-consistent descriptors and visual evidence
 
-Physical descriptors and compressed-PCA features that distinguish the
-two classes, applied to two corpora:
+`revision_figures.py` generates the current paper figures from the retained
+feature tables and per-second PCA dots. It screens class direction in the
+training, validation, and multilink test cohorts. The display
+requires the same occupied-versus-empty direction in all three and a minimum
+direction-adjusted AUC of 0.55. The complete screen is in
+`outputs/stable_descriptor_screen.csv`.
 
-| corpus | data | modalities |
-|---|---|---|
-| `multilink` | `multilink_train/` — 4 JSONL captures (Oct 3–5): chen `csi-bb8b`, peer `csi-8b45` (april→toronto), chen `radar-a316` | 2 CSI links + radar |
-| `legacy` | `train_minutes/train` + `test_minutes` minutes via `E1/cache/win` + `E2/outputs/occupancy/features_{5,10}s.csv` | 1 CSI link + radar |
+The six passing descriptors are `ra_std90`, `re_std90`, `xy_std90`,
+`re_delta`, `ra_delta`, and `ra_p90`. The figure displays the strongest three.
+`ra_mean`, `re_mean`, and `xy_mean` reverse direction in validation
+cohort and are excluded from the main display.
 
-## Descriptors (per 5 s / 10 s window)
+Current figures in `outputs/figs/`:
 
-- **CSI per link**: amplitude stats, 0.2 s rolling-variance stats,
-  total variation, high-band PSD fraction, `pcv1-3` (variance of the
-  3-D PCA projection of per-second 104-d mean|std "dots").
-- **Radar**: SNR, `rad_pcv1-3` (variance of 3-D PCA projection of
-  per-second mean-RD "dots"), RD/RA/RE/XY map descriptors, physical
-  RD descriptors (range/doppler centroids, doppler spread, changed-
-  area density, energy).
-- **Screening**: iterative — univariate AUC / Cohen's d / Mann-Whitney,
-  collinearity prune, RF importance, top-15 grouped-CV probe.
+- `stable_descriptor_box_scatter.png`: boxplots and scatter in three cohorts.
+- `hierarchical_pca.png`: one-second dots, PCA of ten consecutive dots, and
+  PCA of six consecutive ten-second vectors (one minute). The higher bases
+  fit training data only; partial blocks are interpolated as documented in code.
+- `timeseries_ml.png`: 20-second rolling means of `csi_amp_mean` and
+  `snr_mean` in train/validation/test columns and two rows.
+- `mean_maps_movement.png`: class-conditional consecutive-second RD/XY map
+  changes from labeled samples, with paired color scales.
 
-## Run
+The old `pc_trajectories` figure is no longer generated. Historical feature
+tables and caches remain for reproduction. To rebuild with offline packages:
 
 ```powershell
-python E1/run_all.py                 # full pipeline (extract + analyze)
-python E1/run_all.py --skip-extract  # reuse E1/cache
+$env:PYTHONPATH = (Resolve-Path E2/.deps).Path
+python E1/revision_figures.py
 ```
-
-Outputs land in `E1/outputs/`: `REPORT.md`, `analysis.json`,
-`features_{multilink,old}_{5,10}s*.csv`, `rankings_*.csv`,
-`pc_dots_*.npz`, `pcas_multilink.joblib`, `figs/`.
-
-## Deep-PCA stage (`pca_deep.py` + `pca_deep_figs.py`)
-
-Second-pass analysis producing the window descriptor tables used by
-`E2/model_compare.py`:
-
-- **Splits**: `train` = train_minutes/train, `val` = validation_minutes,
-  `calib` = calibration_minutes (all `t1_sleep` → occupied),
-  `testml` = multilink captures.
-- **Preprocessing**: per-second validity masks (no interpolation),
-  StandardScaler + PCA fit on train seconds (multilink: unsupervised
-  self-fit), CSI=104-d dots (multilink = 2-link availability mean),
-  radar = flattened per-second maps.
-- **Window descriptors (5 s, hop 2 s)**: PC stats (mean/std/iqr/min/max
-  per component), windowed PC variance, temporal-trajectory features
-  (speed, path, displacement, tortuosity, reversals, lag-1 autocorr,
-  slope), cluster geometry (kmeans/GMM distances + labels fit on train
-  joint-PC space), FFT band descriptors (radar SNR stream all sets;
-  100-Hz CSI amplitude FFT legacy-only), plus shared physical
-  descriptors (rd/ra/re/xy stats, centroids, SNR, CSI amp/rv/tv/dop).
-- **Outputs**: `E1/outputs/pca_deep/` — `desc_<split>_5s.csv`,
-  `sep_<split>.csv`, `analysis_pca.json`, `pcas_deep.joblib`,
-  `pc_dots_<split>.npz`, `REPORT_PCA.md`, `figs_pca/`.

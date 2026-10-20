@@ -1,0 +1,24 @@
+{
+  "id": "occupied_whispy12",
+  "device_id": "fa81cdda-58b2-5caa-b31b-e6ff3dce19ec",
+  "started_at": 1792484727.9096828,
+  "stopped_at": 1792486528.035857,
+  "duration_s": 1800.1261744499207,
+  "state": "stopped",
+  "sensors": [
+    "radar-a316",
+    "csi-c50e"
+  ],
+  "sample_counts": {
+    "radar-a316": 17155,
+    "csi-c50e": 262334
+  },
+  "labels": [
+    {
+      "label": "occupied",
+      "source": "manual",
+      "start": 1792484727.9096828,
+      "end": 1792486528.0358615
+    }
+  ]
+}

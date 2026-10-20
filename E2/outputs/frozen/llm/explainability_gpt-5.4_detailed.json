@@ -1,0 +1,61 @@
+{
+  "model": "gpt-5.4",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a concise reason naming specific CSI evidence, radar evidence, and the two reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "fcbdf296f7d5e53cc78a79d781864da2018527d6d9f5ea84a9d260c5448914a7",
+  "response": {
+    "results": [
+      {
+        "id": "m0126",
+        "occupied_probability": 0.03,
+        "predicted_class": "empty",
+        "reason": "CSI looks empty-like overall: csi_amp_std 4.558 and snr_mean 7.53 are near empty references, while csi_amp_mean 32.198 is unusually high versus both classes but not a known occupancy cue here. Radar is strongly empty-like, with ra_std90 0.119, re_std90 0.107, xy_std90 0.109, ra_delta 0.09, and re_delta 0.08 all essentially on the empty means/training examples. Reference models agree: ML 0.3945 < 0.6198 predicts empty and DL 0.0000 < 0.4290 predicts empty."
+      },
+      {
+        "id": "m0278",
+        "occupied_probability": 0.04,
+        "predicted_class": "empty",
+        "reason": "CSI is mostly empty-like: csi_amp_std 4.827, csi_rv_mean 0.010, and snr_mean 7.685 sit near empty statistics, though csi_amp_mean 36.218 is extremely high versus both class means and therefore atypical rather than clear occupancy evidence. Radar is very close to empty training patterns: ra_std90 0.117, re_std90 0.107, xy_std90 0.107, ra_delta 0.088, re_delta 0.081. Both reference models support empty: ML 0.4664 < 0.6198 and DL 0.0000 < 0.4290."
+      },
+      {
+        "id": "m0228",
+        "occupied_probability": 0.02,
+        "predicted_class": "empty",
+        "reason": "CSI aligns well with empty examples: csi_amp_mean 23.557 is near empty labeled examples, csi_amp_std 3.135 is even lower than typical empty, csi_rv_mean 0.009 is low, and snr_mean 7.797 is near empty mean. Radar is also strongly empty-like with ra_std90 0.118, re_std90 0.109, xy_std90 0.108, ra_delta 0.088, and re_delta 0.077 matching empty means closely. Reference models both predict empty: ML 0.3904 < 0.6198 and DL 0.0049 < 0.4290."
+      },
+      {
+        "id": "m0150",
+        "occupied_probability": 0.39,
+        "predicted_class": "empty",
+        "reason": "Evidence is mixed. CSI is strongly occupied-leaning because csi_amp_mean 13.95 is far below the empty mean 23.306 and even below the occupied mean 21.831, csi_rv_mean 0.016 is slightly higher, snr_mean 8.705 is closer to occupied, and the DL CSI model predicts occupied with 0.9539 > 0.4290. However radar is only mildly elevated and much closer to empty than to clear occupied examples: ra_std90 0.148, re_std90 0.145, xy_std90 0.12, ra_delta 0.087, re_delta 0.079. The fused ML model stays below threshold at 0.5683 < 0.6198, so the final call is weakly empty despite the strong CSI-only conflict."
+      },
+      {
+        "id": "m0201",
+        "occupied_probability": 0.82,
+        "predicted_class": "occupied",
+        "reason": "Both modalities lean occupied. CSI is strongly shifted from empty: csi_amp_mean 13.376 is very low, csi_rv_mean 0.019 is higher than typical empty, and snr_mean 9.217 is above the empty mean; the DL CSI model predicts occupied with 0.7873 > 0.4290. Radar also shows elevated motion/spread relative to empty, with ra_std90 0.168, re_std90 0.166, xy_std90 0.127, ra_delta 0.094, and re_delta 0.087, though not as extreme as the occupied training examples. The fused ML model also predicts occupied at 0.7533 > 0.6198, so agreement is good."
+      },
+      {
+        "id": "m0148",
+        "occupied_probability": 0.74,
+        "predicted_class": "occupied",
+        "reason": "Radar provides strong occupied evidence: ra_std90 0.338, re_std90 0.431, xy_std90 0.227, ra_delta 0.123, and re_delta 0.132 are far above empty means and comparable to occupied examples. CSI is mixed to empty-leaning: csi_amp_mean 23.579 is near empty, csi_amp_std 5.034 is not discriminative, csi_rv_mean 0.012 is near both classes, and although snr_mean 8.621 is somewhat higher, the DL CSI model predicts empty with 0.0019 < 0.4290. Because the radar signature is much stronger and the fused ML model predicts occupied at 0.7063 > 0.6198, the final decision is occupied, but with acknowledged modality conflict."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1420,
+    "completion_tokens": 1076,
+    "total_tokens": 2496,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

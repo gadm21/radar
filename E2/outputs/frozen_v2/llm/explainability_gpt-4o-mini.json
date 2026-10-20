@@ -1,0 +1,61 @@
+{
+  "model": "gpt-4o-mini",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, training-basis PCA coordinates, training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "aaaf9f487b521070980c2041671b72d7918e7141eb43538b2977954e3d3c0be9",
+  "response": {
+    "results": [
+      {
+        "id": "m0133",
+        "occupied_probability": 0.9994,
+        "predicted_class": "occupied",
+        "reason": "High CSI amplitude and DL model output indicates occupancy despite low ML probability."
+      },
+      {
+        "id": "m0286",
+        "occupied_probability": 0.9685,
+        "predicted_class": "occupied",
+        "reason": "CSI amplitude and DL model support occupancy; ML prediction is lower but not decisive."
+      },
+      {
+        "id": "m0215",
+        "occupied_probability": 1.0,
+        "predicted_class": "occupied",
+        "reason": "DL model confirms occupancy with strong CSI evidence despite lower ML probability."
+      },
+      {
+        "id": "m0146",
+        "occupied_probability": 1.0,
+        "predicted_class": "occupied",
+        "reason": "High CSI amplitude and consistent model outputs strongly indicate occupancy."
+      },
+      {
+        "id": "m0209",
+        "occupied_probability": 1.0,
+        "predicted_class": "occupied",
+        "reason": "DL model and CSI evidence strongly support occupancy with high confidence."
+      },
+      {
+        "id": "m0147",
+        "occupied_probability": 1.0,
+        "predicted_class": "occupied",
+        "reason": "High CSI amplitude and consistent model outputs confirm occupancy."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 2212,
+    "completion_tokens": 309,
+    "total_tokens": 2521,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

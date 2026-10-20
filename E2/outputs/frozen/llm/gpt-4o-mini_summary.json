@@ -1,0 +1,110 @@
+{
+  "validation": {
+    "runs": [
+      {
+        "run": 1,
+        "n": 192,
+        "accuracy": 0.6822916666666666,
+        "balanced_accuracy": 0.7223214285714286,
+        "confusion_matrix": [
+          [
+            54,
+            58
+          ],
+          [
+            3,
+            77
+          ]
+        ]
+      },
+      {
+        "run": 2,
+        "n": 192,
+        "accuracy": 0.6614583333333334,
+        "balanced_accuracy": 0.7026785714285714,
+        "confusion_matrix": [
+          [
+            51,
+            61
+          ],
+          [
+            4,
+            76
+          ]
+        ]
+      },
+      {
+        "run": 3,
+        "n": 192,
+        "accuracy": 0.6197916666666666,
+        "balanced_accuracy": 0.6669642857142857,
+        "confusion_matrix": [
+          [
+            43,
+            69
+          ],
+          [
+            4,
+            76
+          ]
+        ]
+      }
+    ],
+    "mean_accuracy": 0.6545138888888888,
+    "sample_std_accuracy": 0.03182344232608223
+  },
+  "test": {
+    "runs": [
+      {
+        "run": 1,
+        "n": 360,
+        "accuracy": 0.9166666666666666,
+        "balanced_accuracy": 0.9166666666666667,
+        "confusion_matrix": [
+          [
+            178,
+            2
+          ],
+          [
+            28,
+            152
+          ]
+        ]
+      },
+      {
+        "run": 2,
+        "n": 360,
+        "accuracy": 0.925,
+        "balanced_accuracy": 0.925,
+        "confusion_matrix": [
+          [
+            178,
+            2
+          ],
+          [
+            25,
+            155
+          ]
+        ]
+      },
+      {
+        "run": 3,
+        "n": 360,
+        "accuracy": 0.9305555555555556,
+        "balanced_accuracy": 0.9305555555555556,
+        "confusion_matrix": [
+          [
+            178,
+            2
+          ],
+          [
+            23,
+            157
+          ]
+        ]
+      }
+    ],
+    "mean_accuracy": 0.924074074074074,
+    "sample_std_accuracy": 0.006990587440065543
+  }
+}

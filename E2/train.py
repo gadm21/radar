@@ -28,7 +28,7 @@ def load_index():
     """Scan the cache and return a DataFrame of recordings."""
     import pandas as pd
     rows = []
-    for source in ("train_minutes", "train2_minutes",
+    for source in ("calibration_minutes", "train",
                    "validation_minutes", "test_minutes"):
         for f in sorted((C.CACHE_DIR / source).glob("*.npz")):
             d = np.load(f)

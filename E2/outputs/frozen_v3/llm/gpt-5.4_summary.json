@@ -1,0 +1,111 @@
+{
+  "validation": {
+    "runs": [
+      {
+        "run": 1,
+        "n": 224,
+        "accuracy": 0.7857142857142857,
+        "balanced_accuracy": 0.7857142857142857,
+        "confusion_matrix": [
+          [
+            102,
+            10
+          ],
+          [
+            38,
+            74
+          ]
+        ]
+      },
+      {
+        "run": 2,
+        "n": 224,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.8125,
+        "confusion_matrix": [
+          [
+            104,
+            8
+          ],
+          [
+            34,
+            78
+          ]
+        ]
+      },
+      {
+        "run": 3,
+        "n": 224,
+        "accuracy": 0.8125,
+        "balanced_accuracy": 0.8125,
+        "confusion_matrix": [
+          [
+            103,
+            9
+          ],
+          [
+            33,
+            79
+          ]
+        ]
+      }
+    ],
+    "mean_accuracy": 0.8035714285714285,
+    "sample_std_accuracy": 0.015464739353293556
+  },
+  "test": {
+    "runs": [
+      {
+        "run": 1,
+        "n": 360,
+        "accuracy": 0.9444444444444444,
+        "balanced_accuracy": 0.9444444444444444,
+        "confusion_matrix": [
+          [
+            177,
+            3
+          ],
+          [
+            17,
+            163
+          ]
+        ]
+      },
+      {
+        "run": 2,
+        "n": 360,
+        "accuracy": 0.9444444444444444,
+        "balanced_accuracy": 0.9444444444444444,
+        "confusion_matrix": [
+          [
+            177,
+            3
+          ],
+          [
+            17,
+            163
+          ]
+        ]
+      },
+      {
+        "run": 3,
+        "n": 360,
+        "accuracy": 0.9416666666666667,
+        "balanced_accuracy": 0.9416666666666667,
+        "confusion_matrix": [
+          [
+            177,
+            3
+          ],
+          [
+            18,
+            162
+          ]
+        ]
+      }
+    ],
+    "mean_accuracy": 0.9435185185185185,
+    "sample_std_accuracy": 0.0016037507477489547
+  },
+  "gate_waived": true
+}

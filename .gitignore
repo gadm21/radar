@@ -41,6 +41,8 @@ Thumbs.db
 # Data (large, not for GitHub)
 minutes/
 train_minutes/
+data/
+multilink_test_minutes/
 train2_minutes/
 val_minutes/
 validation_minutes/
@@ -50,9 +52,11 @@ _trash/
 output/
 E2/cache/
 E1/cache/
-# large regenerable artifacts (keep reports/figs/small tables)
-E1/outputs/pca_deep/desc_*.csv
-E1/outputs/pca_deep/pc_dots_*.npz
-E1/outputs/pca_deep/pcas_deep.joblib
-E1/outputs/pca_deep/run.log
-E2/outputs/model_compare/probs.pkl
+E2/.deps/
+paper/preview/
+
+# newtest captures (GB-scale sensor JSONL + local token)
+newtest/**/*.jsonl
+newtest/.chen_token
+newtest/*.log
+newtest_excluded/

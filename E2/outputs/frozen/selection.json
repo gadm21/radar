@@ -1,0 +1,396 @@
+{
+  "protocol": "training-only imputation and standardization; validation-minute AUC selects view leaders and ML/DL references; validation labels fix each probability threshold; no test-batch statistics",
+  "train_windows": 3276,
+  "train_minutes": 273,
+  "validation_windows": 2304,
+  "validation_minutes": 192,
+  "source_sha256": {
+    "train_validation_features": "b90a09aca536389fa071e13d722b8a54172f7392ea2e94d3bc7d90f11db4a0ee"
+  },
+  "selected_views": {
+    "CSI": {
+      "key": "MLP|CSI",
+      "family": "DL",
+      "view": "CSI",
+      "threshold": 0.42897004090384955,
+      "n": 192,
+      "accuracy": 0.953125,
+      "balanced_accuracy": 0.95625,
+      "roc_auc": 0.99453125,
+      "confusion_matrix": [
+        [
+          105,
+          7
+        ],
+        [
+          2,
+          78
+        ]
+      ]
+    },
+    "radar": {
+      "key": "RF|radar",
+      "family": "ML",
+      "view": "radar",
+      "threshold": 0.6045833333333333,
+      "n": 192,
+      "accuracy": 0.7395833333333334,
+      "balanced_accuracy": 0.7089285714285715,
+      "roc_auc": 0.7699218750000001,
+      "confusion_matrix": [
+        [
+          100,
+          12
+        ],
+        [
+          38,
+          42
+        ]
+      ]
+    },
+    "early fusion": {
+      "key": "GBM|early fusion",
+      "family": "ML",
+      "view": "early fusion",
+      "threshold": 0.08346560187833292,
+      "n": 192,
+      "accuracy": 0.65625,
+      "balanced_accuracy": 0.6928571428571428,
+      "roc_auc": 0.7511160714285714,
+      "confusion_matrix": [
+        [
+          53,
+          59
+        ],
+        [
+          7,
+          73
+        ]
+      ]
+    },
+    "late probability fusion": {
+      "key": "RF|late probability fusion",
+      "family": "ML",
+      "view": "late probability fusion",
+      "threshold": 0.6198426373340676,
+      "n": 192,
+      "accuracy": 0.8385416666666666,
+      "balanced_accuracy": 0.81875,
+      "roc_auc": 0.8434151785714286,
+      "confusion_matrix": [
+        [
+          105,
+          7
+        ],
+        [
+          24,
+          56
+        ]
+      ]
+    }
+  },
+  "references": {
+    "ML": {
+      "key": "RF|late probability fusion",
+      "family": "ML",
+      "view": "late probability fusion",
+      "threshold": 0.6198426373340676,
+      "n": 192,
+      "accuracy": 0.8385416666666666,
+      "balanced_accuracy": 0.81875,
+      "roc_auc": 0.8434151785714286,
+      "confusion_matrix": [
+        [
+          105,
+          7
+        ],
+        [
+          24,
+          56
+        ]
+      ]
+    },
+    "DL": {
+      "key": "MLP|CSI",
+      "family": "DL",
+      "view": "CSI",
+      "threshold": 0.42897004090384955,
+      "n": 192,
+      "accuracy": 0.953125,
+      "balanced_accuracy": 0.95625,
+      "roc_auc": 0.99453125,
+      "confusion_matrix": [
+        [
+          105,
+          7
+        ],
+        [
+          2,
+          78
+        ]
+      ]
+    }
+  },
+  "all_validation_candidates": [
+    {
+      "key": "MLP|CSI",
+      "family": "DL",
+      "view": "CSI",
+      "threshold": 0.42897004090384955,
+      "n": 192,
+      "accuracy": 0.953125,
+      "balanced_accuracy": 0.95625,
+      "roc_auc": 0.99453125,
+      "confusion_matrix": [
+        [
+          105,
+          7
+        ],
+        [
+          2,
+          78
+        ]
+      ]
+    },
+    {
+      "key": "RF|late probability fusion",
+      "family": "ML",
+      "view": "late probability fusion",
+      "threshold": 0.6198426373340676,
+      "n": 192,
+      "accuracy": 0.8385416666666666,
+      "balanced_accuracy": 0.81875,
+      "roc_auc": 0.8434151785714286,
+      "confusion_matrix": [
+        [
+          105,
+          7
+        ],
+        [
+          24,
+          56
+        ]
+      ]
+    },
+    {
+      "key": "RF|CSI",
+      "family": "ML",
+      "view": "CSI",
+      "threshold": 0.6298583105773295,
+      "n": 192,
+      "accuracy": 0.7916666666666666,
+      "balanced_accuracy": 0.7732142857142856,
+      "roc_auc": 0.7707589285714285,
+      "confusion_matrix": [
+        [
+          99,
+          13
+        ],
+        [
+          27,
+          53
+        ]
+      ]
+    },
+    {
+      "key": "RF|radar",
+      "family": "ML",
+      "view": "radar",
+      "threshold": 0.6045833333333333,
+      "n": 192,
+      "accuracy": 0.7395833333333334,
+      "balanced_accuracy": 0.7089285714285715,
+      "roc_auc": 0.7699218750000001,
+      "confusion_matrix": [
+        [
+          100,
+          12
+        ],
+        [
+          38,
+          42
+        ]
+      ]
+    },
+    {
+      "key": "GBM|early fusion",
+      "family": "ML",
+      "view": "early fusion",
+      "threshold": 0.08346560187833292,
+      "n": 192,
+      "accuracy": 0.65625,
+      "balanced_accuracy": 0.6928571428571428,
+      "roc_auc": 0.7511160714285714,
+      "confusion_matrix": [
+        [
+          53,
+          59
+        ],
+        [
+          7,
+          73
+        ]
+      ]
+    },
+    {
+      "key": "RF|early fusion",
+      "family": "ML",
+      "view": "early fusion",
+      "threshold": 0.6070460211164337,
+      "n": 192,
+      "accuracy": 0.7291666666666666,
+      "balanced_accuracy": 0.6803571428571429,
+      "roc_auc": 0.6979910714285715,
+      "confusion_matrix": [
+        [
+          109,
+          3
+        ],
+        [
+          49,
+          31
+        ]
+      ]
+    },
+    {
+      "key": "GBM|radar",
+      "family": "ML",
+      "view": "radar",
+      "threshold": 0.16506472135412179,
+      "n": 192,
+      "accuracy": 0.7395833333333334,
+      "balanced_accuracy": 0.6875,
+      "roc_auc": 0.6576450892857142,
+      "confusion_matrix": [
+        [
+          112,
+          0
+        ],
+        [
+          50,
+          30
+        ]
+      ]
+    },
+    {
+      "key": "SVM|early fusion",
+      "family": "ML",
+      "view": "early fusion",
+      "threshold": 0.9991704110257422,
+      "n": 192,
+      "accuracy": 0.5729166666666666,
+      "balanced_accuracy": 0.5714285714285714,
+      "roc_auc": 0.5555803571428573,
+      "confusion_matrix": [
+        [
+          65,
+          47
+        ],
+        [
+          35,
+          45
+        ]
+      ]
+    },
+    {
+      "key": "GBM|CSI",
+      "family": "ML",
+      "view": "CSI",
+      "threshold": 0.8490893067958808,
+      "n": 192,
+      "accuracy": 0.6197916666666666,
+      "balanced_accuracy": 0.5651785714285714,
+      "roc_auc": 0.5190848214285714,
+      "confusion_matrix": [
+        [
+          100,
+          12
+        ],
+        [
+          61,
+          19
+        ]
+      ]
+    },
+    {
+      "key": "MLP|early fusion",
+      "family": "DL",
+      "view": "early fusion",
+      "threshold": 0.16666646703114696,
+      "n": 192,
+      "accuracy": 0.5989583333333334,
+      "balanced_accuracy": 0.5491071428571428,
+      "roc_auc": 0.5161272321428572,
+      "confusion_matrix": [
+        [
+          95,
+          17
+        ],
+        [
+          60,
+          20
+        ]
+      ]
+    },
+    {
+      "key": "SVM|radar",
+      "family": "ML",
+      "view": "radar",
+      "threshold": 0.7205642467366115,
+      "n": 192,
+      "accuracy": 0.4791666666666667,
+      "balanced_accuracy": 0.5357142857142857,
+      "roc_auc": 0.5151785714285714,
+      "confusion_matrix": [
+        [
+          22,
+          90
+        ],
+        [
+          10,
+          70
+        ]
+      ]
+    },
+    {
+      "key": "MLP|radar",
+      "family": "DL",
+      "view": "radar",
+      "threshold": 0.16663386567073588,
+      "n": 192,
+      "accuracy": 0.5677083333333334,
+      "balanced_accuracy": 0.5241071428571429,
+      "roc_auc": 0.5071986607142858,
+      "confusion_matrix": [
+        [
+          88,
+          24
+        ],
+        [
+          59,
+          21
+        ]
+      ]
+    },
+    {
+      "key": "SVM|CSI",
+      "family": "ML",
+      "view": "CSI",
+      "threshold": 0.6093347611434955,
+      "n": 192,
+      "accuracy": 0.5833333333333334,
+      "balanced_accuracy": 0.5017857142857143,
+      "roc_auc": 0.33772321428571433,
+      "confusion_matrix": [
+        [
+          111,
+          1
+        ],
+        [
+          79,
+          1
+        ]
+      ]
+    }
+  ]
+}

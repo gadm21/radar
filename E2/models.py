@@ -90,7 +90,7 @@ class CSIStatsEncoder(nn.Module):
     """MLP over per-window CSI amplitude statistics.
 
     The conv CSIEncoder learns receiver/day-specific patterns that do not
-    transfer (train_minutes has no empty minutes with CSI at all, and the
+    transfer (calibration_minutes has no empty minutes with CSI at all, and the
     test-day gain scale is ~2x). The amplitude *variance* is the robust
     occupancy cue: occupied minutes show clearly higher variance on every
     split. Inputs: [log1p(var), mean, log1p(mean temporal-std)] of the

@@ -1,0 +1,61 @@
+{
+  "model": "gpt-4o-mini",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a concise reason naming specific CSI evidence, radar evidence, and the two reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "fcbdf296f7d5e53cc78a79d781864da2018527d6d9f5ea84a9d260c5448914a7",
+  "response": {
+    "results": [
+      {
+        "id": "m0126",
+        "occupied_probability": 0.3945,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude is significantly higher than the empty class mean (32.198 vs 23.306), but SNR is low (7.53). Both models predict empty, with ML at 0.3945 and DL at 0.0."
+      },
+      {
+        "id": "m0278",
+        "occupied_probability": 0.4664,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude is high (36.218), but SNR remains low (7.685). Both models predict empty, with ML at 0.4664 and DL at 0.0."
+      },
+      {
+        "id": "m0228",
+        "occupied_probability": 0.3904,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude is slightly above the empty class mean (23.557 vs 23.306), but overall metrics indicate low occupancy likelihood. Both models predict empty, with ML at 0.3904 and DL at 0.0049."
+      },
+      {
+        "id": "m0150",
+        "occupied_probability": 0.5683,
+        "predicted_class": "occupied",
+        "reason": "CSI amplitude is low (13.95), but SNR is decent (8.705). The DL model strongly predicts occupied (0.9539), while ML is less certain (0.5683)."
+      },
+      {
+        "id": "m0201",
+        "occupied_probability": 0.7533,
+        "predicted_class": "occupied",
+        "reason": "CSI amplitude is low (13.376), but SNR is good (9.217). Both models predict occupied, with ML at 0.7533 and DL at 0.7873."
+      },
+      {
+        "id": "m0148",
+        "occupied_probability": 0.7063,
+        "predicted_class": "occupied",
+        "reason": "CSI amplitude is within the empty range (23.579), but SNR is decent (8.621). ML predicts occupied (0.7063), while DL strongly predicts empty (0.0019), indicating conflict."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1421,
+    "completion_tokens": 506,
+    "total_tokens": 1927,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

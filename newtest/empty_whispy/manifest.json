@@ -1,0 +1,25 @@
+{
+  "id": "empty_whispy",
+  "device_id": "fa81cdda-58b2-5caa-b31b-e6ff3dce19ec",
+  "started_at": 1792407768.2503626,
+  "stopped_at": 1792410876.6922982,
+  "duration_s": 3108.4419355392456,
+  "state": "stopped",
+  "sensors": [
+    "radar-a316",
+    "csi-c50e"
+  ],
+  "sample_counts": {
+    "csi-c50e": 422747,
+    "radar-a316": 30027
+  },
+  "labels": [
+    {
+      "label": "empty",
+      "source": "manual",
+      "start": 1792407768.2503626,
+      "end": 1792410876.6922982
+    }
+  ],
+  "note": "collector killed; last 300s of samples removed"
+}

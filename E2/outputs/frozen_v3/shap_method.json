@@ -1,0 +1,13 @@
+{
+  "targets": {
+    "ML": "RF|CSI",
+    "DL": "MLP|early fusion",
+    "Late": "GBM|late probability fusion"
+  },
+  "seed_models": 0,
+  "orders": 24,
+  "seed": 73,
+  "foreground": "24 real validation windows (12 per class)",
+  "background": "random real training window per foreground row and order",
+  "estimand": "Monte Carlo interventional Shapley contribution to occupied probability"
+}

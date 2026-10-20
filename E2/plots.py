@@ -24,8 +24,8 @@ def _load(name):
 def fig_window_durations(index):
     """Histogram of 50-frame window durations + CSI counts per split."""
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
-    for p, color in (("train_minutes", "tab:blue"),
-                     ("train2_minutes", "tab:orange"),
+    for p, color in (("calibration_minutes", "tab:blue"),
+                     ("train", "tab:orange"),
                      ("validation_minutes", "tab:purple"),
                      ("test_minutes", "tab:green")):
         durs, cnts = [], []
@@ -48,7 +48,7 @@ def fig_window_durations(index):
 
 def fig_class_balance(index):
     fig, ax = plt.subplots(figsize=(7, 4))
-    splits = ("train_minutes", "train2_minutes", "validation_minutes",
+    splits = ("calibration_minutes", "train", "validation_minutes",
               "test_minutes")
     x = np.arange(len(splits)); w = 0.35
     for i, lab in enumerate((0, 1)):

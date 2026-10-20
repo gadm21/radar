@@ -1,0 +1,39 @@
+family,model,descriptor,mean_abs_shap
+ML,RF|late probability fusion,csi_amp_q90,0.10021667276699887
+ML,RF|late probability fusion,re_std90,0.053496247817332275
+ML,RF|late probability fusion,rd_peak,0.051945457713993476
+ML,RF|late probability fusion,csi_amp_std,0.040322451978019154
+ML,RF|late probability fusion,xy_mean,0.03552177386907419
+ML,RF|late probability fusion,ra_peak,0.03435502348130097
+ML,RF|late probability fusion,xy_p90,0.027171649104496324
+ML,RF|late probability fusion,csi_tv,0.024311305159883948
+ML,RF|late probability fusion,csi_dop_frac,0.019909266566010202
+ML,RF|late probability fusion,re_delta,0.017248114903049543
+ML,RF|late probability fusion,xy_std90,0.015760116930978656
+ML,RF|late probability fusion,csi_amp_mean,0.014621015086920935
+ML,RF|late probability fusion,csi_rv_mean,0.013184786483119645
+ML,RF|late probability fusion,ra_mean,0.010009248076584498
+ML,RF|late probability fusion,ra_std90,0.009729715374395388
+ML,RF|late probability fusion,re_peak,0.009643415136095864
+ML,RF|late probability fusion,csi_rv_q90,0.008982990928172424
+ML,RF|late probability fusion,csi_rv_max,0.007780959500230688
+ML,RF|late probability fusion,re_mean,0.0074994866183070085
+ML,RF|late probability fusion,xy_peak,0.007356314102954267
+ML,RF|late probability fusion,ra_p90,0.0054235805606330815
+ML,RF|late probability fusion,re_p90,0.0052828408422193746
+ML,RF|late probability fusion,xy_delta,0.005192362552891944
+ML,RF|late probability fusion,ra_delta,0.0022297042944083106
+ML,RF|late probability fusion,snr_mean,0.0018376237452650981
+ML,RF|late probability fusion,rd_mean,0.0008141978747501973
+ML,RF|late probability fusion,rd_p90,0.0005785249204658669
+ML,RF|late probability fusion,snr_max,0.00034673243568433576
+ML,RF|late probability fusion,rd_std90,0.00033877713608013686
+ML,RF|late probability fusion,rd_delta,0.00031409241220599734
+DL,MLP|CSI,csi_amp_q90,0.415141523180855
+DL,MLP|CSI,csi_amp_mean,0.1848505945341461
+DL,MLP|CSI,csi_amp_std,0.040985487280646306
+DL,MLP|CSI,csi_tv,0.03639787492720121
+DL,MLP|CSI,csi_rv_mean,0.028758834262687744
+DL,MLP|CSI,csi_rv_max,0.028050949131515183
+DL,MLP|CSI,csi_rv_q90,0.0233596580636814
+DL,MLP|CSI,csi_dop_frac,0.016965342789764096

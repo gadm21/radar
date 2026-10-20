@@ -1,0 +1,37 @@
+family,model,view,scale,descriptor,mean_abs_shap
+ML,RF,late probability fusion,raw,csi_amp_q90,0.09293812216436086
+ML,RF,late probability fusion,raw,re_std90,0.06992907850248999
+ML,RF,late probability fusion,raw,csi_amp_mean,0.05792445121226447
+ML,RF,late probability fusion,raw,csi_tv,0.05025072291890562
+ML,RF,late probability fusion,raw,rd_peak,0.03128379609761523
+ML,RF,late probability fusion,raw,re_delta,0.028004868794138733
+ML,RF,late probability fusion,raw,xy_std90,0.024779638750680594
+ML,RF,late probability fusion,raw,ra_peak,0.02047023080623996
+ML,RF,late probability fusion,raw,ra_std90,0.014546150692873171
+ML,RF,late probability fusion,raw,re_mean,0.014148733668064366
+ML,RF,late probability fusion,raw,xy_mean,0.01398889132762083
+ML,RF,late probability fusion,raw,csi_amp_std,0.012169801705894505
+ML,RF,late probability fusion,raw,xy_delta,0.010871714516803462
+ML,RF,late probability fusion,raw,csi_dop_frac,0.009750399232558507
+ML,RF,late probability fusion,raw,ra_mean,0.009264226940250076
+ML,RF,late probability fusion,raw,re_peak,0.009007143531165959
+ML,RF,late probability fusion,raw,csi_rv_q90,0.008354009387802936
+ML,RF,late probability fusion,raw,xy_peak,0.00803227434348234
+ML,RF,late probability fusion,raw,csi_rv_mean,0.0077964759217255195
+ML,RF,late probability fusion,raw,csi_rv_max,0.006928464495180775
+ML,RF,late probability fusion,raw,xy_p90,0.003965688406025409
+ML,RF,late probability fusion,raw,ra_p90,0.003879435931052272
+ML,RF,late probability fusion,raw,re_p90,0.0025206648347776174
+ML,RF,late probability fusion,raw,ra_delta,0.001681159331653439
+ML,RF,late probability fusion,raw,rd_mean,0.000867943352652194
+ML,RF,late probability fusion,raw,snr_mean,0.0006227398867526244
+ML,RF,late probability fusion,raw,snr_max,0.0005155799552387718
+ML,RF,late probability fusion,raw,rd_delta,0.00042585969880779706
+ML,RF,late probability fusion,raw,rd_std90,0.00035706584285575014
+ML,RF,late probability fusion,raw,rd_p90,0.0003194458483203454
+DL,MLP,stable radar,raw,re_std90,0.16020080648555382
+DL,MLP,stable radar,raw,ra_std90,0.09627332690386733
+DL,MLP,stable radar,raw,xy_std90,0.09289026922807284
+DL,MLP,stable radar,raw,re_delta,0.0925137046978872
+DL,MLP,stable radar,raw,ra_p90,0.04406410649465664
+DL,MLP,stable radar,raw,ra_delta,0.029617454393152158

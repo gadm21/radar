@@ -1,0 +1,32 @@
+{
+  "levels": {
+    "1": "1 s: E1 training-fitted first-level basis, PC1-PC2",
+    "2": "5 s: PCA(2) on five consecutive level-1 pairs, fitted on train",
+    "3": "15 s: PCA(2) on three consecutive level-2 pairs, fitted on train"
+  },
+  "train_minutes": 274,
+  "csi": {
+    "n5": 2126,
+    "n15": 751,
+    "explained5": [
+      0.4996465137502479,
+      0.2861614827682512
+    ],
+    "explained15": [
+      0.4775177996559972,
+      0.1954179284052462
+    ]
+  },
+  "rad": {
+    "n5": 2126,
+    "n15": 751,
+    "explained5": [
+      0.49269707613848485,
+      0.3448178324394686
+    ],
+    "explained15": [
+      0.49166161988172574,
+      0.373154261031953
+    ]
+  }
+}

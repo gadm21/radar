@@ -1,0 +1,134 @@
+{
+  "protocol": "minute-level physical descriptors plus 1-s PC mean/std, 10-s PC mean/std, and 1-min PC coordinates for each modality; all PC bases fit on train; fixed equal-weight late fusion; validation-fitted thresholds; no test fitting",
+  "test_minutes": 360,
+  "results": [
+    {
+      "family": "ML",
+      "model": "RF",
+      "fusion": "early",
+      "threshold": 0.68,
+      "validation": {
+        "accuracy": 0.8802083333333334,
+        "balanced_accuracy": 0.86875,
+        "auc": 0.8376116071428572
+      },
+      "test": {
+        "accuracy": 0.9611111111111111,
+        "balanced_accuracy": 0.9611111111111111,
+        "auc": 0.9721141975308643
+      }
+    },
+    {
+      "family": "ML",
+      "model": "RF",
+      "fusion": "late",
+      "threshold": 0.6525,
+      "validation": {
+        "accuracy": 0.9270833333333334,
+        "balanced_accuracy": 0.9303571428571429,
+        "auc": 0.9550781249999999
+      },
+      "test": {
+        "accuracy": 0.9111111111111111,
+        "balanced_accuracy": 0.9111111111111111,
+        "auc": 0.9614197530864198
+      }
+    },
+    {
+      "family": "ML",
+      "model": "GBM",
+      "fusion": "early",
+      "threshold": 5.243132146984359e-06,
+      "validation": {
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.5,
+        "auc": 0.4875
+      },
+      "test": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "auc": 0.9722222222222222
+      }
+    },
+    {
+      "family": "ML",
+      "model": "GBM",
+      "fusion": "late",
+      "threshold": 0.658718632962299,
+      "validation": {
+        "accuracy": 0.90625,
+        "balanced_accuracy": 0.9125,
+        "auc": 0.9472098214285714
+      },
+      "test": {
+        "accuracy": 0.8861111111111111,
+        "balanced_accuracy": 0.8861111111111111,
+        "auc": 0.9868827160493826
+      }
+    },
+    {
+      "family": "ML",
+      "model": "SVM",
+      "fusion": "early",
+      "threshold": 0.9458792777834156,
+      "validation": {
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.5,
+        "auc": 0.5
+      },
+      "test": {
+        "accuracy": 0.7722222222222223,
+        "balanced_accuracy": 0.7722222222222223,
+        "auc": 0.7982407407407408
+      }
+    },
+    {
+      "family": "ML",
+      "model": "SVM",
+      "fusion": "late",
+      "threshold": 0.8816158712785245,
+      "validation": {
+        "accuracy": 0.46875,
+        "balanced_accuracy": 0.5446428571428571,
+        "auc": 0.11529017857142859
+      },
+      "test": {
+        "accuracy": 0.9111111111111111,
+        "balanced_accuracy": 0.9111111111111111,
+        "auc": 0.9564506172839506
+      }
+    },
+    {
+      "family": "DL",
+      "model": "MLP",
+      "fusion": "early",
+      "threshold": 1.1783643241244218e-20,
+      "validation": {
+        "accuracy": 0.6458333333333334,
+        "balanced_accuracy": 0.575,
+        "auc": 0.4545758928571428
+      },
+      "test": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "auc": 0.9504938271604939
+      }
+    },
+    {
+      "family": "DL",
+      "model": "MLP",
+      "fusion": "late",
+      "threshold": 1.0948950738920362e-19,
+      "validation": {
+        "accuracy": 0.5677083333333334,
+        "balanced_accuracy": 0.6044642857142857,
+        "auc": 0.6205357142857143
+      },
+      "test": {
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "auc": 0.7903703703703704
+      }
+    }
+  ]
+}

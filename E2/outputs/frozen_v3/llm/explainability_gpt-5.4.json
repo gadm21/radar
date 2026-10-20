@@ -1,0 +1,61 @@
+{
+  "model": "gpt-5.4",
+  "purpose": "qualitative explanations only; excluded from frozen accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, the hierarchical training-basis PCA descriptors (mean/std of one-second and five-second PC1/PC2 and the fifteen-second PC1/PC2; null marks missing values), training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "047326aa6b340f53268dd8d2b8cffb129285991a20a67bb70cbc5a522af49a04",
+  "response": {
+    "results": [
+      {
+        "id": "m0133",
+        "occupied_probability": 0.2,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude/SNR and motion stats look empty-like; radar PCs also near empty. ML barely occupied 0.6485, but DL strongly empty 0.0001."
+      },
+      {
+        "id": "m0286",
+        "occupied_probability": 0.19,
+        "predicted_class": "empty",
+        "reason": "CSI motion and SNR are empty-like despite shifted PCA basis; radar PCs remain near empty. ML barely occupied 0.6353, DL strongly empty 0.0002."
+      },
+      {
+        "id": "m0215",
+        "occupied_probability": 0.08,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude, SNR, ra/re spread and deltas match empty; radar PCs modest and non-occupied. Both models predict empty: ML 0.6179, DL 0.0259."
+      },
+      {
+        "id": "m0146",
+        "occupied_probability": 0.995,
+        "predicted_class": "occupied",
+        "reason": "CSI high SNR, ra/re spreads, deltas, extreme PCs indicate occupancy; radar PC1/PC2 strongly match occupied examples. Both models occupied: ML 0.696, DL 1.0."
+      },
+      {
+        "id": "m0209",
+        "occupied_probability": 0.87,
+        "predicted_class": "occupied",
+        "reason": "CSI very low amplitude and strongly shifted PCs support occupancy; radar motion stats are weaker, only mildly occupied-like. Both models occupied: ML 0.8136, DL 1.0."
+      },
+      {
+        "id": "m0147",
+        "occupied_probability": 0.72,
+        "predicted_class": "occupied",
+        "reason": "CSI lower amplitude, elevated re/xy spread, shifted PCs suggest occupancy; radar PCs conflict, looking atypical/empty-leaning. Both models still occupied: ML 0.7944, DL 0.9979."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 4408,
+    "completion_tokens": 388,
+    "total_tokens": 4796,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

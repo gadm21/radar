@@ -1,0 +1,40 @@
+{
+ "rows": [
+  [
+   "Training\n(wall 2 + wall 4)",
+   187,
+   86,
+   2244,
+   1032,
+   1292
+  ],
+  [
+   "Validation\n(wall 3)",
+   112,
+   80,
+   1344,
+   960,
+   812
+  ],
+  [
+   "Test, 4 captures\n(wall 3, multilink)",
+   180,
+   180,
+   2160,
+   2160,
+   0
+  ]
+ ],
+ "excluded": [
+  [
+   "Calibration session\n(occupied only, excluded)",
+   0,
+   808
+  ],
+  [
+   "Synthetic empty minutes\n(legacy benchmark, not used)",
+   601,
+   0
+  ]
+ ]
+}

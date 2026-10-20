@@ -3,7 +3,7 @@
     python E2/run_all.py            # full pipeline
     python E2/run_all.py --skip-preprocess   # reuse existing cache
 
-Steps: inspect -> preprocess (cache) -> E2 (train+train2 / validation /
+Steps: inspect -> preprocess (cache) -> E2 (train+train / validation /
 test, balanced, config search) -> scene model (deployment export) ->
 deploy eval -> figures -> report.
 """
@@ -34,6 +34,7 @@ def main():
     if not a.skip_preprocess:
         step([str(E2 / "preprocess.py"), "--workers", str(a.workers)])
     step([str(E2 / "experiments.py"), "--steps", "e2"])
+    step([str(E2 / "feature_experiments.py")])
     step([str(E2 / "scene_model.py")])
     step([str(E2 / "export_models.py")])
     step([str(E2 / "eval_deploy.py")])
