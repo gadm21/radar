@@ -1,0 +1,25 @@
+{
+  "duration_s": 600.0,
+  "started": 1793646540.2330132,
+  "ended": 1793647140.2442977,
+  "sensors": {
+    "csi-0af1": {
+      "samples": 69979,
+      "first": 1793646540.3825572,
+      "last": 1793647140.227502,
+      "span_s": 599.8449449539185,
+      "hz": 116.6618150051693,
+      "max_gap_s": 0.6893405914306641,
+      "file": "C:\\Users\\ggad\\Desktop\\radar\\newtest\\esp32_sync\\csi-0af1.jsonl"
+    },
+    "csi-c539": {
+      "samples": 41409,
+      "first": 1793646540.626213,
+      "last": 1793647140.2297075,
+      "span_s": 599.6034944057465,
+      "hz": 69.06063821565871,
+      "max_gap_s": 0.6590268611907959,
+      "file": "C:\\Users\\ggad\\Desktop\\radar\\newtest\\esp32_sync\\csi-c539.jsonl"
+    }
+  }
+}
