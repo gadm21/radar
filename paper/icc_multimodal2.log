@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.7)  16 OCT 2026 07:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.3.7)  27 OCT 2026 19:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -505,28 +505,28 @@ Package pdftex.def Info: icc_assets/stable_descriptor_box_scatter.pdf  used on i
 File: icc_assets/hierarchical_pca.pdf Graphic file (type pdf)
 <use icc_assets/hierarchical_pca.pdf>
 Package pdftex.def Info: icc_assets/hierarchical_pca.pdf  used on input line 142.
-(pdftex.def)             Requested size: 252.00131pt x 93.89297pt.
- [3 <./icc_assets/data_sizes.pdf> <./icc_assets/stable_descriptor_box_scatter.pdf> <./icc_assets/hierarchical_pca.pdf>]
-<icc_assets/frozen_comparison.pdf, id=214, 251.38618pt x 227.7446pt>
+(pdftex.def)             Requested size: 252.00131pt x 170.71626pt.
+ [3 <./icc_assets/data_sizes.pdf> <./icc_assets/stable_descriptor_box_scatter.pdf>]
+<icc_assets/frozen_comparison.pdf, id=156, 251.38618pt x 227.7446pt>
 File: icc_assets/frozen_comparison.pdf Graphic file (type pdf)
 <use icc_assets/frozen_comparison.pdf>
 Package pdftex.def Info: icc_assets/frozen_comparison.pdf  used on input line 154.
 (pdftex.def)             Requested size: 196.5597pt x 178.0814pt.
-<icc_assets/frozen_pipeline.pdf, id=215, 506.09082pt x 195.93843pt>
+<icc_assets/frozen_pipeline.pdf, id=157, 506.09082pt x 195.93843pt>
 File: icc_assets/frozen_pipeline.pdf Graphic file (type pdf)
 <use icc_assets/frozen_pipeline.pdf>
 Package pdftex.def Info: icc_assets/frozen_pipeline.pdf  used on input line 164.
 (pdftex.def)             Requested size: 340.56189pt x 131.85808pt.
  (icc_assets/explainability_rows.tex) (icc_assets/model_table_rows.tex)
-<icc_assets/primary_cm.pdf, id=216, 259.93063pt x 88.91467pt>
+<icc_assets/primary_cm.pdf, id=158, 259.93063pt x 88.91467pt>
 File: icc_assets/primary_cm.pdf Graphic file (type pdf)
 <use icc_assets/primary_cm.pdf>
 Package pdftex.def Info: icc_assets/primary_cm.pdf  used on input line 196.
 (pdftex.def)             Requested size: 214.20154pt x 73.27408pt.
- [4 <./icc_assets/frozen_comparison.pdf>] (icc_assets/shap_table_rows.tex)
+ [4 <./icc_assets/hierarchical_pca.pdf> <./icc_assets/frozen_comparison.pdf>] (icc_assets/shap_table_rows.tex) [5 <./icc_assets/frozen_pipeline.pdf> <./icc_assets/primary_cm.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./icc_assets/frozen_pipeline.pdf> <./icc_assets/primary_cm.pdf>] (icc_multimodal2.bbl)
+ (icc_multimodal2.bbl [6])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -538,7 +538,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (icc_multimodal2.aux)
+[7
+
+] (icc_multimodal2.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -547,15 +549,15 @@ L3 programming layer <2025-12-24>
 Here is how much of TeX's memory you used:
  14444 strings out of 467871
  298005 string characters out of 5418861
- 713160 words of memory out of 5000000
+ 712986 words of memory out of 5000000
  43064 multiletter control sequences out of 15000+600000
  743459 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,14n,104p,1934b,636s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/ggad/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on icc_multimodal2.pdf (6 pages, 4482837 bytes).
+Output written on icc_multimodal2.pdf (7 pages, 4483694 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
+ 542 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  53 words of extra memory for PDF output out of 10000 (max. 10000000)
 

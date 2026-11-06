@@ -1,7 +1,17 @@
 \documentclass[conference,10pt,letterpaper]{IEEEtran}
+\usepackage[left=0.65in,right=0.65in,top=0.75in,bottom=1in]{geometry}
+
 \usepackage[T1]{fontenc}
-\usepackage{amsmath,booktabs,graphicx,url,tikz,float,multirow}
-\usetikzlibrary{arrows.meta,positioning}
+\usepackage{amsmath,booktabs,graphicx,tikz,float,multirow}
+
+\usepackage{cite}
+\usepackage[caption=false]{subfig}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,allcolors=blue,bookmarks=false]{hyperref}
+\usepackage{balance}
+\usepackage{tabularx,booktabs,array}
+
+\usetikzlibrary{arrows.meta,positioning,decorations.pathreplacing}
 \definecolor{csiBlue}{RGB}{34,105,158}
 \definecolor{radarOrange}{RGB}{198,93,34}
 \definecolor{fusionRed}{RGB}{156,40,67}
@@ -13,7 +23,7 @@
 \setcounter{topnumber}{4}
 \setcounter{dbltopnumber}{4}
 \graphicspath{{icc_assets/}}
-\title{Explainable and private LLM-based Occupancy Detection Model Framework with Multi-Modal Wireless Sensing:\\WiFi CSI and FMCW Radar}
+\title{Placement-Robust Occupancy Detection with WiFi CSI, FMCW Radar, and LLM Reasoning}
 \author{\IEEEauthorblockN{Gad Gad\IEEEauthorrefmark{1}, Mostafa Fouda\IEEEauthorrefmark{2}, Zubair Md Fadlullah\IEEEauthorrefmark{1}}
 \IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Computer Science, Western University, London, ON, Canada\\
 \IEEEauthorrefmark{2}Department of Electrical and Computer Engineering, Idaho State University, Pocatello, ID, USA}}
@@ -21,7 +31,8 @@
 \maketitle
 \begin{abstract}
 
-Human occupancy detection using wireless sensing provides private continuous monitoring, but signal instability and distribution shift challenge model performance. Machine-learning predictions also offer limited explanations. We combine WiFi channel-state information (CSI) and frequency-modulated continuous-wave (FMCW) radar to predict room occupancy. Physical descriptors and trained-model probabilities are supplied to large language models (LLMs) for a prediction and textual rationale. We evaluate CSI, radar, early feature fusion, and late probability fusion on fifteen-second windows and minute averages; validation data select models and thresholds before multilink test evaluation. The window models combine the physical descriptors with mean/std summaries of a three-level hierarchical PCA (one-second, five-second, and fifteen-second levels, two components each) whose every level is fitted on the training output of the level below. Among the validation-selected models, the CSI RF achieves .846/.687 validation/test minute accuracy, the radar RF .593/.969, the early-fusion GBM .812/.808, and the late-fusion RF .837/.975. GPT-4o mini scores $58.6\pm2.3$\% validation and $61.1\pm2.2$\% test accuracy, while GPT-5.4 scores $80.4\pm1.5$\% and $94.4\pm0.2$\%, respectively. Late probability fusion machine learning model is the best performing model, and GPT-5.4 approaches its performance while providing explainability.
+Occupancy detection is a basic smart home task. Wireless sensing is a private alternative to intrusive monitoring, but a new environment and a change of sensor placement both shift the signal statistics on which data-driven predictors depend, and machine-learning decisions arrive as black-box scores without a rationale. We develop an explainable occupancy detector that is calibrated per room from a few labeled empty and occupied sessions and then operates, without recalibration, at sensor placements unseen during calibration.
+We combine WiFi channel-state information (CSI) and frequency-modulated continuous-wave (FMCW) radar, extract physical descriptors and a three-level hierarchical PCA fitted only on calibration data, and supply descriptors and trained-model probabilities to large language models (LLMs) for a prediction and textual rationale. Calibration uses about six sessions per class at two placements (273 minutes, 86 occupied) for fitting and a third placement for thresholds; evaluation uses a fourth placement, where the receiver shares the CSI sender's wall. CSI alone does not survive the placement change (.793 validation, .365 test minute accuracy for its selected RF), whereas the radar RF ($.825/.804$), early-fusion RF ($.839/.811$), and late-fusion RF ($.922/.789$) transfer. GPT-4o mini reaches $88.2\pm1.4$\% and GPT-5.4 $76.6\pm0.7$\% test accuracy; GPT-4o mini exceeds every validation-selected model while returning a rationale for each decision. The calibrated models are released as a pretrained starting point for new rooms.
 
 \end{abstract}
 \begin{IEEEkeywords}
@@ -29,13 +40,34 @@ occupancy sensing, WiFi CSI, FMCW radar, domain shift, calibration
 \end{IEEEkeywords}
 
 \section{Introduction}\label{sec:intro}
-Room occupancy is a basic input for lighting, heating, and ventilation control, security, and in-home care. Camera-based occupancy detection raises privacy concerns, and wearable or infrared alternatives require cooperation or line of sight. Radio-frequency sensing offers a passive alternative: WiFi channel-state information (CSI) from commodity transceivers reflects multipath changes caused by a human body, and millimeter-wave frequency-modulated continuous-wave (FMCW) radar supplies range, angle, and Doppler maps that respond to body motion and micro-motion.
+Room occupancy is a basic input for smart home automation, security, and in-home care. While camera-based occupancy detection raises privacy concerns, and wearables require cooperation or line of sight, radio frequency sensing offers a passive alternative: WiFi channel-state information (CSI) from commodity transceivers reflects multipath changes caused by a human body, and millimeter-wave frequency-modulated continuous-wave (FMCW) radar supplies range, angle, and Doppler maps that respond to body motion and even small movements like breathing. 
 
-Both modalities, however, are sensitive to the acquisition geometry. Moving a receiver to a different wall changes the dominant multipath components, the radar field of view, and the amplitude statistics on which a trained classifier depends. A model that separates the two classes almost perfectly on data from the training placement can therefore fail on data from a new placement, and this failure is often invisible when the validation set shares the training geometry. Machine-learning predictions also arrive without a rationale, which limits their use by operators who must decide whether to trust an alert.
+Machine learning (ML) models outperform rule-based ones on wireless-sensing classification, but they remain unstable for continuous indoor monitoring tasks such as occupancy detection, localization, and activity recognition. We focus on the first and most fundamental of these, which enables applications including automations, elder care, and remote patient monitoring (RPM): an accurate, private, and reliable indoor occupancy detector. Wireless sensing limits privacy concerns; multiple modalities extend spatial coverage; and an LLM-based classifier partially addresses reliability by returning an intelligible decision and rationale from ML predictions and descriptors.
 
-This paper studies these two problems on a single-subject, single-room dataset in which the training placements and the evaluation placement differ by design (Fig.~\ref{fig:layout}). The main contribution of this paper is a multimodal occupancy pipeline that extracts physical descriptors and three-level hierarchical training-basis PCA descriptors from CSI amplitude and from logged radar range--Doppler (RD), range--angle (RA), range--elevation (RE), and Cartesian (XY) maps, and compares CSI-only, radar-only, early feature fusion, and late probability fusion across four model families and five seeds under one frozen protocol: augmented balanced development sets, validation-selected models and thresholds, and a held-out test placement that updates no component.
+Both wireless sensing modalities, however, are sensitive to the environment and to the acquisition geometry. A new room changes the multipath environment entirely, so a deployed detector must be calibrated for it; within one room, moving a receiver to a different wall still changes the dominant multipath components, the radar field of view, and the CSI amplitude statistics on which a trained classifier depends. A model that separates the classes almost perfectly at the calibration placement can therefore fail at a new one. Machine-learning predictions also arrive without a rationale, which limits their use by operators who must decide whether to trust an alert.
 
-The remainder of the paper presents related work (Section~\ref{sec:related}), the problem definition (Section~\ref{sec:problem}), the system model (Section~\ref{sec:system}), the collection and processing protocol (Section~\ref{sec:data}), the predictive models (Section~\ref{sec:models}), the language-model inference (Section~\ref{sec:llm}), the results (Section~\ref{sec:results}), the limitations (Section~\ref{sec:limits}), and the conclusion (Section~\ref{sec:conclusion}).
+We therefore adopt the two-stage workflow of Fig.~\ref{fig:workflowconcept}: (i) \emph{environment-specific calibration}, in which a pretrained occupancy model is adapted to a new room from a few short labeled empty and occupied sessions, and (ii) \emph{placement robustness within that room}, in which the calibrated detector must keep working when the sensors move to positions never used for calibration. A practical advantage of this workflow is its low labeling cost: a handful of single-label sessions per class suffices, with no per-frame annotation. We study it on a self-collected multi-modal single-subject wireless sensing dataset whose calibration and evaluation placements differ (Fig.~\ref{fig:layout}), and release the calibrated models as a pretrained starting point.\footnote{\url{https://github.com/gadm21/radar}} The main contribution is the first LLM-based wireless sensing occupancy detection pipeline: physical descriptors and three-level hierarchical training-basis PCA descriptors are calculated from CSI amplitude and FMCW radar; CSI-only, radar-only, early feature fusion, and late probability fusion are compared across machine learning approaches; and LLMs predict occupancy from a textual description of the problem and the descriptors, where the hierarchical PCA compresses high-dimensional sensor streams into a few components that fit the prompt while spanning enough time to reveal an occupancy-correlated pattern.
+
+\begin{figure}[!t]
+\centering
+\resizebox{\columnwidth}{!}{\begin{tikzpicture}[font=\scriptsize,
+  box/.style={draw,rounded corners=2pt,align=center,text width=2.85cm,minimum height=2.05cm,line width=.7pt},
+  map/.style={font=\scriptsize\itshape,text=black!65,align=center,text width=2.85cm,anchor=north},
+  >={Stealth[length=4pt]}]
+\node[box,draw=csiBlue,fill=csiBlue!7] (a) {\textbf{Pretrained occupancy model}\\[1pt]learned from previous environments};
+\node[box,draw=radarOrange,fill=radarOrange!7,right=.4cm of a] (b) {\textbf{New room: few-session calibration}\\[1pt]short occupied and empty captures; fine-tuning, classifier retraining, or feature/threshold calibration};
+\node[box,draw=fusionRed,fill=fusionRed!7,right=.4cm of b] (c) {\textbf{Placement-robust inference}\\[1pt]evaluate at unseen sensor positions without further calibration};
+\draw[->,line width=.8pt] (a) -- (b);
+\draw[->,line width=.8pt] (b) -- (c);
+\draw[decorate,decoration={brace,amplitude=4pt},line width=.6pt] ([yshift=.1cm]a.north west) -- ([yshift=.1cm]b.north east) node[midway,above=4pt,align=center] {\textbf{1. Environment-specific calibration}: a new room\\may require calibration or retraining};
+\draw[decorate,decoration={brace,amplitude=4pt},line width=.6pt] ([yshift=.1cm]c.north west) -- ([yshift=.1cm]c.north east) node[midway,above=4pt,align=center] {\textbf{2. Placement invariance}: sensors\\may move within the room};
+\node[map] at ([yshift=-.08cm]a.south) {this study: released calibrated models};
+\node[map] at ([yshift=-.08cm]b.south) {this study: fit at walls 2+4 (273\,min), thresholds at wall 3};
+\node[map] at ([yshift=-.08cm]c.south) {this study: wall 1, seven captures, 324\,min, no updates};
+\end{tikzpicture}}
+\caption{Proposed occupancy training/deployment workflow: calibrate a pretrained model in a new room from a few labeled sessions, then evaluate at placements not used for calibration, with no further updates. Italic notes give this study's instantiation.}
+\label{fig:workflowconcept}
+\end{figure}
 
 \begin{figure}[!b]
 \centering
@@ -59,27 +91,30 @@ The remainder of the paper presents related work (Section~\ref{sec:related}), th
 \fill[csiBlue] (6.02,1.3) rectangle (6.2,1.5);
 \node[font=\scriptsize,text=csiBlue,anchor=east] at (5.95,1.4) {train (wall 2)};
 \fill[radarOrange] (1.53,0) rectangle (1.71,.18);
-\node[font=\scriptsize,text=radarOrange,anchor=south] at (1.62,.25) {validation / test (wall 3)};
+\node[font=\scriptsize,text=radarOrange,anchor=south] at (1.62,.25) {validation (wall 3)};
+\fill[fusionRed] (2.6,3.82) rectangle (2.8,4);
+\node[font=\scriptsize,text=fusionRed,anchor=north] at (2.7,3.75) {test (wall 1)};
 \node[font=\scriptsize,anchor=west] at (0,-.55) {\textcolor{csiBlue}{\rule{.14cm}{.14cm}} training placements};
-\node[font=\scriptsize,anchor=west] at (3.3,-.55) {\textcolor{radarOrange}{\rule{.14cm}{.14cm}} unseen placement};
+\node[font=\scriptsize,anchor=west] at (2.6,-.55) {\textcolor{radarOrange}{\rule{.14cm}{.14cm}} unseen placement (validation)};
+\node[font=\scriptsize,anchor=west] at (4.6,-.75) {\textcolor{fusionRed}{\rule{.14cm}{.14cm}} unseen placement (test)};
 \end{tikzpicture}}
 \par\smallskip
 \begin{minipage}[c]{.49\columnwidth}\centering
-\includegraphics[width=\linewidth,height=2.2cm,keepaspectratio]{IMG_1361.jpeg}\\
+\includegraphics[width=\linewidth,height=1.8cm,keepaspectratio]{IMG_1361.jpeg}\\
 {\scriptsize radar: DreamHAT+ on Raspberry Pi}
 \end{minipage}\hfill
 \begin{minipage}[c]{.49\columnwidth}\centering
-\includegraphics[width=\linewidth,height=2.2cm,keepaspectratio]{IMG_1362.jpeg}\\
+\includegraphics[width=\linewidth,height=1.8cm,keepaspectratio]{IMG_1362.jpeg}\\
 {\scriptsize ESP32 board used for CSI}
 \end{minipage}
-\caption{Room layout, sensor placements, and collection hardware. The co-located FMCW radar and CSI receiver were mounted on wall~4 and wall~2 for training sessions and on wall~3 for validation and test sessions; the CSI sender remained fixed on wall~1. Photographs show the DreamHAT+ mm-wave radar HAT mounted on its Raspberry Pi host (left) and the ESP32 board used for CSI collection (right).}
+\caption{Room layout, sensor placements, and collection hardware. The co-located FMCW radar and CSI receiver were mounted on wall~4 and wall~2 for training sessions, on wall~3 for validation sessions, and on wall~1 for test sessions; the CSI sender remained fixed on wall~1, so the test placement puts the receiver on the sender's own wall. Photographs show the DreamHAT+ mm-wave radar HAT mounted on its Raspberry Pi host (left) and the ESP32 board used for CSI collection (right).}
 \label{fig:layout}
 \end{figure}
 
 \begin{table}[!b]
 \centering\footnotesize
 \setlength{\tabcolsep}{3.5pt}
-\caption{Sensor configuration. Radar operating band from the BGT60TR13C product brief~\cite{bgt60}; frame structure follows HOOD~\cite{hood}; WiFi settings follow~\cite{wifi}.}
+\caption{FMCW radar configuration. Operating band from the BGT60TR13C product brief~\cite{bgt60}; frame structure follows HOOD~\cite{hood}}
 \label{tab:radar}
 \begin{tabular}{lcc}\toprule
 Configuration & Symbol & Value\\\midrule
@@ -88,37 +123,47 @@ Transmit / receive antennas & $N_{Tx}/N_{Rx}$ & 1 / 3\\
 Chirps per frame / samples per chirp & $N_c/N_s$ & 64 / 128\\
 Frame period / chirp interval & $T_f/T_{cc}$ & 50\,ms / 391.55\,$\mu$s\\
 Start / stop frequency & $f_{\min}/f_{\max}$ & 58 / 63.5\,GHz\\
-Bandwidth & $B$ & 5.5\,GHz\\\midrule
-\multicolumn{3}{l}{\itshape WiFi CSI (ESP32 sender $\to$ receiver)}\\
-Transmit / receive antennas & $N'_{Tx}/N'_{Rx}$ & 1 / 1\\
-Channel bandwidth & $B_{\rm wifi}$ & 20\,MHz\\
-Reported / retained subcarriers & $K/K'$ & 64 / 52\\
-Processed sample grid & $f_s$ & 100\,Hz\\\bottomrule
+Bandwidth & $B$ & 5.5\,GHz\\\bottomrule
 \end{tabular}
 \end{table}
 
 \section{Related Work}\label{sec:related}
 \subsection{WiFi CSI sensing}
-CSI exposes per-subcarrier channel gains and has been used for presence, activity, and gesture recognition with commodity hardware. DeMan~\cite{deman} detects both moving and stationary humans by combining motion-induced CSI variation with respiration-induced periodicity, and reports that stationary presence is harder because the signal change is small. SHARP~\cite{sharp} targets environment- and person-independent activity recognition by estimating Doppler traces from CSI phase after sanitization, so that the learned representation depends less on static multipath. LiteHAR~\cite{litehar} replaces deep networks with random convolution kernels and a linear classifier, achieving competitive accuracy with a fraction of the training cost. Our earlier work~\cite{wifi} processes amplitude from ESP32 access points for activity recognition in smart homes and motivates the amplitude-only CSI features used here. These studies generally evaluate on the same device placement used for training or on held-out subjects; placement shift remains a known weakness, and our CSI-only result quantifies it for a fixed-threshold classifier.
+CSI exposes per-subcarrier channel gains and has been used for presence, activity, and gesture recognition with commodity hardware. DeMan~\cite{deman} detects both moving and stationary humans by combining motion-induced CSI variation with respiration-induced periodicity, and reports that stationary presence is harder because the signal change is small. SHARP~\cite{sharp} targets environment- and person-independent activity recognition by estimating Doppler traces from CSI phase after sanitization, so that the learned representation depends less on static multipath. LiteHAR~\cite{litehar} replaces deep networks with random convolution kernels and a linear classifier. Our earlier work~\cite{wifi} processes amplitude from ESP32 access points for activity recognition in smart homes and motivates the amplitude-only CSI features used here. Placement shift remains a known weakness reported by these studies, and our multi-modal result quantifies it for a fixed-threshold classifier.
 
-\subsection{FMCW radar presence detection}
-Millimeter-wave FMCW radar supplies range and Doppler information that does not depend on a separate transmitter link. HOOD~\cite{hood} trains a reconstruction-based detector on the Infineon BGT60TR13C and treats presence detection as an out-of-distribution problem, using range--Doppler inputs and a 60.1--61.1\,GHz ramp in its reported configuration. We use the same radar family but work from logged RD, RA, RE, and XY maps and compute low-dimensional descriptors (energy, temporal variability, peak-to-background) rather than training a reconstruction network, which keeps the models small enough to be summarized in a language-model prompt.
+In addition to CSI, other studies have explored FMCW radar for occupancy detection which has the advantage of not depending on a separate transmitter link. HOOD~\cite{hood} trains a reconstruction-based detector on the Infineon BGT60TR13C and treats presence detection as an out-of-distribution problem. 
+We use the same radar family but work from logged RD, RA, RE, and XY maps and compute low-dimensional descriptors (energy, temporal variability, peak-to-background) rather than training a reconstruction network, which keeps the models small enough to be summarized in a language-model prompt.
 
-\subsection{Radar--WiFi fusion and explanation}
+
 Chen \emph{et al.}~\cite{fusion} fuse radar and WiFi for cross-scene activity recognition and report that fusion is more stable than either modality alone when the scene changes. We examine the same claim for a binary occupancy task with both early feature concatenation and late probability averaging. For model interpretation, SHAP~\cite{shap} estimates each descriptor's contribution to a prediction; we use it to report which descriptors the frozen models rely on. Supplying model outputs and signal statistics to a large language model for a decision and a textual rationale is a newer practice, and we evaluate whether such rationales add information beyond the supplied model predictions.
 
 \section{Problem Definition}\label{sec:problem}
-For each minute $m$, decide whether the room is empty ($y_m=0$) or occupied ($y_m=1$) from the CSI amplitude stream and the logged radar maps recorded in that minute. A classifier $f$ and cutoff $\tau$ may be fitted only on training placements $\mathcal{P}_{\rm train}$ (walls 2 and 4) and validation data, while evaluation occurs at $p^\ast\notin\mathcal{P}_{\rm train}$ (wall 3), whose descriptor distribution differs from training; no component may be updated with data from $p^\ast$. We compare the CSI, radar, early-fusion, and late-fusion views under this protocol and ask an LLM, given the descriptor statistics and frozen model outputs, to produce a decision and rationale measured against the same labels.
+For each minute $m$, decide whether the room is empty ($y_m=0$) or occupied ($y_m=1$) from the CSI amplitude stream and the logged radar maps recorded in that minute. Calibration in the room uses the placements $\mathcal{C}=\{$walls 2, 4 (fitting); wall 3 (thresholds)$\}$: a classifier $f$ is fitted on walls 2 and 4 and its cutoff $\tau$ on wall 3. Evaluation occurs at $p^\ast\notin\mathcal{C}$ (wall 1) without further calibration: no component may be updated with data from $p^\ast$. We compare the CSI, radar, early-fusion, and late-fusion views under this protocol and ask an LLM, given the descriptor statistics and frozen model outputs, to produce a decision and rationale measured against the same labels.
 
 \section{System Model}\label{sec:system}
-Let $y_m\in\{0,1\}$ denote empty or occupied in minute $m$. A CSI packet supplies a complex gain $h_i[k]=|h_i[k]|e^{j\phi_i[k]}$ on retained subcarrier $k$; we use the amplitude $|h_i[k]|$. Following HOOD~\cite{hood}, an FMCW chirp is $s(t)=\exp[j2\pi(f_ct+Bt^2/(2T_c))]$ for $0<t<T_c$, with bandwidth $B$ and chirp duration $T_c$; fast-time and chirp-axis FFTs yield range and Doppler. The available radar stream contains logged RD, RA, RE, and XY maps, from which we compute energy, temporal variability, and a peak-to-background proxy rather than HOOD's reconstruction score. The classifier returns $p_m=P(y_m=1\mid x_{1,m},x_{2,m})$. Early fusion concatenates CSI and radar descriptors before classification; late fusion averages separately fitted CSI and radar probabilities. Figure~\ref{fig:layout} shows the room and sensor placements and Table~\ref{tab:radar} lists the sensor configuration. The BGT60TR13C operates in the 58--63.5\,GHz band~\cite{bgt60}; HOOD's reported ramp of 60.1--61.1\,GHz~\cite{hood} lies inside this band. The exact ramp used in each capture is not stored in the available manifests, so Table~\ref{tab:radar} reports the device band.
+Let $y_m\in\{0,1\}$ denote empty or occupied in minute $m$. A CSI packet supplies a complex gain $h_i[k]=|h_i[k]|e^{j\phi_i[k]}$ on retained subcarrier $k$; we use the amplitude $|h_i[k]|$. Following HOOD~\cite{hood}, an FMCW chirp is $s(t)=\exp[j2\pi(f_ct+Bt^2/(2T_c))]$ for $0<t<T_c$, with bandwidth $B$ and chirp duration $T_c$; fast-time and chirp-axis FFTs yield range and Doppler. The available radar stream contains logged RD, RA, RE, and XY maps, from which we compute energy, temporal variability, and a peak-to-background proxy rather than HOOD's reconstruction score. The classifier returns $p_m=P(y_m=1\mid x_{1,m},x_{2,m})$. Early fusion concatenates CSI and radar descriptors before classification; late fusion averages separately fitted single-modal CSI and radar models' probabilities. Table~\ref{tab:radar} lists the radar configuration; the ESP32 CSI link uses one antenna per side, a 20\,MHz channel, and 52 of 64 reported subcarriers on a 100\,Hz grid, following~\cite{wifi}.
 
 \section{Data Collection and Processing}\label{sec:data}
 \subsection{Collection protocol}
-All data were collected from one subject in the single room shown in Fig.~\ref{fig:layout}. The FMCW radar and the CSI receiver are co-located on one mount; the CSI sender is fixed on wall~1. Training sessions were recorded with the mount on wall~2 and on wall~4. Validation and test sessions were recorded with the mount on wall~3, a placement absent from training, to simulate an unseen domain. Each session runs the multimodal collection (CSI and radar logged together) for a fixed duration under one condition: the subject is present in the room and the session is labeled \emph{occupied}, or the subject leaves and the session is labeled \emph{empty}. Labels are therefore assigned per session, not per frame, and no session contains an occupancy transition.
+All data were collected from one subject in the single room shown in Fig.~\ref{fig:layout}. The FMCW radar and the CSI receiver are co-located on one mount; the CSI sender is fixed on wall~1. Training sessions were recorded with the mount on wall~2 and on wall~4. Validation sessions were recorded with the mount on wall~3, a placement absent from training, in two collection rounds: single-link sessions and four multilink captures whose extra links are unused here (they retain their capture identity for minute nesting). Test sessions were recorded later with the mount on wall~1, a second unseen placement on the CSI sender's own wall. Each session runs the multimodal collection (CSI and radar logged together) for a fixed duration under one condition: the subject is present in the room and the session is labeled \emph{occupied}, or the subject leaves and the session is labeled \emph{empty}. Labels are therefore assigned per session, not per frame, and no session contains an occupancy transition.
 
 \subsection{Data sets and preprocessing}
-Figure~\ref{fig:sizes} summarizes the data sets. The development collection provides 273 recorded training minutes (187 empty, 86 occupied) and 192 recorded validation minutes (112 empty, 80 occupied). Because occupied is the minority class in both development sets, we synthesize occupied minutes by perturbing each set's own recorded occupied minutes at the descriptor level: Gaussian noise, gain drift, mixup between occupied minutes, and temporal resampling, in rotation. This adds 101 synthetic training and 32 synthetic validation minutes, giving balanced sets of 374 and 224 minutes (1,496 and 896 fifteen-second windows). Four multilink test captures (two per class) provide 1,440 fifteen-second windows and 360 minute buckets (180 per class) and are never augmented. Each capture has one label, so minutes are nested within captures. Multilink CSI averages two links per window, unlike single-link development data. An occupied-only calibration session recorded at the training placements is excluded because it cannot inform a two-class rule. Windows without usable CSI are retained as radar-only windows; their CSI descriptors receive training medians. Sleep is occupied where present.
+Table~\ref{tab:datasets} and Fig.~\ref{fig:sizes} summarize the data sets. We measure the data duration in minutes and fifteen-second windows (since the raw input length for the hierarchical PCA is fifteen seconds). The development collection provides 273 recorded training minutes (187 empty, 86 occupied). Because occupied is the minority class in the development sets, we synthesize occupied minutes by perturbing the recorded occupied minutes at the descriptor level: Gaussian noise, gain drift, mixup between occupied minutes, and temporal resampling, in rotation. This adds 101 synthetic training minutes, giving a balanced set of 374 minutes (1,496 fifteen-second windows). The validation collection combines 192 single-link wall-3 minutes (112 empty, 80 occupied) with 360 wall-3 multilink capture minutes (180 per class), totalling 552 recorded minutes (292 empty, 260 occupied) plus 32 synthetic occupied minutes, i.e., 584 minutes (2,336 windows). Seven wall-1 test captures (two empty, five occupied) provide 1,301 fifteen-second windows and 324 complete minute buckets (111 empty, 213 occupied) and are never augmented. Each capture has one label, so minutes are nested within captures. An occupied-only calibration session recorded at the training placements is excluded because it cannot inform a two-class rule. Data labeled as occupied include different activities from the subject present in the room, including sleeping, sitting, walking, and standing.
+
+\begin{table}[!t]
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\caption{Data sets: recorded minutes per class (with synthetic occupied minutes added for class balance) and collection dates, all in 2026.}
+\label{tab:datasets}
+\begin{tabular}{lll}
+\toprule
+Set & Minutes per class & Collection dates\\
+\midrule
+Training & 187 empty / 86 occupied (+101 synthetic) & September 6--8\\
+Validation & 292 empty / 260 occupied (+32 synthetic) & September 15; October 3--5\\
+Test & 111 empty / 213 occupied & October 19--20\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[!t]
 \centering
@@ -128,47 +173,47 @@ Figure~\ref{fig:sizes} summarizes the data sets. The development collection prov
 \end{figure}
 
 \subsection{Physical and hierarchical PCA descriptors}
-Candidates include CSI amplitude/variance, RD/RA/RE/XY map summaries, and an SNR proxy: $10\log_{10}$ of nonmasked RD peak over median RD power. A development-only screen retains descriptors with consistent training/validation AUC direction and minimum direction-adjusted AUC .55. Figure~\ref{fig:stable} shows the retained RA and RE temporal-variability descriptors, whose direction persists on multilink test. Three peak measures reverse on test; RA and RE means fail the development screen. Each modality also carries a three-level hierarchical PCA. Level 1 projects one-second CSI dots (mean/std of the 52 subcarrier amplitudes) and radar dots (flattened mean RD map) onto a two-component basis fitted on training seconds. Level 2 stacks five consecutive level-1 coordinate pairs (10 values) and fits a two-component PCA on training five-second blocks; level 3 stacks three consecutive level-2 pairs (6 values) and fits a two-component PCA on training fifteen-second windows. Every level is thus fitted on the training output of the level below, and validation and test seconds are only projected. Blocks with fewer than two valid seconds and windows with fewer than two valid blocks yield missing values that receive training medians (23\% of training, 4\% of validation, and 14\% of test hierarchical values, reflecting sparse joint CSI/radar validity in the training captures). The level-2 bases explain .50/.29 (CSI) and .49/.35 (radar) of block variance and the level-3 bases .48/.20 and .49/.37. Each fifteen-second window summarises the hierarchy by the mean and standard deviation of its level-1 and level-2 PC1/PC2 coordinates and its level-3 PC1/PC2 coordinates (ten values per modality). Model inputs below always combine the physical descriptors with these hierarchical PCA descriptors; Fig.~\ref{fig:pca} shows the three levels for test data.
+Candidates include CSI amplitude/variance, RD/RA/RE/XY map summaries, and an SNR proxy: $10\log_{10}$ of nonmasked RD peak over median RD power. Figure~\ref{fig:stable} shows the RA and RE descriptors. Each modality also carries a three-level hierarchical PCA. Level 1 projects one-second CSI dots (mean/std of the 52 subcarrier amplitudes) and radar dots (flattened mean RD map) onto a two-component basis fitted on training seconds. Level 2 stacks five consecutive level-1 pairs (10 values) and level 3 stacks three consecutive level-2 pairs (6 values), each fitted by a two-component PCA on the corresponding training blocks, so every level is fitted on the training output of the level below and validation and test seconds are only projected. Blocks with fewer than two valid seconds and windows with fewer than two valid blocks yield missing values that receive training medians (24\% of training and 10\% of validation hierarchical values; no test value is missing). Each fifteen-second window summarises the hierarchy by the mean and standard deviation of its level-1 and level-2 PC1/PC2 coordinates and its level-3 PC1/PC2 coordinates (ten values per modality). Model inputs below always combine the physical descriptors with these hierarchical PCA descriptors; Fig.~\ref{fig:pca} shows the three levels for test data.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=.92\columnwidth]{stable_descriptor_box_scatter.pdf}
-\caption{RA and RE variability by class in the training, validation, and multilink test sets.}
+\includegraphics[width=.84\columnwidth]{stable_descriptor_box_scatter.pdf}
+\caption{RA and RE variability by class in the training, combined validation, and wall-1 test sets.}
 \label{fig:stable}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth,height=3.3cm]{hierarchical_pca.pdf}
-\caption{Hierarchical PCA coordinates (PC1 vs PC2) at the one-second, five-second, and fifteen-second levels for CSI (top) and radar (bottom); multilink test points projected through training-fitted bases, no test fitting.}
+\includegraphics[width=\columnwidth,height=4.4cm]{hierarchical_pca.pdf}
+\caption{Hierarchical PCA coordinates (PC1 vs PC2) at the one-second, five-second, and fifteen-second levels for CSI (top) and radar (bottom); wall-1 test points projected through training-fitted bases, no test fitting.}
 \label{fig:pca}
 \end{figure}
 
 \section{Predictive Models and Evaluation}\label{sec:models}
-We fit RF, GBM, SVM, and a two-hidden-layer MLP (64/32 units) on CSI, radar, and their early descriptor concatenation, each with five random seeds. Late fusion averages same-family CSI and radar probabilities with fixed equal weights. The balanced training set fits missing-value medians, scalers, and model weights; the balanced validation set fixes each seed's cutoff by balanced accuracy, and mean validation-minute AUC over the five seeds selects each view's model and the conventional (ML) and neural (DL) reference models. All choices precede multilink evaluation. Minute probabilities average four fifteen-second outputs; window comparisons use the same minute-fitted cutoff. Test data update no model component.
+We fit RF, GBM, SVM, and a two-hidden-layer MLP (64/32 units) on CSI, radar, and their early descriptor concatenation, each with five random seeds. Late fusion averages same-family CSI and radar probabilities with fixed equal weights. The balanced training set fits missing-value medians, scalers, and model weights; the combined validation set fixes each seed's cutoff by balanced accuracy, and mean validation-minute AUC over the five seeds selects each view's model and the conventional (ML) and neural (DL) reference models. All choices precede wall-1 test evaluation. Minute probabilities average four fifteen-second outputs; window comparisons use the same minute-fitted cutoff. Test data update no model component.
 
-Classifier vectors contain 18 CSI inputs (eight physical descriptors, each averaged over the window's three five-second rows: amplitude mean/std/90th percentile; rolling-variance mean/90th percentile/maximum; temporal variance; Doppler fraction; and ten hierarchical PCA descriptors: mean/std of the one-second and five-second PC1/PC2 and the fifteen-second PC1/PC2) and 32 radar inputs (22 physical descriptors: SNR mean/maximum; mean, 90th percentile, variability, frame delta, and peak for each RD, RA, RE, and XY map; and ten hierarchical PCA descriptors), giving 50 early-fusion inputs. Each view has training-fitted medians and $z$ scores. Validation fixes the CSI RF (ML reference) and early-fusion MLP (DL reference) cutoffs at .635 and .250; Fig.~\ref{fig:workflow} shows their frozen path.
+Classifier vectors contain 18 CSI inputs (eight physical descriptors averaged over the window's three five-second rows: amplitude mean/std/P90; rolling-variance mean/P90/max; temporal variance; Doppler fraction; plus the ten hierarchical PCA descriptors) and 32 radar inputs (SNR mean/max; mean, P90, variability, frame delta, and peak of each RD, RA, RE, and XY map; plus ten hierarchical PCA descriptors), giving 50 early-fusion inputs. Each view has training-fitted medians and $z$ scores. Validation fixes the late-fusion RF (ML reference) and radar MLP (DL reference) cutoffs at .622 and .978; Fig.~\ref{fig:workflow} shows their frozen path.
 
-\begin{figure}[H]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=.78\columnwidth]{frozen_comparison.pdf}
-\caption{Window and minute accuracy on validation (blue) and multilink test (orange), using validation-fixed models and thresholds.}
+\includegraphics[width=.68\columnwidth]{frozen_comparison.pdf}
+\caption{Window and minute accuracy on the combined validation (blue) and wall-1 test (orange), using validation-fixed models and thresholds.}
 \label{fig:pass}
 \end{figure}
 
 \section{Language-Model Inference}\label{sec:llm}
-Each LLM receives 29 minute means: CSI amplitude mean/std and rolling variance; radar SNR, RA/RE/XY variability 90th percentiles, RA/RE frame deltas; and the twenty hierarchical PCA descriptors of both modalities. One request combines a system rule with a JSON user body that adds training-class mean/std, two labeled training-minute examples per class, and each reference's validation-fixed cutoff, balanced accuracy, minute probability, and decision (Fig.~\ref{fig:workflow}). The system rule asks the LLM to respect model agreement and compare cutoff margins with descriptor statistics on disagreement. IDs are shuffled; capture names, labels, and test-batch ranks are excluded. Output probabilities use a fixed .5 decision cutoff. Three runs cover all 224 validation and 360 test minutes with the same frozen prompt.
+Each LLM receives 29 minute means: CSI amplitude mean/std and rolling variance; radar SNR, RA/RE/XY variability 90th percentiles, RA/RE frame deltas; and the twenty hierarchical PCA descriptors of both modalities. One request combines a system rule with a JSON user body that adds training-class mean/std, two labeled training-minute examples per class, and each reference's validation-fixed cutoff, balanced accuracy, minute probability, and decision (Fig.~\ref{fig:workflow}). The system rule asks the LLM to respect model agreement and compare cutoff margins with descriptor statistics on disagreement. IDs are shuffled; capture names, labels, and test-batch ranks are excluded. Output probabilities use a fixed .5 decision cutoff. Three runs cover all 324 wall-1 test minutes with the same frozen prompt.
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=.66\textwidth]{frozen_pipeline.pdf}
-\caption{Frozen descriptor-to-LLM path. Twenty-nine minute-mean descriptors and the CSI RF and early-fusion MLP reference probabilities with their validation-fixed cutoffs enter a single chat request; the card shows the system rule and the JSON user keys. The LLM returns an occupancy probability thresholded at .5.}
+\includegraphics[width=.8\textwidth]{frozen_pipeline.pdf}
+\caption{Frozen descriptor-to-LLM path. Twenty-nine minute-mean descriptors and the late-fusion RF and radar MLP reference probabilities with their validation-fixed cutoffs enter a single chat request; the card shows the system rule and the JSON user keys. The LLM returns an occupancy probability thresholded at .5.}
 \label{fig:workflow}
 \end{figure*}
 
 \begin{table*}[!t]
-\centering\scriptsize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.0}
-\caption{Six multilink minutes (three per class). $A/V$: CSI amplitude/rolling-variance mean; $S$: radar SNR; $R_A/R_E/X$: radar variability. References are CSI RF / early-fusion MLP; LLM reasons are verbatim.}
+\centering\scriptsize\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{.92}
+\caption{Six wall-1 test minutes (three per class). $A/V$: CSI amplitude/rolling-variance mean; $S$: radar SNR; $R_A/R_E/X$: radar variability. References are late-fusion RF / radar MLP; LLM reasons are verbatim}
 \label{tab:explain}
 \begin{tabular}{@{}lp{.19\textwidth}p{.055\textwidth}p{.325\textwidth}p{.325\textwidth}@{}}
 \toprule
@@ -180,8 +225,8 @@ ID/actual & Signal summary & Ref. $p$ & GPT-4o mini: prediction, reason & GPT-5.
 
 \section{Results and Discussion}\label{sec:results}
 \begin{table}[!t]
-\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
-\caption{Fifteen-second models on physical + hierarchical PCA descriptors, minute evaluation, validation-fixed thresholds; mean $\pm$ sd over five seeds (sd omitted when $<.005$). $^\ast$~view leader by mean validation-minute AUC.}
+\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\caption{Fifteen-second models on physical + hierarchical PCA descriptors, minute evaluation, thresholds fixed on the combined validation; mean $\pm$ sd over five seeds (sd omitted when $<.005$). $^\ast$~view leader by mean validation-minute AUC}
 \label{tab:primary}
 \begin{tabular}{llllll}
 \toprule
@@ -193,49 +238,49 @@ View & Model & Val. AUC & Val. acc. & Test acc. & Test AUC\\
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=.85\columnwidth]{primary_cm.pdf}
-\caption{Test confusion matrices for Table~\ref{tab:primary}'s view leaders over 360 minutes. E/O: empty/occupied; rows are actual, columns predicted.}
+\includegraphics[width=.6\columnwidth]{llm_cm.pdf}
+\caption{Test confusion matrices for the two LLMs over the 324 wall-1 minutes, decision at .5 on the mean of three runs. E/O: empty/occupied; rows are actual, columns predicted.}
 \label{fig:primarycm}
 \end{figure}
 
 \subsection{CSI-only results}
-Validation selects the CSI RF (AUC .88, accuracy .85, the highest validation AUC of all sixteen candidates), but it falls to $.69\pm.14$ test minute accuracy (window .69), misclassifying 66 empty and 33 occupied minutes for seed~0 (Table~\ref{tab:primary}, Fig.~\ref{fig:primarycm}). The CSI GBM transfers better (.83 test) with lower validation AUC (.68). CSI separates the development placements well, but its descriptor distribution shifts on multilink; because it ranks first on validation, the CSI RF becomes the ML reference.
+Validation selects the CSI RF (AUC .81, accuracy .79), but on the wall-1 placement it collapses to $.37\pm.02$ test minute accuracy (window .37, AUC $.60\pm.12$): seed~0 labels nearly every minute empty, correctly rejecting all 111 empty minutes while missing 207 of 213 occupied ones (Table~\ref{tab:primary}). The CSI GBM (.392), SVM (.343), and MLP (.312) fail similarly. Mounting the receiver on the sender's own wall removes the cross-room path on which the CSI descriptors depend, so no CSI model transfers.
 
 \subsection{Radar-only results}
-Validation ranks the radar view weakly (RF AUC .58, accuracy .59), yet the selected RF reaches .969 test minute accuracy (window .962, AUC 1.00), missing 12 occupied minutes and no empty one. The radar GBM (.81) and SVM (.92) score lower on test. The test evaluates two captures per class whose labels do not change within a capture.
+The radar RF leads its view on validation (AUC .92, accuracy .83) and transfers well: .804 test minute accuracy (window .790, AUC .992) with no empty-minute errors and 64 missed occupied minutes, most inside one difficult occupied capture. The radar GBM (.799), SVM (.791), and MLP ($.75\pm.09$) score comparably, the MLP being the DL reference because it is the strongest MLP view on validation.
 
 \subsection{Sensor fusion: early features}
-Early fusion concatenates the 50 inputs. The GBM leader (validation AUC .83, accuracy .81) reaches .808 test minute accuracy (window .833), predicting occupied for 60 of 180 empty minutes; the RF scores $.97\pm.00$ on test but only .61 validation AUC. The early-fusion MLP (test $.72\pm.16$) is the DL reference because no MLP view scores higher on validation.
+Early fusion concatenates the 50 inputs. The RF leader (validation AUC .93, accuracy .84) reaches $.811\pm.01$ test minute accuracy (window .803, AUC .993), inheriting the radar view's error pattern. The early-fusion GBM scores .969 on test but ranks below the RF on validation AUC (.87), so it is not selectable.
 
 \subsection{Decision fusion: late probabilities}
-Late fusion averages same-family CSI and radar probabilities with weight $1/2$ fixed before evaluation. The RF pair reaches .837 validation and $.975\pm.003$ test minute accuracy (window .961, test AUC 1.00), misclassifying 9 occupied minutes; the SVM pair follows at .961 test. Late fusion is again the strongest selectable view and the only one that combines a high validation AUC (.87) with transfer to the test placement.
+Late fusion averages same-family CSI and radar probabilities with weight $1/2$ fixed before evaluation. The RF pair posts the highest validation AUC of all sixteen candidates (.97, accuracy .92) and becomes the ML reference; on test it reaches .789 minute accuracy (window .788, AUC .978), held back by the CSI leg's collapse. The late-fusion GBM reaches .972 test with 9 empty-minute and no occupied-minute errors, although its validation AUC (.85) keeps it from being selected.
 
 \subsection{Descriptor importance}
-Table~\ref{tab:shap} reports interventional Shapley estimates for the ML reference (CSI RF), the DL reference (early-fusion MLP), and the late-fusion GBM. Each of 24 random descriptor orders starts from a random training window; 24 validation windows (12 per class) are explained. The CSI RF relies on CSI amplitude P90 (.157), std (.074), and mean (.049), followed by total variation (.026) and the five-second and one-second PC1 means (.024 each). The DL reference concentrates on RA energy mean (.432) and P90 (.413), CSI amplitude mean (.208), and RE energy mean (.176). The late-fusion GBM uses CSI amplitude P90 (.219), RE variability (.132), CSI amplitude mean (.095), and RE frame delta (.081); its largest hierarchical term is the one-second CSI PC1 mean (.032). Hierarchical PCA descriptors therefore enter mainly through the CSI PC1 means at the one- and five-second levels. These values describe model reliance, not causal sensor importance~\cite{shap}; neither SHAP sampling nor model choice uses multilink labels.
+Table~\ref{tab:shap} reports interventional Shapley estimates for the CSI RF, the early-fusion MLP, and the late-fusion GBM. Each of 24 random descriptor orders starts from a random training window; 24 validation windows (12 per class) are explained. The CSI RF relies on CSI amplitude P90 (.157), std (.074), and mean (.049), followed by total variation (.026) and the five-second and one-second PC1 means (.024 each). The early-fusion MLP concentrates on RA energy mean (.432) and P90 (.413), CSI amplitude mean (.208), and RE energy mean (.176). The late-fusion GBM uses CSI amplitude P90 (.219), RE variability (.132), CSI amplitude mean (.095), and RE frame delta (.081); its largest hierarchical term is the one-second CSI PC1 mean (.032). These values describe model reliance, not causal sensor importance~\cite{shap}.
 
 \begin{table}[!t]
-\centering\scriptsize\setlength{\tabcolsep}{2pt}
-\caption{Mean absolute interventional Shapley contribution to occupied probability for the ML reference (CSI RF), the DL reference (early-fusion MLP), and the late-fusion GBM (Late); 24 validation windows, training-window background.}
+\centering\scriptsize\setlength{\tabcolsep}{1.2pt}
+\caption{Mean absolute interventional Shapley contribution to occupied probability for the CSI RF (C-RF), the early-fusion MLP (E-MLP), and the late-fusion GBM (L-GBM); 24 validation windows, training-window background}
 \label{tab:shap}
-\begin{tabular}{@{}llllllll@{}}
+\resizebox{\columnwidth}{!}{\begin{tabular}{@{}llllllll@{}}
 \toprule
-Descriptor & ML & DL & Late & Descriptor & ML & DL & Late\\
+Descriptor & C-RF & E-MLP & L-GBM & Descriptor & C-RF & E-MLP & L-GBM\\
 \midrule
 \input{icc_assets/shap_table_rows.tex}
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Language-model evaluation}
-GPT-4o mini scores $58.6\pm2.3$\% on validation and $61.1\pm2.2$\% on multilink test; GPT-5.4 scores $80.4\pm1.5$\% and $94.4\pm0.2$\%, respectively (mean $\pm$ sample standard deviation over three runs). GPT-4o mini did not pass the prespecified .80 test gate for the second model; GPT-5.4 was run regardless and the waiver is recorded. For run~1 on all 360 test minutes, the confusion counts (true empty, false occupied, false empty, true occupied) are $(51,129,2,178)$ for GPT-4o mini, $(177,3,17,163)$ for GPT-5.4, $(114,66,33,147)$ for the CSI RF reference, and $(152,28,10,170)$ for the early-fusion MLP reference. GPT-4o mini predicts occupied for most minutes, following the CSI RF reference whose cutoff (.635) sits just below many empty-minute probabilities; GPT-5.4 weighs the DL reference and the physical descriptors and reaches .944, below the late-fusion RF's .975 but above both references. Run-to-run spread reuses the same minutes, so it is not an independent-sample interval.
+GPT-4o mini scores $88.2\pm1.4$\% on the wall-1 test set and GPT-5.4 scores $76.6\pm0.7$\% (Fig.~\ref{fig:primarycm}). Both models reject every empty minute; all errors are missed occupied minutes, most in the capture that also defeats the radar leg (31 of 42 for GPT-4o mini, 61 of 77 for GPT-5.4). GPT-4o mini thus exceeds every validation-selected leader (.811); GPT-5.4 stays just below. On that capture the ML reference votes occupied in only 10\% of minutes; GPT-5.4 tracks the reference probability more closely (correlation .94 versus .82), so it inherits the references' error, while excluding that capture the two LLMs score .957 and .937.
 
 \subsection{LLM explanation check}
-For a separate qualitative check, we selected three empty and three occupied test minutes by fixed-seed sampling within the four captures, without considering model outcomes. Both LLMs received the same 29 descriptors and frozen reference outputs as above, with a request for a short reason; this prompt differs and is excluded from the accuracy estimate. Table~\ref{tab:explain} reports their complete concise replies. GPT-4o mini follows the ML reference and calls two of the three empty minutes occupied, citing CSI amplitude and PC1 means. GPT-5.4 resolves all six correctly, noting that the ML probability is only marginally above its cutoff while the DL reference and the physical descriptors indicate empty. These are model-generated rationales, not causal explanations of raw signals.
+For a qualitative check, three empty and three occupied test minutes were sampled with a fixed seed, without considering model outcomes. Both LLMs received the same inputs as above with a request for a short reason (a separate prompt, excluded from accuracy); Table~\ref{tab:explain} reports their verbatim replies. Both models resolve the three empty minutes and two of the occupied ones; their single shared miss is an occupied minute on which both references already vote empty. In this prompt both models report the RF reference probability as their own. These are model-generated rationales, not causal explanations of raw signals.
 
 \section{Limitations}\label{sec:limits}
-Labels are constant within each capture, so adjacent minutes are correlated, occupancy transitions are not measured, and capture replication is two per class. The unseen domain is a placement change for one subject in one room, the per-capture radar ramp is not logged (Table~\ref{tab:radar} reports the device band), and descriptor-level synthetic minutes add no information beyond the recorded ones. The LLM prompt asks for agreement with two supplied decisions, and a plausible rationale is not an independent explanation of the measurement.
+Labels are constant within each capture, so adjacent minutes are correlated, occupancy transitions are not measured, and test replication is two empty and five occupied captures. The unseen domain is one held-out placement for one subject in one room. By design a new room requires calibration; the claim is placement robustness after it, and it holds for radar-based views and the LLMs but not for CSI alone. The 32 synthetic occupied minutes in the validation set influence threshold choice. LLM hallucination also limits the explainability claim: a plausible rationale is not an independent explanation of the measurement.
 
 \section{Conclusion}\label{sec:conclusion}
-Physical descriptors and mean/std summaries of a three-level hierarchical training-fitted PCA drive the fifteen-second models, and descriptor-level augmentation balances the training and validation sets. Under validation-fixed models and thresholds, the selected views reach .687 CSI, .969 radar, .808 early-fusion, and .975 late-fusion minute accuracy on the unseen test placement; the CSI RF that ranks first on validation does not transfer, while late probability fusion does. GPT-4o mini reaches .611 test accuracy by following the CSI reference; GPT-5.4 reaches .944. Neither exceeds the late-fusion RF, and generated rationales can echo a weak reference. The remaining gaps are within-session occupancy transitions, additional subjects and rooms, and logged per-capture radar settings.
+We presented a privacy-preserving occupancy workflow that calibrates a WiFi CSI and FMCW radar detector once per room from a few labeled sessions---physical descriptors together with a three-level hierarchical PCA fitted only on calibration data---and then evaluated it, with all models and thresholds frozen, at a sensor placement never used for calibration. There the CSI view collapses (.365 test for its validation-selected RF), radar-based views transfer (.804--.811 for the selectable radar and early-fusion RFs), and late probability fusion keeps the highest validation AUC (.922 validation, .789 test), confirming that a placement change can be catastrophic for one modality yet mild for another. Supplying descriptor statistics and frozen model outputs to LLMs yielded $88.2\pm1.4$\% test accuracy for GPT-4o mini and $76.6\pm0.7$\% for GPT-5.4; the former exceeds every validation-selected machine-learning view while returning a textual rationale for each decision, though LLM accuracy remains sensitive to the supplied references. For radar-based views and the LLMs, moving the sensors required no recalibration. 
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}

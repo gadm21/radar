@@ -1,0 +1,61 @@
+{
+  "model": "gpt-4o-mini",
+  "purpose": "qualitative explanations only; excluded from accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, the hierarchical training-basis PCA descriptors (mean/std of one-second and five-second PC1/PC2 and the fifteen-second PC1/PC2; null marks missing values), training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "32eb98c6e587959c3f7a691fdce1c21796a5c13af503adb6bd71135298737907",
+  "response": {
+    "results": [
+      {
+        "id": "m0096",
+        "occupied_probability": 0.4141,
+        "predicted_class": "empty",
+        "reason": "CSI amplitude and radar features align with empty class; ML probability below threshold."
+      },
+      {
+        "id": "m0235",
+        "occupied_probability": 0.3699,
+        "predicted_class": "empty",
+        "reason": "Similar CSI and radar features to empty examples; low ML and DL probabilities."
+      },
+      {
+        "id": "m0155",
+        "occupied_probability": 0.3844,
+        "predicted_class": "empty",
+        "reason": "CSI and radar features suggest empty; both model probabilities below thresholds."
+      },
+      {
+        "id": "m0195",
+        "occupied_probability": 0.7231,
+        "predicted_class": "occupied",
+        "reason": "High CSI amplitude and radar features consistent with occupied class; both model probabilities above thresholds."
+      },
+      {
+        "id": "m0162",
+        "occupied_probability": 0.5871,
+        "predicted_class": "empty",
+        "reason": "Conflicting evidence; high CSI but ML prediction indicates empty."
+      },
+      {
+        "id": "m0041",
+        "occupied_probability": 0.7069,
+        "predicted_class": "occupied",
+        "reason": "Strong CSI and radar evidence for occupied; both model probabilities confirm."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 4408,
+    "completion_tokens": 322,
+    "total_tokens": 4730,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

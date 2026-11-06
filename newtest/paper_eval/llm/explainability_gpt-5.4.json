@@ -1,0 +1,61 @@
+{
+  "model": "gpt-5.4",
+  "purpose": "qualitative explanations only; excluded from accuracy",
+  "system_prompt": "You are assessing six preselected room-occupancy minutes from WiFi CSI and FMCW radar. Use only the supplied physical descriptors, the hierarchical training-basis PCA descriptors (mean/std of one-second and five-second PC1/PC2 and the fifteen-second PC1/PC2; null marks missing values), training-class statistics/examples, and two fixed model probabilities and predictions. The input does not contain raw waveforms or images, so do not claim to have inspected them. For each ID return occupied_probability (0..1), predicted_class (empty or occupied), and a reason of at most 22 words naming specific CSI evidence, radar evidence, and the reference-model outputs. Explain conflicts or weak evidence honestly. Do not use sample ordering or infer prevalence. Return a JSON object with a results array.",
+  "request_sha256": "32eb98c6e587959c3f7a691fdce1c21796a5c13af503adb6bd71135298737907",
+  "response": {
+    "results": [
+      {
+        "id": "m0096",
+        "occupied_probability": 0.4141,
+        "predicted_class": "empty",
+        "reason": "CSI motion metrics look empty-like despite extreme PC shifts; radar PCs strongly non-occupied; RF-fusion 0.414 empty, radar-MLP 0.004 empty."
+      },
+      {
+        "id": "m0235",
+        "occupied_probability": 0.3699,
+        "predicted_class": "empty",
+        "reason": "CSI ra/re/xy spreads remain empty-like though PC means are unusual; radar PCs are strongly negative empty-like; RF-fusion 0.370 empty, radar-MLP 0.015 empty."
+      },
+      {
+        "id": "m0155",
+        "occupied_probability": 0.3844,
+        "predicted_class": "empty",
+        "reason": "CSI spreads and deltas are empty-like despite very large PCA offsets; radar PCs strongly negative empty-like; RF-fusion 0.384 empty, radar-MLP 0.002 empty."
+      },
+      {
+        "id": "m0195",
+        "occupied_probability": 0.7231,
+        "predicted_class": "occupied",
+        "reason": "CSI ra/re spreads exceed empty and approach occupied; radar remains atypically negative, conflicting; RF-fusion 0.723 occupied, radar-MLP 1.000 occupied."
+      },
+      {
+        "id": "m0162",
+        "occupied_probability": 0.5871,
+        "predicted_class": "empty",
+        "reason": "CSI ra/re/xy and deltas are occupied-like with huge PC offsets, but radar PCs stay negative empty-like; RF-fusion 0.587 empty, radar-MLP 0.841 empty."
+      },
+      {
+        "id": "m0041",
+        "occupied_probability": 0.7069,
+        "predicted_class": "occupied",
+        "reason": "CSI ra/re/xy spreads and deltas are strongly occupied-like; radar PCs still negative so conflict remains; RF-fusion 0.707 occupied, radar-MLP 1.000 occupied."
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 4407,
+    "completion_tokens": 389,
+    "total_tokens": 4796,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+    }
+  }
+}

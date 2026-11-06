@@ -1,0 +1,85 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{bgt60}
+\citation{hood}
+\citation{deman}
+\citation{sharp}
+\citation{litehar}
+\citation{wifi}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Related Work}{1}{section.2}\protected@file@percent }
+\newlabel{sec:related}{{II}{1}{Related Work}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}WiFi CSI sensing}{1}{subsection.2.1}\protected@file@percent }
+\citation{hood}
+\citation{fusion}
+\citation{shap}
+\citation{hood}
+\citation{wifi}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Proposed occupancy training/deployment workflow: calibrate a pretrained model in a new room from a few labeled sessions, then evaluate at placements not used for calibration, with no further updates. Italic notes give this study's instantiation.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:workflowconcept}{{1}{2}{Proposed occupancy training/deployment workflow: calibrate a pretrained model in a new room from a few labeled sessions, then evaluate at placements not used for calibration, with no further updates. Italic notes give this study's instantiation}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Room layout, sensor placements, and collection hardware. The co-located FMCW radar and CSI receiver were mounted on wall~4 and wall~2 for training sessions, on wall~3 for validation sessions, and on wall~1 for test sessions; the CSI sender remained fixed on wall~1, so the test placement puts the receiver on the sender's own wall. Photographs show the DreamHAT+ mm-wave radar HAT mounted on its Raspberry Pi host (left) and the ESP32 board used for CSI collection (right).}}{2}{figure.2}\protected@file@percent }
+\newlabel{fig:layout}{{2}{2}{Room layout, sensor placements, and collection hardware. The co-located FMCW radar and CSI receiver were mounted on wall~4 and wall~2 for training sessions, on wall~3 for validation sessions, and on wall~1 for test sessions; the CSI sender remained fixed on wall~1, so the test placement puts the receiver on the sender's own wall. Photographs show the DreamHAT+ mm-wave radar HAT mounted on its Raspberry Pi host (left) and the ESP32 board used for CSI collection (right)}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces FMCW radar configuration. Operating band from the BGT60TR13C product brief~\cite  {bgt60}; frame structure follows HOOD~\cite  {hood}}}{2}{table.1}\protected@file@percent }
+\newlabel{tab:radar}{{I}{2}{FMCW radar configuration. Operating band from the BGT60TR13C product brief~\cite {bgt60}; frame structure follows HOOD~\cite {hood}}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Problem Definition}{2}{section.3}\protected@file@percent }
+\newlabel{sec:problem}{{III}{2}{Problem Definition}{section.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}System Model}{2}{section.4}\protected@file@percent }
+\newlabel{sec:system}{{IV}{2}{System Model}{section.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Data Collection and Processing}{3}{section.5}\protected@file@percent }
+\newlabel{sec:data}{{V}{3}{Data Collection and Processing}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Collection protocol}{3}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Data sets and preprocessing}{3}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Physical and hierarchical PCA descriptors}{3}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Data sets: recorded minutes per class (with synthetic occupied minutes added for class balance) and collection dates, all in 2026.}}{3}{table.2}\protected@file@percent }
+\newlabel{tab:datasets}{{II}{3}{Data sets: recorded minutes per class (with synthetic occupied minutes added for class balance) and collection dates, all in 2026}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Data sizes in minutes per class: recorded (solid) and synthesized occupied minutes added for class balance (hatched). Test captures are never augmented.}}{3}{figure.3}\protected@file@percent }
+\newlabel{fig:sizes}{{3}{3}{Data sizes in minutes per class: recorded (solid) and synthesized occupied minutes added for class balance (hatched). Test captures are never augmented}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces RA and RE variability by class in the training, combined validation, and wall-1 test sets.}}{3}{figure.4}\protected@file@percent }
+\newlabel{fig:stable}{{4}{3}{RA and RE variability by class in the training, combined validation, and wall-1 test sets}{figure.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Predictive Models and Evaluation}{3}{section.6}\protected@file@percent }
+\newlabel{sec:models}{{VI}{3}{Predictive Models and Evaluation}{section.6}{}}
+\citation{shap}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Hierarchical PCA coordinates (PC1 vs PC2) at the one-second, five-second, and fifteen-second levels for CSI (top) and radar (bottom); wall-1 test points projected through training-fitted bases, no test fitting.}}{4}{figure.5}\protected@file@percent }
+\newlabel{fig:pca}{{5}{4}{Hierarchical PCA coordinates (PC1 vs PC2) at the one-second, five-second, and fifteen-second levels for CSI (top) and radar (bottom); wall-1 test points projected through training-fitted bases, no test fitting}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Window and minute accuracy on the combined validation (blue) and wall-1 test (orange), using validation-fixed models and thresholds.}}{4}{figure.6}\protected@file@percent }
+\newlabel{fig:pass}{{6}{4}{Window and minute accuracy on the combined validation (blue) and wall-1 test (orange), using validation-fixed models and thresholds}{figure.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Language-Model Inference}{4}{section.7}\protected@file@percent }
+\newlabel{sec:llm}{{VII}{4}{Language-Model Inference}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results and Discussion}{4}{section.8}\protected@file@percent }
+\newlabel{sec:results}{{VIII}{4}{Results and Discussion}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-A}}CSI-only results}{4}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-B}}Radar-only results}{4}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-C}}Sensor fusion: early features}{4}{subsection.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-D}}Decision fusion: late probabilities}{4}{subsection.8.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-E}}Descriptor importance}{4}{subsection.8.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Frozen descriptor-to-LLM path. Twenty-nine minute-mean descriptors and the late-fusion RF and radar MLP reference probabilities with their validation-fixed cutoffs enter a single chat request; the card shows the system rule and the JSON user keys. The LLM returns an occupancy probability thresholded at .5.}}{5}{figure.7}\protected@file@percent }
+\newlabel{fig:workflow}{{7}{5}{Frozen descriptor-to-LLM path. Twenty-nine minute-mean descriptors and the late-fusion RF and radar MLP reference probabilities with their validation-fixed cutoffs enter a single chat request; the card shows the system rule and the JSON user keys. The LLM returns an occupancy probability thresholded at .5}{figure.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Six wall-1 test minutes (three per class). $A/V$: CSI amplitude/rolling-variance mean; $S$: radar SNR; $R_A/R_E/X$: radar variability. References are late-fusion RF / radar MLP; LLM reasons are verbatim}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:explain}{{III}{5}{Six wall-1 test minutes (three per class). $A/V$: CSI amplitude/rolling-variance mean; $S$: radar SNR; $R_A/R_E/X$: radar variability. References are late-fusion RF / radar MLP; LLM reasons are verbatim}{table.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Test confusion matrices for the two LLMs over the 324 wall-1 minutes, decision at .5 on the mean of three runs. E/O: empty/occupied; rows are actual, columns predicted.}}{5}{figure.8}\protected@file@percent }
+\newlabel{fig:primarycm}{{8}{5}{Test confusion matrices for the two LLMs over the 324 wall-1 minutes, decision at .5 on the mean of three runs. E/O: empty/occupied; rows are actual, columns predicted}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-F}}Language-model evaluation}{5}{subsection.8.6}\protected@file@percent }
+\bibstyle{IEEEtran}
+\bibdata{refs}
+\bibcite{bgt60}{1}
+\bibcite{hood}{2}
+\bibcite{deman}{3}
+\bibcite{sharp}{4}
+\bibcite{litehar}{5}
+\bibcite{wifi}{6}
+\bibcite{fusion}{7}
+\bibcite{shap}{8}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Fifteen-second models on physical + hierarchical PCA descriptors, minute evaluation, thresholds fixed on the combined validation; mean $\pm $ sd over five seeds (sd omitted when $<.005$). $^\ast $~view leader by mean validation-minute AUC}}{6}{table.4}\protected@file@percent }
+\newlabel{tab:primary}{{IV}{6}{Fifteen-second models on physical + hierarchical PCA descriptors, minute evaluation, thresholds fixed on the combined validation; mean $\pm $ sd over five seeds (sd omitted when $<.005$). $^\ast $~view leader by mean validation-minute AUC}{table.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Mean absolute interventional Shapley contribution to occupied probability for the CSI RF (C-RF), the early-fusion MLP (E-MLP), and the late-fusion GBM (L-GBM); 24 validation windows, training-window background}}{6}{table.5}\protected@file@percent }
+\newlabel{tab:shap}{{V}{6}{Mean absolute interventional Shapley contribution to occupied probability for the CSI RF (C-RF), the early-fusion MLP (E-MLP), and the late-fusion GBM (L-GBM); 24 validation windows, training-window background}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-G}}LLM explanation check}{6}{subsection.8.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Limitations}{6}{section.9}\protected@file@percent }
+\newlabel{sec:limits}{{IX}{6}{Limitations}{section.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {X}Conclusion}{6}{section.10}\protected@file@percent }
+\newlabel{sec:conclusion}{{X}{6}{Conclusion}{section.10}{}}
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.1}\protected@file@percent }
+\gdef \@abspage@last{6}

@@ -1,0 +1,15 @@
+scoring newtest captures ...
+  empty_2fa6d3f1bf90: 240 windows
+  empty_whispy: 207 windows
+  occupied_whispy: 208 windows
+  occupied_whispy2: 160 windows
+  occupied_whispy11: 286 windows
+  occupied_whispy12: 120 windows
+  capture3_768c3d688716: 80 windows
+predicting window probabilities ...
+building combined-validation probabilities ...
+computing metrics ...
+selected: {'CSI': 'RF|CSI', 'radar': 'RF|radar', 'early fusion': 'RF|early fusion', 'late probability fusion': 'RF|late probability fusion'}
+refs: ML=RF|late probability fusion DL=MLP|radar
+val minutes 584  test minutes 324  windows 1301
+elapsed 501s -> C:\Users\ggad\Desktop\radar\newtest\paper_eval

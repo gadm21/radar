@@ -1,0 +1,53 @@
+{
+  "per_run_accuracy": [
+    0.875,
+    0.9013157894736842,
+    0.8914473684210527
+  ],
+  "mean_accuracy": 0.8892543859649122,
+  "sample_std_accuracy": 0.01329424961949795,
+  "per_run_confusion": [
+    [
+      [
+        110,
+        1
+      ],
+      [
+        37,
+        156
+      ]
+    ],
+    [
+      [
+        111,
+        0
+      ],
+      [
+        30,
+        163
+      ]
+    ],
+    [
+      [
+        111,
+        0
+      ],
+      [
+        33,
+        160
+      ]
+    ]
+  ],
+  "mean_vote_confusion": [
+    [
+      111,
+      0
+    ],
+    [
+      37,
+      156
+    ]
+  ],
+  "n_minutes": 304,
+  "mean_probability_file": "gpt-4o-mini_test_predictions.csv"
+}

@@ -1,0 +1,20 @@
+{
+  "train": {
+    "empty": 187,
+    "occupied": 86,
+    "occupied_synth": 101,
+    "dates": "2026-09-06 to 2026-09-08"
+  },
+  "validation": {
+    "empty": 292,
+    "occupied": 260,
+    "occupied_synth": 32,
+    "dates": "2026-09-15; 2026-10-03 to 2026-10-05"
+  },
+  "test": {
+    "empty": 111,
+    "occupied": 193,
+    "occupied_synth": 0,
+    "dates": "2026-10-19 to 2026-10-20"
+  }
+}
